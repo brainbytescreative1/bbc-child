@@ -1,0 +1,48 @@
+{
+    "version": 1,
+    "settings": {
+        "layout": {
+            "contentSize": "calc(100% - 40px)",
+            "wideSize": "calc(100% - 40px)"
+        },
+        "color": {
+            "palette": [
+                {
+                    "name": "Primary",
+                    "slug": "primary",
+                    "color": "var(--primary)"
+                },
+                {
+                    "name": "Secondary",
+                    "slug": "secondary",
+                    "color": "var(--secondary)"
+                },
+                {
+                    "name": "Accent",
+                    "slug": "Accent",
+                    "color": "var(--accent)"
+                },
+                {
+                    "name": "Text",
+                    "slug": "text",
+                    "color": "var(--text)"
+                },
+                {
+                    "name": "Light",
+                    "slug": "light",
+                    "color": "var(--light)"
+                },
+                {
+                    "name": "Gray",
+                    "slug": "gray",
+                    "color": "var(--gray)"
+                },
+                {
+                    "name": "White",
+                    "slug": "white",
+                    "color": "var(--white)"
+                }
+            ]
+        }
+    }
+}

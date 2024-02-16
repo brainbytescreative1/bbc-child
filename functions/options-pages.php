@@ -1,0 +1,157 @@
+<?php
+
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page(array(
+        'menu_slug' => 'site-settings',
+        'page_title' => 'Site Settings',
+        'active' => true,
+        'menu_title' => 'Site Settings',
+        'capability' => 'edit_posts',
+        'parent_slug' => '',
+        'position' => 60,
+        'icon_url' => 'dashicons-admin-site',
+        'redirect' => true,
+        'post_id' => 'site_settings',
+        'autoload' => false,
+        'update_button' => 'Update Settings',
+        'updated_message' => 'Settings Updated',
+    ));
+}
+
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page(array(
+        'menu_slug' => 'style',
+        'page_title' => 'Style',
+        'active' => true,
+        'menu_title' => 'Style',
+        'capability' => 'edit_posts',
+        'parent_slug' => 'site-settings',
+        'position' => 60,
+        'icon_url' => 'dashicons-admin-appearance',
+        'redirect' => true,
+        'post_id' => 'style',
+        'autoload' => false,
+        'update_button' => 'Update Style',
+        'updated_message' => 'Style Updated',
+    ));
+}
+
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page(array(
+        'menu_slug' => 'theme-css',
+        'page_title' => 'Theme CSS',
+        'active' => true,
+        'menu_title' => 'Theme CSS',
+        'capability' => 'edit_posts',
+        'parent_slug' => 'site-settings',
+        'position' => 61,
+        'icon_url' => 'dashicons-art',
+        'redirect' => true,
+        'post_id' => 'css',
+        'autoload' => false,
+        'update_button' => 'Update Theme CSS',
+        'updated_message' => 'Theme CSS Updated',
+    ));
+}
+
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page(array(
+        'menu_slug' => 'header',
+        'page_title' => 'Header',
+        'active' => true,
+        'menu_title' => 'Header',
+        'capability' => 'edit_posts',
+        'parent_slug' => 'site-settings',
+        'position' => 62,
+        'icon_url' => 'dashicons-heading',
+        'redirect' => false,
+        'post_id' => 'header',
+        'autoload' => false,
+        'update_button' => 'Update Header',
+        'updated_message' => 'Header Updated',
+    ));
+}
+
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page(array(
+        'menu_slug' => 'social',
+        'page_title' => 'Social',
+        'active' => true,
+        'menu_title' => 'Social',
+        'capability' => 'edit_posts',
+        'parent_slug' => 'site-settings',
+        'position' => 63,
+        'icon_url' => 'dashicons-networking',
+        'redirect' => true,
+        'post_id' => 'social',
+        'autoload' => false,
+        'update_button' => 'Update Social',
+        'updated_message' => 'Social Updated',
+    ));
+}
+
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page(array(
+        'menu_slug' => 'custom-code',
+        'page_title' => 'Custom Code',
+        'active' => true,
+        'menu_title' => 'Custom Code',
+        'capability' => 'edit_posts',
+        'parent_slug' => 'site-settings',
+        'position' => 64,
+        'icon_url' => 'dashicons-media-code',
+        'redirect' => true,
+        'post_id' => 'code',
+        'autoload' => false,
+        'update_button' => 'Update Custom Code',
+        'updated_message' => 'Custom Code Updated',
+        'content_width' => 'container',
+        'header_background_image' => 'inherit',
+        'custom_js' => '',
+    ));
+}
+
+/*
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page(array(
+        'menu_slug' => 'footer',
+        'page_title' => 'Footer',
+        'active' => true,
+        'menu_title' => 'Footer',
+        'capability' => 'edit_posts',
+        'parent_slug' => 'site-settings',
+        'position' => 63,
+        'icon_url' => 'dashicons-slides',
+        'redirect' => true,
+        'post_id' => 'footer',
+        'autoload' => false,
+        'update_button' => 'Update Footer',
+        'updated_message' => 'Options Updated',
+        'content_width' => 'container',
+        'header_background_image' => 'inherit',
+    ));
+}
+*/
+
+
+
+/*
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page(array(
+        'menu_slug' => 'post-settings',
+        'page_title' => 'Post Settings',
+        'active' => true,
+        'menu_title' => 'Post Settings',
+        'capability' => 'edit_posts',
+        'parent_slug' => 'site-settings',
+        'position' => 63,
+        'icon_url' => 'dashicons-admin-page',
+        'redirect' => true,
+        'post_id' => 'post-settings',
+        'autoload' => false,
+        'update_button' => 'Update Post Settings',
+        'updated_message' => 'Post Settings Updated',
+    ));
+}
+*/
+
