@@ -470,7 +470,11 @@ $button_font_weight = get_field('button_font_weight', 'style');
 if ( $button_font_weight ) { ?>
 --button_font_weight: <?=$button_font_weight?>;
 <?php } ?>
-
+<?php
+$button_font_family = get_field('button_font_family', 'style');
+if ( $button_font_family ) { ?>
+--button_font_family: var(--font-<?=$button_font_family?>);
+<?php } ?>
 <?php
 /* desktop border radius */
 $desktop_radius_1 = get_field('desktop_radius_1', 'style');

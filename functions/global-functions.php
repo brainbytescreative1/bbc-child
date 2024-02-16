@@ -639,7 +639,7 @@ function get_buttons_bbc( $field ) {
                 $button_classes[] = 'element';
                 $button_color = $button['button_color'];
                 $button_font = $button['button_font'];
-                if ( $button_font ) {
+                if ( $button_font && ( $button_font !== 'default' ) ) {
                     $text_classes[] = 'font-' . $button_font;
                 }
 
@@ -726,9 +726,9 @@ function get_buttons_bbc( $field ) {
                 $button_styles = implode(' ', $button_styles);
                 $text_classes = implode(' ', $text_classes);
 
-                $button_tag_start = '<a type="button" href="'. esc_attr($url) .'" title="'. esc_attr($title) .'" class="'. esc_attr($button_classes) .'" style="'. esc_attr($button_styles) .'"'. $target .'>';
+                $button_tag_start = '<a type="button" href="'. esc_attr($url) .'" title="'. esc_attr($title) .'" class="'. esc_attr($button_classes) .' '. esc_attr($text_classes) .'" style="'. esc_attr($button_styles) .'"'. $target .'>';
 
-                $button_content = '<span class="'. $text_classes .'">' . esc_attr($title) . '</span>';
+                $button_content = esc_attr($title);
 
                 $button_tag_end = '</a>';
 

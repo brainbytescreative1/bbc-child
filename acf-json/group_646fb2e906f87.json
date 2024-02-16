@@ -281,6 +281,10 @@
                     "layout": "block",
                     "acfe_seamless_style": 0,
                     "acfe_group_modal": 0,
+                    "acfe_group_modal_close": 0,
+                    "acfe_group_modal_button": "",
+                    "acfe_group_modal_size": "large",
+                    "parent_repeater": "field_6488c2f07f26d",
                     "sub_fields": [
                         {
                             "key": "field_6567554b01d84",
@@ -326,11 +330,7 @@
                             "prepend": "",
                             "append": "px"
                         }
-                    ],
-                    "acfe_group_modal_close": 0,
-                    "acfe_group_modal_button": "",
-                    "acfe_group_modal_size": "large",
-                    "parent_repeater": "field_6488c2f07f26d"
+                    ]
                 },
                 {
                     "key": "field_646fb2e90eb70",
@@ -395,6 +395,11 @@
                         "primary": "Primary",
                         "secondary": "Secondary",
                         "success": "Success",
+                        "info": "Info",
+                        "danger": "Danger",
+                        "warning": "Warning",
+                        "light": "Light",
+                        "dark": "Gray",
                         "white": "White"
                     },
                     "default_value": null,
@@ -420,10 +425,11 @@
                         "id": ""
                     },
                     "choices": {
+                        "default": "default",
                         "primary": "primary",
                         "secondary": "secondary"
                     },
-                    "default_value": "primary",
+                    "default_value": "default",
                     "return_format": "value",
                     "allow_null": 0,
                     "layout": "horizontal",
@@ -716,7 +722,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1702044775,
+    "modified": 1708117730,
     "acfe_categories": {
         "elements": "Elements"
     }

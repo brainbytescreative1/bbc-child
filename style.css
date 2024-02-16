@@ -5,7 +5,7 @@
  Author:       the Understrap Contributors
  Author URI:   https://github.com/understrap/understrap-child/graphs/contributors
  Template:     understrap
- Version:      1.0.8
+ Version:      1.0.9
  License: GNU General Public License v2 or later
  License URI: http://www.gnu.org/licenses/gpl-2.0.html
  Text Domain:  bbc
@@ -1108,11 +1108,11 @@ header.centered {
 /*** elements ***/
 /** buttons **/
 .btn, .btn a {
-    border-radius: var(--button_border-radius) !important;
+    border-radius: var(--button_border-radius);
     text-decoration: none !important;
     text-align: center;
-    font-weight: var(--button_font_weight) !important;
-    letter-spacing: 1px !important;
+    font-weight: var(--button_font_weight);
+    font-family: var(--button_font_family);
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
 }
