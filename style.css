@@ -1151,7 +1151,6 @@ header.centered {
     justify-content: center;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    display: flex;
     flex-direction: column;
 }
 .btn.button-icon {
