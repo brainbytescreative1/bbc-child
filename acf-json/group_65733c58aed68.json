@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_65733eb3f188c",
-            "label": "Borders",
+            "label": "Button Styles",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -42,8 +42,8 @@
             "return_format": "value",
             "allow_null": 0,
             "other_choice": 0,
-            "layout": "horizontal",
-            "save_other_choice": 0
+            "save_other_choice": 0,
+            "layout": "horizontal"
         },
         {
             "key": "field_65733c593af28",
@@ -126,12 +126,12 @@
             "default_value": "normal",
             "return_format": "value",
             "multiple": 0,
+            "allow_custom": 0,
+            "placeholder": "",
+            "search_placeholder": "",
             "allow_null": 0,
             "ui": 0,
-            "ajax": 0,
-            "placeholder": "",
-            "allow_custom": 0,
-            "search_placeholder": ""
+            "ajax": 0
         },
         {
             "key": "field_65cfcd3351294",
@@ -155,12 +155,34 @@
             "default_value": "default",
             "return_format": "value",
             "multiple": 0,
+            "allow_custom": 0,
+            "placeholder": "",
+            "search_placeholder": "",
             "allow_null": 0,
             "ui": 0,
-            "ajax": 0,
+            "ajax": 0
+        },
+        {
+            "key": "field_65d8c00c3df1c",
+            "label": "Button Letter Spacing",
+            "name": "button_letter_spacing",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
             "placeholder": "",
-            "allow_custom": 0,
-            "search_placeholder": ""
+            "step": "",
+            "prepend": "",
+            "append": "px"
         },
         {
             "key": "field_65733eb9f188d",
@@ -1105,7 +1127,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1708117324,
+    "modified": 1708703843,
     "acfe_categories": {
         "styles": "Styles"
     }

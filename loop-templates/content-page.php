@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
 
 	<div class="entry-content">
 
-		<?php get_template_part( 'loop-templates/content', 'title' ); ?>
+		<?php //get_template_part( 'loop-templates/content', 'title' ); ?>
 
 		<?php
 		the_content();

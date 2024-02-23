@@ -250,11 +250,11 @@
                     "parent_repeater": "field_6488c2f07f26d"
                 },
                 {
-                    "key": "field_6567553601d83",
-                    "label": "Icon \/ Image Size",
-                    "name": "icon_image_size",
+                    "key": "field_65d91089963e8",
+                    "label": "Icon Size",
+                    "name": "icon_size",
                     "aria-label": "",
-                    "type": "group",
+                    "type": "number",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": [
@@ -264,7 +264,31 @@
                                 "operator": "==",
                                 "value": "icon"
                             }
-                        ],
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "min": "",
+                    "max": "",
+                    "placeholder": "",
+                    "step": "",
+                    "prepend": "",
+                    "append": "px",
+                    "parent_repeater": "field_6488c2f07f26d"
+                },
+                {
+                    "key": "field_6567553601d83",
+                    "label": "Image Size",
+                    "name": "image_size",
+                    "aria-label": "",
+                    "type": "group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
                         [
                             {
                                 "field": "field_656656b05a25d",
@@ -281,10 +305,6 @@
                     "layout": "block",
                     "acfe_seamless_style": 0,
                     "acfe_group_modal": 0,
-                    "acfe_group_modal_close": 0,
-                    "acfe_group_modal_button": "",
-                    "acfe_group_modal_size": "large",
-                    "parent_repeater": "field_6488c2f07f26d",
                     "sub_fields": [
                         {
                             "key": "field_6567554b01d84",
@@ -330,7 +350,11 @@
                             "prepend": "",
                             "append": "px"
                         }
-                    ]
+                    ],
+                    "acfe_group_modal_close": 0,
+                    "acfe_group_modal_button": "",
+                    "acfe_group_modal_size": "large",
+                    "parent_repeater": "field_6488c2f07f26d"
                 },
                 {
                     "key": "field_646fb2e90eb70",
@@ -395,11 +419,6 @@
                         "primary": "Primary",
                         "secondary": "Secondary",
                         "success": "Success",
-                        "info": "Info",
-                        "danger": "Danger",
-                        "warning": "Warning",
-                        "light": "Light",
-                        "dark": "Gray",
                         "white": "White"
                     },
                     "default_value": null,
@@ -586,34 +605,6 @@
             "search_placeholder": ""
         },
         {
-            "key": "field_64d4ef4964f31",
-            "label": "Full Width on Mobile",
-            "name": "full_width_mobile",
-            "aria-label": "",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "enabled": "Enabled",
-                "disabled": "Disabled"
-            },
-            "default_value": "enabled",
-            "return_format": "value",
-            "multiple": 0,
-            "allow_null": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": "",
-            "allow_custom": 0,
-            "search_placeholder": ""
-        },
-        {
             "key": "field_64e4b68e51062",
             "label": "Button Group Spacing",
             "name": "",
@@ -722,7 +713,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1708117730,
+    "modified": 1708725503,
     "acfe_categories": {
         "elements": "Elements"
     }

@@ -575,7 +575,7 @@ function get_buttons_bbc( $field ) {
 
             switch ($alignment) {
                 case 'left':
-                    $button_group_classes[] = 'd-block';
+                    $button_group_classes[] = 'd-lg-flex';
                     break;
                 case 'center':
                     $button_group_classes[] = 'd-lg-grid';
@@ -603,10 +603,12 @@ function get_buttons_bbc( $field ) {
                     break;
             }
 
+            /*
             $full_width_mobile = $field['full_width_mobile'];
             if ( $full_width_mobile == 'enabled' ) {
-                $button_group_classes[] = 'd-grid';
+                $button_group_classes[] = 'd-block d-grid';
             }
+            */
 
             // get custom spacing
             $button_group_classes[] = get_spacing_bbc($field['buttons_spacing']);
@@ -682,19 +684,40 @@ function get_buttons_bbc( $field ) {
 
                 if ( $add_icon_image === 'icon' ) {
 
+                    $icon_classes = [];
                     $button_icon = $button['button_icon'];
+                    if ( $button_icon ) {
+                        $icon_classes[] = $button_icon;
+                    }
+                    $button_icon_color = $button['icon_color'];
+                    if ( $button['icon_color']['theme_colors'] ) {
+                        $icon_classes[] = 'text-' . $button['icon_color']['theme_colors'];
+                    }
+                    $icon_position = $button['icon_position'];
+                    if ( $icon_position ) {
+                        $icon_classes[] = 'icon-' . $button['icon_position'];
+                    }
+                    $icon_classes = implode(' ', $icon_classes);
+
+                    
+                    $icon_styles = [];
+                    $icon_size = $button['icon_size'];
+                    if ( $icon_size ) {
+                        $icon_styles[] = 'font-size: ' . $icon_size . 'px;';
+                    }
+                    $icon_styles = implode(' ', $icon_styles);
                 
                     if ( $button_icon ) {
                         $button_classes[] = 'button-icon';
                         $button_classes[] = 'icon-position-' . $button['icon_position'];
-                        $button_icon = '<i class="'. $button_icon . ' icon-' . $button['icon_position'] .'" aria-hidden="true"></i>';
+                        $button_icon = '<i class="'. $icon_classes . '" aria-hidden="true" style="'. $icon_styles .'"></i>';
                     }
 
                 } elseif ( $add_icon_image === 'image' ) {
 
                     $button_image = $button['button_image'];
 
-                    $icon_image_size = $button['icon_image_size'];
+                    $icon_image_size = $button['image_size'];
                     if ( $icon_image_size ) {
                         $image_width = $icon_image_size['width'];
                         $image_height = $icon_image_size['height'];

@@ -164,10 +164,18 @@ function global_site_variables(){
 	$section_padding = null;
 	$button_border = null;
 	$border_radius = null;
+    $button_letter_spacing = null;
 
 	// logo
+    $logo_width = null;
 	$logo_width = get_field('logo_width', 'header');
-	
+
+    // main menu style
+    $main_menu_font_family = null;
+    $main_menu_font_family = get_field('main_menu_font_family', 'header');
+    $main_menu_font_weight = null;
+    $main_menu_font_weight = get_field('main_menu_font_weight', 'header');
+
 	// colors
 	$primary = get_field('primary', 'style');
     $primary_hover = get_field('primary_hover', 'style');
@@ -219,6 +227,7 @@ function global_site_variables(){
 	} elseif ( $button_border == 'round' ) {
 		$border_radius = '1000';
 	}
+
 
 	?>
 
@@ -476,6 +485,11 @@ if ( $button_font_family ) { ?>
 --button_font_family: var(--font-<?=$button_font_family?>);
 <?php } ?>
 <?php
+$button_letter_spacing = get_field('button_letter_spacing', 'style');
+if ( $button_letter_spacing ) { ?>
+--button_letter_spacing: <?=$button_letter_spacing?>px;
+<?php } ?>
+<?php
 /* desktop border radius */
 $desktop_radius_1 = get_field('desktop_radius_1', 'style');
 if ( $desktop_radius_1 ) {
@@ -528,6 +542,21 @@ if ( $mobile_radius_5 ) {
     echo '--mobile-border-radius-2xl: ' . $mobile_radius_5 . 'rem;';
     echo "\r\n";
 }
+?>
+
+/* main menu */
+<?php
+// main font family
+if ($main_menu_font_family && ( $main_menu_font_family !== 'default')) {
+    echo '--main_menu_font_family: ' . 'var(--font-'. $main_menu_font_family .');';
+    echo "\r\n";
+}
+// main font weight
+if ($main_menu_font_weight && ( $main_menu_font_weight !== 'default')) {
+    echo '--main_menu_font_weight: '. $main_menu_font_weight .';';
+    echo "\r\n";
+}
+
 ?>
 
 }
