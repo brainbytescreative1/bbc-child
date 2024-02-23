@@ -1147,7 +1147,6 @@ header.centered {
     font-weight: var(--button_font_weight);
     font-family: var(--button_font_family);
     letter-spacing: var(--button_letter_spacing);
-    display: flex;
     align-items: center;
     justify-content: center;
     padding-top: 0.5rem;
