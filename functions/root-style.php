@@ -171,6 +171,8 @@ function global_site_variables(){
 	$logo_width = get_field('logo_width', 'header');
 
     // main menu style
+    $main_menu_text_color = null;
+    $main_menu_text_color = get_field('main_text_color', 'header');
     $main_menu_font_family = null;
     $main_menu_font_family = get_field('main_menu_font_family', 'header');
     $main_menu_font_weight = null;
@@ -546,6 +548,11 @@ if ( $mobile_radius_5 ) {
 
 /* main menu */
 <?php
+// main menu color
+if ( $main_menu_text_color['theme_colors'] ) {
+    echo '--main_menu_text_color: var(--'. $main_menu_text_color['theme_colors'] .');';
+    echo "\r\n";
+}
 // main font family
 if ($main_menu_font_family && ( $main_menu_font_family !== 'default')) {
     echo '--main_menu_font_family: ' . 'var(--font-'. $main_menu_font_family .');';

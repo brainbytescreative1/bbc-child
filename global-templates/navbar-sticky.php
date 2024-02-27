@@ -21,11 +21,6 @@ if ( $menu_contrast_colors ) {
     $wrapper_classes[] = 'navbar-' . $menu_contrast_colors;
 }
 
-$main_text_color = get_field('main_text_color', 'header');
-if ( $main_text_color ) {
-    $wrapper_classes[] = 'text-' . $main_text_color['theme_colors'];
-}
-
 $main_background_color = get_field('main_background_color', 'header');
 if ( $main_background_color ) {
     $wrapper_classes[] = 'bg-' . $main_background_color['theme_colors'];

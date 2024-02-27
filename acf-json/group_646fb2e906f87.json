@@ -605,6 +605,34 @@
             "search_placeholder": ""
         },
         {
+            "key": "field_64d4ef4964f31",
+            "label": "Full Width on Mobile",
+            "name": "full_width_mobile",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "enabled": "Enabled",
+                "disabled": "Disabled"
+            },
+            "default_value": "enabled",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "allow_custom": 0,
+            "search_placeholder": ""
+        },
+        {
             "key": "field_64e4b68e51062",
             "label": "Button Group Spacing",
             "name": "",

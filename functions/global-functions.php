@@ -603,12 +603,10 @@ function get_buttons_bbc( $field ) {
                     break;
             }
 
-            /*
             $full_width_mobile = $field['full_width_mobile'];
             if ( $full_width_mobile == 'enabled' ) {
                 $button_group_classes[] = 'd-block d-grid';
             }
-            */
 
             // get custom spacing
             $button_group_classes[] = get_spacing_bbc($field['buttons_spacing']);

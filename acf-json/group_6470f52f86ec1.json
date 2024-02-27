@@ -517,7 +517,7 @@
             "name": "column_inner_content_classes",
             "aria-label": "",
             "type": "text",
-            "instructions": "Applied to .col-inner",
+            "instructions": "Applied to .col-inner-content",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -557,7 +557,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1699907417,
+    "modified": 1709049476,
     "acfe_categories": {
         "global": "Global"
     }

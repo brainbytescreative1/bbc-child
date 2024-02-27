@@ -188,12 +188,6 @@ if ( ! class_exists( 'Understrap_WP_Bootstrap_Navwalker' ) ) {
 				$atts['rel'] = $item->xfn;
 			}
 
-            // custom menu color
-            $main_text_color = get_field('main_text_color', 'header');
-            if ( $main_text_color['theme_colors'] ) {
-                $main_text_color = ' text-' . $main_text_color['theme_colors'];
-            }
-
 			// If item has_children add atts to <a>.
 			if ( isset( $args->has_children ) && $args->has_children && 0 === $depth && 1 !== $args->depth ) {
 				$atts['href']           = '#';
@@ -201,7 +195,7 @@ if ( ! class_exists( 'Understrap_WP_Bootstrap_Navwalker' ) ) {
 				$atts['data-bs-toggle'] = 'dropdown';
 				$atts['aria-haspopup']  = 'true';
 				$atts['aria-expanded']  = 'false';
-				$atts['class']          = 'dropdown-toggle nav-link' . $main_text_color;
+				$atts['class']          = 'dropdown-toggle nav-link';
 				$atts['id']             = 'menu-item-dropdown-' . $item->ID;
 			} else {
 				$atts['href'] = ! empty( $item->url ) ? $item->url : '#';
@@ -209,7 +203,7 @@ if ( ! class_exists( 'Understrap_WP_Bootstrap_Navwalker' ) ) {
 				if ( $depth > 0 ) {
 					$atts['class'] = 'dropdown-item';
 				} else {
-					$atts['class'] = 'nav-link' . $main_text_color;
+					$atts['class'] = 'nav-link';
 				}
 			}
 

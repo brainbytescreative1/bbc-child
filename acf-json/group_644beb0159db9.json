@@ -306,6 +306,35 @@
             "layout": "horizontal"
         },
         {
+            "key": "field_65de107b1d3b2",
+            "label": "Menu Contrast Colors",
+            "name": "menu_contrast_colors",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "default",
+                "light": "light",
+                "dark": "dark"
+            },
+            "default_value": "default",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "allow_custom": 0,
+            "search_placeholder": ""
+        },
+        {
             "key": "field_64befba51830e",
             "label": "Text Color -",
             "name": "main_text_color",
@@ -844,7 +873,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1708720301,
+    "modified": 1709052363,
     "acfe_categories": {
         "options": "Options"
     }

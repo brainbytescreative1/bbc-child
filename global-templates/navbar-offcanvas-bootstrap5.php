@@ -17,13 +17,8 @@ $wrapper_classes[] = 'navbar';
 $wrapper_classes[] = 'navbar-expand-lg';
 
 $menu_contrast_colors = get_field('menu_contrast_colors', 'header');
-if ( $menu_contrast_colors ) {
+if ( $menu_contrast_colors && ( $menu_contrast_colors !== 'default' ) ) {
     $wrapper_classes[] = 'navbar-' . $menu_contrast_colors;
-}
-
-$main_text_color = get_field('main_text_color', 'header');
-if ( $main_text_color ) {
-    $wrapper_classes[] = 'text-' . $main_text_color['theme_colors'];
 }
 
 $main_background_color = get_field('main_background_color', 'header');
