@@ -5,7 +5,7 @@
  Author:       Brain Bytes Creative
  Author URI:   https://github.com/understrap/understrap-child/graphs/contributors
  Template:     understrap
- Version:      1.0.12
+ Version:      1.0.13
  License: GNU General Public License v2 or later
  License URI: http://www.gnu.org/licenses/gpl-2.0.html
  Text Domain:  bbc
@@ -1897,6 +1897,84 @@ header.centered {
 }
 .bg-collapsed-white .accordion-button.collapsed {
     background-color: var(--white);
+}
+/* success */
+.text-open-success .accordion-button:not(.collapsed) {
+    color: var(--success);
+}
+.text-collapsed-success .accordion-button.collapsed {
+    color: var(--success);
+}
+.bg-open-success .accordion-button:not(.collapsed) {
+    background-color: var(--success);
+}
+.bg-collapsed-success .accordion-button.collapsed {
+    background-color: var(--success);
+}
+/* info */
+.text-open-info .accordion-button:not(.collapsed) {
+    color: var(--info);
+}
+.text-collapsed-info .accordion-button.collapsed {
+    color: var(--info);
+}
+.bg-open-info .accordion-button:not(.collapsed) {
+    background-color: var(--info);
+}
+.bg-collapsed-info .accordion-button.collapsed {
+    background-color: var(--info);
+}
+/* danger */
+.text-open-danger .accordion-button:not(.collapsed) {
+    color: var(--danger);
+}
+.text-collapsed-danger .accordion-button.collapsed {
+    color: var(--danger);
+}
+.bg-open-danger .accordion-button:not(.collapsed) {
+    background-color: var(--danger);
+}
+.bg-collapsed-danger .accordion-button.collapsed {
+    background-color: var(--danger);
+}
+/* warning */
+.text-open-warning .accordion-button:not(.collapsed) {
+    color: var(--warning);
+}
+.text-collapsed-warning .accordion-button.collapsed {
+    color: var(--warning);
+}
+.bg-open-warning .accordion-button:not(.collapsed) {
+    background-color: var(--warning);
+}
+.bg-collapsed-warning .accordion-button.collapsed {
+    background-color: var(--warning);
+}
+/* dark */
+.text-open-dark .accordion-button:not(.collapsed) {
+    color: var(--dark);
+}
+.text-collapsed-dark .accordion-button.collapsed {
+    color: var(--dark);
+}
+.bg-open-dark .accordion-button:not(.collapsed) {
+    background-color: var(--dark);
+}
+.bg-collapsed-dark .accordion-button.collapsed {
+    background-color: var(--dark);
+}
+/* gray */
+.text-open-gray .accordion-button:not(.collapsed) {
+    color: var(--gray);
+}
+.text-collapsed-gray .accordion-button.collapsed {
+    color: var(--gray);
+}
+.bg-open-gray .accordion-button:not(.collapsed) {
+    background-color: var(--gray);
+}
+.bg-collapsed-gray .accordion-button.collapsed {
+    background-color: var(--gray);
 }
 
 /*** tabs and content ***/
