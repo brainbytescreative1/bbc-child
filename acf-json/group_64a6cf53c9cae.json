@@ -109,6 +109,26 @@
             "endpoint": 0
         },
         {
+            "key": "field_65de33e1d4e8f",
+            "label": "Additional Classes",
+            "name": "additional_classes",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_64a6cfd5b205e",
             "label": "Spacing",
             "name": "html_spacing",
@@ -161,7 +181,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1699907417,
+    "modified": 1709061103,
     "acfe_categories": {
         "elements": "Elements"
     }
