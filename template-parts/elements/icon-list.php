@@ -7,13 +7,25 @@ if( get_row_layout() == 'icon_list' ):
 
     if ( $icon_list ) {
         
-        // initialize classes array
+        // initialize classes arrays
+        $list_container_classes = [];
         $list_classes = [];
         $list_item_classes = [];
 
         // add classes
-        $list_classes[] = 'element';
+        $list_container_classes[] = 'element';
         $list_classes[] = 'icon-list';
+
+        // heading
+        $heading = get_sub_field('heading');
+        $heading_position = get_sub_field('heading_position');
+        $list_container_classes[] = 'd-flex';
+        if ( $heading_position == 'left' ) {
+            $list_container_classes[] = 'd-flex';
+            $list_container_classes[] = 'flex-lg-row';
+            $list_container_classes[] = 'flex-column';
+            $list_container_classes[] = 'align-items-center';
+        }
 
         // settings
         $icon_color = get_sub_field('icon_color');
@@ -21,6 +33,7 @@ if( get_row_layout() == 'icon_list' ):
         $orientation = get_sub_field('orientation');
         $icon_size = get_sub_field('icon_size');
         $alignment = get_sub_field('alignment');
+        $mobile_alignment = get_sub_field('mobile_alignment');
         $icon_spacing = get_sub_field('icon_spacing');
 
         // advanced
@@ -32,10 +45,39 @@ if( get_row_layout() == 'icon_list' ):
 
         if ( $orientation ) {
             $list_classes[] = 'orientation-' . $orientation;
+            if ( $orientation === 'horizontal' ) {
+                $list_classes[] = 'flex-lg-row';
+                $list_classes[] = 'flex-column';
+            } elseif ( $orientation === 'vertical' ) {
+                $list_classes[] = 'flex-column';
+            }
         }
 
         if ( $alignment ) {
-            $list_classes[] = 'align-' . $alignment;
+            if ( $alignment === 'left' ) {
+                $list_classes[] = 'ms-lg-0';
+                $list_classes[] = 'me-lg-auto';
+            }
+            if ( $alignment === 'center' ) {
+                $list_classes[] = 'ms-lg-auto';
+                $list_classes[] = 'me-lg-auto';
+            }
+            if ( $alignment === 'right' ) {
+                $list_classes[] = 'me-lg-0';
+                $list_classes[] = 'ms-lg-auto';
+            }
+        }
+
+        if ( $mobile_alignment ) {
+            if ( $mobile_alignment === 'left' ) {
+                $list_classes[] = 'ms-0';
+            }
+            if ( $mobile_alignment === 'center' ) {
+                $list_classes[] = 'align-items-center';
+            }
+            if ( $mobile_alignment === 'right' ) {
+                $list_classes[] = 'me-0';
+            }
         }
 
         if ( $icon_spacing ) {
@@ -44,6 +86,7 @@ if( get_row_layout() == 'icon_list' ):
             }
             if ( $orientation == 'horizontal' ) {
                 $list_item_classes[] = 'pe-' . $icon_spacing;
+                $list_item_classes[] = 'mb-lg-0';
             } elseif ( $orientation == 'vertical' ) {
                 $list_item_classes[] = 'pb-' . $icon_spacing;
             }
@@ -53,10 +96,17 @@ if( get_row_layout() == 'icon_list' ):
         $list_classes[] = get_spacing_bbc(get_sub_field('icon_list_spacing'));
 
         // process classes array
+        $list_container_classes = esc_attr( trim( implode(' ', $list_container_classes ) ) );
         $list_classes = esc_attr( trim( implode(' ', $list_classes ) ) );
         $list_item_classes = esc_attr( trim( implode(' ', $list_item_classes ) ) );
 
         // output
+        echo '<div class="'. $list_container_classes .'">'; // start list container
+
+        if ( $heading && $heading['text'] && $heading['tag'] ) {
+            echo '<div class="icon-list-heading">' . get_heading_bbc($heading) . '</div>';
+        }
+
         echo '<ul class="'. $list_classes .'">'; // icon list start
 
             foreach( $icon_list as $icon ) {
@@ -136,6 +186,8 @@ if( get_row_layout() == 'icon_list' ):
             }
 
         echo '</ul>'; // icon list end
+
+        echo '</div>'; // end list container
 
     }
 

@@ -427,7 +427,7 @@
                         "id": ""
                     },
                     "choices": {
-                        "auto": "Audo",
+                        "auto": "Auto",
                         "none": "None",
                         "1": "Small",
                         "2": "Medium",
@@ -550,6 +550,7 @@
                     },
                     "choices": {
                         "none": "None",
+                        "auto": "Auto",
                         "1": "Small",
                         "2": "Medium",
                         "3": "Large",
@@ -582,6 +583,7 @@
                     },
                     "choices": {
                         "none": "None",
+                        "auto": "Auto",
                         "1": "Small",
                         "2": "Medium",
                         "3": "Large",
@@ -614,6 +616,7 @@
                     },
                     "choices": {
                         "none": "None",
+                        "auto": "Auto",
                         "1": "Small",
                         "2": "Medium",
                         "3": "Large",
@@ -646,6 +649,7 @@
                     },
                     "choices": {
                         "none": "None",
+                        "auto": "Auto",
                         "1": "Small",
                         "2": "Medium",
                         "3": "Large",
@@ -708,7 +712,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1704923809,
+    "modified": 1709151492,
     "acfe_categories": {
         "global": "Global"
     }

@@ -39,11 +39,11 @@ body.understrap-no-sidebar .wp-block-cover.alignwide .wp-block-cover__inner-cont
 }
 /* font family */
 .font-primary, 
-.font-primary > * {
+.font-primary:not(.btn) > * {
     font-family: var(--font-primary) !important;
 }
 .font-secondary, 
-.font-secondary > * {
+.font-secondary:not(.btn) > * {
     font-family: var(--font-secondary) !important;
 }
 /* set base font size */
@@ -1165,6 +1165,14 @@ header.centered {
 }
 .btn.button-icon {
     display: flex;
+}
+.btn.icon-position-left,
+.btn.icon-position-right {
+    flex-direction: row;
+}
+.btn.icon-position-top,
+.btn.icon-position-bottom {
+    flex-direction: column;
 }
 /* solid */
 .btn-primary {
