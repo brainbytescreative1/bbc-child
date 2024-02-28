@@ -54,6 +54,7 @@ if( get_row_layout() == 'icon_list' ):
         }
 
         if ( $alignment ) {
+            
             if ( $alignment === 'left' ) {
                 $list_classes[] = 'ms-lg-0';
                 $list_classes[] = 'me-lg-auto';
