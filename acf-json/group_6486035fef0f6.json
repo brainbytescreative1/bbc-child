@@ -145,6 +145,38 @@
             "mime_types": "mp4"
         },
         {
+            "key": "field_65e1038d99950",
+            "label": "Background Image Size",
+            "name": "background_image_size",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.3",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "full": "full",
+                "1536x1536": "1536x1536",
+                "large": "Large 1024x1024",
+                "medium_large": "Medium Large 768x0",
+                "medium": "Medium 300x200",
+                "thumbnail": "Thumbnail 150 x 150"
+            },
+            "default_value": "1536x1536",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "allow_custom": 0,
+            "search_placeholder": ""
+        },
+        {
             "key": "field_64a59c2fc9708",
             "label": "Background Image Source",
             "name": "background_image_source",
@@ -176,7 +208,7 @@
                 ]
             ],
             "wrapper": {
-                "width": "",
+                "width": "33.3",
                 "class": "",
                 "id": ""
             },
@@ -185,6 +217,34 @@
                 "featured": "Featured Image"
             },
             "default_value": "upload",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "allow_custom": 0,
+            "search_placeholder": ""
+        },
+        {
+            "key": "field_65e106abafec2",
+            "label": "Background Image Format",
+            "name": "background_image_format",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.3",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "webp": "webp",
+                "inherit": "inherit"
+            },
+            "default_value": "webp",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -472,7 +532,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1699988879,
+    "modified": 1709246284,
     "acfe_categories": {
         "global-functions": "Global Functions"
     }

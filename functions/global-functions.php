@@ -68,6 +68,8 @@ function get_background_bbc($field, $classes, $styles, $sub = false) {
                 $theme_colors = $background['color']['theme_colors'];
                 $custom_color = $background['color']['custom_color'];
                 $background_transparency = $background['color']['transparency'];
+                $background_image_size = $background['background_image_size'];
+                $background_image_format = $background['background_image_format'];
 
                 if ( $custom_color ) {
 
@@ -83,12 +85,15 @@ function get_background_bbc($field, $classes, $styles, $sub = false) {
                 if ( $background_color ) {
 
                     $background_color = 'bg-' . $background_color;
+
+                    if ( ( $background_content !== 'image' ) && ( $background_content !== 'image' ) ) {
+                        $return_classes[] = $background_color;
+                    }
                     
                     if ( $background_color ) {
                         $overlay_color = $background_color;
                     }
                     
-                    $return_classes[] = $background_color;
                 }
 
                 if ( ( $background_content == 'image' ) || ( $background_content == 'video' ) ) {
@@ -100,7 +105,7 @@ function get_background_bbc($field, $classes, $styles, $sub = false) {
 
                         $post_id = get_the_ID();
 
-                        $featured_image = get_the_post_thumbnail_url($post_id, '1536x1536');
+                        $featured_image = get_the_post_thumbnail_url($post_id, $background_image_size);
 
                         if ( $featured_image ) {
                             $image = $featured_image;
@@ -109,7 +114,7 @@ function get_background_bbc($field, $classes, $styles, $sub = false) {
                     } else {
 
                         $image = $background['image'];
-                        $size = '1536x1536';
+                        $size = $background_image_size;
 
                         if( $image ) {
                             $image = wp_get_attachment_image_url( $image, $size );
@@ -123,27 +128,31 @@ function get_background_bbc($field, $classes, $styles, $sub = false) {
 
                     if ( $image ) {
 
-                        /* check whether image has webp */
-                        $handle = curl_init($image . '.webp');
-                        curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
+                        if ( $background_image_format !== 'inherit' ) {
 
-                        /* Get the HTML or whatever is linked in $url. */
-                        $response = curl_exec($handle);
+                            /* check whether image has webp */
+                            $handle = curl_init($image . '.webp');
+                            curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
 
-                        /* Check for 404 (file not found). */
-                        $httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
-                        if( ( $httpCode === 403 ) || ( $httpCode === 404 ) ) {
-                            $image = $image;
-                        } else {
-                            $image = $image . '.webp';
+                            /* Get the HTML or whatever is linked in $url. */
+                            $response = curl_exec($handle);
+
+                            /* Check for 404 (file not found). */
+                            $httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
+                            if( ( $httpCode === 403 ) || ( $httpCode === 404 ) ) {
+                                $image = $image;
+                            } else {
+                                $image = $image . '.webp';
+                            }
+
+                            curl_close($handle);
+
                         }
 
-                        curl_close($handle);
-
-                        $return_styles[] = 'background: url(' . $image . ');';
-                        $return_styles[] = 'background-size: ' . $size . ';';
-                        $return_styles[] = 'background-position: ' . $position . ';';
-                        $return_styles[] = 'background-repeat: ' . $repeat . ';';
+                            $return_styles[] = 'background: url(' . $image . ');';
+                            $return_styles[] = 'background-size: ' . $size . ';';
+                            $return_styles[] = 'background-position: ' . $position . ';';
+                            $return_styles[] = 'background-repeat: ' . $repeat . ';';
 
                     }
 
