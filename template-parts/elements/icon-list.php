@@ -15,6 +15,7 @@ if( get_row_layout() == 'icon_list' ):
         // add classes
         $list_container_classes[] = 'element';
         $list_classes[] = 'icon-list';
+        $list_item_classes[] = 'mb-0';
 
         // heading
         $heading = get_sub_field('heading');
@@ -42,6 +43,9 @@ if( get_row_layout() == 'icon_list' ):
         if ( $additional_classes ) {
             $list_classes[] = $additional_classes;
         }
+        $list_item_classes_field = get_sub_field('list_item_classes');
+        $icon_classes_field = get_sub_field('icon_classes');
+        $text_classes_field = get_sub_field('text_classes');
 
         if ( $orientation ) {
             $list_classes[] = 'orientation-' . $orientation;
@@ -54,30 +58,44 @@ if( get_row_layout() == 'icon_list' ):
         }
 
         if ( $alignment ) {
+
+            $list_classes[] = 'd-flex';
             
             if ( $alignment === 'left' ) {
                 $list_classes[] = 'ms-lg-0';
                 $list_classes[] = 'me-lg-auto';
+                $list_classes[] = 'align-items-lg-start';
             }
             if ( $alignment === 'center' ) {
                 $list_classes[] = 'ms-lg-auto';
                 $list_classes[] = 'me-lg-auto';
+                $list_classes[] = 'align-items-lg-center';
             }
             if ( $alignment === 'right' ) {
                 $list_classes[] = 'me-lg-0';
                 $list_classes[] = 'ms-lg-auto';
+                $list_classes[] = 'align-items-lg-end';
             }
         }
 
         if ( $mobile_alignment ) {
+
+            $list_classes[] = 'd-flex';
+
             if ( $mobile_alignment === 'left' ) {
                 $list_classes[] = 'ms-0';
+                $list_classes[] = 'me-auto';
+                $list_classes[] = 'align-items-start';
             }
             if ( $mobile_alignment === 'center' ) {
+                $list_classes[] = 'ms-auto';
+                $list_classes[] = 'me-auto';
                 $list_classes[] = 'align-items-center';
             }
             if ( $mobile_alignment === 'right' ) {
                 $list_classes[] = 'me-0';
+                $list_classes[] = 'ms-auto';
+                $list_classes[] = 'align-items-end';
             }
         }
 
@@ -95,6 +113,11 @@ if( get_row_layout() == 'icon_list' ):
 
         // spacing
         $list_classes[] = get_spacing_bbc(get_sub_field('icon_list_spacing'));
+
+        //advanced
+        if ( $list_item_classes_field ) {
+            $list_item_classes[] = $list_item_classes_field;
+        }
 
         // process classes array
         $list_container_classes = esc_attr( trim( implode(' ', $list_container_classes ) ) );
@@ -124,6 +147,8 @@ if( get_row_layout() == 'icon_list' ):
 
                 // add classes
                 $icon_classes[] = 'icon';
+                $icon_classes[] = $icon_classes_field;
+                $text_classes[] = $text_classes_field;
 
                 if ( $icon_color['theme_colors'] ) {
                     $icon_classes[] = 'text-' . $icon_color['theme_colors'];
