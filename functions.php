@@ -127,12 +127,8 @@ add_action( 'wp_enqueue_scripts', 'bbc_stylesheet_css_js' );
 // enqueue admin stylesheet
 add_action( 'admin_enqueue_scripts', 'load_admin_style' );
 function load_admin_style() {
-    $the_theme     = wp_get_theme();
-	$theme_version = $the_theme->get( 'Version' );
-    $css_version = $theme_version . '.' . filemtime( get_stylesheet_directory() . $theme_styles );
-
 	wp_enqueue_style( 'admin_css', get_stylesheet_directory_uri() . '/bbc-admin-style.css', false, '1.0.0' );
-    wp_enqueue_style( 'admin_front_css', get_stylesheet_directory_uri() . '/style.css', false, $css_version );
+    wp_enqueue_style( 'admin_front_css', get_stylesheet_directory_uri() . '/style.css', false, '1.0.0' );
 }
 
 // enqueue acf admin stylesheet
