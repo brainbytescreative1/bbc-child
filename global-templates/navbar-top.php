@@ -9,35 +9,71 @@ $top_menu_wrapper_classes = esc_attr( trim( implode(' ', $top_menu_wrapper_class
 if ( $top_menu_layout ) { // top menu fields start
 
     $top_menu_classes = [];
+    $top_menu_styles = [];
 
     // container width
     $container = null;
 
-    /*$top_menu_width = get_field('top_menu_width', 'header');
-    if ( $top_menu_width ) {
-        $top_menu_classes[] = $top_menu_width;
-    } else {
-        $top_menu_classes[] = get_theme_mod( 'understrap_container_type' );
-    }*/
-
     $top_menu_classes[] = 'top-menu-container';
-    $top_menu_classes[] = 'small';
-    $top_menu_classes[] = 'px-2';
+    $top_menu_classes[] = 'container-fluid';
+    //$top_menu_classes[] = 'small';
+    //$top_menu_classes[] = 'px-2';
 
     $top_text_color = get_field('top_text_color', 'header');
-    $top_background_color = get_field('top_background_color', 'header');
-
     if ( $top_text_color['theme_colors'] != 'default' ) {
         $top_menu_classes[] = 'text-' . $top_text_color['theme_colors'];
     }
 
+    $top_background_color = get_field('top_background_color', 'header');
     if ( $top_background_color['theme_colors'] != 'default' ) {
         $top_menu_classes[] = 'bg-' . $top_background_color['theme_colors'];
     }
+
+    $top_menu_font = get_field('top_menu_font', 'header');
+    if ( $top_menu_font && ( $top_menu_font !== 'default' ) ) {
+        $top_menu_classes[] = 'font-' . $top_menu_font;
+    }
+    $top_menu_font_weight = get_field('top_menu_font_weight', 'header');
+    if ( $top_menu_font_weight && ( $top_menu_font_weight !== 'default' ) ) {
+        $top_menu_classes[] = 'weight-' . $top_menu_font_weight;
+    }
+    $top_menu_padding = get_field('top_menu_padding', 'header');
+    if ( $top_menu_padding !== 'default' ) {
+        $padding_styles = [
+            '.25rem',
+            '.25rem',
+            '.5rem',
+            '.75rem',
+            '1rem',
+            '1.25rem',
+            '1.5rem',
+            '1.75rem',
+            '2rem'
+        ];
+        $padding_classes = [
+            'small',
+            'medium',
+            'large',
+            'xl',
+            'xxl'
+        ];
+        if ( in_array( $top_menu_padding, $padding_styles ) ) {
+            $top_menu_styles[] = 'padding-top: '. $top_menu_padding . ';';
+            $top_menu_styles[] = 'padding-bottom: '. $top_menu_padding . ';';
+        } elseif ( in_array( $top_menu_padding, $padding_classes ) ) {
+            $top_menu_classes[] = 'pt-lg-' . $top_menu_padding['padding_top'];
+            $top_menu_classes[] = 'pb-lg-' . $top_menu_padding['padding_bottom'];
+        }
+        
+    } else {
+        $top_menu_styles[] = 'padding-top: .5rem;';
+        $top_menu_styles[] = 'padding-bottom: .5rem';
+    }
     
     $top_menu_classes = esc_attr( trim( implode(' ', $top_menu_classes ) ) );
+    $top_menu_styles = esc_attr( trim( implode(' ', $top_menu_styles ) ) );
 
-    echo '<div class="'. $top_menu_classes .'" id="top-menu">'; // top menu container start
+    echo '<div class="'. $top_menu_classes .'" id="top-menu" style="'. $top_menu_styles .'">'; // top menu container start
 
     if ( $top_menu_layout == 'both' ) {
 
@@ -238,8 +274,15 @@ if ( $top_menu_layout ) { // top menu fields start
 
         $single_menu_classes = [];
 
-        $single_menu_classes[] = 'container';
+        //$single_menu_classes[] = 'container';
         $single_menu_classes[] = 'single-menu-container';
+
+        $top_menu_width = get_field('top_menu_width', 'header');
+        if ( $top_menu_width ) {
+            $single_menu_classes[] = $top_menu_width;
+        } else {
+            $single_menu_classes[] = get_theme_mod( 'understrap_container_type' );
+        }
 
         $single_menu_select = get_field('single_menu_select', 'header');
         $single_menu_alignment = get_field('single_menu_alignment', 'header');

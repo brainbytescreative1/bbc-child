@@ -12,70 +12,139 @@ if( get_row_layout() == 'icon_list' ):
         $list_classes = [];
         $list_item_classes = [];
 
-        // add classes
+        // add initial classes
         $list_container_classes[] = 'element';
+        $list_container_classes[] = 'icon-list-container';
         $list_classes[] = 'icon-list';
-        $list_item_classes[] = 'mb-0';
-
-        // heading
-        $heading = get_sub_field('heading');
-        $heading_position = get_sub_field('heading_position');
-        $list_container_classes[] = 'd-flex';
-        if ( $heading_position == 'left' ) {
-            $list_container_classes[] = 'd-flex';
-            $list_container_classes[] = 'flex-lg-row';
-            $list_container_classes[] = 'flex-column';
-            $list_container_classes[] = 'align-items-center';
-        }
+        $list_classes[] = 'd-flex';
 
         // settings
         $icon_color = get_sub_field('icon_color');
         $text_color = get_sub_field('text_color');
-        $orientation = get_sub_field('orientation');
+        $desktop_orientation = get_sub_field('orientation');
+        $mobile_orientation = get_sub_field('mobile_orientation');
         $icon_size = get_sub_field('icon_size');
         $alignment = get_sub_field('alignment');
         $mobile_alignment = get_sub_field('mobile_alignment');
-        $icon_spacing = get_sub_field('icon_spacing');
+        $item_spacing = get_sub_field('icon_spacing');
+        $$mobile_item_spacing = null;
+        $mobile_item_spacing = get_sub_field('mobile_item_spacing');
+        $icon_margin = get_sub_field('icon_margin');
+        $list_item_vertical_alignment = null;
+        $list_item_vertical_alignment = get_sub_field('list_item_vertical_alignment');
+
+        $breakpoint = 'lg';
+        $mobile_breakpoint = null;
+        $mobile_breakpoint = get_sub_field('mobile_breakpoint');
+        if ( $mobile_breakpoint ) {
+            $breakpoint = $mobile_breakpoint;
+        }
 
         // advanced
-        $additional_classes = get_sub_field('additional_classes');
+        
         $unique_id = get_sub_field('unique_id');
-        if ( $additional_classes ) {
-            $list_classes[] = $additional_classes;
+        $list_container_classes_field = get_sub_field('list_container_classes');
+        if ( $list_container_classes_field ) {
+            $list_container_classes[] = $list_container_classes_field;
         }
+        /*
+        $list_classes_field = get_sub_field('list_classes');
+        if ( $list_classes_field ) {
+            $list_container_classes[] = $list_classes_field;
+        }
+        $list_item_classes_field = get_sub_field('list_item_classes');
+        if ( $list_item_classes_field ) {
+            $list_container_classes[] = $list_item_classes_field;
+        }
+        $icon_classes_field = get_sub_field('icon_classes');
+        if ( $list_item_classes_field ) {
+            $icon_classes[] = $icon_classes_field;
+        }
+        $text_classes_field = get_sub_field('icon_classes');
+        if ( $text_classes_field ) {
+            $text_classes[] = $text_classes_field;
+        }
+        $text_classes_field = get_sub_field('icon_classes');
+        if ( $text_classes_field ) {
+            $text_classes[] = $text_classes_field;
+        }
+        */
+        
+        
+
+        // push classes to inside loop
         $list_item_classes_field = get_sub_field('list_item_classes');
         $icon_classes_field = get_sub_field('icon_classes');
         $text_classes_field = get_sub_field('text_classes');
 
-        if ( $orientation ) {
-            $list_classes[] = 'orientation-' . $orientation;
-            if ( $orientation === 'horizontal' ) {
-                $list_classes[] = 'flex-lg-row';
+        // heading
+        $heading = get_sub_field('heading');
+        $heading_position = get_sub_field('heading_position');
+        if ( $heading_position == 'left' ) {
+            $list_container_classes[] = 'd-flex';
+            $list_container_classes[] = 'flex-'. $breakpoint .'-row';
+            $list_container_classes[] = 'flex-column';
+            $list_container_classes[] = 'align-items-center';
+        } elseif ( $heading_position == 'top' ) {
+            $list_container_classes[] = 'd-flex';
+            $list_container_classes[] = 'flex-column';
+            $list_container_classes[] = 'align-items-center';
+        } elseif ( $heading_position == 'right' ) {
+            $list_container_classes[] = 'd-flex';
+            $list_container_classes[] = 'flex-'. $breakpoint .'-row-reverse';
+            $list_container_classes[] = 'flex-column';
+            $list_container_classes[] = 'align-items-center';
+        } elseif ( $heading_position == 'bottom' ) {
+            $list_container_classes[] = 'd-flex';
+            $list_container_classes[] = 'flex-column-reverse';
+            $list_container_classes[] = 'align-items-center';
+        }
+
+        // orientation
+        if ( $desktop_orientation ) {
+            $list_classes[] = 'orientation-' . $desktop_orientation;
+            if ( $desktop_orientation === 'horizontal' ) {
+                $list_classes[] = 'flex-'. $breakpoint .'-row';
+            } elseif ( $desktop_orientation === 'vertical' ) {
+                $list_classes[] = 'flex-'. $breakpoint .'-column';
+            }
+        }
+
+        if ( $mobile_orientation ) {
+            $list_classes[] = 'orientation-mobile-' . $mobile_orientation;
+            if ( $mobile_orientation === 'horizontal' ) {
+                $list_classes[] = 'flex-row';
+            } elseif ( $mobile_orientation === 'vertical' ) {
                 $list_classes[] = 'flex-column';
-            } elseif ( $orientation === 'vertical' ) {
+            } else {
                 $list_classes[] = 'flex-column';
             }
         }
 
+        // alignment
         if ( $alignment ) {
 
             $list_classes[] = 'd-flex';
             
             if ( $alignment === 'left' ) {
-                $list_classes[] = 'ms-lg-0';
-                $list_classes[] = 'me-lg-auto';
-                $list_classes[] = 'align-items-lg-start';
+                $list_classes[] = 'ms-'. $breakpoint .'-0';
+                $list_classes[] = 'me-'. $breakpoint .'-auto';
+                $list_classes[] = 'align-items-'. $breakpoint .'-start';
+                $list_classes[] = 'justify-content-'. $breakpoint .'-start';
             }
             if ( $alignment === 'center' ) {
-                $list_classes[] = 'ms-lg-auto';
-                $list_classes[] = 'me-lg-auto';
-                $list_classes[] = 'align-items-lg-center';
+                $list_classes[] = 'ms-'. $breakpoint .'-auto';
+                $list_classes[] = 'me-'. $breakpoint .'-auto';
+                $list_classes[] = 'align-items-'. $breakpoint .'-center';
+                $list_classes[] = 'justify-content-'. $breakpoint .'-center';
             }
             if ( $alignment === 'right' ) {
-                $list_classes[] = 'me-lg-0';
-                $list_classes[] = 'ms-lg-auto';
-                $list_classes[] = 'align-items-lg-end';
+                $list_classes[] = 'me-'. $breakpoint .'-0';
+                $list_classes[] = 'ms-'. $breakpoint .'-auto';
+                $list_classes[] = 'align-items-'. $breakpoint .'-end';
+                $list_classes[] = 'justify-content-'. $breakpoint .'-end';
             }
+            
         }
 
         if ( $mobile_alignment ) {
@@ -98,21 +167,45 @@ if( get_row_layout() == 'icon_list' ):
                 $list_classes[] = 'align-items-end';
             }
         }
+        
 
-        if ( $icon_spacing ) {
-            if ( $icon_spacing == 'none' ) {
-                $icon_spacing = '0';
+        // spacing
+        if ( $item_spacing ) {
+            if ( !$mobile_item_spacing ) {
+                $mobile_item_spacing = $item_spacing;
             }
-            if ( $orientation == 'horizontal' ) {
-                $list_item_classes[] = 'pe-' . $icon_spacing;
-                $list_item_classes[] = 'mb-lg-0';
-            } elseif ( $orientation == 'vertical' ) {
-                $list_item_classes[] = 'pb-' . $icon_spacing;
+            if ( $item_spacing == 'none' ) {
+                $item_spacing = '0';
+            }
+            if ( $mobile_item_spacing == 'none' ) {
+                $mobile_item_spacing = '0';
+            }
+            // desktop orientation
+            if ( $desktop_orientation ) {
+                if ( $desktop_orientation == 'horizontal' ) {
+                    $list_item_classes[] = 'me-'. $breakpoint .'-' . $item_spacing;
+                    $list_item_classes[] = 'mb-'. $breakpoint .'-0';
+                } elseif ( $desktop_orientation == 'vertical' ) {
+                    $list_item_classes[] = 'mb-'. $breakpoint .'-' . $item_spacing;
+                    $list_item_classes[] = 'me-'. $breakpoint .'-0';
+                }
+            }
+            // mobile orientation
+            if ( $mobile_orientation ) {
+                if ( $mobile_orientation === 'horizontal' ) {
+                    $list_item_classes[] = 'me-'. $mobile_item_spacing;
+                    $list_item_classes[] = 'mb-0';
+                } elseif ( $mobile_orientation === 'vertical' ) {
+                    $list_item_classes[] = 'mb-'. $mobile_item_spacing;
+                    $list_item_classes[] = 'me-0';
+                }
+            } else {
+                $list_item_classes[] = 'mb-'. $item_spacing;
             }
         }
 
         // spacing
-        $list_classes[] = get_spacing_bbc(get_sub_field('icon_list_spacing'));
+        $list_classes[] = esc_attr(trim(get_spacing_bbc(get_sub_field('icon_list_spacing'))));
 
         //advanced
         if ( $list_item_classes_field ) {
@@ -139,6 +232,8 @@ if( get_row_layout() == 'icon_list' ):
                 $icon_classes = [];
                 $icon_styles = [];
                 $text_classes = [];
+                $link_text_classes = [];
+                $list_item_classes = explode(' ', $list_item_classes);
 
                 // get icon fields
                 $link = $icon['link'];
@@ -147,8 +242,23 @@ if( get_row_layout() == 'icon_list' ):
 
                 // add classes
                 $icon_classes[] = 'icon';
+                $icon_classes[] = 'mb-0';
                 $icon_classes[] = $icon_classes_field;
                 $text_classes[] = $text_classes_field;
+
+                if ( $list_item_vertical_alignment ) {
+                    if ( $list_item_vertical_alignment === 'start' ) {
+                        $list_item_vertical_alignment = 'align-items: flex-start;';
+                    }
+                    if ( $list_item_vertical_alignment === 'center' ) {
+                        $list_item_vertical_alignment = 'align-items: center;';
+                    }
+                    if ( $list_item_vertical_alignment === 'end' ) {
+                        $list_item_vertical_alignment = 'align-items: flex-end;';
+                    }
+                } else {
+                    $list_item_vertical_alignment = 'align-items: center;';
+                }
 
                 if ( $icon_color['theme_colors'] ) {
                     $icon_classes[] = 'text-' . $icon_color['theme_colors'];
@@ -161,36 +271,58 @@ if( get_row_layout() == 'icon_list' ):
                 if ( $icon_size ) {
                     $icon_classes[] = $icon_size;
                 }
+                
+                if ( $icon_margin && ( $icon_margin !== 'default' ) ) {
+                    if ( $icon_margin === 'none' ) {
+                        $icon_classes[] = 'me-0';
+                        $list_item_classes[] = 'me-0';
+                    } else {
+                        $icon_classes[] = 'me-' . $icon_margin;
+                        $list_item_classes[] = 'me-' . $icon_margin;
+                    }
+                }
 
-                if ( $separator != 'none' ) {
-                    $icon_styles[] = 'border-' . $separator . ': 1px solid ' . $icon_color['theme_colors'];
+                if ( $separator && ( $separator === 'add' ) ) {
+                    if ( $desktop_orientation === 'horizontal' ) {
+                        $icon_styles[] = 'border-right: 1px solid var(--' . $icon_color['theme_colors'] . ');';
+                        $list_item_classes[] = 'pe-' . $breakpoint . '-' . $item_spacing;
+                        $list_item_classes[] = 'pe-' . $mobile_item_spacing;
+                    } elseif ( $desktop_orientation === 'vertical' ) {
+                        $icon_styles[] = 'border-bottom: 1px solid var(--' . $icon_color['theme_colors'] . ');';
+                        $list_item_classes[] = 'pb-' . $breakpoint . '-' . $item_spacing;
+                        $list_item_classes[] = 'pb-' . $mobile_item_spacing;
+                    }
                 }
 
                 // process arrays
                 $icon_classes = esc_attr( trim( implode(' ', $icon_classes ) ) );
                 $icon_styles = esc_attr( trim( implode(' ', $icon_styles ) ) );
                 $text_classes = esc_attr( trim( implode(' ', $text_classes ) ) );
+                $link_text_classes = esc_attr( trim( implode(' ', $link_text_classes ) ) );
+                $list_item_classes = esc_attr( trim( implode(' ', $list_item_classes ) ) );         
 
                 if ( $link ) {
                     $value = $link['value'];
                     $title = $link['title'];
                     $target = $link['target'];
-
                     ?>
-                    <li class="<?=$list_item_classes?>" style="<?=$icon_styles?>">
-                        <a href="<?=$value?>" title="<?=$title?>" target="<?=$target?>">
+                    <li class="<?=$list_item_classes?>">
+                        <a classes="<?=$link_text_classes?>" href="<?=$value?>" target="<?=$target?>" title="<?=$title?>" style="<?=$list_item_vertical_alignment?>">
                             <span class="<?=$icon_classes?>">
                                 <?=$icon['icon']?>
                             </span>
+                            <?php if ( $title ) { ?>
                             <span class="<?=$text_classes?>">
                                 <?=$title?>
                             </span>
                         </a>
+                        <?php } ?>
                     </li>
                     <?php
+
                 } elseif ( $text_content ) { ?>
 
-                    <li class="<?=$list_item_classes?>" style="<?=$icon_styles?>">
+                    <li class="<?=$list_item_classes?> <?=$link_text_classes?>" style="<?=$icon_styles?> <?=$list_item_vertical_alignment?>">
                         <span class="<?=$icon_classes?>">
                             <?=$icon['icon']?>
                         </span>
@@ -201,7 +333,7 @@ if( get_row_layout() == 'icon_list' ):
                     
                 <?php } else { ?>
 
-                    <li class="<?=$list_item_classes?>" style="<?=$icon_styles?>">
+                    <li class="<?=$list_item_classes?> <?=$link_text_classes?>" style="<?=$icon_styles?> <?=$list_item_vertical_alignment?>">
                         <span class="<?=$icon_classes?>">
                             <?=$icon['icon']?>
                         </span>

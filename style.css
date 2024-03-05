@@ -5,7 +5,7 @@
  Author:       Brain Bytes Creative
  Author URI:   https://github.com/understrap/understrap-child/graphs/contributors
  Template:     understrap
- Version:      1.0.15
+ Version:      1.0.16
  License: GNU General Public License v2 or later
  License URI: http://www.gnu.org/licenses/gpl-2.0.html
  Text Domain:  bbc
@@ -295,6 +295,7 @@ header .nav-link {
     align-items: center;
     color: var(--main_menu_text_color);
     transition: .2s ease-in-out all;
+    text-align: center;
 }
 header .nav-link:hover {
     transition: .2s ease-in-out all;
@@ -495,9 +496,10 @@ header .nav-link:hover {
     border-radius: var(--button_border-radius) !important;
 }
 /** top menu **/
-.top-menu-container {
-    padding-top: .5rem;
-    padding-bottom: .5rem;
+.top-menu-container .container,
+.top-menu-container .container-fluid {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
 }
 .top-menu-container.rounded {
     display: flex;
@@ -534,7 +536,6 @@ header .nav-link:hover {
 }
 .top-menu-container ul li a {
     display: flex;
-    font-weight: 500;
 }
 .top-menu-container ul li a:hover {
     color: inherit;
@@ -2195,48 +2196,52 @@ header.centered {
     aspect-ratio: 1 / 1;
 }
 /*** icon lists ***/
-/* .icon-list {
-    margin-left: 0;
-} */
 .icon-list {
     padding-left: 0;
+    flex: 1;
+}
+.icon-list-heading {
+    flex: 1;
 }
 .icon-list li {
     display: flex;
-    align-items: flex-start;
 }
-.icon-list li:last-child {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
+.icon-list a {
+    display: flex;
+}
+.icon-list.orientation-horizontal {
+    flex-wrap: wrap;
 }
 .icon-list.orientation-horizontal li:first-of-type {
-    padding-left: 0 !important;
+    margin-left: 0 !important;
 }
 .icon-list.orientation-horizontal li:last-of-type {
-    padding-right: 0 !important;
+    margin-right: 0 !important;
 }
-.icon-list:not(.remove-icon-margin) .icon {
-    margin-bottom: 0;
-    margin-right: 8px;
+.icon-list.orientation-vertical li:first-of-type {
+    margin-top: 0 !important;
+}
+.icon-list.orientation-vertical li:last-of-type {
+    margin-bottom: 0 !important;
+}
+.icon-list.orientation-mobile-horizontal li:first-of-type {
+    margin-left: 0 !important;
+}
+.icon-list.orientation-mobile-horizontal li:last-of-type {
+    margin-right: 0 !important;
+}
+.icon-list.orientation-mobile-default li:first-of-type {
+    margin-top: 0 !important;
+}
+.icon-list.orientation-mobile-default li:last-of-type {
+    margin-bottom: 0 !important;
 }
 .icon-list li i {
-    display: block;
-    margin-right: 0px;
+    display: inline-block;
+    margin-bottom: 0;
 }
-.fa-ul.icon-blue {
-    margin: 0;
-}
-.fa-ul.icon-blue li {
-    padding-top: .25rem;
-    padding-bottom: .25rem;
-}
-.icon-blue i {
-    margin-right: 10px;
-}
-.icon-blue i:before {
-    content: "\f058";
-    font-size: 30px;
-    color: var(--primary);
+.icon-list .icon {
+    margin-right: 12px;
 }
 .list-inline ul {
     display: flex;
@@ -2254,54 +2259,6 @@ header.centered {
     display: flex;
     margin-bottom: 12px;
     padding-right: 20px;
-}
-.list-bullet-primary i {
-    color: #055aa7;
-    margin-right: 10px;
-    top: 2px;
-    position: relative;
-}
-.icon-list.orientation-horizontal {
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-}
-.icon-list-small-text h3 {
-    font-size: 1rem;
-    font-family: var(--font-primary);
-    font-weight: bold;
-}
-.icon-list a {
-    display: flex;
-}
-.button-icons .btn {
-    padding: 0rem !important;
-    height: 50px;
-    width: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.button-icons i {
-    width: 20px;
-    height: 20px;
-    margin: 0 !important;
-}
-.footer-location-list i {
-    width: 25px;
-    font-size: 25px;
-    height: auto;
-}
-.footer-links a:hover {
-    color: inherit !important;
-    opacity: .8 !important;
-}
-@media screen and (max-width: 992px) {
-    .footer-location-list {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-    }
 }
 /** modal **/
 .modal-trigger-icon {
