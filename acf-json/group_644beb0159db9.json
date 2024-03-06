@@ -862,7 +862,7 @@
                 ]
             ],
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -898,7 +898,7 @@
                 ]
             ],
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -926,6 +926,35 @@
             "search_placeholder": ""
         },
         {
+            "key": "field_65e895e929efb",
+            "label": "Top Menu Font Size",
+            "name": "top_menu_font_size",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "small": "Small",
+                "xsm": "Extra Small",
+                "large": "Large"
+            },
+            "default_value": "small",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "allow_custom": 0,
+            "search_placeholder": ""
+        },
+        {
             "key": "field_65e2087ac3862",
             "label": "Top Menu Padding",
             "name": "top_menu_padding",
@@ -942,7 +971,7 @@
                 ]
             ],
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -999,7 +1028,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1709313650,
+    "modified": 1709741597,
     "acfe_categories": {
         "options": "Options"
     }
