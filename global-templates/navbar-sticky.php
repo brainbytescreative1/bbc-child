@@ -29,10 +29,8 @@ if ( $main_background_color ) {
 $main_menu_width = get_field('main_menu_width', 'header');
 if ( $main_menu_width ) {
 	$container_classes[] = $main_menu_width;
-	$container_classes[] = 'container';
 } else {
 	$container_classes[] = get_theme_mod( 'understrap_container_type' );
-	$container_classes[] = 'container';
 }
 
 $show_dropdown_indicators = get_field('show_dropdown_indicators', 'header');
@@ -41,6 +39,17 @@ if ( $show_dropdown_indicators == 'hide' ) {
 }
 
 $header_style = get_field('header_style', 'header');
+
+$main_menu_padding = array();
+$main_menu_padding = get_field('main_menu_padding', 'header');
+if ( $main_menu_padding ) {
+    if ( $main_menu_padding['padding_top'] !== 'default' ) {
+        $wrapper_classes[] = 'pt-' . $main_menu_padding['padding_top'];
+    }
+    if ( $main_menu_padding['padding_bottom'] !== 'default' ) {
+        $wrapper_classes[] = 'pb-' . $main_menu_padding['padding_bottom'];
+    }
+}
 
 $wrapper_classes = esc_attr( trim( implode(' ', $wrapper_classes ) ) );
 $container_classes = esc_attr( trim( implode(' ', $container_classes ) ) );

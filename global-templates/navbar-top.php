@@ -16,8 +16,6 @@ if ( $top_menu_layout ) { // top menu fields start
 
     $top_menu_classes[] = 'top-menu-container';
     $top_menu_classes[] = 'container-fluid';
-    //$top_menu_classes[] = 'small';
-    //$top_menu_classes[] = 'px-2';
 
     $top_text_color = get_field('top_text_color', 'header');
     if ( $top_text_color['theme_colors'] != 'default' ) {
@@ -36,6 +34,16 @@ if ( $top_menu_layout ) { // top menu fields start
     $top_menu_font_weight = get_field('top_menu_font_weight', 'header');
     if ( $top_menu_font_weight && ( $top_menu_font_weight !== 'default' ) ) {
         $top_menu_classes[] = 'weight-' . $top_menu_font_weight;
+    }
+    $top_menu_font_weight = get_field('top_menu_font_weight', 'header');
+    if ( $top_menu_font_weight && ( $top_menu_font_weight !== 'default' ) ) {
+        $top_menu_classes[] = 'weight-' . $top_menu_font_weight;
+    }
+    $top_menu_font_size = get_field('top_menu_font_size', 'header');
+    if ( $top_menu_font_size ) {
+        $top_menu_classes[] = 'menu-size-' . $top_menu_font_size;
+    } else {
+        $top_menu_classes[] = 'menu-size-small';
     }
     $top_menu_padding = get_field('top_menu_padding', 'header');
     if ( $top_menu_padding !== 'default' ) {
@@ -63,11 +71,11 @@ if ( $top_menu_layout ) { // top menu fields start
         } elseif ( in_array( $top_menu_padding, $padding_classes ) ) {
             $top_menu_classes[] = 'pt-lg-' . $top_menu_padding['padding_top'];
             $top_menu_classes[] = 'pb-lg-' . $top_menu_padding['padding_bottom'];
+        } else {
+            $top_menu_classes[] = 'top-menu-padding-default';
         }
-        
     } else {
-        $top_menu_styles[] = 'padding-top: .5rem;';
-        $top_menu_styles[] = 'padding-bottom: .5rem';
+        $top_menu_classes[] = 'top-menu-padding-default';
     }
     
     $top_menu_classes = esc_attr( trim( implode(' ', $top_menu_classes ) ) );
@@ -274,7 +282,6 @@ if ( $top_menu_layout ) { // top menu fields start
 
         $single_menu_classes = [];
 
-        //$single_menu_classes[] = 'container';
         $single_menu_classes[] = 'single-menu-container';
 
         $top_menu_width = get_field('top_menu_width', 'header');
@@ -306,7 +313,6 @@ if ( $top_menu_layout ) { // top menu fields start
 
     }
 
-    //echo '</div>'; // top menu row end
     echo '</div>'; // top menu container end
 
 } // top menu fields end
