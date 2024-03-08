@@ -49,6 +49,7 @@ function get_background_bbc($field, $classes, $styles, $sub = false) {
         $overlay_color = null;
         $video_element = null;
         $video_script = null;
+        $mobile_image_overlay = null;
 
         if ( $sub == true ) {
             $background = get_sub_field($field);
@@ -70,6 +71,8 @@ function get_background_bbc($field, $classes, $styles, $sub = false) {
                 $background_transparency = $background['color']['transparency'];
                 $background_image_size = $background['background_image_size'];
                 $background_image_format = $background['background_image_format'];
+                $background_size_mobile = $background['background_size_mobile'];
+                $background_position_mobile = $background['background_position_mobile'];
 
                 if ( $custom_color ) {
 
@@ -113,24 +116,47 @@ function get_background_bbc($field, $classes, $styles, $sub = false) {
 
                     } else {
 
+                        $image = null;
+                        $image_mobile = null;
                         $image = $background['image'];
                         $image_mobile = $background['image_upload_mobile'];
                         $size = $background_image_size;
 
-                        //$size = '<script>isMobileSize("'.strval($size).'");</script>';
+                        if( $image_mobile ) {
+                            $image_mobile = wp_get_attachment_image_url( $image_mobile, 'medium_large' );
+                        } else {
+                            $image_mobile = wp_get_attachment_image_url( $image, 'medium_large' );
+                        }
 
                         if( $image ) {
                             $image = wp_get_attachment_image_url( $image, $size );
                         }
+
+                        $mobile_image_styles = [];
+
+                        if ( $background_size_mobile === 'default' ) {
+                            $background_size_mobile = $background['size'];
+                        }
+
+                        if ( $background_position_mobile === 'default' ) {
+                            $background_position_mobile = $background['position'];
+                        } else {
+                            $background_position_mobile = str_replace('-', ' ', $background_position_mobile);
+                        }
+
+                        $mobile_image_styles[] = 'background: url(' . $image_mobile . ');';
+                        $mobile_image_styles[] = 'background-size: ' . $background_size_mobile . ';';
+                        $mobile_image_styles[] = 'background-position: ' . $background_position_mobile . ';';
+
+                        $mobile_image_styles = implode(' ', $mobile_image_styles);
+
+                        $mobile_image_overlay = '<div class="background-mobile" style="'. $mobile_image_styles .'"></div>';
 
                     }
 
                     $size = $background['size'];
                     $position = $background['position'];
                     $repeat = $background['repeat'];
-
-                    $background_size_mobile = $background['background_size_mobile'];
-                    $background_position_mobile = $background['background_position_mobile'];
                     $overlay_visibility = $background['overlay_visibility'];
 
                     if ( $image ) {
@@ -160,6 +186,8 @@ function get_background_bbc($field, $classes, $styles, $sub = false) {
                         $return_styles[] = 'background-repeat: ' . $repeat . ';';
                         $return_styles[] = 'background-size: ' . $size . ';';
                         $return_styles[] = 'background-position: ' . $position . ';';
+                        
+                        $return_classes[] = 'background-desktop';
                         
                         if ( $background_size_mobile && ( $background_size_mobile !== 'default' ) ) {
                             $return_classes[] = 'background-size-mobile-' . $background_size_mobile;
@@ -224,7 +252,14 @@ function get_background_bbc($field, $classes, $styles, $sub = false) {
                 $return_classes = implode(' ', $return_classes);
                 $return_styles = implode(' ', $return_styles);
 
-                $return_array = ['classes' => $return_classes, 'styles' => $return_styles, 'overlay' => $overlay, 'video' => $video_element, 'video_script' => $video_script];
+                $return_array = [
+                    'classes' => $return_classes, 
+                    'styles' => $return_styles, 
+                    'overlay' => $overlay, 
+                    'video' => $video_element, 
+                    'video_script' => $video_script,
+                    'mobile_image_overlay' => $mobile_image_overlay
+                ];
 
             }
             

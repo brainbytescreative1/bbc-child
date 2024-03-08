@@ -40,6 +40,7 @@ $column_inner_overlay = null;
 $container_video = null;
 $column_video = null;
 $column_inner_video = null;
+$mobile_image_overlay = null;
 
 $page_content_width = '';
 $page_content_width = get_page_width_bbc('content_width', $page_content_width, $post_id);
@@ -174,6 +175,9 @@ if ( $container_background ) {
     if ( $container_background['video'] ) {
         $container_video = $container_background['video'];
         $container_video_script = $container_background['video_script'];
+    }
+    if ( $container_background['mobile_image_overlay'] ) {
+        $mobile_image_overlay = $container_background['mobile_image_overlay'];
     }
 }
 
@@ -310,6 +314,10 @@ echo '<div class="'. esc_attr($container_classes) . esc_attr($class_name) .'" st
     if ( $container_video ) {
         echo $container_video;
         echo $container_video_script;
+    }
+
+    if ( $mobile_image_overlay ) {
+        echo $mobile_image_overlay;
     }
 
     if ( $container_overlay ) {

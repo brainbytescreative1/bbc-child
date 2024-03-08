@@ -2741,7 +2741,21 @@ a.col-inner {
 }
 /*** container backgrounds ***/
 @media screen and (max-width: 990px) {
-    /* background size */
+    /* hide desktop background */
+    .background-desktop {
+        background: none !important;
+    }
+    /* mobile background overlay */
+    .background-mobile {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    /* mobile background size */
     .background-size-mobile-cover {
         background-size: cover !important;
     }
@@ -2751,8 +2765,7 @@ a.col-inner {
     .background-size-mobile-auto {
         background-size: auto !important;
     }
-
-    /* background position */
+    /* mobile background position */
     .background-position-mobile-center-center {
         background-position: center center !important;
     }
