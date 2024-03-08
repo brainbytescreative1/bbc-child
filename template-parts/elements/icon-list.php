@@ -11,6 +11,8 @@ if( get_row_layout() == 'icon_list' ):
         $list_container_classes = [];
         $list_classes = [];
         $list_item_classes = [];
+        $icon_classes = [];
+        $text_classes = [];
 
         // add initial classes
         $list_container_classes[] = 'element';
@@ -39,10 +41,6 @@ if( get_row_layout() == 'icon_list' ):
         if ( $mobile_breakpoint ) {
             $breakpoint = $mobile_breakpoint;
         }
-
-        // advanced
-        
-        
 
         // push classes to inside loop
         $list_item_classes_field = get_sub_field('list_item_classes');
@@ -202,6 +200,7 @@ if( get_row_layout() == 'icon_list' ):
 
         // advanced
         $unique_id = get_sub_field('unique_id');
+        
         $list_container_classes_field = get_sub_field('list_container_classes');
         if ( $list_container_classes_field ) {
             $list_container_classes[] = $list_container_classes_field;
@@ -323,11 +322,11 @@ if( get_row_layout() == 'icon_list' ):
                                     <?=$icon['icon']?>
                                 </span>
                                 <?php if ( $title ) { ?>
-                                <span class="<?=$text_classes?>">
-                                    <?=$title?>
-                                </span>
+                                    <span class="<?=$text_classes?>">
+                                        <?=$title?>
+                                    </span>
+                                <?php } ?>
                             </a>
-                            <?php } ?>
                         </li>
                         <?php
 
