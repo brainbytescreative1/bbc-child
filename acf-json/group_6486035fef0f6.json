@@ -21,8 +21,7 @@
                 "color": "Color",
                 "gradient": "Gradient",
                 "image": "Image",
-                "video": "Video",
-                "overlay": "Overlay"
+                "video": "Video"
             },
             "default_value": "none : None",
             "return_format": "value",
@@ -30,90 +29,6 @@
             "other_choice": 0,
             "layout": "horizontal",
             "save_other_choice": 0
-        },
-        {
-            "key": "field_648603609333d",
-            "label": "Background Color",
-            "name": "color",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "Also used as overlay if image or video background is selected",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_648603608837c",
-                        "operator": "==",
-                        "value": "color"
-                    }
-                ],
-                [
-                    {
-                        "field": "field_648603608837c",
-                        "operator": "==",
-                        "value": "image"
-                    }
-                ],
-                [
-                    {
-                        "field": "field_648603608837c",
-                        "operator": "==",
-                        "value": "video"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "label-hide",
-                "id": ""
-            },
-            "clone": [
-                "group_646f908576c59"
-            ],
-            "display": "group",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0,
-            "acfe_seamless_style": 1,
-            "acfe_clone_modal": 0,
-            "acfe_clone_modal_close": 0,
-            "acfe_clone_modal_button": "",
-            "acfe_clone_modal_size": "large"
-        },
-        {
-            "key": "field_6553bcfcf5d58",
-            "label": "Gradient",
-            "name": "gradient",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_648603608837c",
-                        "operator": "==",
-                        "value": "gradient"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "group_6553bc3496704"
-            ],
-            "display": "group",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0,
-            "acfe_seamless_style": 1,
-            "acfe_clone_modal": 0,
-            "acfe_clone_modal_close": 0,
-            "acfe_clone_modal_button": "",
-            "acfe_clone_modal_size": "large"
         },
         {
             "key": "field_648603608bdfe",
@@ -145,6 +60,122 @@
             "mime_types": "mp4"
         },
         {
+            "key": "field_648603608f8a4",
+            "label": "Image Upload",
+            "name": "image",
+            "aria-label": "",
+            "type": "file",
+            "instructions": "Also used as video fallback",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_648603608837c",
+                        "operator": "==",
+                        "value": "image"
+                    },
+                    {
+                        "field": "field_64a59c2fc9708",
+                        "operator": "==",
+                        "value": "upload"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_648603608837c",
+                        "operator": "==",
+                        "value": "video"
+                    },
+                    {
+                        "field": "field_64a59c2fc9708",
+                        "operator": "==",
+                        "value": "upload"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_648603608837c",
+                        "operator": "==",
+                        "value": "gradient"
+                    },
+                    {
+                        "field": "field_64a59c2fc9708",
+                        "operator": "==",
+                        "value": "upload"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "uploader": "wp",
+            "return_format": "id",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_65e8f7c5f2703",
+            "label": "Image Upload Mobile",
+            "name": "image_upload_mobile",
+            "aria-label": "",
+            "type": "file",
+            "instructions": "Also used as video fallback",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_648603608837c",
+                        "operator": "==",
+                        "value": "image"
+                    },
+                    {
+                        "field": "field_64a59c2fc9708",
+                        "operator": "==",
+                        "value": "upload"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_648603608837c",
+                        "operator": "==",
+                        "value": "video"
+                    },
+                    {
+                        "field": "field_64a59c2fc9708",
+                        "operator": "==",
+                        "value": "upload"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_648603608837c",
+                        "operator": "==",
+                        "value": "gradient"
+                    },
+                    {
+                        "field": "field_64a59c2fc9708",
+                        "operator": "==",
+                        "value": "upload"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "uploader": "wp",
+            "return_format": "id",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
             "key": "field_65e1038d99950",
             "label": "Background Image Size",
             "name": "background_image_size",
@@ -154,7 +185,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33.3",
+                "width": "34",
                 "class": "",
                 "id": ""
             },
@@ -208,7 +239,7 @@
                 ]
             ],
             "wrapper": {
-                "width": "33.3",
+                "width": "33",
                 "class": "",
                 "id": ""
             },
@@ -236,7 +267,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33.3",
+                "width": "33",
                 "class": "",
                 "id": ""
             },
@@ -253,64 +284,6 @@
             "placeholder": "",
             "allow_custom": 0,
             "search_placeholder": ""
-        },
-        {
-            "key": "field_648603608f8a4",
-            "label": "Image Upload",
-            "name": "image",
-            "aria-label": "",
-            "type": "file",
-            "instructions": "Also used as video fallback",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_648603608837c",
-                        "operator": "==",
-                        "value": "image"
-                    },
-                    {
-                        "field": "field_64a59c2fc9708",
-                        "operator": "==",
-                        "value": "upload"
-                    }
-                ],
-                [
-                    {
-                        "field": "field_648603608837c",
-                        "operator": "==",
-                        "value": "video"
-                    },
-                    {
-                        "field": "field_64a59c2fc9708",
-                        "operator": "==",
-                        "value": "upload"
-                    }
-                ],
-                [
-                    {
-                        "field": "field_648603608837c",
-                        "operator": "==",
-                        "value": "gradient"
-                    },
-                    {
-                        "field": "field_64a59c2fc9708",
-                        "operator": "==",
-                        "value": "upload"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "uploader": "wp",
-            "return_format": "id",
-            "library": "all",
-            "min_size": "",
-            "max_size": "",
-            "mime_types": ""
         },
         {
             "key": "field_64860360a60f2",
@@ -344,15 +317,14 @@
                 ]
             ],
             "wrapper": {
-                "width": "33",
+                "width": "34",
                 "class": "",
                 "id": ""
             },
             "choices": {
                 "cover": "Cover",
                 "contain": "Contain",
-                "auto": "Auto",
-                "100%": "Full"
+                "auto": "Auto"
             },
             "default_value": "cover",
             "return_format": "value",
@@ -472,11 +444,11 @@
             "search_placeholder": ""
         },
         {
-            "key": "field_649d8238faede",
-            "label": "Overlay Color",
-            "name": "overlay_color",
+            "key": "field_65e8ebdd71512",
+            "label": "Background Size Mobile",
+            "name": "background_size_mobile",
             "aria-label": "",
-            "type": "clone",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": [
@@ -484,7 +456,160 @@
                     {
                         "field": "field_648603608837c",
                         "operator": "==",
-                        "value": "overlay"
+                        "value": "image"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_648603608837c",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_648603608837c",
+                        "operator": "==",
+                        "value": "gradient"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "34",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "default",
+                "cover": "Cover",
+                "contain": "Contain",
+                "auto": "Auto"
+            },
+            "default_value": "default",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "allow_custom": 0,
+            "search_placeholder": ""
+        },
+        {
+            "key": "field_65e8ebe771513",
+            "label": "Background Position Mobile",
+            "name": "background_position_mobile",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_648603608837c",
+                        "operator": "==",
+                        "value": "image"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_648603608837c",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_648603608837c",
+                        "operator": "==",
+                        "value": "gradient"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "default",
+                "center-center": "Center Center",
+                "center-left": "Center Left",
+                "center-right": "Center Right",
+                "top-center": "Top Center",
+                "top-left": "Top Left",
+                "top-right": "Top Right",
+                "bottom-center": "Bottom Center",
+                "bottom-left": "Bottom Left",
+                "bottom-right": "Bottom Right"
+            },
+            "default_value": "default",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "allow_custom": 0,
+            "search_placeholder": ""
+        },
+        {
+            "key": "field_65e8ec68236f5",
+            "label": "Overlay Visibility",
+            "name": "overlay_visibility",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "default",
+                "desktop": "desktop",
+                "mobile": "mobile"
+            },
+            "default_value": "default",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "allow_custom": 0,
+            "search_placeholder": ""
+        },
+        {
+            "key": "field_648603609333d",
+            "label": "Background Color",
+            "name": "color",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "Also used as overlay if image or video background is selected",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_648603608837c",
+                        "operator": "==",
+                        "value": "color"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_648603608837c",
+                        "operator": "==",
+                        "value": "image"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_648603608837c",
+                        "operator": "==",
+                        "value": "video"
                     }
                 ]
             ],
@@ -495,6 +620,41 @@
             },
             "clone": [
                 "group_646f908576c59"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0,
+            "acfe_seamless_style": 1,
+            "acfe_clone_modal": 0,
+            "acfe_clone_modal_close": 0,
+            "acfe_clone_modal_button": "",
+            "acfe_clone_modal_size": "large"
+        },
+        {
+            "key": "field_6553bcfcf5d58",
+            "label": "Gradient",
+            "name": "gradient",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_648603608837c",
+                        "operator": "==",
+                        "value": "gradient"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_6553bc3496704"
             ],
             "display": "group",
             "layout": "block",
@@ -532,7 +692,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1709246284,
+    "modified": 1709766613,
     "acfe_categories": {
         "global-functions": "Global Functions"
     }

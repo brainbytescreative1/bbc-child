@@ -114,7 +114,10 @@ function get_background_bbc($field, $classes, $styles, $sub = false) {
                     } else {
 
                         $image = $background['image'];
+                        $image_mobile = $background['image_upload_mobile'];
                         $size = $background_image_size;
+
+                        //$size = '<script>isMobileSize("'.strval($size).'");</script>';
 
                         if( $image ) {
                             $image = wp_get_attachment_image_url( $image, $size );
@@ -125,6 +128,10 @@ function get_background_bbc($field, $classes, $styles, $sub = false) {
                     $size = $background['size'];
                     $position = $background['position'];
                     $repeat = $background['repeat'];
+
+                    $background_size_mobile = $background['background_size_mobile'];
+                    $background_position_mobile = $background['background_position_mobile'];
+                    $overlay_visibility = $background['overlay_visibility'];
 
                     if ( $image ) {
 
@@ -149,10 +156,46 @@ function get_background_bbc($field, $classes, $styles, $sub = false) {
 
                         }
 
-                            $return_styles[] = 'background: url(' . $image . ');';
-                            $return_styles[] = 'background-size: ' . $size . ';';
-                            $return_styles[] = 'background-position: ' . $position . ';';
-                            $return_styles[] = 'background-repeat: ' . $repeat . ';';
+                        $return_styles[] = 'background: url(' . $image . ');';
+                        $return_styles[] = 'background-repeat: ' . $repeat . ';';
+                        $return_styles[] = 'background-size: ' . $size . ';';
+                        $return_styles[] = 'background-position: ' . $position . ';';
+                        
+                        if ( $background_size_mobile && ( $background_size_mobile !== 'default' ) ) {
+                            $return_classes[] = 'background-size-mobile-' . $background_size_mobile;
+                        }
+                        if ( $background_position_mobile && ( $background_position_mobile !== 'default' ) ) {
+                            $return_classes[] = 'background-position-mobile-' . $background_position_mobile;
+                        }
+
+                    }
+
+                    // overlay
+                    if ( $theme_colors || $custom_color ) {
+
+                        $overlay_classes = [];
+                        $overlay_classes[] = 'overlay';
+
+                        if ( $overlay_visibility ) {
+                            if ( $overlay_visibility === 'desktop' ) {
+                                $overlay_classes[] = 'd-none d-lg-block';
+                            } elseif ( $overlay_visibility === 'mobile' ) {
+                                $overlay_classes[] = 'd-block d-lg-none d-xl-none d-xxl-none';
+                            }      
+                        }
+
+                        $overlay_classes = esc_attr( trim( implode(' ', $overlay_classes ) ) );
+
+                        if ( $background_transparency ) {
+                            $background_transparency = 'opacity: ' . strval( $background_transparency / 100 ) . ';';
+                        }
+                        if ( $background_transparency > '0' ) {
+                            if ( $custom_color ) {
+                                $overlay = '<div class="'. $overlay_classes .'" style="'. $background_transparency . $overlay_color .'"></div>';
+                            } else {
+                                $overlay = '<div class="' . $overlay_classes . ' ' . $overlay_color .'" style="'. $background_transparency .'"></div>';
+                            }
+                        }
 
                     }
 
@@ -178,53 +221,10 @@ function get_background_bbc($field, $classes, $styles, $sub = false) {
 
                 }
 
-                if ( ( $background_content == 'image' ) || ( $background_content == 'video' ) ) {
-
-                    if ( $theme_colors || $custom_color ) {
-
-                        if ( $background_transparency ) {
-                            $background_transparency = 'opacity: ' . strval( $background_transparency / 100 ) . ';';
-                        }
-                        if ( $background_transparency > '0' ) {
-                            if ( $custom_color ) {
-                                $overlay = '<div class="overlay" style="'. $background_transparency . $overlay_color .'"></div>';
-                            } else {
-                                $overlay = '<div class="overlay '. $overlay_color .'" style="'. $background_transparency .'"></div>';
-                            }
-                        }
-
-                    }
-
-                }
-
                 $return_classes = implode(' ', $return_classes);
                 $return_styles = implode(' ', $return_styles);
 
                 $return_array = ['classes' => $return_classes, 'styles' => $return_styles, 'overlay' => $overlay, 'video' => $video_element, 'video_script' => $video_script];
-
-            } elseif ( $background_content === 'overlay' ) {
-
-                $overlay_color = null;
-
-                $overlay_theme_colors = $background['overlay_color']['theme_colors'];
-                $overlay_custom_color = $background['overlay_color']['custom_color'];
-                $overlay_background_transparency = $background['overlay_color']['transparency'];
-
-                if ( $overlay_background_transparency ) {
-                    $overlay_background_transparency = strval( $overlay_background_transparency / 100 );
-                }
-
-                if ( $overlay_theme_colors || $overlay_custom_color ) {
-                
-                    if ( $overlay_custom_color ) {
-                        $overlay = '<div class="overlay" style="background-color: '. $overlay_custom_color .'; opacity: '. $overlay_background_transparency .';"></div>';
-                    } else {
-                        $overlay = '<div class="overlay bg-'. $overlay_theme_colors .'" style="opacity: '. $overlay_background_transparency .';"></div>';
-                    }
-
-                }
-
-                $return_array = ['classes' => null, 'styles' => null, 'overlay' => $overlay, 'video' => null];
 
             }
             

@@ -115,9 +115,16 @@ add_action( 'customize_controls_enqueue_scripts', 'understrap_child_customize_co
 
 // enqueue custom stylesheet
 function bbc_stylesheet_css_js() {
-    $the_theme     = wp_get_theme();
+    // Get the theme data.
+	$the_theme     = wp_get_theme();
 	$theme_version = $the_theme->get( 'Version' );
-    $css_version = $theme_version . '.' . filemtime( get_stylesheet_directory() . $theme_styles );
+
+	$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+	// Grab asset urls.
+	$theme_styles  = "/css/child-theme{$suffix}.css";
+	$theme_scripts = "/js/child-theme{$suffix}.js";
+	
+	$css_version = $theme_version . '.' . filemtime( get_stylesheet_directory() . $theme_styles );
 
 	wp_enqueue_style( 'bbc-style', get_stylesheet_directory_uri() . '/style.css', false, $css_version );
 	wp_enqueue_script( 'bbc-scripts', get_stylesheet_directory_uri() . '/js/bbc-scripts.js', array(), '1.0.0' );
@@ -127,16 +134,34 @@ add_action( 'wp_enqueue_scripts', 'bbc_stylesheet_css_js' );
 // enqueue admin stylesheet
 add_action( 'admin_enqueue_scripts', 'load_admin_style' );
 function load_admin_style() {
+    // Get the theme data.
+	$the_theme     = wp_get_theme();
+	$theme_version = $the_theme->get( 'Version' );
+
+	$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+	// Grab asset urls.
+	$theme_styles  = "/css/child-theme{$suffix}.css";
+	$theme_scripts = "/js/child-theme{$suffix}.js";
+	
+	$css_version = $theme_version . '.' . filemtime( get_stylesheet_directory() . $theme_styles );
+
 	wp_enqueue_style( 'admin_css', get_stylesheet_directory_uri() . '/bbc-admin-style.css', false, '1.0.0' );
-    wp_enqueue_style( 'admin_front_css', get_stylesheet_directory_uri() . '/style.css', false, '1.0.0' );
+    wp_enqueue_style( 'admin_front_css', get_stylesheet_directory_uri() . '/style.css', false, $css_version );
 }
 
 // enqueue acf admin stylesheet
 //add_action('acf/input/admin_enqueue_scripts', 'my_acf_admin_enqueue_scripts');
 function my_acf_admin_enqueue_scripts() {
-    $the_theme     = wp_get_theme();
+    // Get the theme data.
+	$the_theme     = wp_get_theme();
 	$theme_version = $the_theme->get( 'Version' );
-    $css_version = $theme_version . '.' . filemtime( get_stylesheet_directory() . $theme_styles );
+
+	$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+	// Grab asset urls.
+	$theme_styles  = "/css/child-theme{$suffix}.css";
+	$theme_scripts = "/js/child-theme{$suffix}.js";
+	
+	$css_version = $theme_version . '.' . filemtime( get_stylesheet_directory() . $theme_styles );
 
     wp_enqueue_style( 'my-acf-input-css', get_stylesheet_directory_uri() . '/style.css', false, $css_version );
 }

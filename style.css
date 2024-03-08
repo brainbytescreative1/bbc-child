@@ -451,7 +451,6 @@ header .nav-link:hover {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    background: #ffffff;
     box-shadow: 0px 15px 10px -15px rgba(119,122,126,.16) !important;
     -webkit-box-shadow: 0px 15px 10px -15px rgba(119,122,126,.16) !important;
 }
@@ -2739,4 +2738,46 @@ a.col-inner {
 #btn-back-to-top i {
     top: 1px;
     position: relative;
+}
+/*** container backgrounds ***/
+@media screen and (max-width: 990px) {
+    /* background size */
+    .background-size-mobile-cover {
+        background-size: cover !important;
+    }
+    .background-size-mobile-contain {
+        background-size: contain !important;
+    }
+    .background-size-mobile-auto {
+        background-size: auto !important;
+    }
+
+    /* background position */
+    .background-position-mobile-center-center {
+        background-position: center center !important;
+    }
+    .background-position-mobile-center-left {
+        background-position:  center left !important;
+    }
+    .background-position-mobile-center-right {
+        background-position: center right !important;
+    }
+    .background-position-mobile-top-center {
+        background-position: top center !important;
+    }
+    .background-position-mobile-top-left {
+        background-position: top left !important;
+    }
+    .background-position-mobile-top-right {
+        background-position: top right !important;
+    }
+    .background-position-mobile-bottom-center {
+        background-position: bottom center !important;
+    }
+    .background-position-mobile-bottom-left {
+        background-position: bottom left !important;
+    }
+    .background-position-mobile-bottom-right {
+        background-position: bottom right !important;
+    }
 }
