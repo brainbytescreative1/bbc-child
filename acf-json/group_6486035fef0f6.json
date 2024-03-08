@@ -19,7 +19,6 @@
             "choices": {
                 "none": "None",
                 "color": "Color",
-                "gradient": "Gradient",
                 "image": "Image",
                 "video": "Video"
             },
@@ -91,18 +90,6 @@
                         "operator": "==",
                         "value": "upload"
                     }
-                ],
-                [
-                    {
-                        "field": "field_648603608837c",
-                        "operator": "==",
-                        "value": "gradient"
-                    },
-                    {
-                        "field": "field_64a59c2fc9708",
-                        "operator": "==",
-                        "value": "upload"
-                    }
                 ]
             ],
             "wrapper": {
@@ -149,18 +136,6 @@
                         "operator": "==",
                         "value": "upload"
                     }
-                ],
-                [
-                    {
-                        "field": "field_648603608837c",
-                        "operator": "==",
-                        "value": "gradient"
-                    },
-                    {
-                        "field": "field_64a59c2fc9708",
-                        "operator": "==",
-                        "value": "upload"
-                    }
                 ]
             ],
             "wrapper": {
@@ -183,7 +158,22 @@
             "type": "select",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_648603608837c",
+                        "operator": "==",
+                        "value": "image"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_648603608837c",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "34",
                 "class": "",
@@ -229,13 +219,6 @@
                         "operator": "==",
                         "value": "video"
                     }
-                ],
-                [
-                    {
-                        "field": "field_648603608837c",
-                        "operator": "==",
-                        "value": "gradient"
-                    }
                 ]
             ],
             "wrapper": {
@@ -265,7 +248,22 @@
             "type": "select",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_648603608837c",
+                        "operator": "==",
+                        "value": "image"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_648603608837c",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "33",
                 "class": "",
@@ -306,13 +304,6 @@
                         "field": "field_648603608837c",
                         "operator": "==",
                         "value": "video"
-                    }
-                ],
-                [
-                    {
-                        "field": "field_648603608837c",
-                        "operator": "==",
-                        "value": "gradient"
                     }
                 ]
             ],
@@ -357,13 +348,6 @@
                         "field": "field_648603608837c",
                         "operator": "==",
                         "value": "video"
-                    }
-                ],
-                [
-                    {
-                        "field": "field_648603608837c",
-                        "operator": "==",
-                        "value": "gradient"
                     }
                 ]
             ],
@@ -415,13 +399,6 @@
                         "operator": "==",
                         "value": "image"
                     }
-                ],
-                [
-                    {
-                        "field": "field_648603608837c",
-                        "operator": "==",
-                        "value": "gradient"
-                    }
                 ]
             ],
             "wrapper": {
@@ -464,13 +441,6 @@
                         "field": "field_648603608837c",
                         "operator": "==",
                         "value": "video"
-                    }
-                ],
-                [
-                    {
-                        "field": "field_648603608837c",
-                        "operator": "==",
-                        "value": "gradient"
                     }
                 ]
             ],
@@ -517,13 +487,6 @@
                         "operator": "==",
                         "value": "video"
                     }
-                ],
-                [
-                    {
-                        "field": "field_648603608837c",
-                        "operator": "==",
-                        "value": "gradient"
-                    }
                 ]
             ],
             "wrapper": {
@@ -561,7 +524,22 @@
             "type": "select",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_648603608837c",
+                        "operator": "==",
+                        "value": "image"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_648603608837c",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "33",
                 "class": "",
@@ -630,41 +608,6 @@
             "acfe_clone_modal_close": 0,
             "acfe_clone_modal_button": "",
             "acfe_clone_modal_size": "large"
-        },
-        {
-            "key": "field_6553bcfcf5d58",
-            "label": "Gradient",
-            "name": "gradient",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_648603608837c",
-                        "operator": "==",
-                        "value": "gradient"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "group_6553bc3496704"
-            ],
-            "display": "group",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0,
-            "acfe_seamless_style": 1,
-            "acfe_clone_modal": 0,
-            "acfe_clone_modal_close": 0,
-            "acfe_clone_modal_button": "",
-            "acfe_clone_modal_size": "large"
         }
     ],
     "location": [
@@ -692,7 +635,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1709766613,
+    "modified": 1709939182,
     "acfe_categories": {
         "global-functions": "Global Functions"
     }
