@@ -2740,6 +2740,12 @@ a.col-inner {
     position: relative;
 }
 /*** container backgrounds ***/
+@media screen and (min-width: 991px) {
+    .background-mobile {
+        display: none;
+        background: none !important;
+    }
+}
 @media screen and (max-width: 990px) {
     /* hide desktop background */
     .background-desktop {
