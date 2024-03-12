@@ -78,6 +78,16 @@ $container_classes[] = 'element-container';
 
 // get global style settings
 $column_gap_global = get_field('column_gap', 'style');
+if ( $column_gap_global && ( $column_gap_global === 'default' ) ) {
+    $top_bottom_padding_container = get_field('top_bottom_padding_container', 'style');
+    if ( $top_bottom_padding_container ) {
+        $column_gap_global = $top_bottom_padding_container;
+    } else {
+        $column_gap_global = '3';
+    }
+} else {
+    $column_gap_global = '3';
+}
 
 // container classes and styling
 $min_height_100vh_minus_menu_height = get_field('min_height_100vh_minus_menu_height');
@@ -97,56 +107,36 @@ if ( $min_height && ( $min_height_100vh_minus_menu_height !== 'enabled' ) ) {
     $container_styles[] = $min_height . ';';
 }
 
-$max_width = get_field('max_width');
-if ( $max_width ) {
-    $value = $max_width['value'];
-    if ( $value ) {
-        $row_classes[] = 'has-max-width';
-        $unit = $max_width['unit'];
-        $max_width = 'max-width: ' . $value . $unit;
-        $row_styles[] = $max_width . ';';
-    }
-}
-
 $content_alignment = get_field('content_alignment');
 if ( $content_alignment ) {
     if ( $content_alignment === 'left' ) {
         $content_alignment = 'start';
+    } elseif ( $content_alignment === 'center' ) {
+        $content_alignment = 'center';
     } elseif ( $content_alignment === 'right' ) {
         $content_alignment = 'end';
     }
     $row_classes[] = 'text-' . $content_alignment;
 }
 
-// columns per row
+// column options
 $columns_per_row = get_field('columns_per_row');
 $mobile_breakpoint = get_field('mobile_breakpoint');
-$even_column_height = get_field('even_column_height');
-if ( $even_column_height == 'even' ) {
-    $row_classes[] = 'even-columns';
-}
+$element_assignment = get_field('element_assignment');
 
 // column gap
 $column_margin_bottom = null;
 if ( $column_count > 1 ) {
     $column_gap = get_field('column_gap');
-    if ( $column_gap ) {
-        if ( $column_gap === 'none' ) {
-            $column_gap = '0';
-        } elseif ( $column_gap === 'default' ) {
+    if ( !$column_gap || ( $column_gap === 'default' ) ) {
+        if ( $column_gap_global ) {
             $column_gap = $column_gap_global;
         } else {
             $column_gap = '2';
         }
-    } else {
-        $column_gap = '2';
     }
-    $row_classes[] = 'gx-' . $column_gap . ' gx-'. $mobile_breakpoint .'-' . $column_gap;
-    $row_classes[] = 'py-' . $column_gap;
     $column_margin_bottom = 'mb-'. $column_gap .' mb-lg-0';
 }
-
-$element_assignment = get_field('element_assignment');
 
 // container background
 $container_background = get_background_bbc('section_background', $container_classes, $container_styles);
@@ -313,6 +303,45 @@ echo '<div class="'. esc_attr($container_classes) . esc_attr($class_name) .'" st
         }
         if ( $row_overlay ) {
             echo $row_overlay;
+        }
+
+        // start inner row if max width
+        $max_width = get_field('max_width');
+
+        if ( $max_width ) {
+            $value = $max_width['value'];
+            if ( $value ) {
+
+                $justify_container_row = get_field('justify_container_row');
+
+                $row_inner_classes = [];
+                $row_inner_styles = [];
+
+                $row_inner_classes[] = 'row-inner';
+
+                $unit = $max_width['unit'];
+                $max_width = 'max-width: ' . $value . $unit;
+                $row_inner_styles[] = $max_width . ';';
+
+                if ( $justify_container_row ) {
+                    if ( $justify_container_row === 'left' ) {
+                        $row_inner_classes[] = 'me-' . $mobile_breakpoint . '-auto ms-' . $mobile_breakpoint . '-0';
+                    } elseif ( $justify_container_row === 'center' ) {
+                        $row_inner_classes[] = 'me-' . $mobile_breakpoint . '-auto ms-' . $mobile_breakpoint . '-auto';
+                    } elseif ( $justify_container_row === 'right' ) {
+                        $row_inner_classes[] = 'ms-' . $mobile_breakpoint . '-auto me-' . $mobile_breakpoint . '-0';
+                    }
+                } else {
+                    $row_inner_classes[] = 'me-' . $mobile_breakpoint . '-auto ms-' . $mobile_breakpoint . '-auto';
+                }
+
+                $row_inner_classes[] = $flex;
+
+                $row_inner_classes = trim(implode(' ', $row_inner_classes));
+                $row_inner_styles = trim(implode(' ', $row_inner_styles));
+
+                echo '<div class="'. $row_inner_classes .'" style="'. $row_inner_styles .'">';
+            }
         }
 
         if( have_rows('columns') ): // if columns start
@@ -577,6 +606,11 @@ echo '<div class="'. esc_attr($container_classes) . esc_attr($class_name) .'" st
             endwhile; // columns loop end
 
         endif; // if columns end
+
+        // start inner row if justifed        
+        if ( $max_width ) {
+            echo '</div>';
+        }
 
     echo '</div>'; // row end
 

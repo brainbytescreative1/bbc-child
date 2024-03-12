@@ -137,24 +137,6 @@
             "endpoint": 0
         },
         {
-            "key": "field_65664db600802",
-            "label": "Style",
-            "name": "",
-            "aria-label": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
-        },
-        {
             "key": "field_648220dfd80b2",
             "label": "Container Width",
             "name": "section_width",
@@ -164,7 +146,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33.3",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -180,8 +162,31 @@
             "save_other_choice": 0
         },
         {
+            "key": "field_65664ce0d74f8",
+            "label": "Min Height 100vh",
+            "name": "min_height_100vh_minus_menu_height",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "disabled": "disabled",
+                "enabled": "enabled"
+            },
+            "default_value": "disabled",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
             "key": "field_646e2732c9bea",
-            "label": "Content Alignment",
+            "label": "Text Alignment",
             "name": "content_alignment",
             "aria-label": "",
             "type": "button_group",
@@ -189,7 +194,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33.3",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -204,63 +209,28 @@
             "layout": "horizontal"
         },
         {
-            "key": "field_65664ce0d74f8",
-            "label": "Min Height 100vh Minus Menu Height",
-            "name": "min_height_100vh_minus_menu_height",
+            "key": "field_65f0b4d2aeafe",
+            "label": "Justify Container Row",
+            "name": "justify_container_row",
             "aria-label": "",
             "type": "button_group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33.3",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
             "choices": {
-                "disabled": "disabled",
-                "enabled": "enabled"
+                "left": "Left",
+                "center": "Center",
+                "right": "Right"
             },
-            "default_value": "disabled",
+            "default_value": "center : Center",
             "return_format": "value",
-            "allow_null": 0,
+            "allow_null": 1,
             "layout": "horizontal"
-        },
-        {
-            "key": "field_65664df7a18da",
-            "label": "Style End",
-            "name": "",
-            "aria-label": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 1
-        },
-        {
-            "key": "field_65664dd200803",
-            "label": "Width & Height",
-            "name": "",
-            "aria-label": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
         },
         {
             "key": "field_6470e514d01b1",
@@ -415,24 +385,6 @@
             ]
         },
         {
-            "key": "field_65664e00a18db",
-            "label": "Width & Height End",
-            "name": "",
-            "aria-label": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 1
-        },
-        {
             "key": "field_6486086269fb7",
             "label": "Container Background",
             "name": "section_background",
@@ -442,7 +394,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "33.3",
                 "class": "",
                 "id": ""
             },
@@ -469,7 +421,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "33.3",
                 "class": "",
                 "id": ""
             },
@@ -496,7 +448,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "33.3",
                 "class": "",
                 "id": ""
             },
@@ -1195,7 +1147,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1701203468,
+    "modified": 1710275134,
     "acfe_categories": {
         "blocks": "Blocks"
     }

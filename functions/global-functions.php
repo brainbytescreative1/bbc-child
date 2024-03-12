@@ -334,6 +334,7 @@ function get_spacing_bbc( $field, $field_type = false, $classes = false ) {
     // container defaults
     if ( $field_type === 'container' ) {
 
+        /*
         $left_right_padding_container = get_field('left_right_padding_container', 'style');
         if ( $left_right_padding_container ) {
             if ( $left_right_padding_container == 'none' ) {
@@ -341,6 +342,15 @@ function get_spacing_bbc( $field, $field_type = false, $classes = false ) {
             }
             $classes[] = 'px-lg-' . $left_right_padding_container;
         }
+        
+        $left_right_padding_container_mobile = get_field('left_right_padding_container_mobile', 'style');
+        if ( $left_right_padding_container_mobile ) {
+            if ( $left_right_padding_container_mobile == 'none' ) {
+                $left_right_padding_container_mobile = '0';
+            }
+            $classes[] = 'px-' . $left_right_padding_container_mobile;
+        }
+        */
 
         $top_bottom_padding_container = get_field('top_bottom_padding_container', 'style');
         if ( $top_bottom_padding_container ) {
@@ -352,29 +362,23 @@ function get_spacing_bbc( $field, $field_type = false, $classes = false ) {
             $classes[] = 'py-3';
         }
 
-        $left_right_padding_container_mobile = get_field('left_right_padding_container_mobile', 'style');
-        if ( $left_right_padding_container_mobile ) {
-            if ( $left_right_padding_container_mobile == 'none' ) {
-                $left_right_padding_container_mobile = '0';
-            }
-            $classes[] = 'px-' . $left_right_padding_container_mobile;
-        }
-
         $top_bottom_padding_container_mobile = get_field('top_bottom_padding_container_mobile', 'style');
-        if ( $top_bottom_padding_container_mobile ) {
+        if ( $top_bottom_padding_container_mobile && ( $top_bottom_padding_container_mobile !== 'default' ) ) {
         
             if ( $top_bottom_padding_container_mobile == 'none' ) {
                 $top_bottom_padding_container_mobile = '0';
             }
             $classes[] = 'py-' . $top_bottom_padding_container_mobile;
         } else {
-            $classes[] = 'py-3';
+            $classes[] = 'py-' . $top_bottom_padding_container;
         }
 
     }
 
     // column defaults
     if ( $field_type === 'column' ) {
+
+        /*
 
         $left_right_padding_column = get_field('left_right_padding_column', 'style');
         if ( $left_right_padding_column ) {
@@ -406,6 +410,8 @@ function get_spacing_bbc( $field, $field_type = false, $classes = false ) {
             }
             $classes[] = 'py-' . $top_bottom_padding_column_mobile;
         }
+
+        */
 
     }
 

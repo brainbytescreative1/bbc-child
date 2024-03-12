@@ -1,14 +1,4 @@
 /*** acf ***/
-/* hide labels */
-/*.label-hide .acf-fields {
-	border: 0 !important;
-}
-.label-hide .acf-fields .acf-field {
-	padding: 0;
-}
-.label-hide .acf-fields .acf-field .acf-label label {
-	display: none;
-}*/
 /* options page tabs */
 .toplevel_page_style .acf-tab-group {
 	padding-left: 0 !important;
@@ -17,11 +7,6 @@
 .site-colors-field input[type=radio] {
     box-shadow: none;
 }
-/*
-.site-colors-field .acf-label {
-	display: none !important;
-}
-*/
 .site-colors-field input[type=radio]:checked {
 	border: 2px solid var(--wp--preset--color--luminous-vivid-orange);
 }
@@ -54,13 +39,6 @@
 	height: 1.5rem;
 	min-width: 1.5rem;
 }
-/*
-.site-colors-field > .acf-label,
-.site-colors-field .acf-radio-list:before,
-.site-colors-field:before {
-    display: none !important;
-}
-*/
 /* site colors */
 .site-colors-field input[value="default"] {
     background: var(--text);
@@ -193,9 +171,11 @@
 	max-width: 100% !important;
 }
 /* accordions */
+/*
 .acf-fields.-sidebar > .acf-field-tab + .acf-field {
 	margin-top: 1px;
 }
+*/
 /* block z-index */
 .block-editor-block-list__block {
 	overflow: hidden;
