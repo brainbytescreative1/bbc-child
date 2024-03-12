@@ -5,7 +5,7 @@
  Author:       Brain Bytes Creative
  Author URI:   https://github.com/understrap/understrap-child/graphs/contributors
  Template:     understrap
- Version:      1.0.19
+ Version:      1.0.20
  License: GNU General Public License v2 or later
  License URI: http://www.gnu.org/licenses/gpl-2.0.html
  Text Domain:  bbc
@@ -772,6 +772,42 @@ header.centered {
 .column-link-white:hover img {
     filter: drop-shadow(0px 1000px 0 #ffffff);
     transform: translateY(-1000px);
+}
+/** remove margin from last column **/
+/* 2 */
+.columns-2:not(.columns-2.flex-column-reverse) .column-2 {
+    margin-bottom: 0 !important;
+}
+.columns-2.flex-column-reverse .column-1 {
+    margin-bottom: 0 !important;
+}
+/* 3 */
+.columns-3:not(.columns-3.flex-column-reverse) .column-3 {
+    margin-bottom: 0 !important;
+}
+.columns-3.flex-column-reverse .column-1 {
+    margin-bottom: 0 !important;
+}
+/* 4 */
+.columns-4:not(.columns-4.flex-column-reverse) .column-4 {
+    margin-bottom: 0 !important;
+}
+.columns-4.flex-column-reverse .column-1 {
+    margin-bottom: 0 !important;
+}
+/* 5 */
+.columns-5:not(.columns-5.flex-column-reverse) .column-5 {
+    margin-bottom: 0 !important;
+}
+.columns-5.flex-column-reverse .column-1 {
+    margin-bottom: 0 !important;
+}
+/* 6 */
+.columns-6:not(.columns-6.flex-column-reverse) .column-6 {
+    margin-bottom: 0 !important;
+}
+.columns-6.flex-column-reverse .column-1 {
+    margin-bottom: 0 !important;
 }
 /*** borders ***/
 .border-light-gray {

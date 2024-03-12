@@ -77,8 +77,7 @@ if ( $section_width != 'full' ) {
 $container_classes[] = 'element-container';
 
 // get global style settings
-//$default_padding = get_field('default_padding', 'style');
-//$container_classes[] = 'py-' . $default_padding;
+$column_gap_global = get_field('column_gap', 'style');
 
 // container classes and styling
 $min_height_100vh_minus_menu_height = get_field('min_height_100vh_minus_menu_height');
@@ -131,35 +130,22 @@ if ( $even_column_height == 'even' ) {
 $column_margin_bottom = null;
 if ( $column_count > 1 ) {
     $column_gap = get_field('column_gap');
-    if ( $column_gap == 'none' ) {
-        $column_gap = '0';
-    }
-    if ( $column_gap === 'default' ) {
-        $column_margin_bottom = null;
+    if ( $column_gap ) {
+        if ( $column_gap === 'none' ) {
+            $column_gap = '0';
+        } elseif ( $column_gap === 'default' ) {
+            $column_gap = $column_gap_global;
+        } else {
+            $column_gap = '2';
+        }
     } else {
-        $row_classes[] = 'gx-' . $column_gap . ' gx-'. $mobile_breakpoint .'-' . $column_gap;
-        $column_margin_bottom = 'mb-'. $column_gap .' mb-lg-0';
+        $column_gap = '2';
     }
+    $row_classes[] = 'gx-' . $column_gap . ' gx-'. $mobile_breakpoint .'-' . $column_gap;
+    $row_classes[] = 'py-' . $column_gap;
+    $column_margin_bottom = 'mb-'. $column_gap .' mb-lg-0';
 }
 
-// flex
-/*
-$flex_vertical_align = get_field('flex_vertical_align');
-$flex_horizontal_align = get_field('flex_horizontal_align');
-if ( ( $flex_vertical_align !== 'normal' ) || ( $flex_vertical_align !== 'normal' ) ) {
-    $container_classes[] = 'd-flex';
-}
-// flex vertical align
-if ( $flex_vertical_align !== 'normal' ) {
-    $container_classes[] = $flex_vertical_align;
-    $row_classes[] = $flex_vertical_align;
-}
-// flex horizontal align
-if ( $flex_horizontal_align !== 'normal' ) {
-    $container_classes[] = $flex_horizontal_align;
-    $row_classes[] = $flex_horizontal_align;
-}
-*/
 $element_assignment = get_field('element_assignment');
 
 // container background
@@ -204,15 +190,6 @@ if ( $row_background ) {
     }
 }
 
-// remove row padding
-/*
-$remove_row_padding = get_field('remove_row_padding');
-if ( $remove_row_padding == 'remove' ) {
-    $row_classes[] = 'ps-0';
-    $row_classes[] = 'pe-0';
-}
-*/
-
 // container advanced
 $additional_classes = get_field('additional_classes');
 if ( $additional_classes ) {
@@ -231,6 +208,10 @@ if ( $custom_id ) {
 
 // reverse columns
 $reverse_columns = get_field('reverse_columns');
+if ( $reverse_columns && ( $reverse_columns === 'reverse' ) ) {
+    $row_classes[] = 'flex-lg-row';
+    $row_classes[] = 'flex-column-reverse';
+}
 
 // row advanced
 $row_classes[] = get_field('row_additional_classes');
@@ -258,17 +239,6 @@ if ( $divider_position !== 'none' ) {
 }
 
 // flex
-/*
-$flex_element = get_field('flex_element');
-if ( $flex_element != 'none' ) {
-    $flex = get_flex_bbc($flex_element);
-    if ( $flex_element == 'row' ) {
-        $row_classes[] = $flex;
-    } elseif ( $flex_element == 'container' ) {
-        $container_classes[] = $flex;
-    }
-}
-*/
 $flex_element = get_field('flex_element');
 if ( $flex_element != 'none' ) {
     $flex = get_flex_bbc(get_field('flex'));
@@ -278,6 +248,15 @@ if ( $flex_element != 'none' ) {
         $container_classes[] = $flex;
     }
 }
+
+// add number of columns to row
+$column_count = get_field('columns');
+if ( $column_count ) {
+    $column_count = count($column_count); // get total number of columns
+} else {
+    $column_count = 0;
+}
+$row_classes[] = 'columns-' . $column_count;
 
 // process global functions
 $container_classes[] = get_spacing_bbc(get_field('container_spacing'), 'container');
@@ -290,13 +269,6 @@ $row_classes = trim(implode(' ', $row_classes));
 
 $container_styles = implode(' ', $container_styles);
 $row_styles = implode(' ', $row_styles);
-
-$column_count = get_field('columns');
-if ( $column_count ) {
-    $column_count = count($column_count); // get total number of columns
-} else {
-    $column_count = 0;
-}
 
 if ( get_field('columns') && ( $column_count > 0 ) ) {
 
@@ -356,6 +328,7 @@ echo '<div class="'. esc_attr($container_classes) . esc_attr($class_name) .'" st
 
                 // add initial column classes
                 $col_classes[] = 'col-element';
+                $col_classes[] = 'column-' . $column_number;
                 $col_inner_classes[] = 'col-inner';
                 $column_inner_content_classes[] = 'col-inner-content';
 
@@ -468,43 +441,6 @@ echo '<div class="'. esc_attr($container_classes) . esc_attr($class_name) .'" st
 
                 }
 
-                if ( $reverse_columns === 'reverse' ) {
-                    if ( $column_count == 2 ) {
-                        if ( $column_number == 1 ) {
-                            $col_classes[] = 'order-2';
-                            $col_classes[] = 'order-' . $mobile_breakpoint . '-1';
-                        } elseif ( $column_number == 2 ) {
-                            $col_classes[] = 'order-1';
-                            $col_classes[] = 'order-' . $mobile_breakpoint . '-2';
-                        }
-                    } elseif ( $column_count == 3 ) {
-                        if ( $column_number == 1 ) {
-                            $col_classes[] = 'order-3';
-                            $col_classes[] = 'order-' . $mobile_breakpoint . '-1';
-                        } elseif ( $column_number == 2 ) {
-                            $col_classes[] = 'order-2';
-                            $col_classes[] = 'order-' . $mobile_breakpoint . '-2';
-                        } elseif ( $column_number == 3 ) {
-                            $col_classes[] = 'order-1';
-                            $col_classes[] = 'order-' . $mobile_breakpoint . '-3';
-                        }
-                    } elseif ( $column_count == 4 ) {
-                        if ( $column_number == 1 ) {
-                            $col_classes[] = 'order-4';
-                            $col_classes[] = 'order-' . $mobile_breakpoint . '-1';
-                        } elseif ( $column_number == 2 ) {
-                            $col_classes[] = 'order-3';
-                            $col_classes[] = 'order-' . $mobile_breakpoint . '-2';
-                        } elseif ( $column_number == 3 ) {
-                            $col_classes[] = 'order-2';
-                            $col_classes[] = 'order-' . $mobile_breakpoint . '-3';
-                        } elseif ( $column_number == 4 ) {
-                            $col_classes[] = 'order-1';
-                            $col_classes[] = 'order-' . $mobile_breakpoint . '-4';
-                        }
-                    }
-                }
-
                 // flex
                 $column_flex = get_sub_field('flex_element');
                 if ( $column_flex != 'none' ) {
@@ -526,10 +462,6 @@ echo '<div class="'. esc_attr($container_classes) . esc_attr($class_name) .'" st
 
                 // add margin
                 $col_classes[] = $column_margin_bottom;
-
-                if ( $section_width == 'full' ) {
-                    //$col_classes[] = 'ps-0 pe-0';
-                }
 
                 // process global functions
                 $col_spacing = get_spacing_bbc(get_sub_field('column_spacing'), 'column');

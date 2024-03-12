@@ -33,13 +33,45 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "default_value": 1468,
             "min": "",
             "max": "",
             "placeholder": "",
             "step": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_65ef72252b904",
+            "label": "Column Gap",
+            "name": "column_gap",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "none": "none",
+                "1": "sm",
+                "2": "md",
+                "3": "lg",
+                "4": "xl",
+                "5": "xxl"
+            },
+            "default_value": 2,
+            "return_format": "value",
+            "multiple": 0,
+            "placeholder": "",
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "allow_custom": 0,
+            "search_placeholder": ""
         },
         {
             "key": "field_65733e48feb61",
@@ -357,7 +389,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1702051691,
+    "modified": 1710191221,
     "acfe_categories": {
         "styles": "Styles"
     }
