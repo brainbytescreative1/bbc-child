@@ -262,8 +262,52 @@
             "endpoint": 0
         },
         {
+            "key": "field_65f31a5100bfe",
+            "label": "Default Column Top & Bottom Padding",
+            "name": "default_column_top_bottom_padding",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "add": "Add"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 1,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_65f31aab00bff",
+            "label": "Default Column Left & Right Padding",
+            "name": "default_column_left_right_padding",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "add": "Add"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 1,
+            "layout": "horizontal"
+        },
+        {
             "key": "field_648cc66245979",
-            "label": "Column Spacing",
+            "label": "Custom Column Spacing",
             "name": "column_spacing",
             "aria-label": "",
             "type": "clone",
@@ -557,7 +601,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1710273245,
+    "modified": 1710431007,
     "acfe_categories": {
         "global": "Global"
     }

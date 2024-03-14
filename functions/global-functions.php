@@ -417,6 +417,20 @@ function get_spacing_bbc( $field, $field_type = false, $classes = false ) {
 
     if ( $field ) {
 
+        // spacing all
+        $padding_all = $field['padding_all'];
+        if ( $padding_all && ( $padding_all !== 'default' ) ) {
+            $classes[] = 'p-lg-' . $padding_all;
+            $classes[] = 'p-' . $padding_all;
+        }
+
+        $margin_all = $field['margin_all'];
+        if ( $margin_all && ( $margin_all !== 'default' ) ) {
+            $classes[] = 'm-lg-' . $margin_all;
+            $classes[] = 'm-' . $margin_all;
+        }
+
+        // custom spacing
         $desktop_padding = $field['desktop_padding'];
         $desktop_margin = $field['desktop_margin'];
         $mobile_padding = $field['mobile_padding'];
