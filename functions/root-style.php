@@ -549,10 +549,7 @@ if ( $mobile_radius_5 ) {
 /* main menu */
 <?php
 // main menu color
-if ( $main_menu_text_color['theme_colors'] ) {
-    echo '--main_menu_text_color: var(--'. $main_menu_text_color['theme_colors'] .');';
-    echo "\r\n";
-}
+
 // main font family
 if ($main_menu_font_family && ( $main_menu_font_family !== 'default')) {
     echo '--main_menu_font_family: ' . 'var(--font-'. $main_menu_font_family .');';
@@ -572,6 +569,8 @@ if ($main_menu_font_weight && ( $main_menu_font_weight !== 'default')) {
 <?php $h1 = get_field('h1', 'style'); ?>
 .site h1, 
 .site .h1,
+footer h1,
+footer .h1
 .is-root-container h1,
 .is-root-container .h1 {
 <?php
@@ -598,6 +597,8 @@ if ( $h1 ) {
 @media screen and (min-width: 991px) {
     .site h1, 
     .site .h1,
+    footer h1,
+    footer .h1
     .is-root-container h1,
     .is-root-container .h1 {
         <?php
@@ -616,6 +617,8 @@ if ( $h1 ) {
 <?php $h2 = get_field('h2', 'style'); ?>
 .site h2, 
 .site .h2,
+footer h2,
+footer .h2
 .is-root-container h2,
 .is-root-container .h2 {
 <?php
@@ -642,6 +645,8 @@ if ( $h2 ) {
 @media screen and (min-width: 991px) {
     .site h2, 
     .site .h2,
+    footer h2,
+    footer .h2
     .is-root-container h2,
     .is-root-container .h2 {
         <?php
@@ -660,6 +665,8 @@ if ( $h2 ) {
 <?php $h3 = get_field('h3', 'style'); ?>
 .site h3, 
 .site .h3,
+footer h3,
+footer .h3
 .is-root-container h3,
 .is-root-container .h3 {
 <?php
@@ -686,6 +693,8 @@ if ( $h3 ) {
 @media screen and (min-width: 991px) {
     .site h3, 
     .site .h3,
+    footer h3,
+    footer .h3
     .is-root-container h3,
     .is-root-container .h3 {
         <?php
@@ -704,6 +713,8 @@ if ( $h3 ) {
 <?php $h4 = get_field('h4', 'style'); ?>
 .site h4, 
 .site .h4,
+footer h4,
+footer .h4
 .is-root-container h4,
 .is-root-container .h4 {
 <?php
@@ -730,6 +741,8 @@ if ( $h4 ) {
 @media screen and (min-width: 991px) {
     .site h4, 
     .site .h4,
+    footer h4,
+    footer .h4
     .is-root-container h4,
     .is-root-container .h4 {
         <?php
@@ -748,6 +761,8 @@ if ( $h4 ) {
 <?php $h5 = get_field('h5', 'style'); ?>
 .site h5, 
 .site .h5,
+footer h5,
+footer .h5
 .is-root-container h5,
 .is-root-container .h5 {
 <?php
@@ -774,6 +789,8 @@ if ( $h5 ) {
 @media screen and (min-width: 991px) {
     .site h5, 
     .site .h5,
+    footer h5,
+    footer .h5
     .is-root-container h5,
     .is-root-container .h5 {
         <?php
@@ -792,6 +809,8 @@ if ( $h5 ) {
 <?php $h6 = get_field('h6', 'style'); ?>
 .site h6, 
 .site .h6,
+footer h6,
+footer .h6
 .is-root-container h6,
 .is-root-container .h6 {
 <?php
@@ -816,7 +835,12 @@ if ( $h6 ) {
 }
 
 @media screen and (min-width: 991px) {
-    .site h6, .site .h6 {
+    .site h6, 
+    .site .h6,
+    footer h6,
+    footer .h6
+    .is-root-container h6,
+    .is-root-container .h6 {
         <?php
         // size
         if ( $h6['font_size'] ) {

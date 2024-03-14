@@ -324,6 +324,7 @@ echo '<div class="'. esc_attr($container_classes) . esc_attr($class_name) .'" st
         }
 
         // start inner row if max width
+        //$max_width = [];
         $max_width = get_field('max_width');
 
         if ( $max_width ) {
@@ -504,8 +505,20 @@ echo '<div class="'. esc_attr($container_classes) . esc_attr($class_name) .'" st
                 // add default column spacing
                 $default_column_top_bottom_padding = get_sub_field('default_column_top_bottom_padding');
                 if ( $default_column_top_bottom_padding && ( $default_column_top_bottom_padding === 'add' ) ) {
+
+                    // get fields from global styles
                     $top_bottom_padding_column = get_field('top_bottom_padding_column', 'style');
                     $top_bottom_padding_column_mobile = get_field('top_bottom_padding_column_mobile', 'style');
+
+                    // assign values if global styles empty
+                    if ( !$top_bottom_padding_column ) {
+                        $top_bottom_padding_column = '2';
+                    }
+                    if ( !$top_bottom_padding_column_mobile ) {
+                        $top_bottom_padding_column_mobile = '2';
+                    }
+
+                    // assign spacing to column assignment element
                     if ( $element_assignment === 'inner') {
                         $col_inner_classes[] = 'py-' . $mobile_breakpoint . '-' . $top_bottom_padding_column;
                         $col_inner_classes[] = 'py-' . $top_bottom_padding_column_mobile;
@@ -513,11 +526,24 @@ echo '<div class="'. esc_attr($container_classes) . esc_attr($class_name) .'" st
                         $col_classes[] = 'py-' . $mobile_breakpoint . '-' . $top_bottom_padding_column;
                         $col_classes[] = 'py-' . $top_bottom_padding_column_mobile;
                     }
+
                 }
                 $default_column_left_right_padding = get_sub_field('default_column_left_right_padding');
                 if ( $default_column_top_bottom_padding && ( $default_column_top_bottom_padding === 'add' ) ) {
+
+                    // get fields from global styles
                     $left_right_padding_column = get_field('left_right_padding_column', 'style');
                     $left_right_padding_column_mobile = get_field('left_right_padding_column_mobile', 'style');
+
+                    // assign values if global styles empty
+                    if ( !$left_right_padding_column ) {
+                        $left_right_padding_column = '2';
+                    }
+                    if ( !$left_right_padding_column_mobile ) {
+                        $left_right_padding_column_mobile = '2';
+                    }
+
+                    // assign spacing to column assignment element
                     if ( $element_assignment === 'inner') {
                         $col_inner_classes[] = 'px-' . $mobile_breakpoint . '-' . $left_right_padding_column;
                         $col_inner_classes[] = 'px-' . $left_right_padding_column_mobile;
@@ -525,6 +551,7 @@ echo '<div class="'. esc_attr($container_classes) . esc_attr($class_name) .'" st
                         $col_classes[] = 'px-' . $mobile_breakpoint . '-' . $left_right_padding_column;
                         $col_classes[] = 'px-' . $left_right_padding_column_mobile;
                     }
+
                 }
 
                 // custom spacing
@@ -654,9 +681,17 @@ echo '<div class="'. esc_attr($container_classes) . esc_attr($class_name) .'" st
 
         endif; // if columns end
 
-        // start inner row if justifed        
+        // start inner row if justifed
+        $max_width = [
+            'value' => '',
+            'unit' => ''
+        ];
+        $max_width = get_field('max_width');
         if ( $max_width ) {
-            echo '</div>';
+            $value = $max_width['value'];
+            if ( $value ) {
+                echo '</div>';
+            }
         }
 
     echo '</div>'; // row end

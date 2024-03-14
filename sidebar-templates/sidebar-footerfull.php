@@ -16,7 +16,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 	<!-- ******************* The Footer Full-width Widget Area ******************* -->
 
-	<div class="wrapper-footer-full" id="wrapper-footer-full" role="complementary">
+	<footer class="wrapper-footer-full" id="wrapper-footer-full" role="complementary">
 
 		<div class="<?php echo esc_attr( $container ); ?>" id="footer-full-content" tabindex="-1">
 
@@ -28,7 +28,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 		</div>
 
-	</div><!-- #wrapper-footer-full -->
+	</footer><!-- #wrapper-footer-full -->
 
 	<?php
 endif;
