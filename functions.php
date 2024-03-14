@@ -127,7 +127,7 @@ function bbc_stylesheet_css_js() {
 	$css_version = $theme_version . '.' . filemtime( get_stylesheet_directory() . $theme_styles );
 
 	wp_enqueue_style( 'bbc-style', get_stylesheet_directory_uri() . '/style.css', false, $css_version );
-	wp_enqueue_script( 'bbc-scripts', get_stylesheet_directory_uri() . '/js/bbc-scripts.js', array(), '1.0.0' );
+	wp_enqueue_script( 'bbc-scripts', get_stylesheet_directory_uri() . '/js/bbc-scripts.js', array(), '1.0.1' );
 }
 add_action( 'wp_enqueue_scripts', 'bbc_stylesheet_css_js' );
 
@@ -145,7 +145,7 @@ function load_admin_style() {
 	
 	$css_version = $theme_version . '.' . filemtime( get_stylesheet_directory() . $theme_styles );
 
-	wp_enqueue_style( 'admin_css', get_stylesheet_directory_uri() . '/bbc-admin-style.css', false, '1.0.0' );
+	wp_enqueue_style( 'admin_css', get_stylesheet_directory_uri() . '/bbc-admin-style.css', false, '1.0.1' );
     wp_enqueue_style( 'admin_front_css', get_stylesheet_directory_uri() . '/style.css', false, $css_version );
 }
 
