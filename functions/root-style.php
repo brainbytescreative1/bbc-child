@@ -470,7 +470,7 @@ if ( $white_color ) {
 --font-secondary: <?=$secondary_font;?>;
 
 /* header */
-<?php if ( $main_menu_text_color['theme_colors'] ) { ?>
+<?php if ( $main_menu_text_color ) { ?>
 --main_menu_text_color: var(--<?=$main_menu_text_color['theme_colors']?>);
 <?php } ?>
 
