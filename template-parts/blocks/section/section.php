@@ -32,18 +32,16 @@ $row_classes = [];
 $container_styles = [];
 $row_styles = [];
 
+// define null values
+$flex = null;
+
 // define overlay
 $container_overlay = null;
 $row_overlay = null;
 $row_mobile_overlay = null;
-$column_overlay = null;
-$column_inner_overlay = null;
+$container_overlay = null;
 $container_video = null;
-$column_video = null;
-$column_inner_video = null;
-$mobile_image_overlay = null;
-$column_mobile_overlay = null;
-$column_inner_mobile_overlay = null;
+$container_mobile_image_overlay = null;
 
 $page_content_width = '';
 $page_content_width = get_page_width_bbc('content_width', $page_content_width, $post_id);
@@ -171,7 +169,7 @@ if ( $container_background ) {
         $container_video_script = $container_background['video_script'];
     }
     if ( $container_background['mobile_image_overlay'] ) {
-        $mobile_image_overlay = $container_background['mobile_image_overlay'];
+        $container_mobile_image_overlay = $container_background['mobile_image_overlay'];
     }
 }
 
@@ -302,8 +300,8 @@ echo '<div class="'. esc_attr($container_classes) . esc_attr($class_name) .'" st
         echo $container_video_script;
     }
 
-    if ( $mobile_image_overlay ) {
-        echo $mobile_image_overlay;
+    if ( $container_mobile_image_overlay ) {
+        echo $container_mobile_image_overlay;
     }
 
     if ( $container_overlay ) {
@@ -373,6 +371,14 @@ echo '<div class="'. esc_attr($container_classes) . esc_attr($class_name) .'" st
                 $column_inner_content_classes = [];
                 $col_styles = [];
                 $col_inner_styles = [];
+
+                $column_overlay = null;
+                $column_inner_overlay = null;
+                $column_video = null;
+                $column_inner_video = null;
+                $mobile_image_overlay = null;
+                $column_mobile_overlay = null;
+                $column_inner_mobile_overlay = null;
 
                 // add initial column classes
                 $col_classes[] = 'col-element';
@@ -445,7 +451,7 @@ echo '<div class="'. esc_attr($container_classes) . esc_attr($class_name) .'" st
                             break;
                         case 'sm':
                             $col_classes[] = 'col-sm-'. $column_width_value;
-                            break;
+                        break;
                     }
                 }
 
@@ -453,7 +459,7 @@ echo '<div class="'. esc_attr($container_classes) . esc_attr($class_name) .'" st
                 $column_background = get_background_bbc('column_background', $col_inner_classes, $col_inner_styles, true);
                 if ( $column_background ) {
 
-                    if ( $element_assignment == 'outer') {
+                    if ( $element_assignment === 'outer') {
                         if ( $column_background['classes'] ) {
                             $col_classes[] = $column_background['classes'];
                         }
@@ -469,7 +475,7 @@ echo '<div class="'. esc_attr($container_classes) . esc_attr($class_name) .'" st
                         if ( $column_background['mobile_image_overlay'] ) {
                             $column_mobile_overlay = $column_background['mobile_image_overlay'];
                         }
-                    } else {
+                    } elseif ( $element_assignment === 'inner') {
                         if ( $column_background['classes'] ) {
                             $col_inner_classes[] = $column_background['classes'];
                         }
@@ -616,23 +622,20 @@ echo '<div class="'. esc_attr($container_classes) . esc_attr($class_name) .'" st
                     <div class="column-link <?=esc_attr($col_classes)?>" style="<?=esc_attr($col_styles)?>" <?php if ( $target !== '_blank' ) { ?> onclick="window.location.href='<?=$url?>';"<?php } else { ?> onclick="window.open('<?=$url?>')" <?php } ?>>
                 <?php } else {
                     echo '<div class="'. esc_attr($col_classes) .'" style="'. esc_attr($col_styles) .'">'; // column start
-                }
+                    }
+                    
+                    if ( $column_mobile_overlay ) {
+                        echo $column_mobile_overlay;
+                    }
+                    if ( $column_video ) {
+                        echo $column_video;
+                    }
+                    if ( $column_overlay ) {
+                        echo $column_overlay;
+                    }
 
                     echo '<div class="'. esc_attr($col_inner_classes) .'" style="'. esc_attr($col_inner_styles) .'">'; // column inner start
-
-                        
-                        if ( $column_mobile_overlay ) {
-                            echo $column_mobile_overlay;
-                        }
-                        if ( $column_video ) {
-                            echo $column_video;
-                        }
-                        if ( $column_overlay ) {
-                            echo $column_overlay;
-                        }
-
-                        echo '<div class="'. esc_attr($column_inner_content_classes) .'">'; // column inner content start
-
+  
                         if ( $column_inner_mobile_overlay ) {
                             echo $column_inner_mobile_overlay;
                         }
@@ -642,6 +645,8 @@ echo '<div class="'. esc_attr($container_classes) . esc_attr($class_name) .'" st
                         if ( $column_inner_overlay ) {
                             echo $column_inner_overlay;
                         }
+
+                        echo '<div class="'. esc_attr($column_inner_content_classes) .'">'; // column inner content start
 
                         if( have_rows('elements') ): // if elements start
 

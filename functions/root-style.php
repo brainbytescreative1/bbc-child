@@ -469,6 +469,11 @@ if ( $white_color ) {
 --font-primary: <?=$primary_font;?>;
 --font-secondary: <?=$secondary_font;?>;
 
+/* header */
+<?php if ( $main_menu_text_color['theme_colors'] ) { ?>
+--main_menu_text_color: var(--<?=$main_menu_text_color['theme_colors']?>);
+<?php } ?>
+
 /* buttons */
 --button_border-radius: <?=$border_radius;?>px;
 <?php

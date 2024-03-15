@@ -5,7 +5,7 @@
  Author:       Brain Bytes Creative
  Author URI:   https://github.com/understrap/understrap-child/graphs/contributors
  Template:     understrap
- Version:      1.0.23
+ Version:      1.0.24
  License: GNU General Public License v2 or later
  License URI: http://www.gnu.org/licenses/gpl-2.0.html
  Text Domain:  bbc
@@ -737,12 +737,8 @@ header.centered {
 }
 */
 /** columns **/
-/* .col-lg-12 {
-    padding-left: 0;
-    padding-right: 0;
-} */
-@media screen and ( max-width: 768px ) {
-
+.col-element {
+    position: relative;
 }
 .col-inner {
     height: 100%;
