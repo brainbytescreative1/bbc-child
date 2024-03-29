@@ -144,6 +144,23 @@ function get_background_bbc($field, $classes, $styles, $sub = false) {
                             $background_position_mobile = str_replace('-', ' ', $background_position_mobile);
                         }
 
+                        /* check whether image has webp */
+                        $handle = curl_init($image_mobile . '.webp');
+                        curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
+
+                        /* Get the HTML or whatever is linked in $url. */
+                        $response = curl_exec($handle);
+
+                        /* Check for 404 (file not found). */
+                        $httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
+                        if( ( $httpCode === 403 ) || ( $httpCode === 404 ) ) {
+                            $image_mobile = $image_mobile;
+                        } else {
+                            $image_mobile = $image_mobile . '.webp';
+                        }
+
+                        curl_close($handle);
+
                         $mobile_image_styles[] = 'background: url(' . $image_mobile . ');';
                         $mobile_image_styles[] = 'background-size: ' . $background_size_mobile . ';';
                         $mobile_image_styles[] = 'background-position: ' . $background_position_mobile . ';';
