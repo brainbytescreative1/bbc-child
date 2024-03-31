@@ -371,6 +371,7 @@ echo '<div class="'. esc_attr($container_classes) . esc_attr($class_name) .'" st
                 $column_inner_content_classes = [];
                 $col_styles = [];
                 $col_inner_styles = [];
+                $col_inner_content_styles = [];
 
                 $column_overlay = null;
                 $column_inner_overlay = null;
@@ -406,7 +407,40 @@ echo '<div class="'. esc_attr($container_classes) . esc_attr($class_name) .'" st
                     $column_width_value = $column_container_width;
                 }
 
+                // custom column max width
+                $column_max_width_enable = get_sub_field('column_max_width_enable');
+                if ( $column_max_width_enable && ( $column_max_width_enable === 'enable' ) ) {
+                    $column_max_width_value = get_sub_field('column_max_width_value');
+                    if ( $column_max_width_value ) {
+                        
+                        $column_max_width_unit = get_sub_field('column_max_width_unit');
+
+                        // alignment
+                        $column_max_width_alignment = get_sub_field('column_max_width_alignment');
+                        if ( $column_max_width_alignment === 'left' ) {
+                            $column_max_width_alignment = 'ms-0 me-auto';
+                        } elseif ( $column_max_width_alignment === 'center' ) {
+                            $column_max_width_alignment = 'ms-auto me-auto';
+                        } elseif ( $column_max_width_alignment === 'right' ) {
+                            $column_max_width_alignment = 'ms-auto me-0';
+                        }
+
+                        // assignment
+                        $column_max_width_assignment = get_sub_field('column_max_width_assignment');
+                        if ( $column_max_width_assignment === 'col-inner' ) {
+                            $col_inner_classes[] = $column_max_width_alignment;
+                            $col_inner_styles[] = 'max-width: ' . $column_max_width_value . $column_max_width_unit;
+                        } elseif ( $column_max_width_assignment === 'col-inner' ) {
+                            $column_inner_content_classes[] = $column_max_width_alignment;
+                            $col_inner_content_styles[] = 'max-width: ' . $column_max_width_value . $column_max_width_unit;
+                        }
+                        
+                    }
+                }
+                
+
                 // column width
+                /*
                 if ( $column_element_width === 'custom' ) {
 
                     $column_custom_width = get_sub_field('custom_width');
@@ -434,6 +468,7 @@ echo '<div class="'. esc_attr($container_classes) . esc_attr($class_name) .'" st
                     }
                     
                 }
+                */
 
                 if ( $column_width_value ) {
                     switch ($mobile_breakpoint) {
@@ -611,6 +646,7 @@ echo '<div class="'. esc_attr($container_classes) . esc_attr($class_name) .'" st
                 $column_inner_content_classes = trim(implode(' ', $column_inner_content_classes));
                 $col_styles = trim(implode(' ', $col_styles));
                 $col_inner_styles = trim(implode(' ', $col_inner_styles));
+                $col_inner_content_styles = trim(implode(' ', $col_inner_content_styles));
 
                 $column_link = get_sub_field('column_link');
                 if ( $column_link ) {
@@ -646,7 +682,7 @@ echo '<div class="'. esc_attr($container_classes) . esc_attr($class_name) .'" st
                             echo $column_inner_overlay;
                         }
 
-                        echo '<div class="'. esc_attr($column_inner_content_classes) .'">'; // column inner content start
+                        echo '<div class="'. esc_attr($column_inner_content_classes) .'" style="'. esc_attr($col_inner_content_styles) .'">'; // column inner content start
 
                         if( have_rows('elements') ): // if elements start
 

@@ -17,8 +17,8 @@ $navbar_type       = get_theme_mod( 'understrap_navbar_type', 'collapse' );
 $header_style = get_field('header_style', 'header');
 
 // custom code 
-$head = get_field('head', 'code');
-$body = get_field('body', 'code');
+$head_code = get_field('head', 'code');
+$body_code = get_field('body', 'code');
 
 ?>
 <!DOCTYPE html>
@@ -29,11 +29,9 @@ $body = get_field('body', 'code');
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	
 	<script src="https://kit.fontawesome.com/ec15ef7364.js" crossorigin="anonymous"></script>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-	<?php if ( $head ) {
-		echo $head;
+	<?php if ( $head_code ) {
+		echo $head_code;
 	} ?>
 	
 	<?php wp_head(); ?>
@@ -41,8 +39,8 @@ $body = get_field('body', 'code');
 
 <body <?php body_class(); ?> <?php understrap_body_attributes(); ?>>
 
-<?php if ( $body ) {
-	echo $body;
+<?php if ( $body_code ) {
+	echo $body_code;
 } ?>
 
 <?php do_action( 'wp_body_open' ); ?>
@@ -57,6 +55,8 @@ $body = get_field('body', 'code');
 
 		<?php get_template_part( 'global-templates/navbar-top' ); ?>
 		<?php get_template_part( 'global-templates/navbar', $navbar_type . '-' . $bootstrap_version ); ?>
-		<?php get_template_part( 'global-templates/navbar-sticky' ); ?>
+        <div id="sticky-nav" class="sticky-nav">
+            <?php get_template_part( 'global-templates/navbar', $navbar_type . '-' . $bootstrap_version ); ?>
+        </div>
 
 	</header><!-- #wrapper-navbar -->

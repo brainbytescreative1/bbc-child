@@ -36,9 +36,33 @@
             "choices": {
                 "rounded": "rounded",
                 "flush": "flush",
-                "centered": "centered"
+                "centered": "centered",
+                "toggle": "toggle"
             },
             "default_value": "enabled : Enabled",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_64bfbda1a1dbb",
+            "label": "Header Width",
+            "name": "header_width",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "container": "Boxed",
+                "container-fluid": "Full"
+            },
+            "default_value": "container",
             "return_format": "value",
             "allow_null": 0,
             "layout": "horizontal"
@@ -57,6 +81,13 @@
                         "field": "field_64efb51658d1a",
                         "operator": "==",
                         "value": "centered"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_64efb51658d1a",
+                        "operator": "==",
+                        "value": "toggle"
                     }
                 ]
             ],
@@ -260,29 +291,6 @@
             "endpoint": 0
         },
         {
-            "key": "field_64bfbda1a1dbb",
-            "label": "Main Menu Width",
-            "name": "main_menu_width",
-            "aria-label": "",
-            "type": "button_group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "container": "Boxed",
-                "container-fluid": "Full"
-            },
-            "default_value": "container",
-            "return_format": "value",
-            "allow_null": 1,
-            "layout": "horizontal"
-        },
-        {
             "key": "field_64beff80ddc81",
             "label": "Show Dropdown Indicators",
             "name": "show_dropdown_indicators",
@@ -455,32 +463,45 @@
             "search_placeholder": ""
         },
         {
-            "key": "field_65d8ceed8d26f",
+            "key": "field_6606be79afaa1",
             "label": "Main Menu Padding",
-            "name": "main_menu_padding",
+            "name": "main_menu_padding_updated",
             "aria-label": "",
-            "type": "clone",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
-            "clone": [
-                "field_64823ba723f82",
-                "field_64834b2745d3e"
-            ],
-            "display": "group",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0,
-            "acfe_seamless_style": 0,
-            "acfe_clone_modal": 0,
-            "acfe_clone_modal_close": 0,
-            "acfe_clone_modal_button": "",
-            "acfe_clone_modal_size": "large"
+            "choices": {
+                "default": "default",
+                "none": "none",
+                ".25rem": ".25rem",
+                ".5rem": ".5rem",
+                ".75rem": ".75rem",
+                "1rem": "1rem",
+                "1.25rem": "1.25rem",
+                "1.5rem": "1.5rem",
+                "1.75rem": "1.75rem",
+                "2rem": "2rem",
+                "1": "small",
+                "2": "medium",
+                "3": "large",
+                "4": "xl",
+                "5": "xxl"
+            },
+            "default_value": "default",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "allow_custom": 0,
+            "search_placeholder": ""
         },
         {
             "key": "field_64652b1c1e8c0",
@@ -498,29 +519,6 @@
             },
             "placement": "top",
             "endpoint": 0
-        },
-        {
-            "key": "field_64bfbd76a1dba",
-            "label": "Top Menu Width",
-            "name": "top_menu_width",
-            "aria-label": "",
-            "type": "button_group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "container": "Boxed",
-                "container-fluid": "Full"
-            },
-            "default_value": "container",
-            "return_format": "value",
-            "allow_null": 1,
-            "layout": "horizontal"
         },
         {
             "key": "field_64652ad2c00ab",
@@ -933,7 +931,14 @@
             "type": "select",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64652ad2c00ab",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "50",
                 "class": "",
@@ -986,13 +991,13 @@
                 "1.5rem": "1.5rem",
                 "1.75rem": "1.75rem",
                 "2rem": "2rem",
-                "small": "small",
-                "medium": "medium",
-                "large": "large",
-                "xl": "xl",
-                "xxl": "xxl"
+                "1": "small",
+                "2": "medium",
+                "3": "large",
+                "4": "xl",
+                "5": "xxl"
             },
-            "default_value": false,
+            "default_value": "default",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -1028,7 +1033,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1710540533,
+    "modified": 1711740390,
     "acfe_categories": {
         "options": "Options"
     }

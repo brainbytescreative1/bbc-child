@@ -348,6 +348,9 @@ function get_spacing_bbc( $field, $field_type = false, $classes = false ) {
 
     $classes = [];
 
+    // get padding all values
+    $padding_all = $field['padding_all'];
+
     // container defaults
     if ( $field_type === 'container' ) {
 
@@ -368,26 +371,27 @@ function get_spacing_bbc( $field, $field_type = false, $classes = false ) {
             $classes[] = 'px-' . $left_right_padding_container_mobile;
         }
         */
-
-        $top_bottom_padding_container = get_field('top_bottom_padding_container', 'style');
-        if ( $top_bottom_padding_container ) {
-            if ( $top_bottom_padding_container == 'none' ) {
-                $top_bottom_padding_container = '0';
+        if ( $padding_all && ( $padding_all === 'default' ) ) {
+            $top_bottom_padding_container = get_field('top_bottom_padding_container', 'style');
+            if ( $top_bottom_padding_container ) {
+                if ( $top_bottom_padding_container == 'none' ) {
+                    $top_bottom_padding_container = '0';
+                }
+                $classes[] = 'py-lg-' . $top_bottom_padding_container;
+            } else {
+                $classes[] = 'py-3';
             }
-            $classes[] = 'py-lg-' . $top_bottom_padding_container;
-        } else {
-            $classes[] = 'py-3';
-        }
 
-        $top_bottom_padding_container_mobile = get_field('top_bottom_padding_container_mobile', 'style');
-        if ( $top_bottom_padding_container_mobile && ( $top_bottom_padding_container_mobile !== 'default' ) ) {
-        
-            if ( $top_bottom_padding_container_mobile == 'none' ) {
-                $top_bottom_padding_container_mobile = '0';
+            $top_bottom_padding_container_mobile = get_field('top_bottom_padding_container_mobile', 'style');
+            if ( $top_bottom_padding_container_mobile && ( $top_bottom_padding_container_mobile !== 'default' ) ) {
+            
+                if ( $top_bottom_padding_container_mobile == 'none' ) {
+                    $top_bottom_padding_container_mobile = '0';
+                }
+                $classes[] = 'py-' . $top_bottom_padding_container_mobile;
+            } else {
+                $classes[] = 'py-' . $top_bottom_padding_container;
             }
-            $classes[] = 'py-' . $top_bottom_padding_container_mobile;
-        } else {
-            $classes[] = 'py-' . $top_bottom_padding_container;
         }
 
     }
@@ -435,14 +439,28 @@ function get_spacing_bbc( $field, $field_type = false, $classes = false ) {
     if ( $field ) {
 
         // spacing all
-        $padding_all = $field['padding_all'];
+        
         if ( $padding_all && ( $padding_all !== 'default' ) ) {
+            if ( $padding_all === 'none' ) {
+                $padding_all = '0';
+            }
+            $classes[] = 'px-lg-' . $padding_all;
+            $classes[] = 'px-' . $padding_all;
+            $classes[] = 'py-lg-' . $padding_all;
+            $classes[] = 'py-' . $padding_all;
             $classes[] = 'p-lg-' . $padding_all;
             $classes[] = 'p-' . $padding_all;
         }
 
         $margin_all = $field['margin_all'];
         if ( $margin_all && ( $margin_all !== 'default' ) ) {
+            if ( $margin_all === 'none' ) {
+                $margin_all = '0';
+            }
+            $classes[] = 'mx-lg-' . $margin_all;
+            $classes[] = 'mx-' . $margin_all;
+            $classes[] = 'my-lg-' . $margin_all;
+            $classes[] = 'my-' . $margin_all;
             $classes[] = 'm-lg-' . $margin_all;
             $classes[] = 'm-' . $margin_all;
         }
@@ -1060,4 +1078,47 @@ function get_color_bbc($field, $return_styles = false, $sub = false ) {
 
     }
 
+}
+
+function get_menu_padding_bbc($field, $classes, $styles) {
+
+    if ( $field ) {
+
+        if ( $field && ( $field !== 'default' ) ) {
+            $padding_styles = [
+                '.25rem',
+                '.25rem',
+                '.5rem',
+                '.75rem',
+                '1rem',
+                '1.25rem',
+                '1.5rem',
+                '1.75rem',
+                '2rem'
+            ];
+            $padding_classes = [
+                '1',
+                '2',
+                '3',
+                '4',
+                '5'
+            ];
+            if ( in_array( $field, $padding_styles ) ) {
+                $styles[] = 'padding-top: '. $field . ';';
+                $styles[] = 'padding-bottom: '. $field . ';';
+            } elseif ( in_array( $field, $padding_classes ) ) {
+                $classes[] = 'py-lg-' . $field;
+            }
+        }
+
+        $return_array = [
+            'classes' => $classes, 
+            'styles' => $styles
+        ];
+
+        return $return_array;
+
+    } else {
+        return null;
+    }
 }

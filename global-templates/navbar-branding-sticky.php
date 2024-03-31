@@ -35,10 +35,6 @@ if ( ! has_custom_logo() ) { ?>
 	$sticky_logo_width = null;
 	
     $sticky_logo = get_field('sticky_logo', 'header');
-	$sticky_logo_width = get_field('sticky_logo_width', 'header');
-	if ( $sticky_logo_width ) {
-		$sticky_logo_width = 'max-width: ' . $sticky_logo_width . 'px;';
-	}
     if ( $sticky_logo ) {
         $image = wp_get_attachment_image( $sticky_logo, 'medium' );
     } else {

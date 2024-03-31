@@ -197,7 +197,6 @@ if( get_row_layout() == 'tabbed_content' ):
                     $show_image = '';
                     if ( $image ) {
                         $show_image = $tab_image_classes;
-                        $has_image = ' py-3 px-2';
                     }
                     
                     ?>

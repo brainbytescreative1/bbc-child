@@ -209,15 +209,15 @@ if( get_row_layout() == 'icon_list' ):
         if ( $list_classes_field ) {
             $list_classes[] = $list_classes_field;
         }
-        $list_item_classes_field = get_sub_field('list_item_classes');
+        //$list_item_classes_field = get_sub_field('list_item_classes');
         if ( $list_item_classes_field ) {
             $list_item_classes[] = $list_item_classes_field;
         }
-        $icon_classes_field = get_sub_field('icon_classes');
-        if ( $list_item_classes_field ) {
+        //$icon_classes_field = get_sub_field('icon_classes');
+        if ( $icon_classes_field ) {
             $icon_classes[] = $icon_classes_field;
         }
-        $text_classes_field = get_sub_field('text_classes');
+        //$text_classes_field = get_sub_field('text_classes');
         if ( $text_classes_field ) {
             $text_classes[] = $text_classes_field;
         }
@@ -318,14 +318,17 @@ if( get_row_layout() == 'icon_list' ):
                         ?>
                         <li class="<?=$list_item_classes?>">
                             <a classes="<?=$link_text_classes?>" href="<?=$value?>" target="<?=$target?>" title="<?=$title?>" style="<?=$list_item_vertical_alignment?>">
-                                <span class="<?=$icon_classes?>">
-                                    <?=$icon['icon']?>
-                                </span>
+                                <?php if ( $icon['icon'] ) { ?>
+                                    <span class="<?=$icon_classes?>">
+                                        <?=$icon['icon']?>
+                                    </span>
+                                <?php } ?>
                                 <?php if ( $title ) { ?>
                                     <span class="<?=$text_classes?>">
                                         <?=$title?>
                                     </span>
                                 <?php } ?>
+                                
                             </a>
                         </li>
                         <?php
@@ -333,12 +336,16 @@ if( get_row_layout() == 'icon_list' ):
                     } elseif ( $text_content ) { ?>
 
                         <li class="<?=$list_item_classes?> <?=$link_text_classes?>" style="<?=$icon_styles?> <?=$list_item_vertical_alignment?>">
-                            <span class="<?=$icon_classes?>">
-                                <?=$icon['icon']?>
-                            </span>
-                            <span class="<?=$text_classes?>">
-                                <?=$text_content?>
-                            </span>
+                            <?php if ( $icon['icon'] ) { ?>
+                                <span class="<?=$icon_classes?>">
+                                    <?=$icon['icon']?>
+                                </span>
+                            <?php } ?>
+                            <?php if ( $text_content ) { ?>
+                                <span class="<?=$text_classes?>">
+                                    <?=$text_content?>
+                                </span>
+                            <?php } ?>
                         </li>
                         
                     <?php } else { ?>

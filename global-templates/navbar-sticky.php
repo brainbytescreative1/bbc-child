@@ -9,15 +9,31 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-// container width
+$header_style = get_field('header_style', 'header');
+
+// initialize classes and styles
 $wrapper_classes = [];
 $container_classes = [];
+$wrapper_styles = [];
+
+$wrapper_classes[] = 'menu-' . $header_style;
+
+$header_width = get_field('header_width', 'header');
+if ( $header_width ) {
+	$container_classes[] = $header_width;
+} else {
+	$container_classes[] = get_theme_mod( 'understrap_container_type' );
+}
 
 $wrapper_classes[] = 'navbar';
-$wrapper_classes[] = 'navbar-expand-lg';
+if ( $header_style === 'toggle' ) {
+    $wrapper_classes[] = 'navbar-expand-*';
+} else {
+    $wrapper_classes[] = 'navbar-expand-lg';
+}
 
 $menu_contrast_colors = get_field('menu_contrast_colors', 'header');
-if ( $menu_contrast_colors ) {
+if ( $menu_contrast_colors && ( $menu_contrast_colors !== 'default' ) ) {
     $wrapper_classes[] = 'navbar-' . $menu_contrast_colors;
 }
 
@@ -26,37 +42,34 @@ if ( $main_background_color ) {
     $wrapper_classes[] = 'bg-' . $main_background_color['theme_colors'];
 }
 
-$main_menu_width = get_field('main_menu_width', 'header');
-if ( $main_menu_width ) {
-	$container_classes[] = $main_menu_width;
-} else {
-	$container_classes[] = get_theme_mod( 'understrap_container_type' );
-}
-
 $show_dropdown_indicators = get_field('show_dropdown_indicators', 'header');
 if ( $show_dropdown_indicators == 'hide' ) {
 	$container_classes[] = 'hide-dropdown-arrows';
 }
 
-$header_style = get_field('header_style', 'header');
+// padding
+$menu_padding = get_menu_padding_bbc(get_field('main_menu_padding_updated', 'header'), $wrapper_classes, $wrapper_styles);
+if ( $menu_padding['classes'] ) {
+    $wrapper_classes = $menu_padding['classes'];
+}
+if ( $menu_padding['styles'] ) {
+    $wrapper_styles = $menu_padding['styles'];
+}
 
-$main_menu_padding = array();
-$main_menu_padding = get_field('main_menu_padding', 'header');
-if ( $main_menu_padding ) {
-    if ( $main_menu_padding['padding_top'] !== 'default' ) {
-        $wrapper_classes[] = 'pt-' . $main_menu_padding['padding_top'];
-    }
-    if ( $main_menu_padding['padding_bottom'] !== 'default' ) {
-        $wrapper_classes[] = 'pb-' . $main_menu_padding['padding_bottom'];
-    }
+// gap
+$gap = ' gap-1';
+$cta_buttons = get_field('cta_buttons', 'header');
+if ( $cta_buttons && ( ( $header_style === 'centered' ) || ( $header_style === 'toggle' ) ) ) {
+    $gap = ' gap-' . $cta_buttons['space_between'];
 }
 
 $wrapper_classes = esc_attr( trim( implode(' ', $wrapper_classes ) ) );
+$wrapper_styles = esc_attr( trim( implode(' ', $wrapper_styles ) ) );
 $container_classes = esc_attr( trim( implode(' ', $container_classes ) ) );
 
 ?>
 
-<nav id="main-nav-sticky" class="<?=$wrapper_classes?>" aria-labelledby="main-nav-label">
+<nav id="" class="<?=$wrapper_classes?>" aria-labelledby="main-nav-label" style="<?=$wrapper_styles?>">
 
 	<div id="main-nav-label" class="screen-reader-text">
 		<?php esc_html_e( 'Main Navigation', 'understrap' ); ?>
@@ -64,118 +77,69 @@ $container_classes = esc_attr( trim( implode(' ', $container_classes ) ) );
 
 	<div class="<?php echo esc_attr( $container_classes ); ?>">
 
-		<?php 
-		if ( $header_style === 'centered' ) { ?>
+        <?php get_template_part( 'global-templates/navbar-branding' ); ?>
 
-			<div class="col-lg-2 col-4 centered-logo">
+    <?php if ( $header_style !== 'centered' ) { ?>
+        <div class="menu-buttons-container<?=$gap?>"><!-- menu and buttons container start -->
+    <?php } ?>
+    
+            <div class="menu-container"><!-- menu start -->
 
-				<!-- Your site branding in the menu -->
-				<?php get_template_part( 'global-templates/navbar-branding-sticky' ); ?>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#navbarNavOffcanvas"
+                    aria-controls="navbarNavOffcanvas"
+                    aria-expanded="false"
+                    aria-label="<?php esc_attr_e( 'Open menu', 'understrap' ); ?>"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-			</div>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarNavOffcanvas"><!-- offcanvas menu start -->
 
-			<div class="col-lg-8 centered-menu">
+                    <div class="offcanvas-header justify-content-end">
+                        <button
+                            class="btn-close btn-close-text text-reset"
+                            type="button"
+                            data-bs-dismiss="offcanvas"
+                            aria-label="<?php esc_attr_e( 'Close menu', 'understrap' ); ?>"
+                        ></button>
+                    </div><!-- .offcancas-header -->
 
-				<button
-					class="navbar-toggler"
-					type="button"
-					data-bs-toggle="offcanvas"
-					data-bs-target="#navbarNavOffcanvas"
-					aria-controls="navbarNavOffcanvas"
-					aria-expanded="false"
-					aria-label="<?php esc_attr_e( 'Open menu', 'understrap' ); ?>"
-				>
-					<span class="navbar-toggler-icon"></span>
-				</button>
+                    <!-- The WordPress Menu goes here -->
+                    <?php
+                    wp_nav_menu(
+                        array(
+                            'theme_location'  => 'primary',
+                            'container_class' => 'offcanvas-body',
+                            'container_id'    => '',
+                            'menu_class'      => 'navbar-nav',
+                            'fallback_cb'     => '',
+                            'menu_id'         => 'main-menu',
+                            'depth'           => 2,
+                            'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
+                        )
+                    );
+                    ?>
+                </div><!-- offcanvas menu end -->
 
-				<div class="offcanvas offcanvas-end <?=$menu_contrast_colors?>" tabindex="-1" id="navbarNavOffcanvas">
+            </div><!-- menu end -->
 
-					<div class="offcanvas-header justify-content-end">
-						<button
-							class="btn-close btn-close-text text-reset"
-							type="button"
-							data-bs-dismiss="offcanvas"
-							aria-label="<?php esc_attr_e( 'Close menu', 'understrap' ); ?>"
-						></button>
-					</div><!-- .offcancas-header -->
+            <?php
+            // cta buttons start
+            if ( $cta_buttons && ( ( $header_style === 'centered' ) || ( $header_style === 'toggle' ) ) ) {
+                echo '<div class="buttons-container">';
+                    echo get_buttons_bbc($cta_buttons);
+                echo '</div>';
+            } // cta buttons end
+            ?>
 
-					<!-- The WordPress Menu goes here -->
-					<?php
-					wp_nav_menu(
-						array(
-							'theme_location'  => 'primary',
-							'container_class' => 'offcanvas-body',
-							'container_id'    => '',
-							'menu_class'      => 'navbar-nav justify-content-center flex-grow-1',
-							'fallback_cb'     => '',
-							'menu_id'         => 'main-menu',
-							'depth'           => 2,
-							'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
-						)
-					);
-					?>
-				</div><!-- .offcanvas -->
-
-			</div>
-
-			<?php
-			$cta_buttons = get_field('cta_buttons', 'header');
-			if ( $cta_buttons ) {
-				echo '<div class="col-2 centered-cta">';
-					echo get_buttons_bbc($cta_buttons);
-				echo '</div>';
-			}
-			?>
-			
-
-		<?php } else { ?>
-
-			<!-- Your site branding in the menu -->
-			<?php get_template_part( 'global-templates/navbar-branding-sticky' ); ?>
-
-			<button
-				class="navbar-toggler"
-				type="button"
-				data-bs-toggle="offcanvas"
-				data-bs-target="#navbarNavOffcanvas"
-				aria-controls="navbarNavOffcanvas"
-				aria-expanded="false"
-				aria-label="<?php esc_attr_e( 'Open menu', 'understrap' ); ?>"
-			>
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<div class="offcanvas offcanvas-end <?=$menu_contrast_colors?>" tabindex="-1" id="navbarNavOffcanvas">
-
-				<div class="offcanvas-header justify-content-end">
-					<button
-						class="btn-close btn-close-text text-reset"
-						type="button"
-						data-bs-dismiss="offcanvas"
-						aria-label="<?php esc_attr_e( 'Close menu', 'understrap' ); ?>"
-					></button>
-				</div><!-- .offcancas-header -->
-
-				<!-- The WordPress Menu goes here -->
-				<?php
-				wp_nav_menu(
-					array(
-						'theme_location'  => 'primary',
-						'container_class' => 'offcanvas-body',
-						'container_id'    => '',
-						'menu_class'      => 'navbar-nav justify-content-end flex-grow-1',
-						'fallback_cb'     => '',
-						'menu_id'         => 'main-menu',
-						'depth'           => 2,
-						'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
-					)
-				);
-				?>
-			</div><!-- .offcanvas -->
-
-		<?php } ?>
+    <?php if ( $header_style !== 'centered' ) { ?>        
+        </div><!-- menu and buttons container end -->
+    <?php } ?>
 
 	</div><!-- .container(-fluid) -->
 
 </nav><!-- #main-nav -->
-

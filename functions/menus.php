@@ -140,7 +140,7 @@ function sticky_nav(){ ?>
 		window.addEventListener('scroll', stickyNav);
 
 		// Get the navbar
-		var navbar = document.getElementById("main-nav-sticky");
+		var navbar = document.getElementById("sticky-nav");
 		navbar.classList.add("d-none");
 		navbar.classList.add("fixed-top");
 		navbar.classList.add("animated");

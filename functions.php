@@ -204,6 +204,18 @@ function change_default_jquery( ){
     wp_deregister_script( 'jquery');   
 }
 
+// disable gutenberg frontend styles
+function disable_gutenberg_wp_enqueue_scripts() {
+	
+	wp_dequeue_style('wp-block-library');
+	wp_dequeue_style('wp-block-library-theme');
+	
+	wp_dequeue_style('wc-block-style'); // disable woocommerce frontend block styles
+	wp_dequeue_style('storefront-gutenberg-blocks'); // disable storefront frontend block styles
+	
+}
+add_filter('wp_enqueue_scripts', 'disable_gutenberg_wp_enqueue_scripts', 100);
+
 // include separate functions files
 require_once( __DIR__ . '/functions/options-pages.php');
 require_once( __DIR__ . '/functions/root-style.php');

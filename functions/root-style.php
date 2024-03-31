@@ -168,7 +168,9 @@ function global_site_variables(){
 
 	// logo
     $logo_width = null;
+    $sticky_logo_width = null;
 	$logo_width = get_field('logo_width', 'header');
+    $sticky_logo_width = get_field('sticky_logo_width', 'header');
 
     // main menu style
     $main_menu_text_color = null;
@@ -457,6 +459,7 @@ if ( $white_color ) {
 
 /* logo */
 --logo_width: <?=$logo_width;?>px;
+--sticky_logo_width: <?=$sticky_logo_width;?>px;
 
 /* typography */
 --base_font_size: <?=$base_font_size;?>px;
