@@ -159,7 +159,7 @@ function global_site_variables(){
     $white_hover = null;
 
 	// typography
-    $base_font_size = null;
+    $base_font_size = '16';
 	$max_width = null;
 	$section_padding = null;
 	$button_border = null;
@@ -462,8 +462,10 @@ if ( $white_color ) {
 --sticky_logo_width: <?=$sticky_logo_width;?>px;
 
 /* typography */
+<?php if ( $base_font_size ) { ?>
 --base_font_size: <?=$base_font_size;?>px;
---base_font_size_small: <?=$base_font_size - 1;?>px;
+--base_font_size_small: 16px;
+<?php } ?>
 
 /* sections */
 --max-width: <?=$max_width;?>px;
