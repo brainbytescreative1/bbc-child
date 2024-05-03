@@ -703,7 +703,6 @@ echo '<div class="'. esc_attr($container_classes) . esc_attr($class_name) .'" st
                                 include( __DIR__ . '../../../elements/post-carousel.php');
                                 include( __DIR__ . '../../../elements/html.php');
                                 include( __DIR__ . '../../../elements/form.php');
-                                //include( __DIR__ . '../../../elements/video-popup.php');
                                 include( __DIR__ . '../../../elements/modal.php');
 
                             endwhile; // elements loop end

@@ -1,11 +1,15 @@
 <?php
 
 if( get_row_layout() == 'modal' ):
+
+    echo '<style>';
+        include_once( __DIR__ . '/styles/modal.css');
+    echo '</style>';
     
     // ids
-    $modal_id = 'modal-' . rand(0,9999);
-    $video_id = 'video-' . rand(0,9999);
-    $trigger_id = 'trigger' . strval(rand(0,9999));
+    $modal_id = 'modal-' . rand(1,9999);
+    $video_id = 'video-' . rand(1,9999);
+    $trigger_id = 'trigger' . strval(rand(1,9999));
 
     // heading
     $heading = get_sub_field('heading');
@@ -28,31 +32,150 @@ if( get_row_layout() == 'modal' ):
 
     // trigger
     $trigger = get_sub_field('trigger');
-    if ( $trigger && ( $trigger == 'icon' ) ) {
+    if ( $trigger ) {
 
-        $icon = get_sub_field('icon');
-
-        $icon_classes = [];
-        $icon_classes[] = 'modal-trigger-icon';
-
-        // style
-        $icon_size = get_sub_field('icon_size');
-        if ( $icon_size ) {
-            $icon_classes[] = $icon_size;
-        }
-
-        $icon_color = get_sub_field('icon_color');
-        if ( $icon_color['theme_colors'] ) {
-            $icon_classes[] = 'text-' . $icon_color['theme_colors'];
-        }
-
-        $icon_classes = esc_attr( trim( implode(' ', $icon_classes ) ) );
+        $modal_classes = [];
+        $modal_classes[] = 'modal-trigger';
         
-        echo '<a type="button" data-bs-toggle="modal" id="'. $trigger_id .'" data-bs-target="#'. esc_attr( trim( $modal_id ) ) .'" class="'. $icon_classes .'">'. $icon .'</a>'; // trigger icon
+        $additional_classes = get_sub_field('additional_classes');
+        if ( $additional_classes ) {
+            $modal_classes[] = trim($additional_classes);
+        }
+
+        $modal_classes = esc_attr( trim( implode(' ', $modal_classes ) ) );
+
+        echo '<div class="'. $modal_classes .'">'; // trigger start
+
+            if ( $trigger == 'icon' ) { // icon start
+
+                $icon = get_sub_field('icon');
+        
+                $icon_classes = [];
+                $icon_classes[] = 'modal-trigger-icon';
+        
+                // style
+                $icon_size = get_sub_field('icon_size');
+                if ( $icon_size ) {
+                    $icon_classes[] = $icon_size;
+                }
+        
+                $icon_color = get_sub_field('icon_color');
+                if ( $icon_color['theme_colors'] ) {
+                    $icon_classes[] = 'text-' . $icon_color['theme_colors'];
+                }
+        
+                $icon_classes = esc_attr( trim( implode(' ', $icon_classes ) ) );
+                
+                echo '<a type="button" data-bs-toggle="modal" id="'. $trigger_id .'" data-bs-target="#'. esc_attr( trim( $modal_id ) ) .'" class="'. $icon_classes .'">'. $icon .'</a>'; // trigger icon
+            
+            } // icon end
+
+            if ( $trigger == 'image' ) { // image start
+
+                $image = get_sub_field('trigger_image');
+        
+                $image_classes = [];
+                $image_classes[] = 'modal-trigger-image';
+        
+                // Image variables.
+                $url = $image['url'];
+                $title = $image['title'];
+                $alt = $image['alt'];
+                $caption = $image['caption'];
+            
+                // Thumbnail size attributes.
+                $size = $image_size;
+                $thumb = $image['sizes'][ $size ];
+                $width = $image['sizes'][ $size . '-width' ];
+                $height = $image['sizes'][ $size . '-height' ];
+        
+                $image = '<img src="'. $url .'" alt="'. $alt .'" />';
+        
+                $image_classes = esc_attr( trim( implode(' ', $image_classes ) ) );
+        
+                echo '<a type="button" data-bs-toggle="modal" id="'. $trigger_id .'" data-bs-target="#'. esc_attr( trim( $modal_id ) ) .'" class="'. $image_classes .'">'. $image .'</a>'; // trigger image
+               
+            } // image end
+
+            if ( $trigger && ( $trigger == 'video-icon' ) ) { // video + icon start
+
+                $icon = get_sub_field('icon');
+        
+                $icon_classes = [];
+                $icon_classes[] = 'modal-trigger-icon';
+        
+                // style
+                $icon_size = get_sub_field('icon_size');
+                if ( $icon_size ) {
+                    $icon_classes[] = $icon_size;
+                }
+        
+                $icon_color = get_sub_field('icon_color');
+                if ( $icon_color['theme_colors'] ) {
+                    $icon_classes[] = 'text-' . $icon_color['theme_colors'];
+                }
+        
+                $icon_classes = esc_attr( trim( implode(' ', $icon_classes ) ) );
+        
+                $icon = '<div class="'. $icon_classes .'">'. $icon .'</div>';
+                
+                $button = '<a type="button" data-bs-toggle="modal" id="'. $trigger_id .'" data-bs-target="#'. esc_attr( trim( $modal_id ) ) .'" class="">'. $icon .'</a>'; // trigger icon
+        
+                // video
+                $placeholder_video = get_sub_field('placeholder_video');
+                $placeholder_image = get_sub_field('placeholder_image');
+        
+                $video_placeholder_classes = [];
+                $video_placeholder_classes[] = 'video-placeholder-inner';
+                $video_placeholder_classes = esc_attr( trim( implode(' ', $video_placeholder_classes ) ) );
+
+                // overlay
+                $overlay = get_sub_field('overlay');
+                if ( $overlay && ( $overlay = 'enabled' ) ) {
+                    $overlay_color = get_sub_field('overlay_color');
+
+                    $theme_color = $overlay_color['theme_colors'];
+                    $transparency = $overlay_color['transparency'];
+                    $custom_color = $overlay_color['custom_color'];
+
+                    if ( $transparency ) {
+                        $transparency = $transparency / 100;
+                    }
+
+                    $overlay_element = null;
+                    $overlay_color_value = null;
+
+                    if ( $custom_color ) {
+                        $overlay_element = '<div class="video-overlay" style="background: '. $custom_color .'; opacity: '. $transparency .'"></div>';
+                    } elseif ( $theme_color ) {
+                        $overlay_element = '<div class="video-overlay" style="background: var(--'. $theme_color .'); opacity: '. $transparency .'"></div>';
+                    }
+                    
+                }
+        
+                ?>
+                
+                <div class="video-placeholder">
+                    <?=$overlay_element?>
+                    <div class="video-icon" id="video-icon">
+                        <?=$button?>
+                    </div>
+                    <div class="<?=$video_placeholder_classes?>">
+                        <video class="video" autoplay="" loop="" muted="" poster="<?=$placeholder_image?>">
+                            <source src="<?=$placeholder_video?>" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+        
+                <?php
+            } // video + icon end
+
+        echo '</div>'; // trigger end
+
     }
 
     // settings
-    $close_button = get_sub_field('close_button');
+    //$close_button = get_sub_field('close_button');
     
     // content
     $body_content = get_sub_field('body_content');
@@ -84,14 +207,16 @@ if( get_row_layout() == 'modal' ):
         <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
-                    
-                    <?php if ( $heading_element ) {
-                        echo $heading_element;
-                    } ?>
 
-                    <?php if ( $close_button && ( $close_button == 'top') ) { ?>
-                        <button type="button" class="btn-close<?php if ( !$heading_element ) { echo ' btn-close-white'; } ?>" data-bs-dismiss="modal" aria-label="Close"></button>
-                    <?php } ?>
+                    <?php 
+                    $close_button_color = 'close-dark';
+                    $close_button_color_field = get_sub_field('close_button_color');
+                    if ( $close_button_color_field && ( $close_button_color_field === 'light' ) ) {
+                        $close_button_color = 'close-light';
+                    }
+                    ?>
+                    
+                    <button type="button" class="btn-close <?=$close_button_color?>" data-bs-dismiss="modal" aria-label="Close"></button>
                     
                 </div>
                 <div class="modal-body p-0">
