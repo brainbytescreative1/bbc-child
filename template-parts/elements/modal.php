@@ -49,85 +49,113 @@ if( get_row_layout() == 'modal' ):
             if ( $trigger == 'icon' ) { // icon start
 
                 $icon = get_sub_field('icon');
+
+                if ( $icon ) {
         
-                $icon_classes = [];
-                $icon_classes[] = 'modal-trigger-icon';
-        
-                // style
-                $icon_size = get_sub_field('icon_size');
-                if ( $icon_size ) {
-                    $icon_classes[] = $icon_size;
+                    $icon_classes = [];
+                    $icon_classes[] = 'modal-trigger-icon';
+            
+                    // style
+                    $icon_size = get_sub_field('icon_size');
+                    if ( $icon_size ) {
+                        $icon_classes[] = $icon_size;
+                    }
+            
+                    $icon_color = get_sub_field('icon_color');
+                    if ( $icon_color['theme_colors'] ) {
+                        $icon_classes[] = 'text-' . $icon_color['theme_colors'];
+                    }
+            
+                    $icon_classes = esc_attr( trim( implode(' ', $icon_classes ) ) );
+                    
+                    echo '<a type="button" data-bs-toggle="modal" id="'. $trigger_id .'" data-bs-target="#'. esc_attr( trim( $modal_id ) ) .'" class="'. $icon_classes .'">'. $icon .'</a>'; // trigger icon
+
                 }
-        
-                $icon_color = get_sub_field('icon_color');
-                if ( $icon_color['theme_colors'] ) {
-                    $icon_classes[] = 'text-' . $icon_color['theme_colors'];
-                }
-        
-                $icon_classes = esc_attr( trim( implode(' ', $icon_classes ) ) );
-                
-                echo '<a type="button" data-bs-toggle="modal" id="'. $trigger_id .'" data-bs-target="#'. esc_attr( trim( $modal_id ) ) .'" class="'. $icon_classes .'">'. $icon .'</a>'; // trigger icon
             
             } // icon end
 
             if ( $trigger == 'image' ) { // image start
 
                 $image = get_sub_field('trigger_image');
+
+                if ( $image ) {
         
-                $image_classes = [];
-                $image_classes[] = 'modal-trigger-image';
-        
-                // Image variables.
-                $url = $image['url'];
-                $title = $image['title'];
-                $alt = $image['alt'];
-                $caption = $image['caption'];
+                    $image_classes = [];
+                    $image_classes[] = 'modal-trigger-image';
             
-                // Thumbnail size attributes.
-                $size = $image_size;
-                $thumb = $image['sizes'][ $size ];
-                $width = $image['sizes'][ $size . '-width' ];
-                $height = $image['sizes'][ $size . '-height' ];
-        
-                $image = '<img src="'. $url .'" alt="'. $alt .'" />';
-        
-                $image_classes = esc_attr( trim( implode(' ', $image_classes ) ) );
-        
-                echo '<a type="button" data-bs-toggle="modal" id="'. $trigger_id .'" data-bs-target="#'. esc_attr( trim( $modal_id ) ) .'" class="'. $image_classes .'">'. $image .'</a>'; // trigger image
+                    // Image variables.
+                    $url = $image['url'];
+                    $title = $image['title'];
+                    $alt = $image['alt'];
+                    $caption = $image['caption'];
+                
+                    // Thumbnail size attributes.
+                    $size = $image_size;
+                    $thumb = $image['sizes'][ $size ];
+                    $width = $image['sizes'][ $size . '-width' ];
+                    $height = $image['sizes'][ $size . '-height' ];
+            
+                    $image = '<img src="'. $url .'" alt="'. $alt .'" />';
+            
+                    $image_classes = esc_attr( trim( implode(' ', $image_classes ) ) );
+            
+                    echo '<a type="button" data-bs-toggle="modal" id="'. $trigger_id .'" data-bs-target="#'. esc_attr( trim( $modal_id ) ) .'" class="'. $image_classes .'">'. $image .'</a>'; // trigger image
+
+                }
                
             } // image end
 
             if ( $trigger && ( $trigger == 'video-icon' ) ) { // video + icon start
 
+                $icon = null;
                 $icon = get_sub_field('icon');
+
+                $button = null;
+
+                if ( $icon ) {
         
-                $icon_classes = [];
-                $icon_classes[] = 'modal-trigger-icon';
-        
-                // style
-                $icon_size = get_sub_field('icon_size');
-                if ( $icon_size ) {
-                    $icon_classes[] = $icon_size;
+                    $icon_classes = [];
+                    $icon_classes[] = 'modal-trigger-icon';
+            
+                    // style
+                    $icon_size = get_sub_field('icon_size');
+                    if ( $icon_size ) {
+                        $icon_classes[] = $icon_size;
+                    }
+            
+                    $icon_color = get_sub_field('icon_color');
+                    if ( $icon_color['theme_colors'] ) {
+                        $icon_classes[] = 'text-' . $icon_color['theme_colors'];
+                    }
+            
+                    $icon_classes = esc_attr( trim( implode(' ', $icon_classes ) ) );
+            
+                    $icon = '<div class="'. $icon_classes .'">'. $icon .'</div>';
+                    
+                    $button = '<a type="button" data-bs-toggle="modal" id="'. $trigger_id .'" data-bs-target="#'. esc_attr( trim( $modal_id ) ) .'" class="">'. $icon .'</a>'; // trigger icon
+
                 }
-        
-                $icon_color = get_sub_field('icon_color');
-                if ( $icon_color['theme_colors'] ) {
-                    $icon_classes[] = 'text-' . $icon_color['theme_colors'];
-                }
-        
-                $icon_classes = esc_attr( trim( implode(' ', $icon_classes ) ) );
-        
-                $icon = '<div class="'. $icon_classes .'">'. $icon .'</div>';
-                
-                $button = '<a type="button" data-bs-toggle="modal" id="'. $trigger_id .'" data-bs-target="#'. esc_attr( trim( $modal_id ) ) .'" class="">'. $icon .'</a>'; // trigger icon
         
                 // video
+                $placeholder_video = null;
+                $placeholder_image = null;
                 $placeholder_video = get_sub_field('placeholder_video');
                 $placeholder_image = get_sub_field('placeholder_image');
         
                 $video_placeholder_classes = [];
                 $video_placeholder_classes[] = 'video-placeholder-inner';
+                $video_fit = get_sub_field('video_fit');
+                if ( $video_fit && ( $video_fit === 'enable' ) ) {
+                    $video_placeholder_classes[] = 'video-placeholder-fit';
+                }
                 $video_placeholder_classes = esc_attr( trim( implode(' ', $video_placeholder_classes ) ) );
+
+                $video_styles = [];
+                $video_max_height = get_sub_field('video_max_height');
+                if ( $video_max_height ) {
+                    $video_styles[] = 'max-height: ' . $video_max_height . 'px;';
+                }
+                $video_styles = esc_attr( trim( implode(' ', $video_styles ) ) );
 
                 // overlay
                 $overlay = get_sub_field('overlay');
@@ -152,22 +180,22 @@ if( get_row_layout() == 'modal' ):
                     }
                     
                 }
-        
-                ?>
+
+                if ( $placeholder_video ) { ?>
                 
-                <div class="video-placeholder">
-                    <?=$overlay_element?>
-                    <div class="video-icon" id="video-icon">
-                        <?=$button?>
+                    <div class="video-placeholder">
+                        <?=$overlay_element?>
+                        <div class="video-icon" id="video-icon">
+                            <?=$button?>
+                        </div>
+                        <div class="<?=$video_placeholder_classes?>">
+                            <video class="video" autoplay="" loop="" muted="" poster="<?=$placeholder_image?>" style="<?=$video_styles?>">
+                                <source src="<?=$placeholder_video?>" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
-                    <div class="<?=$video_placeholder_classes?>">
-                        <video class="video" autoplay="" loop="" muted="" poster="<?=$placeholder_image?>">
-                            <source src="<?=$placeholder_video?>" type="video/mp4">
-                        </video>
-                    </div>
-                </div>
         
-                <?php
+                <?php }
             } // video + icon end
 
         echo '</div>'; // trigger end

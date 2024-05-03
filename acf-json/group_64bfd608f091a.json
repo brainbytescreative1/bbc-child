@@ -397,6 +397,67 @@
             "preview_size": "medium"
         },
         {
+            "key": "field_663500cb6bf9d",
+            "label": "Fit Video to Container",
+            "name": "video_fit",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64bfd993d5d5f",
+                        "operator": "==",
+                        "value": "video-icon"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "disable": "disable",
+                "enable": "enable"
+            },
+            "default_value": "disable",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_6635010c6bf9e",
+            "label": "Video Max Height",
+            "name": "video_max_height",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64bfd993d5d5f",
+                        "operator": "==",
+                        "value": "video-icon"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "placeholder": 50,
+            "step": "",
+            "prepend": "",
+            "append": "px"
+        },
+        {
             "key": "field_66327605f095e",
             "label": "Overlay",
             "name": "overlay",
@@ -654,7 +715,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1714585443,
+    "modified": 1714750382,
     "acfe_categories": {
         "elements": "Elements",
         "modal": "Modal"
