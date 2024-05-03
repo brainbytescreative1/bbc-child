@@ -440,6 +440,22 @@ if ( $gray_color ) {
     echo "\r\n";
 }
 
+$dark_background = null;
+$dark_color = null;
+$dark_button = get_field('dark_button', 'style');
+if ( $dark_button ) {
+    $dark_background = $dark_button['dark_background']['theme_colors'];
+    $dark_color = $dark_button['dark_color']['theme_colors'];
+}
+if ( $dark_background ) {
+    echo '--dark_background: var(--' . $dark_background . ');';
+    echo "\r\n";
+}
+if ( $dark_color ) {
+    echo '--dark_color: var(--' . $dark_color . ');';
+    echo "\r\n";
+}
+
 $white_background = null;
 $white_color = null;
 $white_button = get_field('white_button', 'style');
@@ -998,6 +1014,11 @@ add_filter('acf/load_field/name=button_color', function($field) {
     $gray_button_enable = get_field('gray_button', 'style');
     if ( $gray_button_enable['enable'] === 'enable' ) {
         $choices += array( $dark => __('Gray', 'bbc') );
+    }
+
+    $dark_button_enable = get_field('dark_button', 'style');
+    if ( $dark_button_enable['enable'] === 'enable' ) {
+        $choices += array( $dark => __('Dark', 'bbc') );
     }
 
     $white_button_enable = get_field('white_button', 'style');
