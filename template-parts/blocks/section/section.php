@@ -280,7 +280,12 @@ if ( get_field('columns') && ( $column_count > 0 ) ) {
 
 $column_number = 1; // start number columns
 
-echo '<section class="container-wrapper">'; // section start
+$wrapper_classes = [];
+$wrapper_classes[] = 'container-wrapper';
+$wrapper_classes[] = get_field('section_wrapper_classes');
+$wrapper_classes = trim(implode(' ', $wrapper_classes));
+
+echo '<section class="'. esc_attr($wrapper_classes) .'">'; // section start
 
     echo '<div class="'. esc_attr($container_classes) . esc_attr($class_name) .'" style="'. esc_attr($container_styles) .'"'. $custom_id .' data-id="'. $data_id .'">'; // container start
 
