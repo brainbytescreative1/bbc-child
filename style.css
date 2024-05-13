@@ -1,11 +1,11 @@
 /*
- Theme Name:   BBC Child Theme
+ Theme Name:   BBC Child Theme Updated
  Theme URI:    https://understrap.com
  Description:  BBC Custom Theme
  Author:       Brain Bytes Creative
  Author URI:   https://github.com/understrap/understrap-child/graphs/contributors
  Template:     understrap
- Version:      1.0.32
+ Version:      1.0.33
  License: GNU General Public License v2 or later
  License URI: http://www.gnu.org/licenses/gpl-2.0.html
  Text Domain:  bbc
@@ -40,6 +40,28 @@ body.understrap-no-sidebar .alignwide .wp-block-cover__inner-container,
 body.understrap-no-sidebar .wp-block-cover.alignfull .wp-block-cover__inner-container, 
 body.understrap-no-sidebar .wp-block-cover.alignwide .wp-block-cover__inner-container {
     max-width: var(--max-width);
+}
+/* section widths */
+section {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+section .container {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+section .container .row {
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+section .container-fluid .row {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 /* font family */
 .font-primary, 

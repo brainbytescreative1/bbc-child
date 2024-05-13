@@ -25,33 +25,25 @@ if ( is_page_template( 'page-templates/no-title.php' ) ) {
 
 <div class="wrapper" id="<?php echo $wrapper_id; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- ok. ?>">
 
-	<div class="<?php echo esc_attr( $container ); ?>" id="content">
+    <div class="col-md-12 content-area" id="primary">
 
-		<div class="row">
+        <main class="site-main" id="main" role="main">
 
-			<div class="col-md-12 content-area" id="primary">
+            <?php
+            while ( have_posts() ) {
+                the_post();
+                get_template_part( 'loop-templates/content', 'page' );
 
-				<main class="site-main" id="main" role="main">
+                // If comments are open or we have at least one comment, load up the comment template.
+                if ( comments_open() || get_comments_number() ) {
+                    comments_template();
+                }
+            }
+            ?>
 
-					<?php
-					while ( have_posts() ) {
-						the_post();
-						get_template_part( 'loop-templates/content', 'page' );
+        </main>
 
-						// If comments are open or we have at least one comment, load up the comment template.
-						if ( comments_open() || get_comments_number() ) {
-							comments_template();
-						}
-					}
-					?>
-
-				</main>
-
-			</div><!-- #primary -->
-
-		</div><!-- .row -->
-
-	</div><!-- #content -->
+    </div><!-- #primary -->
 
 </div><!-- #<?php echo $wrapper_id; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- ok. ?> -->
 
