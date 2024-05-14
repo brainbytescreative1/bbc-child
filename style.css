@@ -150,7 +150,7 @@ html {
 }
 .text-primary,
 .text-primary * {
-    color: var(--primary);
+    color: var(--primary) !important;
 }
 .text-secondary,
 .text-secondary * {
