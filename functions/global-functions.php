@@ -144,7 +144,7 @@ function get_background_bbc($field, $classes, $styles, $sub = false) {
                             $background_position_mobile = str_replace('-', ' ', $background_position_mobile);
                         }
 
-                        if ( $background_image_format !== 'inherit' ) {
+                        if ( $background_image_format === 'optimized' ) {
 
                             /* webp test */
                             $handle = curl_init($image_mobile . '.webp');
@@ -185,7 +185,7 @@ function get_background_bbc($field, $classes, $styles, $sub = false) {
 
                     if ( $image ) {
 
-                        if ( $background_image_format !== 'inherit' ) {
+                        if ( $background_image_format === 'optimized' ) {
 
                             /* webp test */
                             $handle = curl_init($image . '.webp');

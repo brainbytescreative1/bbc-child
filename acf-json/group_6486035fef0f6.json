@@ -270,11 +270,10 @@
                 "id": ""
             },
             "choices": {
-                "avif": "avif",
-                "webp": "webp",
+                "optimized": "optimized",
                 "inherit": "inherit"
             },
-            "default_value": "inherit",
+            "default_value": "optimized",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -636,7 +635,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1715723486,
+    "modified": 1715723798,
     "acfe_categories": {
         "global-functions": "Global Functions"
     }
