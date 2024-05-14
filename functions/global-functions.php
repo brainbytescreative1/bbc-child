@@ -144,22 +144,29 @@ function get_background_bbc($field, $classes, $styles, $sub = false) {
                             $background_position_mobile = str_replace('-', ' ', $background_position_mobile);
                         }
 
-                        /* check whether image has webp */
-                        $handle = curl_init($image_mobile . '.webp');
-                        curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
+                        if ( $background_image_format !== 'inherit' ) {
 
-                        /* Get the HTML or whatever is linked in $url. */
-                        $response = curl_exec($handle);
+                            /* webp test */
+                            $handle = curl_init($image_mobile . '.webp');
+                            curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
+                            $response = curl_exec($handle);
+                            $httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
+                            curl_close($handle);
 
-                        /* Check for 404 (file not found). */
-                        $httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
-                        if( ( $httpCode === 403 ) || ( $httpCode === 404 ) ) {
-                            $image_mobile = $image_mobile;
-                        } else {
-                            $image_mobile = $image_mobile . '.webp';
+                            /* avif test */
+                            $avif_handle = curl_init($image_mobile . '.avif');
+                            curl_setopt($avif_handle, CURLOPT_RETURNTRANSFER, TRUE);
+                            $avif_response = curl_exec($avif_handle);
+                            $avif_httpCode = curl_getinfo($avif_handle, CURLINFO_HTTP_CODE);
+                            curl_close($avif_handle);
+
+                            if ( $avif_httpCode === 200 ) {
+                                $image_mobile = $image_mobile . '.avif';
+                            } elseif ( $avif_httpCode === 200 ) {
+                                $image_mobile = $image_mobile . '.webp';
+                            }
+
                         }
-
-                        curl_close($handle);
 
                         $mobile_image_styles[] = 'background: url(' . $image_mobile . ');';
                         $mobile_image_styles[] = 'background-size: ' . $background_size_mobile . ';';
@@ -180,22 +187,25 @@ function get_background_bbc($field, $classes, $styles, $sub = false) {
 
                         if ( $background_image_format !== 'inherit' ) {
 
-                            /* check whether image has webp */
+                            /* webp test */
                             $handle = curl_init($image . '.webp');
                             curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
-
-                            /* Get the HTML or whatever is linked in $url. */
                             $response = curl_exec($handle);
-
-                            /* Check for 404 (file not found). */
                             $httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
-                            if( ( $httpCode === 403 ) || ( $httpCode === 404 ) ) {
-                                $image = $image;
-                            } else {
+                            curl_close($handle);
+
+                            /* avif test */
+                            $avif_handle = curl_init($image . '.avif');
+                            curl_setopt($avif_handle, CURLOPT_RETURNTRANSFER, TRUE);
+                            $avif_response = curl_exec($avif_handle);
+                            $avif_httpCode = curl_getinfo($avif_handle, CURLINFO_HTTP_CODE);
+                            curl_close($avif_handle);
+
+                            if ( $avif_httpCode === 200 ) {
+                                $image = $image . '.avif';
+                            } elseif ( $avif_httpCode === 200 ) {
                                 $image = $image . '.webp';
                             }
-
-                            curl_close($handle);
 
                         }
 
