@@ -1,3 +1,4 @@
+node_modules
 css
 src
-node_modules
+inc/editor-color-palette.json
