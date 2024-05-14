@@ -244,6 +244,8 @@ function global_site_variables(){
 /* colors */
 <?php if ( $primary ) { ?>	
 --primary: <?=$primary;?>;
+<?php } else { ?>
+--primary: var(--bs-primary);
 <?php } ?>
 <?php if ( $primary_hover ) { ?>
 --primary_hover: <?=$primary_hover;?>;
