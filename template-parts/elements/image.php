@@ -13,6 +13,8 @@ if( get_row_layout() == 'image' ):
         $classes[] = 'img';
         $classes[] = 'element';
 
+        $id = '';
+
         $link_wrapper_tag = 'div';
         $image_link = get_sub_field('image_link');
 
@@ -76,11 +78,19 @@ if( get_row_layout() == 'image' ):
 
         $classes[] = trim(get_sub_field('additional_classes'));
 
+        // advanced
+        $advanced_options = get_advanced_bbc('advanced_options');
+
+        $classes[] = trim($advanced_options['classes']);
+        if ( $advanced_options['id'] ) {
+            $id = ' id="' . $advanced_options['id'] . '" ';
+        }
+
         $classes = trim(implode(' ', $classes));
         $styles = trim(implode(' ', $styles));
 
         ?>
-        <<?=$link_wrapper_tag?> class="<?=$classes?>">
+        <<?=$link_wrapper_tag?> class="<?=$classes?>" <?=$id?>>
             <img src="<?=$thumb?>" alt="<?=$alt?>" style="<?=$styles?>" />
         </<?=$link_wrapper_tag?>>
     
