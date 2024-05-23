@@ -211,6 +211,8 @@ if( get_row_layout() == 'tabbed_content' ):
                                 $size = 'medium_large';
                                 $thumb = $image['sizes'][ $size ];
 
+                                $thumb = isUrlValid($thumb);
+
                                 ?>
                                 <div class="<?=$show_image?>">
                                     <div class="<?=$tab_image_inner_classes?>" style="background: url(<?php echo esc_url($thumb); ?>);<?=$tab_image_styles?>"></div>

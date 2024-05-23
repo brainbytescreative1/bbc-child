@@ -146,25 +146,7 @@ function get_background_bbc($field, $classes, $styles, $sub = false) {
 
                         if ( $background_image_format === 'optimized' ) {
 
-                            /* webp test */
-                            $handle = curl_init($image_mobile . '.webp');
-                            curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
-                            $response = curl_exec($handle);
-                            $httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
-                            curl_close($handle);
-
-                            /* avif test */
-                            $avif_handle = curl_init($image_mobile . '.avif');
-                            curl_setopt($avif_handle, CURLOPT_RETURNTRANSFER, TRUE);
-                            $avif_response = curl_exec($avif_handle);
-                            $avif_httpCode = curl_getinfo($avif_handle, CURLINFO_HTTP_CODE);
-                            curl_close($avif_handle);
-
-                            if ( $avif_httpCode === 200 ) {
-                                $image_mobile = $image_mobile . '.avif';
-                            } elseif ( $avif_httpCode === 200 ) {
-                                $image_mobile = $image_mobile . '.webp';
-                            }
+                            $image_mobile = isUrlValid($image_mobile);
 
                         }
 
@@ -187,25 +169,7 @@ function get_background_bbc($field, $classes, $styles, $sub = false) {
 
                         if ( $background_image_format === 'optimized' ) {
 
-                            /* webp test */
-                            $handle = curl_init($image . '.webp');
-                            curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
-                            $response = curl_exec($handle);
-                            $httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
-                            curl_close($handle);
-
-                            /* avif test */
-                            $avif_handle = curl_init($image . '.avif');
-                            curl_setopt($avif_handle, CURLOPT_RETURNTRANSFER, TRUE);
-                            $avif_response = curl_exec($avif_handle);
-                            $avif_httpCode = curl_getinfo($avif_handle, CURLINFO_HTTP_CODE);
-                            curl_close($avif_handle);
-
-                            if ( $avif_httpCode === 200 ) {
-                                $image = $image . '.avif';
-                            } elseif ( $avif_httpCode === 200 ) {
-                                $image = $image . '.webp';
-                            }
+                            $image = isUrlValid($image);
 
                         }
 
@@ -1133,53 +1097,4 @@ function get_menu_padding_bbc($field, $classes, $styles) {
     }
 }
 
-function get_advanced_bbc($field = false, $sub = true, $classes = false, $id = false) {
-
-    if ( $field ) {
-        if ( $sub = false ) {
-            $field = get_field($field);
-        } else {
-            $field = get_sub_field($field);
-        }
-    }   
-
-    // initialize
-    $advanced_classes = [];
-    $advanced_id = '';
-
-    if ( $field ) {
-        // classes
-        if ( $field['classes'] ) {
-            $advanced_classes[] = $field['classes'];
-        }
-        if ( $field['hide_desktop'] ) {
-            $advanced_classes[] = 'desktop-hide';
-        }
-        if ( $field['hide_tablet'] ) {
-            $advanced_classes[] = 'tablet-hide';
-        }
-        if ( $field['hide_mobile'] ) {
-            $advanced_classes[] = 'mobile-hide';
-        }
-        // id
-        if ( $field['unique_id'] ) {
-            $advanced_id = trim( $field['unique_id'] );
-            $advanced_id = $str=preg_replace('/\s+/', '', $advanced_id);
-        }
-    }
-
-    // process
-    $advanced = array(
-        'classes' => null,
-        'id' => null,
-    );
-    if ( $advanced_classes ) {
-        $advanced['classes'] = trim(implode(' ', $advanced_classes));
-    }
-    if ( $advanced_id ) {
-        $advanced['id'] = $advanced_id;
-    }
-
-    return $advanced;
-
-}
+require_once( __DIR__ . '/global-functions/image-optimize.php');
