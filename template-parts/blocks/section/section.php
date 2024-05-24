@@ -223,26 +223,8 @@ if ( $row_additional_classes ) {
 }
 
 // dividers
-$divider_top = null;
-$divider_bottom = null;
-$divider_color = null;
-$divider_shape = null;
-$divider_position = get_field('divider_position');
-if ( $divider_position !== 'none' ) {
-    $container_classes[] = 'position-relative';
-    $divider_shape = get_field('divider_shape');
-    if ( $divider_shape !== 'none' ) {
-        $divider_color = get_field('divider_color');
-        if ( $divider_color && $divider_color['theme_colors'] ) {
-            $divider_color = 'var(--' . $divider_color['theme_colors'] . ')';
-        }
-        if ( $divider_shape === 'wave' ) {
-            $divider_top = '<div class="divider-top"><svg data-name="'. $data_id .'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill" fill="'. $divider_color .'"></path></svg></div>';
-            $divider_bottom = '<div class="divider-bottom"><svg data-name="'. $data_id .'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path class="bg-dark" d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill" fill="'. $divider_color .'"></path></svg></div>';
-        }
-    }
-}
+
+
 
 // flex
 $flex_element = get_field('flex_element');
@@ -269,6 +251,34 @@ $container_classes[] = get_spacing_bbc(get_field('container_spacing'), 'containe
 $container_classes[] = get_borders_bbc(get_field('container_borders'));
 $row_classes[] = get_spacing_bbc(get_field('row_spacing'));
 
+// dividers
+$top_divider = get_field('top_divider');
+if ( $top_divider === 'enable' ) {
+    $container_classes[] = 'container-divider-top';
+    $top_divider_shape = get_field('top_divider_shape');
+    if ( $top_divider_shape !== 'none' ) {
+        $container_classes[] = $top_divider_shape;
+    }
+
+    $top_negative_margin = get_field('top_negative_margin');
+    if ( $top_negative_margin === 'yes' ) {
+        $container_classes[] = $top_divider_shape . '-container-negative-margin-top';
+    }
+}
+$bottom_divider = get_field('bottom_divider');
+if ( $bottom_divider === 'enable' ) {
+    $container_classes[] = 'container-divider-bottom';
+    $bottom_divider_shape = get_field('bottom_divider_shape');
+    if ( $bottom_divider_shape !== 'none' ) {
+        $container_classes[] = $bottom_divider_shape;
+    }
+
+    $bottom_negative_margin = get_field('bottom_negative_margin');
+    if ( $bottom_negative_margin === 'yes' ) {
+        $container_classes[] = $bottom_divider_shape . '-container-negative-margin-bottom';
+    }
+}
+
 // process classes and styles
 $container_classes = trim(implode(' ', $container_classes));
 $row_classes = trim(implode(' ', $row_classes));
@@ -287,11 +297,15 @@ $wrapper_classes = trim(implode(' ', $wrapper_classes));
 
 echo '<section class="'. esc_attr($wrapper_classes) .'">'; // section start
 
-    echo '<div class="'. esc_attr($container_classes) . esc_attr($class_name) .'" style="'. esc_attr($container_styles) .'"'. $custom_id .' data-id="'. $data_id .'">'; // container start
+    // top divider
+    $top_divider = get_field('top_divider');
+    if ( $top_divider === 'enable' ) {
 
-        if ( ( $divider_position === 'top' ) || ( $divider_position === 'top-bottom' ) ) {
-            echo $divider_top;
-        }
+        echo get_dividers_bbc('top');
+
+    }
+
+    echo '<div class="'. esc_attr($container_classes) . esc_attr($class_name) .'" style="'. esc_attr($container_styles) .'"'. $custom_id .' data-id="'. $data_id .'">'; // container start
 
         $custom_css = get_field('custom_css');
         if ( $custom_css ) { ?>
@@ -743,11 +757,15 @@ echo '<section class="'. esc_attr($wrapper_classes) .'">'; // section start
 
         echo '</div>'; // row end
 
-        if ( ( $divider_position === 'bottom' ) || ( $divider_position === 'top-bottom' ) ) {
-            echo $divider_bottom;
-        }
-
     echo '</div>'; // container end
+
+    // bottom divider
+    $bottom_divider = get_field('bottom_divider');
+    if ( $bottom_divider === 'enable' ) {
+
+        echo get_dividers_bbc('bottom');
+
+    }
 
 echo '</section>'; // section end
 

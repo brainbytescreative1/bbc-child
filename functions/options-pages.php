@@ -110,6 +110,23 @@ if( function_exists('acf_add_options_page') ) {
         'custom_js' => '',
     ));
 }
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page(array(
+        'menu_slug' => 'dividers',
+        'page_title' => 'Dividers',
+        'active' => true,
+        'menu_title' => 'Dividers',
+        'capability' => 'edit_posts',
+        'parent_slug' => 'style',
+        'position' => '',
+        'icon_url' => '',
+        'redirect' => false,
+        'post_id' => 'dividers',
+        'autoload' => false,
+        'update_button' => 'Update',
+        'updated_message' => 'Dividers Updated',
+    ));
+}
 
 /*
 if( function_exists('acf_add_options_page') ) {

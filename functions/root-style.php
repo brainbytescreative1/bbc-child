@@ -1,122 +1,9 @@
 <?php
 
-// populate selected colors
-add_filter('acf/load_field/name=theme_colors', function($field) {
-	
-	$primary = 'primary';
-	$secondary = 'secondary';
-	$success = 'success';
-    $info = 'info';
-    $danger = 'danger';
-    $warning = 'warning';
-    $text = 'text';
-    $gray = 'gray';
-    $light = 'light';
-    $dark = 'dark';
-	$white = 'white';
-	
-	$choices = [];
-
-	if ( $text ) {
-		$choices += array( $text => __('Text', 'bbc') );
-	}
-
-    if ( get_field('enable_primary', 'style') === 'enable' ) {
-        $choices += array( $primary => __('Primary', 'bbc') );
-    }
-
-	if ( get_field('enable_secondary', 'style') === 'enable' ) {
-		$choices += array( $secondary => __('Secondary', 'bbc') );
-	}
-
-    if ( get_field('enable_success', 'style') === 'enable' ) {
-		$choices += array( $success => __('Success', 'bbc') );
-	}
-
-    if ( get_field('enable_info', 'style') === 'enable' ) {
-		$choices += array( $info => __('Info', 'bbc') );
-	}
-
-    if ( get_field('enable_danger', 'style') === 'enable' ) {
-		$choices += array( $danger => __('Danger', 'bbc') );
-	}
-
-    if ( get_field('enable_warning', 'style') === 'enable' ) {
-		$choices += array( $warning => __('Warning', 'bbc') );
-	}
-	
-	if ( get_field('enable_light', 'style') === 'enable' ) {
-		$choices += array( $light => __('Light', 'bbc') );
-	}
-
-	if ( get_field('enable_dark', 'style') === 'enable' ) {
-		$choices += array( $dark => __('Dark', 'bbc') );
-	}
-
-    if ( get_field('enable_gray', 'style') === 'enable' ) {
-		$choices += array( $gray => __('Gray', 'bbc') );
-	}
-	
-	if ( get_field('enable_white', 'style') === 'enable' ) {
-		$choices += array( $white => __('White', 'bbc') );
-	}
-    
-	
-	$field['choices'] = $choices;
-	$field['default_value'] = null;
-	return $field;
-
-});
-
-// Set the default color palette for certain fields
-function set_acf_color_picker_default_palettes() {
-	
-	$primary = get_field('primary', 'style');
-	$secondary = get_field('secondary', 'style');
-	$success = get_field('success', 'style');
-    $info = get_field('info', 'style');
-    $danger = get_field('danger', 'style');
-    $warning = get_field('warning', 'style');
-	$text = get_field('text', 'style');
-	$light = get_field('light', 'style');
-	$dark = get_field('dark', 'style');
-    $gray = get_field('gray', 'style');
-	$white = get_field('white', 'style');
-	
-?>
-<script>
-let setDefaultPalette = function() {
-    acf.add_filter('color_picker_args', function( args, $field ){
-
-        // Find the field key
-        let targetFieldKey = $field[0]['dataset']['key'];
-
-        // Set color options for the field
-        if ( 'field_6557b927ac428' === targetFieldKey ) {
-            args.palettes = [ 
-				'<?php echo $primary; ?>',
-				'<?php echo $secondary; ?>',
-				'<?php echo $success; ?>',
-                '<?php echo $info; ?>',
-                '<?php echo $danger; ?>',
-                '<?php echo $warning; ?>',
-				'<?php echo $text; ?>',
-				'<?php echo $light; ?>',
-				'<?php echo $dark; ?>',
-                '<?php echo $gray; ?>',
-				'<?php echo $white; ?>' 
-            ];
-        }
-
-        // Return
-        return args;
-    });
-}
-setDefaultPalette();
-</script>
-<?php
-}
-add_action('acf/input/admin_footer', 'set_acf_color_picker_default_palettes');
+require_once( __DIR__ . '/root-styles/button-colors.php');
+require_once( __DIR__ . '/root-styles/color-palettes.php');
+require_once( __DIR__ . '/root-styles/selected-colors.php');
+require_once( __DIR__ . '/root-styles/dividers.php');
 
 // add site settings css variables
 add_action('wp_head', 'global_site_variables');
@@ -589,9 +476,57 @@ if ($main_menu_font_weight && ( $main_menu_font_weight !== 'default')) {
     echo "\r\n";
 }
 
+// dividers
+/*
+$section_dividers = [];
+$section_dividers = get_field('section_dividers', 'dividers');
+if ( $section_dividers ) {
+    foreach ( $section_dividers as $divider ) {
+        echo '--divider-'. $divider['shape_class'] .'-height: ' . $divider['height'] . 'px;';
+        echo "\r\n";
+        echo '--divider-'. $divider['shape_class'] .'-negative-height: -' . $divider['height'] . 'px;';
+        echo "\r\n";
+    }
+}
+*/
+
 ?>
 
 }
+
+<?php
+$section_dividers = [];
+$section_dividers = get_field('section_dividers', 'dividers');
+if ( $section_dividers ) {
+    foreach ( $section_dividers as $divider ) {
+
+        $shape = $divider['shape'];
+        $class = $divider['shape_class'];
+        $width = $divider['width'];
+        $height = $divider['height'];
+
+?>
+<?='.'?><?=$class?> .divider-inner {
+    -webkit-mask: url('<?=$shape?>');
+    width: <?=$width?>%;
+    height: <?=$height?>px;
+}
+<?='.'?><?=$class?>-container-negative-margin-top {
+    margin-top: -<?=$height?>px;
+}
+<?='.'?><?=$class?>-container-negative-margin-top .row {
+    margin-top: <?=$height?>px;
+}
+<?='.'?><?=$class?>-container-negative-margin-bottom {
+    margin-top: -<?=$height?>px;
+}
+<?='.'?><?=$class?>-container-negative-margin-bottom .row {
+    margin-top: <?=$height?>px;
+}
+<?php
+    }
+}
+?>
 
 /* h1 */
 <?php $h1 = get_field('h1', 'style'); ?>
@@ -960,97 +895,3 @@ echo "\r\n";
 
 
 
-// populate button colors
-add_filter('acf/load_field/name=button_color', function($field) {
-	
-    $primary = 'primary';
-	$secondary = 'secondary';
-	$success = 'success';
-    $info = 'info';
-    $danger = 'danger';
-    $warning = 'warning';
-    $gray = 'gray';
-    $light = 'light';
-    $dark = 'dark';
-	$white = 'white';
-	
-	$choices = [];
-
-	//$choices += array( 'default' => __('Default', 'bbc') );
-
-    $primary_button_enable = get_field('primary_button', 'style');
-    if ( $primary_button_enable['enable'] === 'enable' ) {
-        $choices += array( $primary => __('Primary', 'bbc') );
-    }
-
-    $secondary_button_enable = get_field('secondary_button', 'style');
-    if ( $secondary_button_enable['enable'] === 'enable' ) {
-        $choices += array( $secondary => __('Secondary', 'bbc') );
-    }
-
-    $success_button_enable = get_field('success_button', 'style');
-    if ( $success_button_enable['enable'] === 'enable' ) {
-        $choices += array( $success => __('Success', 'bbc') );
-    }
-
-    $info_button_enable = get_field('info_button', 'style');
-    if ( $info_button_enable['enable'] === 'enable' ) {
-        $choices += array( $info => __('Info', 'bbc') );
-    }
-
-    $danger_button_enable = get_field('danger_button', 'style');
-    if ( $danger_button_enable['enable'] === 'enable' ) {
-        $choices += array( $danger => __('Danger', 'bbc') );
-    }
-
-    $warning_button_enable = get_field('warning_button', 'style');
-    if ( $warning_button_enable['enable'] === 'enable' ) {
-        $choices += array( $warning => __('Warning', 'bbc') );
-    }
-
-    $light_button_enable = get_field('light_button', 'style');
-    if ( $light_button_enable['enable'] === 'enable' ) {
-        $choices += array( $light => __('Light', 'bbc') );
-    }
-
-    $gray_button_enable = get_field('gray_button', 'style');
-    if ( $gray_button_enable['enable'] === 'enable' ) {
-        $choices += array( $dark => __('Gray', 'bbc') );
-    }
-
-    $dark_button_enable = get_field('dark_button', 'style');
-    if ( $dark_button_enable['enable'] === 'enable' ) {
-        $choices += array( $dark => __('Dark', 'bbc') );
-    }
-
-    $white_button_enable = get_field('white_button', 'style');
-    if ( $white_button_enable['enable'] === 'enable' ) {
-        $choices += array( $white => __('White', 'bbc') );
-    }
-    $choices += array( $white => __('White', 'bbc') );
-	
-	$field['choices'] = $choices;
-	$field['default_value'] = null;
-	return $field;
-
-});
-
-//add_action('wp_footer', 'add_class_to_buttons');
-function add_class_to_buttons(){ ?>
-
-	<?php
-		$button_border = get_field('button_border', 'style');
-	?>
-	
-	<script>
-		window.onload = function() {
-			var buttons = document.getElementsByClassName("btn"),
-				len = buttons !== null ? buttons.length : 0,
-				i = 0;
-			for(i; i < len; i++) {
-				buttons[i].className += " btn-<?php echo $button_border; ?>"; 
-			}
-		}
-	</script>
-	
-<?php }
