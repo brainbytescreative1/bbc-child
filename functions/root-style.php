@@ -3,7 +3,6 @@
 require_once( __DIR__ . '/root-styles/button-colors.php');
 require_once( __DIR__ . '/root-styles/color-palettes.php');
 require_once( __DIR__ . '/root-styles/selected-colors.php');
-require_once( __DIR__ . '/root-styles/dividers.php');
 
 // add site settings css variables
 add_action('wp_head', 'global_site_variables');
@@ -477,7 +476,6 @@ if ($main_menu_font_weight && ( $main_menu_font_weight !== 'default')) {
 }
 
 // dividers
-/*
 $section_dividers = [];
 $section_dividers = get_field('section_dividers', 'dividers');
 if ( $section_dividers ) {
@@ -488,7 +486,6 @@ if ( $section_dividers ) {
         echo "\r\n";
     }
 }
-*/
 
 ?>
 
@@ -518,10 +515,10 @@ if ( $section_dividers ) {
     margin-top: <?=$height?>px;
 }
 <?='.'?><?=$class?>-container-negative-margin-bottom {
-    margin-top: -<?=$height?>px;
+    margin-bottom: -<?=$height?>px;
 }
 <?='.'?><?=$class?>-container-negative-margin-bottom .row {
-    margin-top: <?=$height?>px;
+    margin-bottom: <?=$height?>px;
 }
 <?php
     }
