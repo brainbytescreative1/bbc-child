@@ -15,6 +15,9 @@ $navbar_type       = get_theme_mod( 'understrap_navbar_type', 'collapse' );
 
 // header style
 $header_style = get_field('header_style', 'header');
+if ( $header_style === 'rounded' ) {
+    $header_style = 'header-rounded';
+}
 
 // custom code 
 $head_code = get_field('head', 'code');

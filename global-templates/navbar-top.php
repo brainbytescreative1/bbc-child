@@ -15,6 +15,7 @@ if ( $top_menu_layout ) { // top menu fields start
     $container = null;
 
     $top_menu_classes[] = 'top-menu-container';
+    $top_menu_classes[] = 'top-layout-' . $top_menu_layout;
 
     // colors
     $top_text_color = get_field('top_text_color', 'header');
@@ -63,9 +64,9 @@ if ( $top_menu_layout ) { // top menu fields start
 
         $header_width = get_field('header_width', 'header');
         if ( $header_width ) {
-            echo '<div class="'. $header_width  .'">';
+            echo '<div class="top-menu-inner-container '. $header_width  .'">';
         } else {
-            echo '<div class="'. get_theme_mod( 'understrap_container_type' ) .'">';
+            echo '<div class="top-menu-inner-container '. get_theme_mod( 'understrap_container_type' ) .'">';
         }
 
             if ( $top_menu_layout === 'single' ) {
