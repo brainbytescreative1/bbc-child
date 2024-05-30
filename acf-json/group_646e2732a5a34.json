@@ -1188,8 +1188,11 @@
                 "class": "",
                 "id": ""
             },
-            "choices": [],
-            "default_value": false,
+            "choices": {
+                "none": "None",
+                "shape-one": "Shape One"
+            },
+            "default_value": "none",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -1460,7 +1463,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1716557871,
+    "modified": 1716582573,
     "acfe_categories": {
         "blocks": "Blocks"
     }

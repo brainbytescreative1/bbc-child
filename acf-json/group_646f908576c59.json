@@ -17,12 +17,7 @@
                 "id": ""
             },
             "choices": {
-                "text": "Text",
-                "primary": "Primary",
-                "secondary": "Secondary",
-                "success": "Success",
-                "info": "Info",
-                "light": "Light"
+                "text": "Text"
             },
             "default_value": null,
             "return_format": "value",
@@ -96,7 +91,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1702055526,
+    "modified": 1716582575,
     "acfe_categories": {
         "global": "Global"
     }

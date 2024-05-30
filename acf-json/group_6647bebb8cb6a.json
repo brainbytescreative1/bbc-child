@@ -1,50 +1,10 @@
 {
     "key": "group_6647bebb8cb6a",
-    "title": "Element Advanced",
+    "title": "Element Responsive",
     "fields": [
         {
-            "key": "field_6647bebbcb24b",
-            "label": "Classes",
-            "name": "classes",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Additional classes",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_6647beebcb24c",
-            "label": "Unique ID",
-            "name": "unique_id",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Spaces will be removed",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
             "key": "field_6647befccb24d",
-            "label": "Responsive",
+            "label": "Responsive Hide",
             "name": "",
             "aria-label": "",
             "type": "accordion",
@@ -152,7 +112,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1715979244,
+    "modified": 1716984044,
     "acfe_categories": {
         "global-functions": "Global Functions"
     }

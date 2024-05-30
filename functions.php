@@ -222,7 +222,6 @@ require_once( __DIR__ . '/functions/root-style.php');
 require_once( __DIR__ . '/functions/menus.php');
 require_once( __DIR__ . '/functions/blocks.php');
 require_once( __DIR__ . '/functions/post-types.php');
-require_once( __DIR__ . '/functions/images.php');
 require_once( __DIR__ . '/functions/shortcodes.php');
 require_once( __DIR__ . '/functions/forms.php');
 require_once( __DIR__ . '/functions/global-functions.php');

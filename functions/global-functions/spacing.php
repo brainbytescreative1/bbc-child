@@ -233,7 +233,7 @@ if ( $field ) {
 
 }
 
-$classes = implode(' ', $classes);
+$classes = trim(implode(' ', $classes));
 return $classes;
 
 }

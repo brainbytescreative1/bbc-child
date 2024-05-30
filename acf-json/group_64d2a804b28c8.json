@@ -17,7 +17,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_64d2a804bc42b",
@@ -58,7 +59,8 @@
                     },
                     "placement": "top",
                     "endpoint": 0,
-                    "parent_repeater": "field_64d2a804bc42b"
+                    "parent_repeater": "field_64d2a804bc42b",
+                    "selected": 0
                 },
                 {
                     "key": "field_64d2a805065e8",
@@ -104,7 +106,8 @@
                     },
                     "placement": "top",
                     "endpoint": 0,
-                    "parent_repeater": "field_64d2a804bc42b"
+                    "parent_repeater": "field_64d2a804bc42b",
+                    "selected": 0
                 },
                 {
                     "key": "field_6537f9e7e45ba",
@@ -215,7 +218,8 @@
                     },
                     "placement": "top",
                     "endpoint": 0,
-                    "parent_repeater": "field_64d2a804bc42b"
+                    "parent_repeater": "field_64d2a804bc42b",
+                    "selected": 0
                 },
                 {
                     "key": "field_64d2a805115b2",
@@ -262,7 +266,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_6512e536ee217",
@@ -549,7 +554,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_64d2a804d237b",
@@ -616,7 +622,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_6512de7d23fd8",
@@ -728,7 +735,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_64d2a804ef82e",
@@ -772,7 +780,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_6512e224df840",
@@ -1089,7 +1098,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_65133fc90baa6",
@@ -1144,5 +1154,5 @@
     "acfe_categories": {
         "elements": "Elements"
     },
-    "modified": 1699907422
+    "modified": 1716582574
 }

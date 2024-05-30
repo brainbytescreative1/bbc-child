@@ -17,7 +17,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_6470f183988f4",
@@ -34,7 +35,7 @@
                 "id": ""
             },
             "uploader": "wp",
-            "return_format": "array",
+            "return_format": "id",
             "library": "all",
             "acfe_thumbnail": 0,
             "min_width": "",
@@ -67,6 +68,26 @@
             "taxonomy": ""
         },
         {
+            "key": "field_665895f033f3e",
+            "label": "Alt Text Override",
+            "name": "alt_text_override",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_649c3bdbec583",
             "label": "Image Settings",
             "name": "",
@@ -81,7 +102,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_64e3c99989d74",
@@ -124,8 +146,8 @@
             "choices": {
                 "2048x2048": "Full",
                 "large": "Large (1024px)",
-                "medium": "Medium (300px)",
                 "medium_large": "Medium-Large (768px)",
+                "medium": "Medium (300px)",
                 "thumbnail": "Thumbnail (150px)"
             },
             "default_value": "large",
@@ -140,7 +162,7 @@
         },
         {
             "key": "field_6543a5899ff1c",
-            "label": "Force Full Width",
+            "label": "Full Width Desktop",
             "name": "force_full_width",
             "aria-label": "",
             "type": "button_group",
@@ -148,7 +170,53 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "33.4",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "no": "no",
+                "yes": "yes"
+            },
+            "default_value": "no",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_6658a04ae1165",
+            "label": "Full Width Tablet",
+            "name": "force_full_width_tablet",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.3",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "no": "no",
+                "yes": "yes"
+            },
+            "default_value": "no",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_665895b333f3d",
+            "label": "Full Width Mobile",
+            "name": "force_full_width_mobile",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.3",
                 "class": "",
                 "id": ""
             },
@@ -171,16 +239,13 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
             "layout": "block",
             "acfe_seamless_style": 0,
             "acfe_group_modal": 0,
-            "acfe_group_modal_close": 0,
-            "acfe_group_modal_button": "",
-            "acfe_group_modal_size": "large",
             "sub_fields": [
                 {
                     "key": "field_6470f1b9988f6",
@@ -231,7 +296,10 @@
                     "allow_custom": 0,
                     "search_placeholder": ""
                 }
-            ]
+            ],
+            "acfe_group_modal_close": 0,
+            "acfe_group_modal_button": "",
+            "acfe_group_modal_size": "large"
         },
         {
             "key": "field_6471162015375",
@@ -243,16 +311,13 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
             "layout": "block",
             "acfe_seamless_style": 0,
             "acfe_group_modal": 0,
-            "acfe_group_modal_close": 0,
-            "acfe_group_modal_button": "",
-            "acfe_group_modal_size": "large",
             "sub_fields": [
                 {
                     "key": "field_6471162015376",
@@ -307,7 +372,10 @@
                     "allow_custom": 0,
                     "search_placeholder": ""
                 }
-            ]
+            ],
+            "acfe_group_modal_close": 0,
+            "acfe_group_modal_button": "",
+            "acfe_group_modal_size": "large"
         },
         {
             "key": "field_64c41575651a0",
@@ -324,7 +392,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_64c4157c651a1",
@@ -368,7 +437,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_64c41592651a2",
@@ -392,8 +462,8 @@
         },
         {
             "key": "field_6647bffc1f0cf",
-            "label": "Advanced Options",
-            "name": "advanced_options",
+            "label": "Responsive",
+            "name": "responsive",
             "aria-label": "",
             "type": "clone",
             "instructions": "",
@@ -443,7 +513,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1715978647,
+    "modified": 1717084282,
     "acfe_categories": {
         "elements": "Elements"
     }

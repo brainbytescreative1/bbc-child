@@ -1567,12 +1567,32 @@ header .nav-link:hover {
    }
 }
 /** images **/
-.element.img {
+.img {
     margin-bottom: .75em;
 }
-.img.force-full-width,
-.img.force-full-width img {
-    width: 100%;
+.img * {
+    display: block;
+}
+@media screen and (min-width: 992px) {
+    .img.force-full-width,
+    .img.force-full-width * {
+        width: 100%;
+    }
+}
+@media screen and (min-width: 769px) and (max-width: 991px) {
+    .img.force-full-width-tablet,
+    .img.force-full-width-tablet * {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .img.force-full-width-mobile,
+    .img.force-full-width-mobile * {
+        width: 100%;
+    }
+}
+.img.image-max-height * {
+    max-height: 100%;
 }
 /*** dividers ***/
 /* divider element */
