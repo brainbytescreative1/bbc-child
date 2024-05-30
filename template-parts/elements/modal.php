@@ -85,15 +85,7 @@ if( get_row_layout() == 'modal' ):
             
                     // Image variables.
                     $url = $image['url'];
-                    $title = $image['title'];
                     $alt = $image['alt'];
-                    $caption = $image['caption'];
-                
-                    // Thumbnail size attributes.
-                    $size = $image_size;
-                    $thumb = $image['sizes'][ $size ];
-                    $width = $image['sizes'][ $size . '-width' ];
-                    $height = $image['sizes'][ $size . '-height' ];
             
                     $image = '<img src="'. $url .'" alt="'. $alt .'" />';
             

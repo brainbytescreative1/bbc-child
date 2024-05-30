@@ -205,7 +205,6 @@ if( get_row_layout() == 'tabbed_content' ):
                             <?php
                             if ( $image ) {
                                 // Image variables.
-                                //$url = $image['url'];
                                 $url = wp_get_attachment_image_url($image, 'medium_large');
 
                                 // Thumbnail size attributes.

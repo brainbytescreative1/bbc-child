@@ -186,16 +186,8 @@ if( get_row_layout() == 'accordion' ):
                     $image_classes = [];
 
                     // Image variables.
-                    $url = $image['url'];
-                    $title = $image['title'];
-                    $alt = $image['alt'];
-                    $caption = $image['caption'];
-                
-                    // Thumbnail size attributes.
-                    $size = $image_size;
-                    $thumb = $image['sizes'][ $size ];
-                    $width = $image['sizes'][ $size . '-width' ];
-                    $height = $image['sizes'][ $size . '-height' ];
+                    $thumb = wp_get_attachment_image_url($image, $image_size);
+                    $alt = get_post_meta($image, '_wp_attachment_image_alt', TRUE);
 
                     $image_classes = trim(implode(' ', $image_classes));
                 
