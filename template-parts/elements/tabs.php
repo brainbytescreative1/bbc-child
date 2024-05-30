@@ -205,17 +205,15 @@ if( get_row_layout() == 'tabbed_content' ):
                             <?php
                             if ( $image ) {
                                 // Image variables.
-                                $url = $image['url'];
+                                //$url = $image['url'];
+                                $url = wp_get_attachment_image_url($image, 'medium_large');
 
                                 // Thumbnail size attributes.
-                                $size = 'medium_large';
-                                $thumb = $image['sizes'][ $size ];
-
-                                $thumb = isUrlValid($thumb);
+                                $url = isUrlValid($url);
 
                                 ?>
                                 <div class="<?=$show_image?>">
-                                    <div class="<?=$tab_image_inner_classes?>" style="background: url(<?php echo esc_url($thumb); ?>);<?=$tab_image_styles?>"></div>
+                                    <div class="<?=$tab_image_inner_classes?>" style="background: url(<?php echo esc_url($url); ?>);<?=$tab_image_styles?>"></div>
                                 </div>
                             <?php } ?>
                             
