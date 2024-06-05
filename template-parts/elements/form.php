@@ -345,6 +345,8 @@ if( get_row_layout() == 'form' ):
 
     if ( get_sub_field('color_scheme') !== 'default' ) {
         $form_classes[] = 'form-' . get_sub_field('color_scheme');
+    } else {
+        $form_classes[] = 'form-' . $color_scheme;
     }
 
     $required_text_summary = 'hide-required';
