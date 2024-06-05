@@ -6,21 +6,20 @@ if( get_row_layout() == 'form' ):
 
     // style options
     $color_scheme = 'light';
-    if ( get_sub_field('color_scheme') ) {
+    if ( get_sub_field('color_scheme') !== 'default' ) {
         $color_scheme = get_sub_field('color_scheme');
     } elseif ( get_field('default_color_scheme', 'forms') ) {
         $color_scheme = get_field('default_color_scheme', 'forms');
     }
     
-
     /** global settings start **/
     /* colors */
     // default colors
     $input_text = '#000000';
     $input_background = '#ffffff';
     $submit_button_text = '#ffffff';
-    $submit_background = '#000000';
-    $submit_background_hover = '#000000';
+    $submit_background = 'var(--success)';
+    $submit_background_hover = 'var(--success_hover)';
     $placeholder = '#000000';
     $checkbox_background = '#ffffff';
     $checkbox_checked = '#000000';
@@ -314,6 +313,15 @@ if( get_row_layout() == 'form' ):
         .form.element .gform_fields {
             grid-row-gap: <?=$input_spacing?> !important;
         }
+        /* responsive */
+        @media screen and (max-width: 640px) {
+            .form.element .name_first {
+                margin-bottom: <?=$input_spacing?> !important;
+            }
+            .form.element .name_last {
+                margin-bottom: 0 !important;
+            }
+        }
         <?php 
         if ( $custom_css_global ) {
             // global css
@@ -385,7 +393,8 @@ if( get_row_layout() == 'form' ):
             echo get_sub_field('custom_css');
         echo '</style>';
     }
-    
+
+    $form_classes[] = get_spacing_bbc(get_sub_field('form_spacing'));
 
     // complile
     $form_classes = implode(' ', $form_classes);

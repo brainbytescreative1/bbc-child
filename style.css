@@ -2923,3 +2923,9 @@ a.col-inner {
 .form-dark .gform_confirmation_message {
     color: #ffffff !important;
 }
+/* spacing */
+.form.element .gform_footer,
+.form.element .gform_button {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
