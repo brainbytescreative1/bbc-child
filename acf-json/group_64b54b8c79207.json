@@ -71,10 +71,11 @@
                 "id": ""
             },
             "choices": {
+                "default": "default",
                 "light": "light",
                 "dark": "dark"
             },
-            "default_value": "light",
+            "default_value": "default",
             "return_format": "value",
             "allow_null": 0,
             "layout": "horizontal"
@@ -259,7 +260,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1717597822,
+    "modified": 1717602401,
     "acfe_categories": {
         "elements": "Elements"
     }

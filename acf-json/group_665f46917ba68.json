@@ -1191,7 +1191,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "btn",
+            "default_value": "btn btn-success",
             "maxlength": "",
             "placeholder": "",
             "prepend": "",
@@ -1247,7 +1247,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1717598408,
+    "modified": 1717602501,
     "acfe_categories": {
         "options": "Options"
     }

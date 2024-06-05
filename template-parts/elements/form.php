@@ -11,6 +11,7 @@ if( get_row_layout() == 'form' ):
     } elseif ( get_field('default_color_scheme', 'forms') ) {
         $color_scheme = get_field('default_color_scheme', 'forms');
     }
+    
 
     /** global settings start **/
     /* colors */
@@ -80,7 +81,7 @@ if( get_row_layout() == 'form' ):
     /* fonts */
     // default fonts
     $input_size = '1rem';
-    $input_size_choice = get_field('submit_font_size', 'forms');
+    $input_size_choice = get_field('input_font_size', 'forms');
     if ( $input_size_choice ) {
         if ( $input_size_choice['value'] ) {
             $input_size = $input_size_choice['value'] . $input_size_choice['unit'];
@@ -135,10 +136,10 @@ if( get_row_layout() == 'form' ):
     // borders
     $border_width = '1px';
     $border_width_global = get_field('border_width', 'style');
-    if ( $border_width_global ) {
-        $border_width = $border_width_global . 'px';
-    } elseif ( get_field('border_width', 'forms') ) {
+    if ( get_field('border_width', 'forms') ) {
         $border_width = get_field('border_width', 'forms') . 'px';
+    } elseif ( $border_width_global ) {
+        $border_width = $border_width_global . 'px';
     }
 
     $border_color = $input_text;
@@ -334,7 +335,7 @@ if( get_row_layout() == 'form' ):
     // form options
     $form = get_sub_field('form');
 
-    if ( get_sub_field('color_scheme') ) {
+    if ( get_sub_field('color_scheme') !== 'default' ) {
         $form_classes[] = 'form-' . get_sub_field('color_scheme');
     }
 
