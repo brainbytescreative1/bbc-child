@@ -3,11 +3,19 @@
 // add classes to submit button
 add_filter( 'gform_submit_button', 'add_custom_css_classes', 10, 2 );
 function add_custom_css_classes( $button, $form ) {
+
+    $submit_classes = [];
+    $submit_button_classes = get_field('submit_button_classes', 'forms');
+    if ( $submit_button_classes ) {
+        $submit_classes[] = $submit_button_classes;
+    }
+    $submit_classes = implode(' ', $submit_classes);
+
 	$dom = new DOMDocument();
 	$dom->loadHTML( '<?xml encoding="utf-8" ?>' . $button );
 	$input = $dom->getElementsByTagName( 'input' )->item(0);
 	$classes = $input->getAttribute( 'class' );
-	$classes .= " btn btn-success";
+	$classes .= $submit_classes;
 	$input->setAttribute( 'class', $classes );
 	return $dom->saveHtml( $input );
 }

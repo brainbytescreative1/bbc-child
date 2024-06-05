@@ -189,3 +189,7 @@
 .editor-styles-wrapper .bg-primary {
     background-color: var(--primary) !important;
 }
+/* hide theme colors title */
+.hide-clone-title [data-name="theme_colors"] .acf-label {
+    display: none !important;
+}

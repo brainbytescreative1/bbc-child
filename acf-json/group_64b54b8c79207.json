@@ -3,6 +3,24 @@
     "title": "Form Element",
     "fields": [
         {
+            "key": "field_66606f9f60ac0",
+            "label": "Form Select",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
             "key": "field_64b54b8c50ecc",
             "label": "Form Select",
             "name": "form",
@@ -19,6 +37,201 @@
             "return_format": "id",
             "allow_null": 0,
             "multiple": 0
+        },
+        {
+            "key": "field_66606fbb60ac1",
+            "label": "Form Options",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_665f51397925b",
+            "label": "Color Scheme",
+            "name": "color_scheme",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "20",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "light": "light",
+                "dark": "dark"
+            },
+            "default_value": "light",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_66606efe60abc",
+            "label": "Required Text Summary",
+            "name": "required_text_summary",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "20",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "hide": "hide",
+                "show": "show"
+            },
+            "default_value": "hide",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_66606e9860ab9",
+            "label": "Form Title",
+            "name": "form_title",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "20",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "false": "hide",
+                "true": "show"
+            },
+            "default_value": "false",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_66606eb260aba",
+            "label": "Form Description",
+            "name": "form_description",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "20",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "false": "hide",
+                "true": "show"
+            },
+            "default_value": "false",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_66606ec860abb",
+            "label": "AJAX",
+            "name": "ajax",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "20",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "true": "true",
+                "false": "false"
+            },
+            "default_value": "true",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_66606ffb633de",
+            "label": "Advanced",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_66606f8c60abf",
+            "label": "Additional Classes",
+            "name": "additional_classes",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_66607013633df",
+            "label": "Custom CSS",
+            "name": "custom_css",
+            "aria-label": "",
+            "type": "acfe_code_editor",
+            "instructions": "Please include .form.element before any additional CSS rules.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "mode": "css",
+            "lines": 1,
+            "indent_unit": 4,
+            "maxlength": "",
+            "rows": 4,
+            "max_rows": "",
+            "return_format": []
         }
     ],
     "location": [
@@ -46,7 +259,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1716582570,
+    "modified": 1717597822,
     "acfe_categories": {
         "elements": "Elements"
     }
