@@ -20,7 +20,12 @@ if( get_row_layout() == 'form' ):
     $input_text = '#000000';
     $input_background = '#ffffff';
     $input_border = 'transparent';
-    $checkbox_checked = '';
+    $checkbox_text = '';
+    $checkbox_text_link = '';
+    $checkbox_checked = '#000000';
+    if ( $color_scheme === 'dark' ) {
+        $checkbox_text = '#ffffff';
+    }
     $submit_button_text = '#ffffff';
     $submit_background = 'var(--success)';
     $submit_background_hover = 'var(--success_hover)';
@@ -39,14 +44,13 @@ if( get_row_layout() == 'form' ):
     $textarea_radius = 'var(--button_border-radius)';
     $submit_radius = 'var(--button_border-radius)';
 
-    // input text
+    // input
     if ( $color_scheme_select['input_text']['custom_color'] ) {
         $input_text = $color_scheme_select['input_text']['custom_color'];
     } elseif ( $color_scheme_select['input_text']['theme_colors'] ) {
         $input_text = 'var(--' . $color_scheme_select['input_text']['theme_colors'] . ')';
     }
 
-    // input background
     if ( $color_scheme_select['input_background']['custom_color'] ) {
         $input_background = $color_scheme_select['input_background']['custom_color'];
     } elseif ( $color_scheme_select['input_background']['theme_colors'] ) {
@@ -59,6 +63,19 @@ if( get_row_layout() == 'form' ):
         $input_border = 'var(--' . $color_scheme_select['input_border']['theme_colors'] . ')';
     }
     
+    // checkbox
+    if ( $color_scheme_select['checkbox_text']['custom_color'] ) {
+        $checkbox_text = $color_scheme_select['checkbox_text']['custom_color'];
+    } elseif ( $color_scheme_select['checkbox_text']['theme_colors'] ) {
+        $checkbox_text = 'var(--' . $color_scheme_select['checkbox_text']['theme_colors'] . ')';
+    }
+
+    if ( $color_scheme_select['checkbox_text_link']['custom_color'] ) {
+        $checkbox_text_link = $color_scheme_select['checkbox_text_link']['custom_color'];
+    } elseif ( $color_scheme_select['checkbox_text_link']['theme_colors'] ) {
+        $checkbox_text_link = 'var(--' . $color_scheme_select['checkbox_text_link']['theme_colors'] . ')';
+    }
+
     if ( $color_scheme_select['checkbox_checked']['custom_color'] ) {
         $checkbox_checked = $color_scheme_select['checkbox_checked']['custom_color'];
     } elseif ( $color_scheme_select['checkbox_checked']['theme_colors'] ) {
@@ -236,6 +253,10 @@ if( get_row_layout() == 'form' ):
         .form.element#<?=$form_id?> .gfield_checkbox .gform-field-label {
             font-size: <?=$input_size?> !important;
             font-family: <?=$input_family?> !important;
+            color: <?=$checkbox_text?> !important;
+        }
+        .form.element#<?=$form_id?> .gfield_checkbox .gform-field-label a {
+            color: <?=$checkbox_text_link?> !important;
         }
         .form.element#<?=$form_id?> input[type="checkbox"] {
             font-size: <?=$input_size?> !important;
@@ -272,7 +293,7 @@ if( get_row_layout() == 'form' ):
             font-family: <?=$submit_family?> !important;
             padding: <?=$submit_padding?> !important;
             border-radius: <?=$submit_radius?> !important;
-            /* margin-top: <?=$input_spacing?> !important; */
+            margin-top: <?=$input_spacing?> !important;
         }
         .form.element#<?=$form_id?> input[type="submit"]:hover {
             background: <?=$submit_background_hover?> !important;

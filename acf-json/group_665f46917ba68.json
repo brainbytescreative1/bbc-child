@@ -429,7 +429,7 @@
             "endpoint": 0
         },
         {
-            "key": "field_6663415e4defc",
+            "key": "field_66636871885dc",
             "label": "Dark",
             "name": "dark",
             "aria-label": "",
@@ -446,7 +446,7 @@
             "acfe_seamless_style": 1,
             "sub_fields": [
                 {
-                    "key": "field_6663415e4df07",
+                    "key": "field_66636871885e8",
                     "label": "Input Text",
                     "name": "input_text",
                     "aria-label": "",
@@ -474,7 +474,7 @@
                     "acfe_clone_modal_size": "large"
                 },
                 {
-                    "key": "field_6663415e4df08",
+                    "key": "field_66636871885e9",
                     "label": "Input Background",
                     "name": "input_background",
                     "aria-label": "",
@@ -502,7 +502,7 @@
                     "acfe_clone_modal_size": "large"
                 },
                 {
-                    "key": "field_6663415e4df09",
+                    "key": "field_66636871885ea",
                     "label": "Input Border",
                     "name": "input_border",
                     "aria-label": "",
@@ -530,7 +530,7 @@
                     "acfe_clone_modal_size": "large"
                 },
                 {
-                    "key": "field_6663415e4df0a",
+                    "key": "field_66636871885eb",
                     "label": "Checkbox Text",
                     "name": "checkbox_text",
                     "aria-label": "",
@@ -558,7 +558,35 @@
                     "acfe_clone_modal_size": "large"
                 },
                 {
-                    "key": "field_6663415e4df0b",
+                    "key": "field_66636871885ec",
+                    "label": "Checkbox Text Link",
+                    "name": "checkbox_text_link",
+                    "aria-label": "",
+                    "type": "clone",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "clone": [
+                        "field_646f9085bbc67",
+                        "field_649b4b3456089"
+                    ],
+                    "display": "group",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 1,
+                    "acfe_seamless_style": 0,
+                    "acfe_clone_modal": 0,
+                    "acfe_clone_modal_close": 0,
+                    "acfe_clone_modal_button": "",
+                    "acfe_clone_modal_size": "large"
+                },
+                {
+                    "key": "field_66636871885ed",
                     "label": "Checkbox Checked",
                     "name": "checkbox_checked",
                     "aria-label": "",
@@ -586,7 +614,7 @@
                     "acfe_clone_modal_size": "large"
                 },
                 {
-                    "key": "field_6663415e4df0c",
+                    "key": "field_66636871885ee",
                     "label": "Submit Button Text",
                     "name": "submit_button_text",
                     "aria-label": "",
@@ -614,7 +642,7 @@
                     "acfe_clone_modal_size": "large"
                 },
                 {
-                    "key": "field_6663415e4df0d",
+                    "key": "field_66636871885ef",
                     "label": "Submit Button Background",
                     "name": "submit_button_background",
                     "aria-label": "",
@@ -642,7 +670,7 @@
                     "acfe_clone_modal_size": "large"
                 },
                 {
-                    "key": "field_6663415e4df0e",
+                    "key": "field_66636871885f0",
                     "label": "Error Text",
                     "name": "error_text",
                     "aria-label": "",
@@ -670,7 +698,7 @@
                     "acfe_clone_modal_size": "large"
                 },
                 {
-                    "key": "field_6663415e4df0f",
+                    "key": "field_66636871885f1",
                     "label": "Error Background",
                     "name": "error_background",
                     "aria-label": "",
@@ -698,7 +726,7 @@
                     "acfe_clone_modal_size": "large"
                 },
                 {
-                    "key": "field_6663415e4df10",
+                    "key": "field_66636871885f2",
                     "label": "Placeholder Text",
                     "name": "placeholder_text",
                     "aria-label": "",
@@ -1443,7 +1471,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1717786922,
+    "modified": 1717790854,
     "acfe_categories": {
         "options": "Options"
     }
