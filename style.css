@@ -2920,20 +2920,6 @@ a.col-inner {
 .form.element input.gfield-choice-input {
     opacity: 0 !important;
 }
-.form-light .ginput_container_checkbox .gform-field-label {
-    color: var(--text);
-}
-.form-light input[type=checkbox]:not(:checked) + label:after {
-    border: 2px solid var(--text);
-}
-.form-dark .ginput_container_checkbox .gform-field-label {
-    color: var(--white);
-    color: #ffffff;
-}
-.form-dark input[type=checkbox]:not(:checked) + label:after {
-    border: 2px solid var(--white);
-    border: 2px solid #ffffff;
-}
 /* confirmation */
 .form-light .gform_confirmation_message {
     color: var(--text) !important;

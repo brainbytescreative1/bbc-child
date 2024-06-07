@@ -17,19 +17,26 @@ if( get_row_layout() == 'form' ):
     // color scheme
     $color_scheme_select = get_field($color_scheme, 'forms');
 
-    $input_text = '#000000';
+    $input_text = 'var(--text)';
     $input_background = '#ffffff';
     $input_border = 'transparent';
-    $checkbox_text = '';
-    $checkbox_text_link = '';
-    $checkbox_checked = '#000000';
+    $checkbox_text = 'var(--text)';
+    $checkbox_checked = '#ffffff';
+    $checkbox_background = 'var(--text)';
     if ( $color_scheme === 'dark' ) {
         $checkbox_text = '#ffffff';
+        $checkbox_checked = 'var(--text)';
+        $checkbox_background = '#ffffff';
     }
+    $checkbox_text_link = '';
     $submit_button_text = '#ffffff';
     $submit_background = 'var(--success)';
     $submit_background_hover = 'var(--success_hover)';
-    $placeholder = '#000000';
+    $confirmation_color = 'var(--text)';
+    if ( $color_scheme === 'dark' ) {
+        $confirmation_color = '#ffffff';
+    }
+    $placeholder = 'var(--text)';
     $input_size = '1rem';
     $input_family = 'var(--font-primary)';
     $submit_size = '1rem';
@@ -268,15 +275,24 @@ if( get_row_layout() == 'form' ):
             color: <?=$checkbox_checked?> !important;
         }
         .form.element#<?=$form_id?> input[type=checkbox]:not(:checked) + label:after {
-            /* border: 2px solid <?=$border_color?>; */
+            border: 2px solid <?=$border_color?>;
         }
         .form.element#<?=$form_id?> input[type=checkbox]:checked + label:after {
-            border: 2px solid <?=$submit_background?>;
-            background-color: <?=$submit_background?>;
+            border: 2px solid <?=$checkbox_background?>;
+            background-color: <?=$checkbox_background?>;
         }
         .form.element#<?=$form_id?> input[type=checkbox]:checked + label:before {
-            border-right: 2px solid #fff;
-            border-bottom: 2px solid #fff;
+            border-right: 2px solid <?=$checkbox_checked?>;
+            border-bottom: 2px solid <?=$checkbox_checked?>;
+        }
+        .form.element#<?=$form_id?>  input[type=checkbox]:not(:checked) + label:after {
+            border: 2px solid <?=$checkbox_text?>;
+        }
+        .form.element#<?=$form_id?>  .ginput_container_checkbox .gform-field-label {
+            color: <?=$checkbox_text?>;
+        }
+        .form.element#<?=$form_id?>  input[type=checkbox]:not(:checked) + label:after {
+            border: 2px solid <?=$checkbox_text?>;
         }
         /* textarea */
         .form.element#<?=$form_id?> textarea {
@@ -323,6 +339,10 @@ if( get_row_layout() == 'form' ):
         }
         .form.element#<?=$form_id?> .gform-icon--circle-error {
             color: <?=$error_text?> !important;
+        }
+        /* confirmation */
+        .form.element#<?=$form_id?> .gform_confirmation_message {
+            color: <?=$confirmation_color?> !important;
         }
         /* placeholder */
         .form.element#<?=$form_id?> ::-moz-placeholder {
