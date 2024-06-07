@@ -262,10 +262,6 @@ if( get_row_layout() == 'form' ):
             border-radius: <?=$textarea_radius?> !important;
         }
         /* submit */
-        .form.element#<?=$form_id?> .gform_footer {
-            padding-top: 0 !important;
-            margin-top: 0 !important;
-        }
         .form.element#<?=$form_id?> input[type="submit"] {
             display: block !important;
             width: 100% !important;
@@ -276,6 +272,7 @@ if( get_row_layout() == 'form' ):
             font-family: <?=$submit_family?> !important;
             padding: <?=$submit_padding?> !important;
             border-radius: <?=$submit_radius?> !important;
+            /* margin-top: <?=$input_spacing?> !important; */
         }
         .form.element#<?=$form_id?> input[type="submit"]:hover {
             background: <?=$submit_background_hover?> !important;

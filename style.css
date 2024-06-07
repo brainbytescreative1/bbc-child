@@ -16,14 +16,15 @@
 
 
 /*** typography ***/
-/* set base font size */
+/* set base font size and color */
 @media screen and (min-width: 991px) {
-    html {
+    html.front {
         font-size: var(--base_font_size);
     }
 }
-html.wp-toolbar {
+html.front {
     font-size: 16px;
+    color: var(--text);
 }
 /* site width */
 .site {
@@ -74,10 +75,6 @@ section .container-fluid .row {
 .font-secondary, 
 .font-secondary:not(.btn) > * {
     font-family: var(--font-secondary) !important;
-}
-/* set base font size */
-html {
-    color: var(--text);
 }
 /** responsive hidden **/
 /* hide mobile */
@@ -294,9 +291,11 @@ html {
     margin-left: auto;
 }
 /* links */
-a {
+html.front a,
+.editor-styles-wrapper a {
     text-decoration: none;
-    font-weight: var(--bs-link-weight)
+    font-weight: var(--bs-link-weight);
+    color: var(--bs-link-color);
 }
 .text-wrapper p a {
     text-decoration: underline;
@@ -2943,8 +2942,13 @@ a.col-inner {
     color: #ffffff !important;
 }
 /* spacing */
-.form.element .gform_footer,
-.form.element .gform_button {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
+/*
+.form.element .gform_footer {
+    margin: 0 !important;
+    padding: 0 !important;
 }
+.form.element .input[type="submit"] {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+*/
