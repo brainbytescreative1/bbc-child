@@ -222,10 +222,6 @@ if ( $row_additional_classes ) {
     $row_classes[] = $row_additional_classes;
 }
 
-// dividers
-
-
-
 // flex
 $flex_element = get_field('flex_element');
 if ( $flex_element != 'none' ) {

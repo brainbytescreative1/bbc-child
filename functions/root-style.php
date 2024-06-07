@@ -516,11 +516,31 @@ if ( $section_dividers ) {
         $width = $divider['width'];
         $height = $divider['height'];
 
+        $tablet_height = $height / 2;
+        $mobile_height = $height / 3;
+
 ?>
 <?='.'?><?=$class?> .divider-inner {
-    -webkit-mask: url('<?=$shape?>');
+    mask: url('<?=$shape?>') no-repeat;
+    -webkit-mask: url('<?=$shape?>') no-repeat;
+    mask-size: <?=$width?>% <?=$height?>%;
+    -webkit-mask-size: <?=$width?>% <?=$height?>px;
     width: <?=$width?>%;
     height: <?=$height?>px;
+}
+@media screen and (max-width: 990px) {
+    <?='.'?><?=$class?> .divider-inner {
+        mask-size: <?=$width?>% <?=$tablet_height?>% !important;
+        -webkit-mask-size: <?=$width?>% <?=$tablet_height?>px !important;
+        height: <?=$tablet_height?>px !important;
+    }
+}
+@media screen and (max-width: 768px) {
+    <?='.'?><?=$class?> .divider-inner {
+        mask-size: <?=$width?>% <?=$mobile_height?>% !important;
+        -webkit-mask-size: <?=$width?>% <?=$mobile_height?>px !important;
+        height: <?=$mobile_height?>px !important;
+    }
 }
 <?='.'?><?=$class?>-container-negative-margin-top {
     margin-top: -<?=$height?>px;
