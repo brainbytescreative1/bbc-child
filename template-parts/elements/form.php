@@ -2,6 +2,8 @@
 
 if( get_row_layout() == 'form' ):
 
+    $form_id = 'form-' . rand(1,9999);
+
     include_once( __DIR__ . '../../../functions/forms.php');
 
     // style options
@@ -186,9 +188,9 @@ if( get_row_layout() == 'form' ):
     ?>
     <style>
         /* inputs */
-        .form.element input:not([type="checkbox"]),
-        .form.element textarea,
-        .form.element select {
+        .form.element#<?=$form_id?> input:not([type="checkbox"]),
+        .form.element#<?=$form_id?> textarea,
+        .form.element#<?=$form_id?> select {
             color: <?=$input_text?> !important;
             background: <?=$input_background?> !important;
             font-size: <?=$input_size?> !important;
@@ -197,22 +199,22 @@ if( get_row_layout() == 'form' ):
             padding: <?=$input_padding?> !important;
             border: <?=$border_width?> <?=$border_color?> solid !important;
         }
-        .form.element input:focus,
-        .form.element textarea:focus,
-        .form.element select:focus,
-        .form.element input:focus-visible,
-        .form.element textarea:focus-visible,
-        .form.element select:focus-visible,
-        .form.element input:active,
-        .form.element textarea:active,
-        .form.element select:active {
+        .form.element#<?=$form_id?> input:focus,
+        .form.element#<?=$form_id?> textarea:focus,
+        .form.element#<?=$form_id?> select:focus,
+        .form.element#<?=$form_id?> input:focus-visible,
+        .form.element#<?=$form_id?> textarea:focus-visible,
+        .form.element#<?=$form_id?> select:focus-visible,
+        .form.element#<?=$form_id?> input:active,
+        .form.element#<?=$form_id?> textarea:active,
+        .form.element#<?=$form_id?> select:active {
             border-color: <?=$border_color_focus?> !important;
         }
-        .form.element input:not([type="checkbox"]) {
+        .form.element#<?=$form_id?> input:not([type="checkbox"]) {
             border-radius: <?=$input_radius?> !important;
         }
         /* select */
-        .form.element select {
+        .form.element#<?=$form_id?> select {
             color: <?=$input_text?> !important;
             background: <?=$input_background?> !important;
             font-size: <?=$input_size?> !important;
@@ -222,41 +224,41 @@ if( get_row_layout() == 'form' ):
             border-radius: <?=$input_radius?> !important;
         }
         /* checkbox */
-        .form.element .gfield_checkbox .gform-field-label {
+        .form.element#<?=$form_id?> .gfield_checkbox .gform-field-label {
             font-size: <?=$input_size?> !important;
             font-family: <?=$input_family?> !important;
         }
-        .form.element input[type="checkbox"] {
+        .form.element#<?=$form_id?> input[type="checkbox"] {
             background: <?=$checkbox_background?> !important;
             font-size: <?=$input_size?> !important;
             line-height: <?=$input_size?> !important;
             width: <?=$input_size?> !important;
             height: <?=$input_size?> !important;
         }
-        .form.element input[type="checkbox"]::before {
+        .form.element#<?=$form_id?> input[type="checkbox"]::before {
             color: <?=$checkbox_checked?> !important;
         }
-        .form.element input[type=checkbox]:not(:checked) + label:after {
-            border: 2px solid <?=$border_color?>;
+        .form.element#<?=$form_id?> input[type=checkbox]:not(:checked) + label:after {
+            /* border: 2px solid <?=$border_color?>; */
         }
-        .form.element input[type=checkbox]:checked + label:after {
+        .form.element#<?=$form_id?> input[type=checkbox]:checked + label:after {
             border: 2px solid <?=$submit_background?>;
             background-color: <?=$submit_background?>;
         }
-        .form.element input[type=checkbox]:checked + label:before {
+        .form.element#<?=$form_id?> input[type=checkbox]:checked + label:before {
             border-right: 2px solid #fff;
             border-bottom: 2px solid #fff;
         }
         /* textarea */
-        .form.element textarea {
+        .form.element#<?=$form_id?> textarea {
             border-radius: <?=$textarea_radius?> !important;
         }
         /* submit */
-        .form.element .gform_footer {
+        .form.element#<?=$form_id?> .gform_footer {
             padding-top: 0 !important;
             margin-top: 0 !important;
         }
-        .form.element input[type="submit"] {
+        .form.element#<?=$form_id?> input[type="submit"] {
             display: block !important;
             width: 100% !important;
             color: <?=$submit_button_text?> !important;
@@ -267,58 +269,58 @@ if( get_row_layout() == 'form' ):
             padding: <?=$submit_padding?> !important;
             border-radius: <?=$submit_radius?> !important;
         }
-        .form.element input[type="submit"]:hover {
+        .form.element#<?=$form_id?> input[type="submit"]:hover {
             background: <?=$submit_background_hover?> !important;
             border-color: <?=$submit_background_hover?> !important;
             padding: <?=$submit_padding?> !important;
         }
         /* error */
-        .form.element .gform_validation_errors,
-        .form.element .gfield_validation_message,
-        .form.element .gform_submission_error,
-        .form.element .validation_message {
+        .form.element#<?=$form_id?> .gform_validation_errors,
+        .form.element#<?=$form_id?> .gfield_validation_message,
+        .form.element#<?=$form_id?> .gform_submission_error,
+        .form.element#<?=$form_id?> .validation_message {
             color: <?=$error_text?> !important;
             border-color: <?=$error_text?> !important;
             background: <?=$error_background?> !important;
             font-family: var(--font-primary) !important;
         }
-        .form.element .gform_validation_errors h2,
-        .gform_wrapper.gravity-theme .gfield_error .gfield_repeater_cell label, 
-        .gform_wrapper.gravity-theme .gfield_error label, 
-        .gform_wrapper.gravity-theme .gfield_error legend, 
-        .gform_wrapper.gravity-theme .gfield_validation_message, 
-        .gform_wrapper.gravity-theme .validation_message, 
-        .gform_wrapper.gravity-theme [aria-invalid="true"] + label, 
-        .gform_wrapper.gravity-theme label + [aria-invalid="true"] {
+        .form.element#<?=$form_id?> .gform_validation_errors h2,
+        .form.element#<?=$form_id?> .gform_wrapper.gravity-theme .gfield_error .gfield_repeater_cell label, 
+        .form.element#<?=$form_id?> .gform_wrapper.gravity-theme .gfield_error label, 
+        .form.element#<?=$form_id?> .gform_wrapper.gravity-theme .gfield_error legend, 
+        .form.element#<?=$form_id?> .gform_wrapper.gravity-theme .gfield_validation_message, 
+        .form.element#<?=$form_id?> .gform_wrapper.gravity-theme .validation_message, 
+        .form.element#<?=$form_id?> .gform_wrapper.gravity-theme [aria-invalid="true"] + label, 
+        .form.element#<?=$form_id?> .gform_wrapper.gravity-theme label + [aria-invalid="true"] {
             color: <?=$error_text?> !important;
             font-family: var(--font-primary) !important;
         }
-        .form.element .gform-icon--circle-error {
+        .form.element#<?=$form_id?> .gform-icon--circle-error {
             color: <?=$error_text?> !important;
         }
         /* placeholder */
-        .form.element ::-moz-placeholder {
+        .form.element#<?=$form_id?> ::-moz-placeholder {
             color: <?=$placeholder?> !important;
             opacity: 1 !important;
         }
-        .form.element ::-webkit-placeholder {
+        .form.element#<?=$form_id?> ::-webkit-placeholder {
             color: <?=$placeholder?> !important;
             opacity: 1 !important;
         }
-        .form.element ::placeholder {
+        .form.element#<?=$form_id?> ::placeholder {
             color: <?=$placeholder?> !important;
             opacity: 1 !important;
         }
         /* gap */
-        .form.element .gform_fields {
+        .form.element#<?=$form_id?> .gform_fields {
             grid-row-gap: <?=$input_spacing?> !important;
         }
         /* responsive */
         @media screen and (max-width: 640px) {
-            .form.element .name_first {
+            .form.element#<?=$form_id?> .name_first {
                 margin-bottom: <?=$input_spacing?> !important;
             }
-            .form.element .name_last {
+            .form.element#<?=$form_id?> .name_last {
                 margin-bottom: 0 !important;
             }
         }
@@ -402,7 +404,7 @@ if( get_row_layout() == 'form' ):
     $form_classes = implode(' ', $form_classes);
 
     if ( $form ) {
-        echo '<div class="'. $form_classes .'">';
+        echo '<div class="'. $form_classes .'" id="'. $form_id .'">';
             echo do_shortcode('[gravityform id="'. $form .'" title="'. $form_title .'" description="'. $form_description .'" ajax="'. $ajax .'"]');
         echo '</div>';
     }
