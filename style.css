@@ -2942,13 +2942,10 @@ a.col-inner {
     color: #ffffff !important;
 }
 /* spacing */
-/*
 .form.element .gform_footer {
     margin: 0 !important;
     padding: 0 !important;
 }
 .form.element .input[type="submit"] {
-    margin: 0 !important;
-    padding: 0 !important;
+    margin-bottom: 0 !important;
 }
-*/
