@@ -5,7 +5,7 @@
  Author:       Brain Bytes Creative
  Author URI:   https://github.com/understrap/understrap-child/graphs/contributors
  Template:     understrap
- Version:      1.2.6
+ Version:      1.2.7
  License: GNU General Public License v2 or later
  License URI: http://www.gnu.org/licenses/gpl-2.0.html
  Text Domain:  bbc
@@ -296,6 +296,7 @@ html {
 /* links */
 a {
     text-decoration: none;
+    font-weight: var(--bs-link-weight)
 }
 .text-wrapper p a {
     text-decoration: underline;
@@ -2917,6 +2918,9 @@ a.col-inner {
     display: block;
 }
 /* checkbox */
+.form.element input.gfield-choice-input {
+    opacity: 0 !important;
+}
 .form-light .ginput_container_checkbox .gform-field-label {
     color: var(--text);
 }

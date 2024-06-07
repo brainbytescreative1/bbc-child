@@ -105,6 +105,7 @@ function global_site_variables(){
 	$primary_font = get_field('primary_font', 'style');
 	$secondary_font = get_field('secondary_font', 'style');
     $text_link_color = get_field('text_link_color', 'style');
+    $text_link_weight = get_field('text_link_weight', 'style');
 
     // containers & columns
     $max_width = get_field('max_width', 'style');
@@ -383,6 +384,12 @@ if ( $white_color ) {
 <?php if ( $text_link_color ) { ?>
 --bs-link-color: var(--<?=$text_link_color['theme_colors']?>);
 --bs-link-hover-color: var(--<?=$text_link_color['theme_colors']?>_hover);
+<?php } ?>
+
+
+/* text link weight */
+<?php if ( $text_link_weight && ( $text_link_weight !== 'default' ) ) { ?>
+--bs-link-weight: <?=$text_link_weight?>;
 <?php } ?>
 
 /* header */

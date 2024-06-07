@@ -13,21 +13,31 @@ if( get_row_layout() == 'form' ):
     } elseif ( get_field('default_color_scheme', 'forms') ) {
         $color_scheme = get_field('default_color_scheme', 'forms');
     }
-    
-    /** global settings start **/
-    /* colors */
-    // default colors
+
+    // color scheme
+    $color_scheme_select = get_field($color_scheme, 'forms');
+
     $input_text = '#000000';
     $input_background = '#ffffff';
+    $input_border = 'transparent';
+    $checkbox_checked = '';
     $submit_button_text = '#ffffff';
     $submit_background = 'var(--success)';
     $submit_background_hover = 'var(--success_hover)';
     $placeholder = '#000000';
-    $checkbox_background = '#ffffff';
-    $checkbox_checked = '#000000';
-
-    // color scheme
-    $color_scheme_select = get_field($color_scheme, 'forms');
+    $input_size = '1rem';
+    $input_family = 'var(--font-primary)';
+    $submit_size = '1rem';
+    $submit_family = $input_family;
+    $input_padding = '12px';
+    $submit_padding = $input_padding;
+    $input_spacing = '1rem';
+    $border_width = '1px';
+    $border_color = $input_text;
+    $border_color_focus = $input_text;
+    $input_radius = 'var(--button_border-radius)';
+    $textarea_radius = 'var(--button_border-radius)';
+    $submit_radius = 'var(--button_border-radius)';
 
     // input text
     if ( $color_scheme_select['input_text']['custom_color'] ) {
@@ -41,6 +51,18 @@ if( get_row_layout() == 'form' ):
         $input_background = $color_scheme_select['input_background']['custom_color'];
     } elseif ( $color_scheme_select['input_background']['theme_colors'] ) {
         $input_background = 'var(--' . $color_scheme_select['input_background']['theme_colors'] . ')';
+    }
+    
+    if ( $color_scheme_select['input_border']['custom_color'] ) {
+        $input_border = $color_scheme_select['input_border']['custom_color'];
+    } elseif ( $color_scheme_select['input_border']['theme_colors'] ) {
+        $input_border = 'var(--' . $color_scheme_select['input_border']['theme_colors'] . ')';
+    }
+    
+    if ( $color_scheme_select['checkbox_checked']['custom_color'] ) {
+        $checkbox_checked = $color_scheme_select['checkbox_checked']['custom_color'];
+    } elseif ( $color_scheme_select['checkbox_checked']['theme_colors'] ) {
+        $checkbox_checked = 'var(--' . $color_scheme_select['checkbox_checked']['theme_colors'] . ')';
     }
 
     // submit text
@@ -81,7 +103,6 @@ if( get_row_layout() == 'form' ):
 
     /* fonts */
     // default fonts
-    $input_size = '1rem';
     $input_size_choice = get_field('input_font_size', 'forms');
     if ( $input_size_choice ) {
         if ( $input_size_choice['value'] ) {
@@ -89,28 +110,24 @@ if( get_row_layout() == 'form' ):
         }
     }
 
-    $input_family = 'var(--font-primary)';
     $input_family_choice = get_field('input_font_family', 'forms');
     if ( $input_family_choice && ( $input_family_choice !== 'default' ) ) {
         $input_family = 'var(--font-' . get_field('input_font_family', 'forms') . ')';
     }
 
-    $submit_size = '1rem';
     $submit_size_choice = get_field('submit_font_size', 'forms');
     if ( $submit_size_choice ) {
         if ( $submit_size_choice['value'] ) {
             $submit_size = $submit_size_choice['value'] . $submit_size_choice['unit'];
         }
     }
-
-    $submit_family = $input_family;
+    
     $submit_family_choice = get_field('submit_family', 'forms');
     if ( $submit_family_choice && ( $submit_family_choice !== 'default' ) ) {
         $submit_family = 'var(--font-' . get_field('submit_button_font_family', 'forms') . ')';
     }
 
     // spacing
-    $input_padding = '12px';
     $input_padding_choice = get_field('input_padding', 'forms');
     if ( $input_padding_choice ) {
         if ( $input_padding_choice['value'] ) {
@@ -118,7 +135,6 @@ if( get_row_layout() == 'form' ):
         }
     }
     
-    $submit_padding = $input_padding;
     $submit_padding_choice = get_field('submit_padding', 'forms');
     if ( $submit_padding_choice ) {
         if ( $submit_padding_choice['value'] ) {
@@ -126,7 +142,6 @@ if( get_row_layout() == 'form' ):
         }
     }
 
-    $input_spacing = '1rem';
     $input_spacing_choice = get_field('input_spacing', 'forms');
     if ( $input_spacing_choice ) {
         if ( $input_spacing_choice['value'] ) {
@@ -135,7 +150,6 @@ if( get_row_layout() == 'form' ):
     }
 
     // borders
-    $border_width = '1px';
     $border_width_global = get_field('border_width', 'style');
     if ( get_field('border_width', 'forms') ) {
         $border_width = get_field('border_width', 'forms') . 'px';
@@ -143,7 +157,6 @@ if( get_row_layout() == 'form' ):
         $border_width = $border_width_global . 'px';
     }
 
-    $border_color = $input_text;
     $border_color_choice = get_field('border_color', 'forms');
     if ( $border_color_choice ) {
         if ( $border_color_choice['custom_color'] ) {
@@ -152,8 +165,7 @@ if( get_row_layout() == 'form' ):
             $border_color = 'var(--' . $border_color_choice['theme_colors'] . ')';
         }
     }
-
-    $border_color_focus = $input_text;
+    
     $border_color_focus_choice = get_field('border_color_focus', 'forms');
     if ( $border_color_focus_choice ) {
         if ( $border_color_focus_choice['custom_color'] ) {
@@ -164,22 +176,19 @@ if( get_row_layout() == 'form' ):
     }
 
     // radius
-    $input_radius = 'var(--button_border-radius)';
     $input_radius_choice = get_field('input_radius', 'forms');
     if ( $input_radius_choice ) {
-        $input_radius = $input_radius_choice . 'px';
+        $input_radius = $input_radius_choice . 'rem';
     }
 
-    $textarea_radius = 'var(--button_border-radius)';
     $textarea_radius_choice = get_field('textarea_radius', 'forms');
     if ( $textarea_radius_choice ) {
-        $textarea_radius = $textarea_radius_choice . 'px';
+        $textarea_radius = $textarea_radius_choice . 'rem';
     }
-
-    $submit_radius = 'var(--button_border-radius)';
+    
     $submit_radius_choice = get_field('submit_radius', 'forms');
     if ( $submit_radius_choice ) {
-        $submit_radius = $submit_radius_choice . 'px';
+        $submit_radius = $submit_radius_choice . 'rem';
     }
 
     // get global css
@@ -197,7 +206,7 @@ if( get_row_layout() == 'form' ):
             line-height: <?=$input_size?> !important;
             font-family: <?=$input_family?> !important;
             padding: <?=$input_padding?> !important;
-            border: <?=$border_width?> <?=$border_color?> solid !important;
+            border: <?=$border_width?> <?=$input_border?> solid !important;
         }
         .form.element#<?=$form_id?> input:focus,
         .form.element#<?=$form_id?> textarea:focus,
@@ -229,7 +238,6 @@ if( get_row_layout() == 'form' ):
             font-family: <?=$input_family?> !important;
         }
         .form.element#<?=$form_id?> input[type="checkbox"] {
-            background: <?=$checkbox_background?> !important;
             font-size: <?=$input_size?> !important;
             line-height: <?=$input_size?> !important;
             width: <?=$input_size?> !important;
