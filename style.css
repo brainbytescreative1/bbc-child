@@ -18,12 +18,11 @@
 /*** typography ***/
 /* set base font size and color */
 @media screen and (min-width: 991px) {
-    html.front {
+    html {
         font-size: var(--base_font_size);
     }
 }
 html.front {
-    font-size: 16px;
     color: var(--text);
 }
 /* site width */
