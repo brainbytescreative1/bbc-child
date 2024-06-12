@@ -540,7 +540,7 @@ if ( $section_dividers ) {
 <?='.'?><?=$class?>-container-negative-margin-bottom .row {
     margin-bottom: <?=$height?>px;
 }
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 991px) {
     <?='.'?><?=$class?> .divider-inner {
         mask-size: <?=$width?>% <?=$tablet_height?>% !important;
         -webkit-mask-size: <?=$width?>% <?=$tablet_height?>px !important;
@@ -612,7 +612,7 @@ if ( $h1 ) {
 ?>
 }
 
-@media screen and (min-width: 991px) {
+@media screen and (min-width: 992px) {
     .site h1, 
     .site .h1,
     footer h1,
@@ -660,7 +660,7 @@ if ( $h2 ) {
 ?>
 }
 
-@media screen and (min-width: 991px) {
+@media screen and (min-width: 992px) {
     .site h2, 
     .site .h2,
     footer h2,
@@ -708,7 +708,7 @@ if ( $h3 ) {
 ?>
 }
 
-@media screen and (min-width: 991px) {
+@media screen and (min-width: 992px) {
     .site h3, 
     .site .h3,
     footer h3,
@@ -756,7 +756,7 @@ if ( $h4 ) {
 ?>
 }
 
-@media screen and (min-width: 991px) {
+@media screen and (min-width: 992px) {
     .site h4, 
     .site .h4,
     footer h4,
@@ -804,7 +804,7 @@ if ( $h5 ) {
 ?>
 }
 
-@media screen and (min-width: 991px) {
+@media screen and (min-width: 992px) {
     .site h5, 
     .site .h5,
     footer h5,
@@ -852,7 +852,7 @@ if ( $h6 ) {
 ?>
 }
 
-@media screen and (min-width: 991px) {
+@media screen and (min-width: 992px) {
     .site h6, 
     .site .h6,
     footer h6,

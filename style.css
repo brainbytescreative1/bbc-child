@@ -5,7 +5,7 @@
  Author:       Brain Bytes Creative
  Author URI:   https://github.com/understrap/understrap-child/graphs/contributors
  Template:     understrap
- Version:      1.2.9
+ Version:      1.2.10
  License: GNU General Public License v2 or later
  License URI: http://www.gnu.org/licenses/gpl-2.0.html
  Text Domain:  bbc
@@ -17,7 +17,7 @@
 
 /*** typography ***/
 /* set base font size and color */
-@media screen and (min-width: 991px) {
+@media screen and (min-width: 992px) {
     html {
         font-size: var(--base_font_size);
     }
@@ -77,12 +77,12 @@ section .container-fluid .row {
 }
 /** responsive hidden **/
 /* hide mobile */
-@media screen and (min-width: 990px) {
+@media screen and (min-width: 992px) {
     .desktop-hide {
         display: none !important;
     }
 }
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 991px) {
     .tablet-hide {
         display: none !important;
     }
@@ -291,7 +291,7 @@ section .container-fluid .row {
 }
 /* links */
 .site a:not(.btn):not(.dropdown-item),
-.editor-styles-wrapper a:not(.btn) {
+.acf-block-preview a:not(.btn) {
     text-decoration: none;
     font-weight: var(--bs-link-weight);
     color: var(--bs-link-color);
@@ -349,13 +349,13 @@ header .nav-link:hover {
     transition: .2s ease-in-out all;
     opacity: .7;
 }
-@media screen and (min-width: 991px) {
+@media screen and (min-width: 992px) {
     header .nav-link,
     header .nav-link:hover {
         color: var(--main_menu_text_color) !important;
     }
 }
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 991px) {
     header .nav-link,
     header .nav-link:hover {
         color: var(--text) !important;
@@ -404,7 +404,7 @@ header .nav-link:hover {
 .menu-rounded {
     border-radius: 1000px;
 }
-@media screen and (min-width: 991px) {
+@media screen and (min-width: 992px) {
     .menu-rounded .navbar-nav {
         flex-wrap: wrap;
         justify-content: flex-end;
@@ -631,7 +631,7 @@ header .nav-link:hover {
         margin-right: auto;
     }
 }
-@media screen and (min-width: 991px) {
+@media screen and (min-width: 992px) {
     .mobile-menu-item {
         display: none;
     }
@@ -642,7 +642,7 @@ header .nav-link:hover {
         margin-left: 1rem;
     }
 }
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 991px) {
     .buttons-container {
         display: none !important;
     }
@@ -729,7 +729,7 @@ header .nav-link:hover {
 }
 /*** layouts ***/
 /** responsive display **/
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 991px) {
     .hide-on-mobile {
         display: none;
     }
@@ -986,7 +986,7 @@ header .nav-link:hover {
 }
 /*** custom border radius ***/
 /** all sides **/
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 991px) {
     .rounded-1 {
         border-radius: var(--mobile-border-radius-sm) !important;
     }
@@ -2160,7 +2160,7 @@ header .nav-link:hover {
 .rounded-tabs .tabs-element.tabs-blue button.active {
     background: var(--primary) !important;
 }
-@media screen and (min-width: 991px) {
+@media screen and (min-width: 992px) {
     /* reverse */
     .rounded-tabs .tabs-reverse .tab-content-inner {
         flex-direction: row-reverse;
@@ -2439,7 +2439,7 @@ header .nav-link:hover {
     color: var(--primary);
 }
 /*
-@media screen and (min-width: 990px) {
+@media screen and (min-width: 992px) {
     .widget-area.sticky {
          z-index: 0; 
     }
@@ -2469,7 +2469,7 @@ header .nav-link:hover {
     display: none;
     margin: 0;
 }
-@media screen and (min-width: 991px) {
+@media screen and (min-width: 992px) {
     .sticky-toc {
         position: fixed;
         top: 0;
@@ -2716,7 +2716,7 @@ iframe {
 .alm-reveal .col-element {
     width: 31%;
 }
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 991px) {
     .alm-reveal .col-element {
         width: 49%;
    }
@@ -2791,13 +2791,13 @@ a.col-inner {
     position: relative;
 }
 /*** container backgrounds ***/
-@media screen and (min-width: 991px) {
+@media screen and (min-width: 992px) {
     .background-mobile {
         display: none;
         background: none !important;
     }
 }
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 991px) {
     /* hide desktop background */
     .background-desktop {
         background: none !important;
