@@ -528,20 +528,6 @@ if ( $section_dividers ) {
     width: <?=$width?>%;
     height: <?=$height?>px;
 }
-@media screen and (max-width: 990px) {
-    <?='.'?><?=$class?> .divider-inner {
-        mask-size: <?=$width?>% <?=$tablet_height?>% !important;
-        -webkit-mask-size: <?=$width?>% <?=$tablet_height?>px !important;
-        height: <?=$tablet_height?>px !important;
-    }
-}
-@media screen and (max-width: 768px) {
-    <?='.'?><?=$class?> .divider-inner {
-        mask-size: <?=$width?>% <?=$mobile_height?>% !important;
-        -webkit-mask-size: <?=$width?>% <?=$mobile_height?>px !important;
-        height: <?=$mobile_height?>px !important;
-    }
-}
 <?='.'?><?=$class?>-container-negative-margin-top {
     margin-top: -<?=$height?>px;
 }
@@ -553,6 +539,44 @@ if ( $section_dividers ) {
 }
 <?='.'?><?=$class?>-container-negative-margin-bottom .row {
     margin-bottom: <?=$height?>px;
+}
+@media screen and (max-width: 990px) {
+    <?='.'?><?=$class?> .divider-inner {
+        mask-size: <?=$width?>% <?=$tablet_height?>% !important;
+        -webkit-mask-size: <?=$width?>% <?=$tablet_height?>px !important;
+        height: <?=$tablet_height?>px !important;
+    }
+    <?='.'?><?=$class?>-container-negative-margin-top {
+        margin-top: -<?=$tablet_height?>px;
+    }
+    <?='.'?><?=$class?>-container-negative-margin-top .row {
+        margin-top: <?=$tablet_height?>px;
+    }
+    <?='.'?><?=$class?>-container-negative-margin-bottom {
+        margin-bottom: -<?=$tablet_height?>px;
+    }
+    <?='.'?><?=$class?>-container-negative-margin-bottom .row {
+        margin-bottom: <?=$tablet_height?>px;
+    }
+}
+@media screen and (max-width: 768px) {
+    <?='.'?><?=$class?> .divider-inner {
+        mask-size: <?=$width?>% <?=$mobile_height?>% !important;
+        -webkit-mask-size: <?=$width?>% <?=$mobile_height?>px !important;
+        height: <?=$mobile_height?>px !important;
+    }
+    <?='.'?><?=$class?>-container-negative-margin-top {
+        margin-top: -<?=$mobile_height?>px;
+    }
+    <?='.'?><?=$class?>-container-negative-margin-top .row {
+        margin-top: <?=$mobile_height?>px;
+    }
+    <?='.'?><?=$class?>-container-negative-margin-bottom {
+        margin-bottom: -<?=$mobile_height?>px;
+    }
+    <?='.'?><?=$class?>-container-negative-margin-bottom .row {
+        margin-bottom: <?=$mobile_height?>px;
+    }
 }
 <?php
     }

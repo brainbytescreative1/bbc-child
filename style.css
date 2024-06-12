@@ -5,7 +5,7 @@
  Author:       Brain Bytes Creative
  Author URI:   https://github.com/understrap/understrap-child/graphs/contributors
  Template:     understrap
- Version:      1.2.8
+ Version:      1.2.9
  License: GNU General Public License v2 or later
  License URI: http://www.gnu.org/licenses/gpl-2.0.html
  Text Domain:  bbc
@@ -22,7 +22,7 @@
         font-size: var(--base_font_size);
     }
 }
-html.front {
+html {
     color: var(--text);
 }
 /* site width */
@@ -290,8 +290,8 @@ section .container-fluid .row {
     margin-left: auto;
 }
 /* links */
-html.front a,
-.editor-styles-wrapper a {
+.site a:not(.btn):not(.dropdown-item),
+.editor-styles-wrapper a:not(.btn) {
     text-decoration: none;
     font-weight: var(--bs-link-weight);
     color: var(--bs-link-color);
@@ -301,6 +301,7 @@ html.front a,
     color: inherit;
     text-wrap: nowrap;
     transition: ease-in-out .2s;
+    font-weight: var(--bs-link-weight);
 }
 .text-wrapper p a:hover {
     opacity: .7;
@@ -365,10 +366,11 @@ header .nav-link:hover {
 }
 /** logo width **/
 .navbar-brand {
+    min-width: 200px;
     max-width: var(--logo_width);
 }
 .sticky-nav .navbar-brand {
-    max-width: var(--sticky_logo_width);
+    min-width: var(--sticky_logo_width);
 }
 /** main menu **/
 #main-nav {
@@ -385,8 +387,10 @@ header .nav-link:hover {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
 }
-header .menu-item {
+.offcanvas:not(.show) .menu-item {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 /* rounded */
 .header-rounded {
@@ -399,6 +403,12 @@ header .menu-item {
 }
 .menu-rounded {
     border-radius: 1000px;
+}
+@media screen and (min-width: 991px) {
+    .menu-rounded .navbar-nav {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
 }
 /* toggle */
 .menu-toggle .menu-buttons-container {
@@ -1241,7 +1251,6 @@ header .menu-item {
 /*** elements ***/
 /** buttons **/
 .btn, .btn a {
-    border-radius: var(--button_border-radius);
     text-decoration: none !important;
     font-weight: var(--button_font_weight);
     font-family: var(--button_font_family);
@@ -1251,6 +1260,11 @@ header .menu-item {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     flex-direction: column;
+    border-radius: var(--button_border-radius);
+    border-top-right-radius: var(--button_border-radius) !important;
+    border-top-left-radius: var(--button_border-radius) !important;
+    border-bottom-right-radius: var(--button_border-radius) !important;
+    border-bottom-left-radius: var(--button_border-radius) !important;
 }
 .btn.button-icon {
     display: flex;

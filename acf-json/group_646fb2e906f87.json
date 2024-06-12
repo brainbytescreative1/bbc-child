@@ -3,11 +3,11 @@
     "title": "Buttons Element",
     "fields": [
         {
-            "key": "field_64a85bb3f1d40",
+            "key": "field_6669d119baecb",
             "label": "Buttons",
             "name": "",
             "aria-label": "",
-            "type": "accordion",
+            "type": "tab",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,9 +16,9 @@
                 "class": "",
                 "id": ""
             },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_6488c2f07f26d",
@@ -50,7 +50,7 @@
                     "aria-label": "",
                     "type": "acfe_advanced_link",
                     "instructions": "",
-                    "required": 1,
+                    "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -62,6 +62,25 @@
                         "page"
                     ],
                     "taxonomy": "",
+                    "parent_repeater": "field_6488c2f07f26d"
+                },
+                {
+                    "key": "field_6669d5194990e",
+                    "label": "Icon",
+                    "name": "",
+                    "aria-label": "",
+                    "type": "accordion",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "open": 0,
+                    "multi_expand": 0,
+                    "endpoint": 0,
                     "parent_repeater": "field_6488c2f07f26d"
                 },
                 {
@@ -370,7 +389,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "open": 1,
+                    "open": 0,
                     "multi_expand": 0,
                     "endpoint": 0,
                     "parent_repeater": "field_6488c2f07f26d"
@@ -416,6 +435,9 @@
                         "id": ""
                     },
                     "choices": {
+                        "primary": "Primary",
+                        "secondary": "Secondary",
+                        "success": "Success",
                         "white": "White"
                     },
                     "default_value": null,
@@ -519,11 +541,11 @@
             ]
         },
         {
-            "key": "field_6488c4097f274",
+            "key": "field_6669d12dbaecc",
             "label": "Button Group Style",
             "name": "",
             "aria-label": "",
-            "type": "accordion",
+            "type": "tab",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -532,9 +554,9 @@
                 "class": "",
                 "id": ""
             },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_646fb68e4060e",
@@ -542,7 +564,7 @@
             "name": "alignment",
             "aria-label": "",
             "type": "select",
-            "instructions": "Applies to entire button group",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -584,14 +606,14 @@
             },
             "choices": {
                 "default": "Default",
-                "0": "None",
-                "1": "Small",
-                "2": "Medium",
-                "3": "Large",
-                "4": "XL",
-                "5": "XXL"
+                "0": "none",
+                "1": "sm",
+                "2": "md",
+                "3": "lg",
+                "4": "xl",
+                "5": "xxl"
             },
-            "default_value": false,
+            "default_value": "default",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -611,7 +633,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -630,11 +652,43 @@
             "search_placeholder": ""
         },
         {
-            "key": "field_64e4b68e51062",
+            "key": "field_6669d6aff5cc9",
+            "label": "Mobile Breakpoint",
+            "name": "mobile_breakpoint",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "Default",
+                "sm": "sm",
+                "md": "md",
+                "lg": "lg",
+                "xl": "xl",
+                "xxl": "xxl"
+            },
+            "default_value": "default",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "allow_custom": 0,
+            "search_placeholder": ""
+        },
+        {
+            "key": "field_6669d14cbaecd",
             "label": "Button Group Spacing",
             "name": "",
             "aria-label": "",
-            "type": "accordion",
+            "type": "tab",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -643,9 +697,9 @@
                 "class": "",
                 "id": ""
             },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_6488c3867f271",
@@ -675,11 +729,11 @@
             "acfe_clone_modal_size": "large"
         },
         {
-            "key": "field_6488c3eb7f273",
+            "key": "field_6669d15fbaece",
             "label": "Buttons Advanced",
             "name": "",
             "aria-label": "",
-            "type": "accordion",
+            "type": "tab",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -688,9 +742,9 @@
                 "class": "",
                 "id": ""
             },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_64e4b68451061",
@@ -738,7 +792,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1716582567,
+    "modified": 1718212470,
     "acfe_categories": {
         "elements": "Elements"
     }
