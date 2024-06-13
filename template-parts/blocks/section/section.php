@@ -710,7 +710,7 @@ echo '<section class="'. esc_attr($wrapper_classes) .'">'; // section start
                                     include( __DIR__ . '../../../elements/paragraph.php');
                                     include( __DIR__ . '../../../elements/buttons.php');
                                     include( __DIR__ . '../../../elements/image.php');
-                                    include( __DIR__ . '../../../elements/staff.php');
+                                    //include( __DIR__ . '../../../elements/staff.php');
                                     include( __DIR__ . '../../../elements/carousel.php');
                                     include( __DIR__ . '../../../elements/divider.php');
                                     include( __DIR__ . '../../../elements/accordion.php');
@@ -737,7 +737,7 @@ echo '<section class="'. esc_attr($wrapper_classes) .'">'; // section start
                 endwhile; // columns loop end
 
             endif; // if columns end
-
+            
             // start inner row if justifed
             $max_width = [
                 'value' => '',

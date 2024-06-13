@@ -5,7 +5,7 @@
  Author:       Brain Bytes Creative
  Author URI:   https://github.com/understrap/understrap-child/graphs/contributors
  Template:     understrap
- Version:      1.2.11
+ Version:      1.2.12
  License: GNU General Public License v2 or later
  License URI: http://www.gnu.org/licenses/gpl-2.0.html
  Text Domain:  bbc
@@ -18,11 +18,13 @@
 /*** typography ***/
 /* set base font size and color */
 @media screen and (min-width: 992px) {
-    html {
+    html.front,
+    .interface-interface-skeleton__html-container {
         font-size: var(--base_font_size);
     }
 }
-html {
+html.front,
+.acf-block-preview {
     color: var(--text);
 }
 /* site width */

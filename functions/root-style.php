@@ -585,12 +585,10 @@ if ( $section_dividers ) {
 
 /* h1 */
 <?php $h1 = get_field('h1', 'style'); ?>
-.site h1, 
-.site .h1,
-footer h1,
-footer .h1
-.is-root-container h1,
-.is-root-container .h1 {
+.front h1, 
+.front .h1,
+.edit-post-visual-editor h1:not(.wp-block-post-title),
+.edit-post-visual-editor .h1:not(.wp-block-post-title) {
 <?php
 if ( $h1 ) {
     // family
@@ -613,17 +611,15 @@ if ( $h1 ) {
 }
 
 @media screen and (min-width: 992px) {
-    .site h1, 
-    .site .h1,
-    footer h1,
-    footer .h1
-    .is-root-container h1,
-    .is-root-container .h1 {
+    .front h1, 
+    .front .h1,
+    .edit-post-visual-editor h1:not(.wp-block-post-title),
+    .edit-post-visual-editor .h1:not(.wp-block-post-title) {
         <?php
         // size
         if ( $h1['font_size'] ) {
             if ( $h1['font_size']['value'] ) {
-                echo 'font-size: ' . $h1['font_size']['value'] . $h1['font_size']['unit'] . ';';
+                echo 'font-size: ' . $h1['font_size']['value'] . $h1['font_size']['unit'] . ' !important;';
                 echo "\r\n";
             }
         }
@@ -633,12 +629,10 @@ if ( $h1 ) {
 
 /* h2 */
 <?php $h2 = get_field('h2', 'style'); ?>
-.site h2, 
-.site .h2,
-footer h2,
-footer .h2
-.is-root-container h2,
-.is-root-container .h2 {
+.front h2, 
+.front .h2,
+.edit-post-visual-editor h2:not(.wp-block-post-title),
+.edit-post-visual-editor .h2:not(.wp-block-post-title) {
 <?php
 if ( $h2 ) {
     // family
@@ -661,12 +655,10 @@ if ( $h2 ) {
 }
 
 @media screen and (min-width: 992px) {
-    .site h2, 
-    .site .h2,
-    footer h2,
-    footer .h2
-    .is-root-container h2,
-    .is-root-container .h2 {
+    .front h2, 
+    .front .h2,
+    .edit-post-visual-editor h2:not(.wp-block-post-title),
+    .edit-post-visual-editor .h2:not(.wp-block-post-title) {
         <?php
         // size
         if ( $h2['font_size'] ) {
@@ -681,12 +673,10 @@ if ( $h2 ) {
 
 /* h3 */
 <?php $h3 = get_field('h3', 'style'); ?>
-.site h3, 
-.site .h3,
-footer h3,
-footer .h3
-.is-root-container h3,
-.is-root-container .h3 {
+.front h3, 
+.front .h3,
+.edit-post-visual-editor h3:not(.wp-block-post-title),
+.edit-post-visual-editor .h3:not(.wp-block-post-title) {
 <?php
 if ( $h3 ) {
     // family
@@ -709,12 +699,10 @@ if ( $h3 ) {
 }
 
 @media screen and (min-width: 992px) {
-    .site h3, 
-    .site .h3,
-    footer h3,
-    footer .h3
-    .is-root-container h3,
-    .is-root-container .h3 {
+    .front h3, 
+    .front .h3,
+    .edit-post-visual-editor h3:not(.wp-block-post-title),
+    .edit-post-visual-editor .h3:not(.wp-block-post-title) {
         <?php
         // size
         if ( $h3['font_size'] ) {
@@ -729,12 +717,10 @@ if ( $h3 ) {
 
 /* h4 */
 <?php $h4 = get_field('h4', 'style'); ?>
-.site h4, 
-.site .h4,
-footer h4,
-footer .h4
-.is-root-container h4,
-.is-root-container .h4 {
+.front h4, 
+.front .h4,
+.edit-post-visual-editor h4:not(.wp-block-post-title),
+.edit-post-visual-editor .h4:not(.wp-block-post-title) {
 <?php
 if ( $h4 ) {
     // family
@@ -757,12 +743,10 @@ if ( $h4 ) {
 }
 
 @media screen and (min-width: 992px) {
-    .site h4, 
-    .site .h4,
-    footer h4,
-    footer .h4
-    .is-root-container h4,
-    .is-root-container .h4 {
+    .front h4, 
+    .front .h4,
+    .edit-post-visual-editor h4:not(.wp-block-post-title),
+    .edit-post-visual-editor .h4:not(.wp-block-post-title) {
         <?php
         // size
         if ( $h4['font_size'] ) {
@@ -777,12 +761,10 @@ if ( $h4 ) {
 
 /* h5 */
 <?php $h5 = get_field('h5', 'style'); ?>
-.site h5, 
-.site .h5,
-footer h5,
-footer .h5
-.is-root-container h5,
-.is-root-container .h5 {
+.front h5, 
+.front .h5,
+.edit-post-visual-editor h5:not(.wp-block-post-title),
+.edit-post-visual-editor .h5:not(.wp-block-post-title) {
 <?php
 if ( $h5 ) {
     // family
@@ -805,12 +787,10 @@ if ( $h5 ) {
 }
 
 @media screen and (min-width: 992px) {
-    .site h5, 
-    .site .h5,
-    footer h5,
-    footer .h5
-    .is-root-container h5,
-    .is-root-container .h5 {
+    .front h5, 
+    .front .h5,
+    .edit-post-visual-editor h5:not(.wp-block-post-title),
+    .edit-post-visual-editor .h5:not(.wp-block-post-title) {
         <?php
         // size
         if ( $h5['font_size'] ) {
@@ -825,12 +805,10 @@ if ( $h5 ) {
 
 /* h6 */
 <?php $h6 = get_field('h6', 'style'); ?>
-.site h6, 
-.site .h6,
-footer h6,
-footer .h6
-.is-root-container h6,
-.is-root-container .h6 {
+.front h6, 
+.front .h6,
+.edit-post-visual-editor h6:not(.wp-block-post-title),
+.edit-post-visual-editor .h6:not(.wp-block-post-title) {
 <?php
 if ( $h6 ) {
     // family
@@ -853,12 +831,10 @@ if ( $h6 ) {
 }
 
 @media screen and (min-width: 992px) {
-    .site h6, 
-    .site .h6,
-    footer h6,
-    footer .h6
-    .is-root-container h6,
-    .is-root-container .h6 {
+    .front h6, 
+    .front .h6,
+    .edit-post-visual-editor h6:not(.wp-block-post-title),
+    .edit-post-visual-editor .h6:not(.wp-block-post-title) {
         <?php
         // size
         if ( $h6['font_size'] ) {
