@@ -2,7 +2,10 @@
 
 if( get_row_layout() == 'form' ):
 
-    $form_id = 'form-' . rand(1,9999);
+    // get form id
+    $form = get_sub_field('form');
+
+    $form_id = 'form-' . $form;
 
     include_once( __DIR__ . '../../../functions/forms.php');
 
@@ -43,6 +46,8 @@ if( get_row_layout() == 'form' ):
     $submit_family = $input_family;
     $input_padding = '12px';
     $submit_padding = $input_padding;
+    $error_text = '';
+    $error_background = '';
     $input_spacing = '1rem';
     $border_width = '1px';
     $border_color = $input_text;
@@ -221,7 +226,11 @@ if( get_row_layout() == 'form' ):
     ?>
     <style>
         /* inputs */
-        .form.element#<?=$form_id?> input:not([type="checkbox"]),
+        .form.element#<?=$form_id?> input[type="text"],
+        .form.element#<?=$form_id?> input[type="email"],
+        .form.element#<?=$form_id?> input[type="url"],
+        .form.element#<?=$form_id?> input[type="tel"],
+        .form.element#<?=$form_id?> input[type="number"],
         .form.element#<?=$form_id?> textarea,
         .form.element#<?=$form_id?> select {
             color: <?=$input_text?> !important;
@@ -231,6 +240,7 @@ if( get_row_layout() == 'form' ):
             font-family: <?=$input_family?> !important;
             padding: <?=$input_padding?> !important;
             border: <?=$border_width?> <?=$input_border?> solid !important;
+            border-radius: <?=$input_radius?> !important;
         }
         .form.element#<?=$form_id?> input:focus,
         .form.element#<?=$form_id?> textarea:focus,
@@ -242,9 +252,6 @@ if( get_row_layout() == 'form' ):
         .form.element#<?=$form_id?> textarea:active,
         .form.element#<?=$form_id?> select:active {
             border-color: <?=$border_color_focus?> !important;
-        }
-        .form.element#<?=$form_id?> input:not([type="checkbox"]) {
-            border-radius: <?=$input_radius?> !important;
         }
         /* select */
         .form.element#<?=$form_id?> select {
@@ -389,8 +396,6 @@ if( get_row_layout() == 'form' ):
     $form_classes[] = 'element';
 
     // form options
-    $form = get_sub_field('form');
-
     if ( get_sub_field('color_scheme') !== 'default' ) {
         $form_classes[] = 'form-' . get_sub_field('color_scheme');
     } else {
