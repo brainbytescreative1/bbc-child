@@ -7,6 +7,10 @@ if( get_row_layout() == 'carousel' ):
 
     if ( $slides ) {
 
+        echo '<style>';
+            include_once( __DIR__ . '/styles/carousel.css');
+        echo '</style>';
+
         $wrapper_classes = [];
         $slide_classes = [];
         $slide_styles = [];
@@ -28,12 +32,13 @@ if( get_row_layout() == 'carousel' ):
         // initial classes
 
         // wrapper classes
-        $wrapper_classes[] = 'carousel carousel-element';
+        $wrapper_classes[] = 'carousel carousel-element testimonial-carousel';
         $wrapper_classes[] = get_spacing_bbc(get_sub_field('carousel_spacing'));
         $wrapper_classes[] = get_sub_field('wrapper_additional_classes');
 
         // slide classes
         $slide_classes[] = 'carousel-item';
+        $slide_classes[] = 'rounded-pill pt-3 pb-1 px-3 mx-2';
         $slide_classes[] = get_sub_field('slide_additional_classes');
 
         // options

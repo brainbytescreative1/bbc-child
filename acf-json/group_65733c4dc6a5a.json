@@ -25,6 +25,28 @@
             "append": "px"
         },
         {
+            "key": "field_666cacb676aa1",
+            "label": "Horizontal Gap",
+            "name": "horizontal_gap",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "1.5",
+            "min": "",
+            "max": "",
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": "rem"
+        },
+        {
             "key": "field_65733c4e27e25",
             "label": "Container Top\/Bottom Padding - Desktop",
             "name": "top_bottom_padding_container",
@@ -90,57 +112,6 @@
             "search_placeholder": ""
         },
         {
-            "key": "field_65f3198dfbc96",
-            "label": "Columns",
-            "name": "",
-            "aria-label": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
-        },
-        {
-            "key": "field_65ef72252b904",
-            "label": "Column Gap",
-            "name": "column_gap",
-            "aria-label": "",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "default": "Default",
-                "none": "None",
-                "1": "Small",
-                "2": "Medium",
-                "3": "Large",
-                "4": "XL",
-                "5": "XXL"
-            },
-            "default_value": 2,
-            "return_format": "value",
-            "multiple": 0,
-            "allow_null": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": "",
-            "allow_custom": 0,
-            "search_placeholder": ""
-        },
-        {
             "key": "field_65f31866796cc",
             "label": "Column Top\/Bottom Padding - Desktop",
             "name": "top_bottom_padding_column",
@@ -173,73 +144,9 @@
             "search_placeholder": ""
         },
         {
-            "key": "field_65f318fe796ce",
-            "label": "Column Left\/Right Padding - Desktop",
-            "name": "left_right_padding_column",
-            "aria-label": "",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "none": "None",
-                "1": "Small",
-                "2": "Medium",
-                "3": "Large",
-                "4": "XL",
-                "5": "XXL"
-            },
-            "default_value": 2,
-            "return_format": "value",
-            "multiple": 0,
-            "allow_null": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": "",
-            "allow_custom": 0,
-            "search_placeholder": ""
-        },
-        {
             "key": "field_65f318e0796cd",
             "label": "Column Top\/Bottom Padding - Mobile",
             "name": "top_bottom_padding_column_mobile",
-            "aria-label": "",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "none": "None",
-                "1": "Small",
-                "2": "Medium",
-                "3": "Large",
-                "4": "XL",
-                "5": "XXL"
-            },
-            "default_value": 2,
-            "return_format": "value",
-            "multiple": 0,
-            "allow_null": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": "",
-            "allow_custom": 0,
-            "search_placeholder": ""
-        },
-        {
-            "key": "field_65f3192b796cf",
-            "label": "Column Left\/Right Padding - Mobile",
-            "name": "left_right_padding_column_mobile",
             "aria-label": "",
             "type": "select",
             "instructions": "",
@@ -312,7 +219,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1716582578,
+    "modified": 1718399130,
     "acfe_categories": {
         "styles": "Styles"
     }

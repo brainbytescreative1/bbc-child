@@ -62,7 +62,7 @@ function get_background_bbc($field, $classes, $styles, $sub = false) {
                     $overlay_color = 'background-color: ' . $hex_color . ';';
                 }
 
-                if ( ( $background_content == 'image' ) || ( $background_content == 'video' ) ) {
+                if ( ( $background_content == 'image' ) ) {
 
                     $image = null;
                     $header_background_image_option = $background['background_image_source'];

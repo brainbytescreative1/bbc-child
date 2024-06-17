@@ -16,3 +16,4 @@ require_once( __DIR__ . '/global-functions/page-width.php');
 require_once( __DIR__ . '/global-functions/responsive.php');
 require_once( __DIR__ . '/global-functions/spacing.php');
 require_once( __DIR__ . '/global-functions/text-styles.php');
+require_once( __DIR__ . '/global-functions/hex-to-rgb.php');

@@ -69,6 +69,7 @@ function global_site_variables(){
 	// colors
 	$primary = get_field('primary', 'style');
     $primary_hover = get_field('primary_hover', 'style');
+    //$primary_rgb = hexToRgb($primary);
 
 	$secondary = get_field('secondary', 'style');
     $secondary_hover = get_field('secondary_hover', 'style');
@@ -132,8 +133,6 @@ function global_site_variables(){
 /* colors */
 <?php if ( $primary ) { ?>	
 --primary: <?=$primary;?>;
-<?php } else { ?>
---primary: var(--bs-primary);
 <?php } ?>
 <?php if ( $primary_hover ) { ?>
 --primary_hover: <?=$primary_hover;?>;
@@ -198,6 +197,14 @@ function global_site_variables(){
 <?php if ( $white_hover ) { ?>
 --white_hover: <?=$white_hover;?>;
 <?php } ?>
+
+/* row gap */
+<?php
+$horizontal_gap = get_field('horizontal_gap', 'style');
+if ( $horizontal_gap ) { ?>
+--custom-gutter-x: <?=$horizontal_gap?>rem;
+<?php }
+?>
 
 /* buttons */
 <?php

@@ -50,4 +50,6 @@ if( get_row_layout() == 'heading' ):
 
     }
 
+    echo "\r\n";
+
 endif;

@@ -682,20 +682,22 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "100",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
             "choices": {
                 "auto": "Auto",
+                "12": "1",
                 "6": "2",
                 "4": "3",
                 "3": "4",
+                "five": "5",
                 "2": "6",
-                "12": "Full",
+                "seven": "7",
                 "column-element": "Set width on column elements"
             },
-            "default_value": false,
+            "default_value": "auto",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -706,9 +708,9 @@
             "search_placeholder": ""
         },
         {
-            "key": "field_6484b70838eb4",
-            "label": "Column Gap",
-            "name": "column_gap",
+            "key": "field_649afe7bc954e",
+            "label": "Element Background\/Spacing Assignment",
+            "name": "element_assignment",
             "aria-label": "",
             "type": "select",
             "instructions": "",
@@ -720,15 +722,10 @@
                 "id": ""
             },
             "choices": {
-                "default": "Default",
-                "none": "None",
-                "1": "Small",
-                "2": "Medium",
-                "3": "Large",
-                "4": "XL",
-                "5": "XXL"
+                "inner": "col-inner",
+                "outer": "col-element"
             },
-            "default_value": false,
+            "default_value": "inner",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -798,9 +795,9 @@
             "search_placeholder": ""
         },
         {
-            "key": "field_649afe7bc954e",
-            "label": "Element Background\/Spacing Assignment",
-            "name": "element_assignment",
+            "key": "field_66705456c5e83",
+            "label": "Column Gap",
+            "name": "column_gap",
             "aria-label": "",
             "type": "select",
             "instructions": "",
@@ -812,10 +809,11 @@
                 "id": ""
             },
             "choices": {
-                "inner": "col-inner",
-                "outer": "col-element"
+                "default": "Default",
+                "none": "None",
+                "custom": "Custom"
             },
-            "default_value": "inner",
+            "default_value": "default",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -824,6 +822,36 @@
             "placeholder": "",
             "allow_custom": 0,
             "search_placeholder": ""
+        },
+        {
+            "key": "field_66705498c5e84",
+            "label": "Custom Column Gap",
+            "name": "custom_gap",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_66705456c5e83",
+                        "operator": "==",
+                        "value": "custom"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": "rem"
         },
         {
             "key": "field_64ccfc577a53c",
@@ -1002,8 +1030,7 @@
                 "id": ""
             },
             "choices": {
-                "none": "None",
-                "shape-one": "Shape One"
+                "none": "None"
             },
             "default_value": "none",
             "return_format": "value",
@@ -1189,8 +1216,7 @@
                 "id": ""
             },
             "choices": {
-                "none": "None",
-                "shape-one": "Shape One"
+                "none": "None"
             },
             "default_value": "none",
             "return_format": "value",
@@ -1394,30 +1420,6 @@
             "acfe_clone_modal_size": "large"
         },
         {
-            "key": "field_64cd1e63e13fb",
-            "label": "Custom CSS",
-            "name": "custom_css",
-            "aria-label": "",
-            "type": "acfe_code_editor",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "mode": "css",
-            "lines": 1,
-            "indent_unit": 4,
-            "maxlength": "",
-            "rows": 4,
-            "max_rows": "",
-            "return_format": []
-        },
-        {
             "key": "field_66428d80d3563",
             "label": "Section Wrapper Classes",
             "name": "section_wrapper_classes",
@@ -1463,7 +1465,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1716582573,
+    "modified": 1718648504,
     "acfe_categories": {
         "blocks": "Blocks"
     }

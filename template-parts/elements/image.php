@@ -54,6 +54,8 @@ if( get_row_layout() == 'image' ):
 
             $link_wrapper_tag = 'a '. $target .' href="'. $url .'"';
 
+            $styles[] = 'max-width: ' . $size_max_width;
+
         }
 
         // image settings
@@ -70,6 +72,11 @@ if( get_row_layout() == 'image' ):
                 $classes[] = 'align-right';
                 $classes[] = 'ms-auto';
             }
+        }
+
+        $image_bottom_margin = get_sub_field('image_bottom_margin');
+        if ( $image_bottom_margin && ( $image_bottom_margin === 'disabled' ) ) {
+            $classes[] = 'mb-0';
         }
 
         $force_full_width = get_sub_field('force_full_width');
@@ -111,7 +118,7 @@ if( get_row_layout() == 'image' ):
 
         echo '<'.$link_wrapper_tag.' class="'. $classes .'" style="'. $styles .'">';
             ?>
-            <img fetchpriority="lazy" decoding="async" <?php awesome_acf_responsive_image($image, $size, $size_max_width); ?>  alt="<?=$image_alt?>" title="<?$image_title?>" />
+            <img fetchpriority="lazy" decoding="async" <?php get_responsive_image_bbc($image, $size, $size_max_width); ?>  alt="<?=$image_alt?>" />
             <?php
         echo '</'.$link_wrapper_tag.'>';
     

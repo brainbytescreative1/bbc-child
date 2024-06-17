@@ -56,4 +56,6 @@ if( get_row_layout() == 'paragraph' ):
 
     }
 
+    echo "\r\n";
+
 endif;

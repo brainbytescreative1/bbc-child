@@ -1,6 +1,6 @@
 <?php
 
-function awesome_acf_responsive_image($image_id, $image_size, $max_width){
+function get_responsive_image_bbc($image_id, $image_size, $max_width){
 
 	// check the image ID is not blank
 	if($image_id != '') {

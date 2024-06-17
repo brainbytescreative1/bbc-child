@@ -1,11 +1,11 @@
 /*
- Theme Name:   BBC Child Theme
+ Theme Name:   BBC Child Theme Beta
  Theme URI:    https://understrap.com
  Description:  BBC Custom Theme
  Author:       Brain Bytes Creative
  Author URI:   https://github.com/understrap/understrap-child/graphs/contributors
  Template:     understrap
- Version:      1.2.15
+ Version:      1.2.14
  License: GNU General Public License v2 or later
  License URI: http://www.gnu.org/licenses/gpl-2.0.html
  Text Domain:  bbc
@@ -2788,30 +2788,5 @@ a.col-inner {
     }
     .col-sm-seven {
         width: 14.28%;
-    }
-}
-/*
-.container, 
-.container-fluid, 
-.container-lg, 
-.container-md, 
-.container-sm, 
-.container-xl {
-    padding-right: calc(var(--custom-gutter-x) * .5);
-    padding-left: calc(var(--custom-gutter-x) * .5);
-}
-*/
-.row.gap-none > * {
-    padding-right: 0;
-    padding-left: 0;
-}
-.row.gap-default > * {
-    padding-right: calc(var(--custom-gutter-x) * .5);
-    padding-left: calc(var(--custom-gutter-x) * .5);
-}
-@media screen and (min-width: 992px) {
-    .row.gap-default > * {
-        padding-right: calc(var(--custom-gutter-x) * .5);
-        padding-left: calc(var(--custom-gutter-x) * .5);
     }
 }

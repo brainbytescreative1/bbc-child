@@ -3,24 +3,6 @@
     "title": "Element Responsive",
     "fields": [
         {
-            "key": "field_6647befccb24d",
-            "label": "Responsive Hide",
-            "name": "",
-            "aria-label": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
-        },
-        {
             "key": "field_6647bf0ecb24e",
             "label": "Hide Desktop",
             "name": "hide_desktop",
@@ -112,7 +94,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1716984044,
+    "modified": 1718378326,
     "acfe_categories": {
         "global-functions": "Global Functions"
     }
