@@ -46,6 +46,7 @@ function global_site_variables(){
 
 	// typography
     $base_font_size = '16';
+    $base_font_weight = '400';
 	$max_width = null;
 	$section_padding = null;
 	$button_border = null;
@@ -103,6 +104,7 @@ function global_site_variables(){
 
 	// typography
 	$base_font_size = get_field('base_font_size', 'style');
+    $base_font_weight = get_field('base_font_weight', 'style');
 	$primary_font = get_field('primary_font', 'style');
 	$secondary_font = get_field('secondary_font', 'style');
     $text_link_color = get_field('text_link_color', 'style');
@@ -380,6 +382,11 @@ if ( $white_color ) {
 --base_font_size_small: 16px;
 <?php } ?>
 
+/* font weight */
+<?php if ( $base_font_weight && ( $base_font_weight !== 'default' ) ) { ?>
+--bs-body-font-weight: <?=$base_font_weight?>;
+<?php } ?>
+
 /* sections */
 --max-width: <?=$max_width;?>px;
 
@@ -392,7 +399,6 @@ if ( $white_color ) {
 --bs-link-color: var(--<?=$text_link_color['theme_colors']?>);
 --bs-link-hover-color: var(--<?=$text_link_color['theme_colors']?>_hover);
 <?php } ?>
-
 
 /* text link weight */
 <?php if ( $text_link_weight && ( $text_link_weight !== 'default' ) ) { ?>
@@ -626,7 +632,7 @@ if ( $h1 ) {
         // size
         if ( $h1['font_size'] ) {
             if ( $h1['font_size']['value'] ) {
-                echo 'font-size: ' . $h1['font_size']['value'] . $h1['font_size']['unit'] . ' !important;';
+                echo 'font-size: ' . $h1['font_size']['value'] . $h1['font_size']['unit'] . ';';
                 echo "\r\n";
             }
         }

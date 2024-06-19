@@ -5,7 +5,7 @@
  Author:       Brain Bytes Creative
  Author URI:   https://github.com/understrap/understrap-child/graphs/contributors
  Template:     understrap
- Version:      1.2.15
+ Version:      1.2.16
  License: GNU General Public License v2 or later
  License URI: http://www.gnu.org/licenses/gpl-2.0.html
  Text Domain:  bbc
@@ -34,7 +34,6 @@ html.front,
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
-    color: var(--text);
 }
 .container,
 body.understrap-no-sidebar .alignfull .wp-block-cover__inner-container, 
@@ -1592,18 +1591,21 @@ header .nav-link:hover {
     .img.force-full-width,
     .img.force-full-width * {
         width: 100%;
+        max-width: 100% !important;
     }
 }
 @media screen and (min-width: 769px) and (max-width: 991px) {
     .img.force-full-width-tablet,
     .img.force-full-width-tablet * {
         width: 100%;
+        max-width: 100% !important;
     }
 }
 @media screen and (max-width: 768px) {
     .img.force-full-width-mobile,
     .img.force-full-width-mobile * {
         width: 100%;
+        max-width: 100% !important;
     }
 }
 .img.image-max-height * {
@@ -2790,17 +2792,6 @@ a.col-inner {
         width: 14.28%;
     }
 }
-/*
-.container, 
-.container-fluid, 
-.container-lg, 
-.container-md, 
-.container-sm, 
-.container-xl {
-    padding-right: calc(var(--custom-gutter-x) * .5);
-    padding-left: calc(var(--custom-gutter-x) * .5);
-}
-*/
 .row.gap-none > * {
     padding-right: 0;
     padding-left: 0;

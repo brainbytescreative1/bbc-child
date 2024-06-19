@@ -80,17 +80,17 @@ if( get_row_layout() == 'image' ):
         }
 
         $force_full_width = get_sub_field('force_full_width');
-        if ( $force_full_width && ( $force_full_width == 'yes' ) ) {
+        if ( $force_full_width === 'yes' ) {
             $classes[] = 'force-full-width';
         }
 
         $force_full_width_tablet = get_sub_field('force_full_width_tablet');
-        if ( $force_full_width_tablet && ( $force_full_width_tablet == 'yes' ) ) {
+        if ( $force_full_width_tablet === 'yes' ) {
             $classes[] = 'force-full-width-tablet';
         }
 
         $force_full_width_mobile = get_sub_field('force_full_width_mobile');
-        if ( $force_full_width_mobile && ( $force_full_width_mobile == 'yes' ) ) {
+        if ( $force_full_width_mobile === 'yes' ) {
             $classes[] = 'force-full-width-mobile';
         }
 
@@ -111,6 +111,13 @@ if( get_row_layout() == 'image' ):
         $additional_classes = get_sub_field('additional_classes');
         if ( $additional_classes ) {
             $classes[] = trim($additional_classes);
+        }
+        
+        // add max width to wrapper
+        $image_attributes = wp_get_attachment_image_src( $image, 'full' );
+        $image_src_max_width = $image_attributes[1];
+        if ( $image_src_max_width ) {
+            $styles[] = 'max-width: ' . $image_src_max_width . 'px;';
         }
 
         $classes = trim(implode(' ', $classes));
