@@ -110,11 +110,50 @@
             },
             "choices": {
                 "default": "Default",
-                "300": "Light (300)",
-                "400": "Normal (400)",
-                "600": "Semi-bold (600)",
-                "800": "Bold (800)",
-                "900": "Extra-bold (900)"
+                "normal": "normal",
+                "bold": "bold",
+                "bolder": "bolder",
+                "100": "100",
+                "200": "200",
+                "300": "300",
+                "400": "400",
+                "500": "500",
+                "600": "600",
+                "700": "700",
+                "800": "800",
+                "900": "900"
+            },
+            "default_value": "default",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "allow_custom": 0,
+            "search_placeholder": ""
+        },
+        {
+            "key": "field_66744b93edce2",
+            "label": "Line Height",
+            "name": "line_height",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "default",
+                "sm": "sm",
+                "md": "md",
+                "lg": "lg",
+                "xl": "xl",
+                "xxl": "xxl"
             },
             "default_value": "default",
             "return_format": "value",
@@ -131,7 +170,7 @@
             "label": "Font Family",
             "name": "font_family",
             "aria-label": "",
-            "type": "select",
+            "type": "button_group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -141,19 +180,61 @@
                 "id": ""
             },
             "choices": {
-                "default": "Default",
-                "primary": "Primary",
-                "secondary": "Secondary"
+                "primary": "primary",
+                "secondary": "secondary"
             },
-            "default_value": "default",
+            "default_value": "",
             "return_format": "value",
-            "multiple": 0,
-            "allow_null": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": "",
-            "allow_custom": 0,
-            "search_placeholder": ""
+            "allow_null": 1,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_66744a0fedce0",
+            "label": "Text Transform",
+            "name": "text_transform",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "uppercase": "uppercase",
+                "lowercase": "lowercase",
+                "capitalize": "capitalize"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 1,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_66744a62edce1",
+            "label": "Text Decoration",
+            "name": "text_decoration",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "underline": "underline",
+                "line-through": "line-through",
+                "none": "none"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 1,
+            "layout": "horizontal"
         },
         {
             "key": "field_646f9ee39cdcb",
@@ -201,7 +282,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1716582575,
+    "modified": 1718911531,
     "acfe_categories": {
         "global": "Global"
     }

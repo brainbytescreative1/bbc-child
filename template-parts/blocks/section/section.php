@@ -115,12 +115,21 @@ if ( have_rows('columns') ) {
                 </style>
             <?php }
         }
-        // add default vertical margin gap on mobile
-        $col_classes[] = 'mb-1 mb-' . $mobile_breakpoint . '-0';
-        if ( $col_count === 1 ) {
-            $container_classes[] = 'px-0';
+    }
+
+    // add default vertical margin gap on mobile
+    $col_bottom_spacing = '';
+    if ( $col_count === 1 ) {
+        $col_bottom_spacing = 'mb-0';
+    } else {
+        $top_bottom_padding_column_mobile = get_field('top_bottom_padding_column_mobile', 'style');
+        if ( $top_bottom_padding_column_mobile ) {
+            $col_bottom_spacing = 'mb-' . $top_bottom_padding_column_mobile;
+        } else {
+            $col_bottom_spacing = 'mb-1';
         }
     }
+    $col_classes[] = 'mb-' . $mobile_breakpoint . '-0 ' . $col_bottom_spacing;
 
     // container classes and styling
     $min_height_100vh_minus_menu_height = get_field('min_height_100vh_minus_menu_height');
@@ -345,7 +354,7 @@ if ( get_field('columns') && ( $col_count > 0 ) ) { // if columns, add container
                         // col inner content
                         $col_inner_content_classes = [];
                         $col_inner_content_styles = [];
-                        $col_inner_content_styles[] = $col_inner_content_classes_outside_loop;
+                        $col_inner_content_classes[] = $col_inner_content_classes_outside_loop;
                         $col_inner_styles[] = $col_inner_content_styles_outside_loop;
                         $col_inner_content_video = null;
                         $col_inner_content_overlay = null;

@@ -17,7 +17,7 @@ if( get_row_layout() == 'heading' ):
         // process global functions
         $heading_classes[] = 'element';
 
-        $heading_classes[] = get_heading_style_bbc('text_styles', true);
+        $heading_classes[] = get_text_styles_bbc(get_sub_field('text_styles'));
         $heading_classes[] = get_spacing_bbc(get_sub_field('heading_spacing'));
 
         if ( $page_title === 'enabled' ) {
@@ -43,7 +43,7 @@ if( get_row_layout() == 'heading' ):
             <?php
         }
 
-        $heading_classes = trim(implode(' ', array_unique($heading_classes)));
+        $heading_classes = trim(implode(' ', $heading_classes));
 
         echo '<' . $tag . ' class="'. esc_attr($heading_classes) .'">' . $text . '</' . $tag . '>';
         

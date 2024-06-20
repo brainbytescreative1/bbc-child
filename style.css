@@ -5,15 +5,13 @@
  Author:       Brain Bytes Creative
  Author URI:   https://github.com/understrap/understrap-child/graphs/contributors
  Template:     understrap
- Version:      1.2.16
+ Version:      1.2.17
  License: GNU General Public License v2 or later
  License URI: http://www.gnu.org/licenses/gpl-2.0.html
  Text Domain:  bbc
  Tags: one-column, custom-menu, featured-images, theme-options, translation-ready
  GitHub Theme URI: understrap/understrap-child
 */
-
-
 
 /*** typography ***/
 /* set base font size and color */
@@ -103,6 +101,15 @@ section .container-fluid .row {
 .weight-bold, .weight-bold > * {
     font-weight: bold !important;
 }
+.weight-bolder, .weight-bolder > * {
+    font-weight: bolder !important;
+}
+.weight-100, .weight-100 > * {
+    font-weight: 100 !important;
+}
+.weight-200, .weight-200 > * {
+    font-weight: 200 !important;
+}
 .weight-300, .weight-300 > * {
     font-weight: 300 !important;
 }
@@ -110,7 +117,7 @@ section .container-fluid .row {
     font-weight: 400 !important;
 }
 .weight-500, .weight-500 > * {
-    font-weight: 400 !important;
+    font-weight: 500 !important;
 }
 .weight-600, .weight-600 > * {
     font-weight: 600 !important;
@@ -119,18 +126,10 @@ section .container-fluid .row {
     font-weight: 700 !important;
 }
 .weight-800, .weight-800 > * {
-    font-weight: bold !important;
+    font-weight: 800 !important;
 }
 .weight-900, .weight-900 > * {
-    font-weight: 900;
-}
-.h1.display-1,
-.h1.display-2,
-.h1.display-3,
-.h1.display-4,
-.h1.display-5,
-.h1.display-6 {
-    font-weight: 500;
+    font-weight: 900 !important;
 }
 /** headings **/
 .header-highlight {
@@ -2796,10 +2795,12 @@ a.col-inner {
     padding-right: 0;
     padding-left: 0;
 }
+/*
 .row.gap-default > * {
     padding-right: calc(var(--custom-gutter-x) * .5);
     padding-left: calc(var(--custom-gutter-x) * .5);
 }
+*/
 @media screen and (min-width: 992px) {
     .row.gap-default > * {
         padding-right: calc(var(--custom-gutter-x) * .5);
