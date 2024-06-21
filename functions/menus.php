@@ -21,8 +21,6 @@ function my_wp_nav_menu_objects( $items, $args ) {
     // loop
     foreach( $items as $item ) {
 		
-		//print_r($item);
-		
         // vars
 		$add_icon = get_field('add_icon', $item);
 
@@ -45,7 +43,6 @@ function my_wp_nav_menu_objects( $items, $args ) {
 		}
         
     }
-    
     
     // return
     return $items;
@@ -89,7 +86,6 @@ function nav_submenu_fix(){ ?>
 		$('.dropdown-submenu .show').removeClass("show");
 	  });
 	
-	
 	  return false;
 	});
 	});
@@ -99,71 +95,19 @@ function nav_submenu_fix(){ ?>
 <?php }
 
 add_action('wp_footer', 'first_element_spacing_js');
-function first_element_spacing_js(){ 
+function first_element_spacing_js(){
+
+    ?>
+    <script>stickyNav();</script>
+    <?php
 	
 	$content_negative_margin = get_field('content_negative_margin', 'header');
 
 	if ( $content_negative_margin === 'enabled' ) { ?>
 
 		<!-- add spacing to first page element -->
-		<script>
-			// calculate menu height
-			let menu = document.querySelector('#wrapper-navbar');
-			let menuHeight = menu.offsetHeight;
-
-			// apply style to content
-			// content wrapper
-			let content = document.querySelector('.wrapper');
-			content.style.marginTop = "-" + menuHeight + 'px';
-
-			// get first element style
-			let firstElement = document.querySelector('.entry-content .element-container:first-child');
-			let firstElementStyle = getComputedStyle(firstElement);
-
-			// set top padding of first element
-			let paddingTop = parseInt(firstElementStyle.paddingTop);
-			firstElement.style.setProperty("padding-top", ( menuHeight + paddingTop ) + 'px', "important")
-		</script>
+		<script>firstElementSpacing();</script>
 
 	<?php } ?>
-
-	
-
-<?php };
-
-add_action('wp_footer', 'sticky_nav');
-function sticky_nav(){ ?>
-
-	<!-- sticky navigation -->
-	<script>
-		// When the user scrolls the page, execute myFunction
-		window.addEventListener('scroll', stickyNav);
-
-		// Get the navbar
-		var navbar = document.getElementById("sticky-nav");
-		navbar.classList.add("d-none");
-		navbar.classList.add("fixed-top");
-		navbar.classList.add("animated");
-
-		// calculate menu height
-		let mainNav = document.querySelector('#wrapper-navbar');
-		let mainNavHeight = mainNav.offsetHeight;
-		let mainNavHeightOffset = mainNav.offsetHeight + 200;
-
-		// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-		function stickyNav() {
-			
-			if (window.pageYOffset >= mainNavHeightOffset) {
-				navbar.classList.add("slideDown");
-				navbar.classList.add("d-block");
-				navbar.classList.remove("slideUp");
-				navbar.classList.remove("d-none");
-			} else if ( window.pageYOffset <= mainNavHeight ) {
-				navbar.classList.add("slideUp");
-				navbar.classList.remove("d-block");
-				navbar.classList.remove("slideDown");
-			}
-		}
-	</script>
 
 <?php };

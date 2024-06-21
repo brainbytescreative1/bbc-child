@@ -356,7 +356,9 @@
                     },
                     "choices": {
                         "bold": "bold",
+                        "bolder": "bolder",
                         "normal": "normal",
+                        "100": "100",
                         "200": "200",
                         "300": "300",
                         "400": "400",
@@ -561,7 +563,9 @@
                     },
                     "choices": {
                         "bold": "bold",
+                        "bolder": "bolder",
                         "normal": "normal",
+                        "100": "100",
                         "200": "200",
                         "300": "300",
                         "400": "400",
@@ -572,7 +576,7 @@
                         "900": "900"
                     },
                     "default_value": "bold",
-                    "return_format": "",
+                    "return_format": "value",
                     "multiple": 0,
                     "allow_null": 0,
                     "ui": 0,
@@ -766,7 +770,9 @@
                     },
                     "choices": {
                         "bold": "bold",
+                        "bolder": "bolder",
                         "normal": "normal",
+                        "100": "100",
                         "200": "200",
                         "300": "300",
                         "400": "400",
@@ -777,7 +783,7 @@
                         "900": "900"
                     },
                     "default_value": "bold",
-                    "return_format": "",
+                    "return_format": "value",
                     "multiple": 0,
                     "allow_null": 0,
                     "ui": 0,
@@ -971,7 +977,9 @@
                     },
                     "choices": {
                         "bold": "bold",
+                        "bolder": "bolder",
                         "normal": "normal",
+                        "100": "100",
                         "200": "200",
                         "300": "300",
                         "400": "400",
@@ -982,7 +990,7 @@
                         "900": "900"
                     },
                     "default_value": "bold",
-                    "return_format": "",
+                    "return_format": "value",
                     "multiple": 0,
                     "allow_null": 0,
                     "ui": 0,
@@ -1176,7 +1184,9 @@
                     },
                     "choices": {
                         "bold": "bold",
+                        "bolder": "bolder",
                         "normal": "normal",
+                        "100": "100",
                         "200": "200",
                         "300": "300",
                         "400": "400",
@@ -1187,7 +1197,7 @@
                         "900": "900"
                     },
                     "default_value": "bold",
-                    "return_format": "",
+                    "return_format": "value",
                     "multiple": 0,
                     "allow_null": 0,
                     "ui": 0,
@@ -1381,7 +1391,9 @@
                     },
                     "choices": {
                         "bold": "bold",
+                        "bolder": "bolder",
                         "normal": "normal",
+                        "100": "100",
                         "200": "200",
                         "300": "300",
                         "400": "400",
@@ -1456,7 +1468,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1718829624,
+    "modified": 1718915506,
     "acfe_categories": {
         "styles": "Styles"
     }

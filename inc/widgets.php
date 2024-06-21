@@ -274,6 +274,18 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
 	 */
     register_sidebar(
         array(
+            'name'          => __( 'Global Reviews', 'understrap' ),
+            'id'            => 'reviews',
+            'description'   => __( 'Global reviews widget', 'understrap' ),
+            'before_widget' => '<div id="%1$s" class="footer-widget %2$s dynamic-classes">',
+            'after_widget'  => '</div><!-- .footer-widget -->',
+            'before_title'  => '<h3 class="widget-title">',
+            'after_title'   => '</h3>',
+        )
+    );
+    
+    register_sidebar(
+        array(
             'name'          => __( 'Footer Full', 'understrap' ),
             'id'            => 'footerfull',
             'description'   => __( 'Full sized footer widget with dynamic grid', 'understrap' ),

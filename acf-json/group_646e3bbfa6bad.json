@@ -3,6 +3,24 @@
     "title": "Heading Element",
     "fields": [
         {
+            "key": "field_66749275f0faa",
+            "label": "Content",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
             "key": "field_646e3bc0ba17c",
             "label": "Text",
             "name": "text",
@@ -62,7 +80,7 @@
             "label": "Heading Style",
             "name": "",
             "aria-label": "",
-            "type": "accordion",
+            "type": "tab",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -71,9 +89,9 @@
                 "class": "",
                 "id": ""
             },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_646f9fadc325f",
@@ -107,7 +125,7 @@
             "label": "Heading Options",
             "name": "",
             "aria-label": "",
-            "type": "accordion",
+            "type": "tab",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -116,9 +134,9 @@
                 "class": "",
                 "id": ""
             },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_650c71de75931",
@@ -228,7 +246,7 @@
             "label": "Heading Spacing",
             "name": "",
             "aria-label": "",
-            "type": "accordion",
+            "type": "tab",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -237,9 +255,9 @@
                 "class": "",
                 "id": ""
             },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_64864d690ac3e",
@@ -294,7 +312,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1716582571,
+    "modified": 1718915738,
     "acfe_categories": {
         "elements": "Elements"
     }

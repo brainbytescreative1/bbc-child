@@ -22,7 +22,13 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 			<div class="row">
 
-				<?php dynamic_sidebar( 'footerfull' ); ?>
+                <?php
+                $global_reviews_widget = get_field('global_reviews_widget');
+                if ( $global_reviews_widget !== 'hide' ) {
+                    dynamic_sidebar( 'reviews' );
+                }
+                ?>
+                <?php dynamic_sidebar( 'footerfull' ); ?>
 
 			</div>
 

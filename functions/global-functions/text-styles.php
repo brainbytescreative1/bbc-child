@@ -7,9 +7,31 @@ function get_text_styles_bbc($field) {
         $classes = [];
 
         // add fields to classes
+        $mobile_alignment = '';
+        if ( isset ( $field['alignment_mobile'] ) ) {
+            $mobile_alignment = $field['alignment_mobile'];
+            if ( $mobile_alignment ) {
+                if ( $mobile_alignment === 'left' ) {
+                    $mobile_alignment = 'start';
+                } elseif ( $mobile_alignment === 'right' ) {
+                    $mobile_alignment = 'end';
+                }
+                $classes[] = 'text-' . $mobile_alignment;
+            }
+        }
         if ( isset ( $field['alignment'] ) ) {
-            if ( $field['alignment'] ) {
-                $classes[] = 'align-' . $field['alignment'];
+            $alignment = $field['alignment'];
+            if ( $alignment ) {
+                if ( $alignment === 'left' ) {
+                    $alignment = 'start';
+                } elseif ( $alignment === 'right' ) {
+                    $alignment = 'end';
+                }
+                if ( $mobile_alignment ) {
+                    $classes[] = 'text-lg-' . $alignment;
+                } else {
+                    $classes[] = 'text-' . $alignment;
+                }
             }
         }
         if ( isset ( $field['theme_colors'] ) ) {

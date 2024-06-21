@@ -27,6 +27,30 @@
             "layout": "horizontal"
         },
         {
+            "key": "field_667590c1d063d",
+            "label": "Alignment Mobile",
+            "name": "alignment_mobile",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "left",
+                "center": "center",
+                "right": "right"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 1,
+            "layout": "horizontal"
+        },
+        {
             "key": "field_646f9ee391ded",
             "label": "Color",
             "name": "color",
@@ -282,7 +306,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1718911531,
+    "modified": 1718980831,
     "acfe_categories": {
         "global": "Global"
     }
