@@ -12,7 +12,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "34",
                 "class": "",
                 "id": ""
             },
@@ -36,7 +36,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "33",
                 "class": "",
                 "id": ""
             },
@@ -46,6 +46,32 @@
                 "right": "right"
             },
             "default_value": "",
+            "return_format": "value",
+            "allow_null": 1,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_6675ec1d2c448",
+            "label": "Mobile Breakpoint",
+            "name": "mobile_breakpoint",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "sm": "sm",
+                "md": "md",
+                "lg": "lg",
+                "xl": "xl",
+                "xxl": "xxl"
+            },
+            "default_value": "lg",
             "return_format": "value",
             "allow_null": 1,
             "layout": "horizontal"
@@ -306,7 +332,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1718980831,
+    "modified": 1719004241,
     "acfe_categories": {
         "global": "Global"
     }

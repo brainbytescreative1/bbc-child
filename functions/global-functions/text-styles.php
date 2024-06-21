@@ -19,6 +19,13 @@ function get_text_styles_bbc($field) {
                 $classes[] = 'text-' . $mobile_alignment;
             }
         }
+        $mobile_breakpoint = '';
+        if ( isset ( $field['mobile_breakpoint'] ) ) {
+            $mobile_breakpoint = $field['mobile_breakpoint'];
+            if ( !$mobile_breakpoint ) {
+                $mobile_breakpoint = 'lg';
+            }
+        }
         if ( isset ( $field['alignment'] ) ) {
             $alignment = $field['alignment'];
             if ( $alignment ) {
@@ -28,7 +35,7 @@ function get_text_styles_bbc($field) {
                     $alignment = 'end';
                 }
                 if ( $mobile_alignment ) {
-                    $classes[] = 'text-lg-' . $alignment;
+                    $classes[] = 'text-'. $mobile_breakpoint .'-' . $alignment;
                 } else {
                     $classes[] = 'text-' . $alignment;
                 }

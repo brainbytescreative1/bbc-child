@@ -442,7 +442,7 @@ if ( get_field('columns') && ( $col_count > 0 ) ) { // if columns, add container
                         // column flex
                         $column_flex = get_sub_field('flex_element');
                         if ( $column_flex != 'none' ) {
-                            $flex = get_flex_bbc(get_sub_field('flex_column'));
+                            $flex = get_flex_bbc( get_sub_field('flex_column'), $mobile_breakpoint );
                             if ( $column_flex == 'element' ) {
                                 $col_classes[] = $flex;
                             } elseif ( $column_flex == 'inner' ) {

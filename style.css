@@ -399,7 +399,7 @@ header .nav-link:hover {
     z-index: 2;
     margin-left: 1rem;
     margin-right: 1rem;
-    margin-top: 1rem;
+    padding-top: 1rem;
 }
 .menu-rounded {
     border-radius: 1000px;
@@ -2092,54 +2092,7 @@ header .nav-link:hover {
 .aspect-ratio-1-1 {
     aspect-ratio: 1 / 1;
 }
-/*** icon lists ***/
-.icon-list {
-    padding-left: 0;
-    flex: 1;
-}
-.icon-list-heading {
-    flex: 1;
-}
-.icon-list li {
-    display: flex;
-}
-.icon-list a {
-    display: flex;
-}
-.icon-list.orientation-horizontal {
-    flex-wrap: wrap;
-}
-.icon-list.orientation-horizontal li:first-of-type {
-    margin-left: 0 !important;
-}
-.icon-list.orientation-horizontal li:last-of-type {
-    margin-right: 0 !important;
-}
-.icon-list.orientation-vertical li:first-of-type {
-    margin-top: 0 !important;
-}
-.icon-list.orientation-vertical li:last-of-type {
-    margin-bottom: 0 !important;
-}
-.icon-list.orientation-mobile-horizontal li:first-of-type {
-    margin-left: 0 !important;
-}
-.icon-list.orientation-mobile-horizontal li:last-of-type {
-    margin-right: 0 !important;
-}
-.icon-list.orientation-mobile-default li:first-of-type {
-    margin-top: 0 !important;
-}
-.icon-list.orientation-mobile-default li:last-of-type {
-    margin-bottom: 0 !important;
-}
-.icon-list li i {
-    display: inline-block;
-    margin-bottom: 0;
-}
-.icon-list .icon {
-    margin-right: 12px;
-}
+/** lists **/
 .list-inline ul {
     display: flex;
     padding-left: 0;

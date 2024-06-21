@@ -6,6 +6,10 @@ if( get_row_layout() == 'icon_list' ):
     $icon_list = get_sub_field('icon_list');
 
     if ( $icon_list ) {
+
+        echo '<style>';
+            include_once( __DIR__ . '/styles/icon-list.css');
+        echo '</style>';
         
         // initialize classes arrays
         $list_container_classes = [];
@@ -231,7 +235,16 @@ if( get_row_layout() == 'icon_list' ):
         echo '<div class="'. $list_container_classes .'">'; // start list container
 
         if ( $heading && $heading['text'] && $heading['tag'] ) {
-            echo '<div class="icon-list-heading">' . get_heading_bbc($heading) . '</div>';
+            $list_heading_classes = [];
+            $list_heading_classes[] = 'icon-list-heading';
+            if ( ( $heading_position === 'top' ) || ( $heading_position === 'bottom' ) ) {
+                $list_heading_classes[] = 'w-100';
+            } else {
+                $list_heading_classes[] = 'flex-shrink-1';
+            }
+            $list_heading_classes = esc_attr( trim( implode(' ', $list_heading_classes ) ) );
+
+            echo '<div class="'. $list_heading_classes .'">' . get_heading_bbc($heading) . '</div>';
         }
 
             echo '<ul class="'. $list_classes .'">'; // icon list start
@@ -312,12 +325,12 @@ if( get_row_layout() == 'icon_list' ):
                     $list_item_classes = esc_attr( trim( implode(' ', $list_item_classes ) ) );         
 
                     if ( $link ) {
-                        $value = $link['value'];
+                        $url = $link['url'];
                         $title = $link['title'];
                         $target = $link['target'];
                         ?>
                         <li class="<?=$list_item_classes?>">
-                            <a classes="<?=$link_text_classes?>" href="<?=$value?>" target="<?=$target?>" title="<?=$title?>" style="<?=$list_item_vertical_alignment?>">
+                            <a href="<?=$url?>" title="<?=$url?>" class="<?=$link_text_classes?>"  style="<?=$list_item_vertical_alignment?>">
                                 <?php if ( $icon['icon'] ) { ?>
                                     <span class="<?=$icon_classes?>">
                                         <?=$icon['icon']?>
@@ -328,7 +341,6 @@ if( get_row_layout() == 'icon_list' ):
                                         <?=$title?>
                                     </span>
                                 <?php } ?>
-                                
                             </a>
                         </li>
                         <?php
