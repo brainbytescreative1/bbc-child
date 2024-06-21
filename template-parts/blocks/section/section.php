@@ -50,6 +50,8 @@ if ( have_rows('columns') ) {
     } else {
         $container_classes[] = 'container';
     }
+    $container_classes[] = 'element-container';
+    
     $row_classes[] = 'row';
     $row_classes[] = 'element-row';
     $row_inner_classes[] = 'row-inner';

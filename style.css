@@ -5,7 +5,7 @@
  Author:       Brain Bytes Creative
  Author URI:   https://github.com/understrap/understrap-child/graphs/contributors
  Template:     understrap
- Version:      1.2.18
+ Version:      1.2.20
  License: GNU General Public License v2 or later
  License URI: http://www.gnu.org/licenses/gpl-2.0.html
  Text Domain:  bbc
@@ -405,6 +405,10 @@ header .nav-link:hover {
     border-radius: 1000px;
 }
 @media screen and (min-width: 992px) {
+    .menu-rounded {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
     .menu-rounded .navbar-nav {
         flex-wrap: wrap;
         justify-content: flex-end;
