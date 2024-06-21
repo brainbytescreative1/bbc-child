@@ -51,7 +51,7 @@ if ( have_rows('columns') ) {
         $container_classes[] = 'container';
     }
     $container_classes[] = 'element-container';
-    
+
     $row_classes[] = 'row';
     $row_classes[] = 'element-row';
     $row_inner_classes[] = 'row-inner';
@@ -264,6 +264,34 @@ if ( have_rows('columns') ) {
         $col_count = 0;
     }
     $row_classes[] = 'columns-' . $col_count;
+
+    // dividers
+    $top_divider = get_field('top_divider');
+    if ( $top_divider === 'enable' ) {
+        $container_classes[] = 'container-divider-top';
+        $top_divider_shape = get_field('top_divider_shape');
+        if ( $top_divider_shape !== 'none' ) {
+            $container_classes[] = $top_divider_shape;
+        }
+
+        $top_negative_margin = get_field('top_negative_margin');
+        if ( $top_negative_margin === 'yes' ) {
+            $container_classes[] = $top_divider_shape . '-container-negative-margin-top';
+        }
+    }
+    $bottom_divider = get_field('bottom_divider');
+    if ( $bottom_divider === 'enable' ) {
+        $container_classes[] = 'container-divider-bottom';
+        $bottom_divider_shape = get_field('bottom_divider_shape');
+        if ( $bottom_divider_shape !== 'none' ) {
+            $container_classes[] = $bottom_divider_shape;
+        }
+
+        $bottom_negative_margin = get_field('bottom_negative_margin');
+        if ( $bottom_negative_margin === 'yes' ) {
+            $container_classes[] = $bottom_divider_shape . '-container-negative-margin-bottom';
+        }
+    }
 
     // process global functions
     $container_classes[] = get_spacing_bbc(get_field('container_spacing'), 'container');
