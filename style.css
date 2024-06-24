@@ -5,7 +5,7 @@
  Author:       Brain Bytes Creative
  Author URI:   https://github.com/understrap/understrap-child/graphs/contributors
  Template:     understrap
- Version:      1.2.20
+ Version:      1.2.21
  License: GNU General Public License v2 or later
  License URI: http://www.gnu.org/licenses/gpl-2.0.html
  Text Domain:  bbc
@@ -80,10 +80,16 @@ section .container-fluid .row {
     .desktop-hide {
         display: none !important;
     }
+    .desktop-show {
+        display: block !important;
+    }
 }
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 991px) and (min-width: 769px) {
     .tablet-hide {
         display: none !important;
+    }
+    .tablet-show {
+        display: block !important;
     }
 }
 @media screen and (max-width: 768px) {
