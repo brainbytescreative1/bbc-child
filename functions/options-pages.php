@@ -168,6 +168,25 @@ if( function_exists('acf_add_options_page') ) {
         'updated_message' => 'Forms Updated',
     ));
 }
+/*
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page(array(
+        'page_title' => 'Tabs',
+        'menu_slug' => 'tabs',
+        'active' => true,
+        'menu_title' => 'Tabs',
+        'capability' => 'edit_posts',
+        'parent_slug' => 'elements',
+        'position' => '',
+        'icon_url' => '',
+        'redirect' => false,
+        'post_id' => 'tabs',
+        'autoload' => false,
+        'update_button' => 'Update',
+        'updated_message' => 'Tabs Updated',
+    ));
+}
+*/
 
 /*
 if( function_exists('acf_add_options_page') ) {

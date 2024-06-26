@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_64d2a804b8987",
-            "label": "Content",
+            "label": "Tabs",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -22,7 +22,7 @@
         },
         {
             "key": "field_64d2a804bc42b",
-            "label": "Tabs",
+            "label": "Tab Content",
             "name": "tabs",
             "aria-label": "",
             "type": "repeater",
@@ -45,7 +45,7 @@
             "sub_fields": [
                 {
                     "key": "field_64d2a80502b32",
-                    "label": "Heading",
+                    "label": "Title Heading",
                     "name": "",
                     "aria-label": "",
                     "type": "tab",
@@ -59,17 +59,17 @@
                     },
                     "placement": "top",
                     "endpoint": 0,
-                    "parent_repeater": "field_64d2a804bc42b",
-                    "selected": 0
+                    "selected": 0,
+                    "parent_repeater": "field_64d2a804bc42b"
                 },
                 {
                     "key": "field_64d2a805065e8",
-                    "label": "Heading",
+                    "label": "Title Heading",
                     "name": "heading",
                     "aria-label": "",
                     "type": "clone",
                     "instructions": "",
-                    "required": 1,
+                    "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -91,8 +91,8 @@
                     "parent_repeater": "field_64d2a804bc42b"
                 },
                 {
-                    "key": "field_64e759ee07ab5",
-                    "label": "Content",
+                    "key": "field_667b107e14c5e",
+                    "label": "Content Heading",
                     "name": "",
                     "aria-label": "",
                     "type": "tab",
@@ -106,8 +106,55 @@
                     },
                     "placement": "top",
                     "endpoint": 0,
-                    "parent_repeater": "field_64d2a804bc42b",
-                    "selected": 0
+                    "selected": 0,
+                    "parent_repeater": "field_64d2a804bc42b"
+                },
+                {
+                    "key": "field_667b0a75f2ecb",
+                    "label": "Content Heading",
+                    "name": "content_heading",
+                    "aria-label": "",
+                    "type": "clone",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "clone": [
+                        "group_646e3bbfa6bad"
+                    ],
+                    "display": "group",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 1,
+                    "acfe_seamless_style": 1,
+                    "acfe_clone_modal": 0,
+                    "acfe_clone_modal_close": 0,
+                    "acfe_clone_modal_button": "",
+                    "acfe_clone_modal_size": "large",
+                    "parent_repeater": "field_64d2a804bc42b"
+                },
+                {
+                    "key": "field_64e759ee07ab5",
+                    "label": "Content Text",
+                    "name": "",
+                    "aria-label": "",
+                    "type": "tab",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placement": "top",
+                    "endpoint": 0,
+                    "selected": 0,
+                    "parent_repeater": "field_64d2a804bc42b"
                 },
                 {
                     "key": "field_6537f9e7e45ba",
@@ -203,6 +250,53 @@
                     "parent_repeater": "field_64d2a804bc42b"
                 },
                 {
+                    "key": "field_667b10a414c5f",
+                    "label": "Content Buttons",
+                    "name": "",
+                    "aria-label": "",
+                    "type": "tab",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placement": "top",
+                    "endpoint": 0,
+                    "selected": 0,
+                    "parent_repeater": "field_64d2a804bc42b"
+                },
+                {
+                    "key": "field_667b0af5fd3d0",
+                    "label": "Content Buttons",
+                    "name": "content_buttons",
+                    "aria-label": "",
+                    "type": "clone",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "clone": [
+                        "group_646fb2e906f87"
+                    ],
+                    "display": "group",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 1,
+                    "acfe_seamless_style": 1,
+                    "acfe_clone_modal": 0,
+                    "acfe_clone_modal_close": 0,
+                    "acfe_clone_modal_button": "",
+                    "acfe_clone_modal_size": "large",
+                    "parent_repeater": "field_64d2a804bc42b"
+                },
+                {
                     "key": "field_64d2a8050db12",
                     "label": "Image",
                     "name": "",
@@ -252,8 +346,250 @@
             ]
         },
         {
+            "key": "field_667b12c2bcb4e",
+            "label": "Tab Style",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_667b1489bcb50",
+            "label": "Tab Alignment",
+            "name": "tab_alignment",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "34",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "default (left)",
+                "justify-content-center": "center",
+                "justify-content-end": "right"
+            },
+            "default_value": "default",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_667c1c789c13a",
+            "label": "Tab Appearance",
+            "name": "tab_appearance",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "default",
+                "nav-pills": "pills",
+                "nav-tabs": "border bottom"
+            },
+            "default_value": "default",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_667b15a1bcb52",
+            "label": "Tab Width",
+            "name": "tab_width",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "default",
+                "nav-fill": "Fill",
+                "nav-justified": "Even Width"
+            },
+            "default_value": "default",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_667b199763b14",
+            "label": "Tabs Margin Top",
+            "name": "tabs_margin_top",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "default",
+                "1": "sm",
+                "2": "md",
+                "3": "lg",
+                "4": "xl",
+                "5": "xxl"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_667b19d663b15",
+            "label": "Tabs Margin Bottom",
+            "name": "tabs_margin_bottom",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "default",
+                "1": "sm",
+                "2": "md",
+                "3": "lg",
+                "4": "xl",
+                "5": "xxl"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_667b73b967539",
+            "label": "Tabs Space Between",
+            "name": "tabs_space_between",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "default",
+                "none": "none",
+                ".75rem": "sm",
+                "1.5rem": "md",
+                "3rem": "lg",
+                "custom": "custom"
+            },
+            "default_value": "default",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_667b32cb0edee",
+            "label": "Custom Space Between",
+            "name": "custom_space_between",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": "px"
+        },
+        {
+            "key": "field_667b74046753a",
+            "label": "Tab Border Radius",
+            "name": "tab_border_radius",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "default",
+                "none": "none",
+                ".75rem": "sm",
+                "1.5rem": "md",
+                "3rem": "lg",
+                "custom": "custom"
+            },
+            "default_value": "default",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_667b3d3194b12",
+            "label": "Custom Tab Border Radius",
+            "name": "custom_tab_border_radius",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": "px"
+        },
+        {
             "key": "field_6512de0623fd3",
-            "label": "Colors",
+            "label": "Tab Colors",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -450,8 +786,8 @@
             "endpoint": 1
         },
         {
-            "key": "field_6512e54aee219",
-            "label": "Tab Content",
+            "key": "field_667b3e47d724c",
+            "label": "Text Content",
             "name": "",
             "aria-label": "",
             "type": "accordion",
@@ -477,7 +813,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "100",
                 "class": "",
                 "id": ""
             },
@@ -504,7 +840,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "100",
                 "class": "",
                 "id": ""
             },
@@ -522,8 +858,8 @@
             "acfe_clone_modal_size": "large"
         },
         {
-            "key": "field_6512e5e92e0fc",
-            "label": "Tab Content End",
+            "key": "field_667b3e54d724d",
+            "label": "Text Content End",
             "name": "",
             "aria-label": "",
             "type": "accordion",
@@ -541,7 +877,7 @@
         },
         {
             "key": "field_64d2a804ce939",
-            "label": "Heading",
+            "label": "Title Heading",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -608,6 +944,124 @@
             "append": ""
         },
         {
+            "key": "field_667b3d5294b13",
+            "label": "Tab Content",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_667b1e5515427",
+            "label": "Tab Content Spacing",
+            "name": "tab_content_spacing",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "default",
+                "1": "sm",
+                "2": "md",
+                "3": "lg",
+                "4": "xl",
+                "5": "xxl"
+            },
+            "default_value": "default",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_667c2729b4345",
+            "label": "Tab Content Text Size",
+            "name": "tab_content_text_size",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "default",
+                "small": "small"
+            },
+            "default_value": "default",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_667b3d7594b14",
+            "label": "Tab Content Border Radius",
+            "name": "tab_content_border_radius",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "default",
+                "1": "sm",
+                "2": "md",
+                "3": "lg",
+                "4": "xl",
+                "5": "xxl",
+                "custom": "custom"
+            },
+            "default_value": "default",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_667c2763b4346",
+            "label": "Tab Content Border Radius Custom",
+            "name": "tab_content_border_radius_custom",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": "px"
+        },
+        {
             "key": "field_6512def99168b",
             "label": "Image",
             "name": "",
@@ -635,7 +1089,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -654,6 +1108,41 @@
                 "12": "12"
             },
             "default_value": 5,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "allow_custom": 0,
+            "search_placeholder": ""
+        },
+        {
+            "key": "field_6512df5b9168c",
+            "label": "Image Background Position",
+            "name": "image_background_position",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "center center": "Center Center",
+                "center left": "Center Left",
+                "center right": "Center Right",
+                "top center": "Top Center",
+                "top left": "Top Left",
+                "top right": "Top Right",
+                "bottom center": "Bottom Center",
+                "bottom left": "Bottom Left",
+                "bottom right": "Bottom Right"
+            },
+            "default_value": "center center",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -686,11 +1175,11 @@
             "append": "px"
         },
         {
-            "key": "field_6512df5b9168c",
-            "label": "Image Background Position",
-            "name": "image_background_position",
+            "key": "field_667b1a0963b16",
+            "label": "Responsive",
+            "name": "",
             "aria-label": "",
-            "type": "select",
+            "type": "tab",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -699,26 +1188,61 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "center center": "Center Center",
-                "center left": "Center Left",
-                "center right": "Center Right",
-                "top center": "Top Center",
-                "top left": "Top Left",
-                "top right": "Top Right",
-                "bottom center": "Bottom Center",
-                "bottom left": "Bottom Left",
-                "bottom right": "Bottom Right"
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_667b1a2a63b18",
+            "label": "Mobile Breakpoint",
+            "name": "mobile_breakpoint",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
             },
-            "default_value": "center center",
+            "choices": {
+                "default": "default",
+                "none": "none",
+                "sm": "sm",
+                "md": "md",
+                "lg": "lg",
+                "xl": "xl",
+                "xxl": "xxl"
+            },
+            "default_value": "default",
             "return_format": "value",
-            "multiple": 0,
             "allow_null": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": "",
-            "allow_custom": 0,
-            "search_placeholder": ""
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_667b1a8363b19",
+            "label": "Mobile Columns",
+            "name": "mobile_columns",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "default",
+                "one": "one",
+                "two": "two"
+            },
+            "default_value": "default",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
         },
         {
             "key": "field_6512e1a0df83d",
@@ -748,7 +1272,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "100",
                 "class": "",
                 "id": ""
             },
@@ -767,7 +1291,7 @@
         },
         {
             "key": "field_64d2a804e48a4",
-            "label": "Additional Classes",
+            "label": "Classes",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -1084,8 +1608,8 @@
             "append": ""
         },
         {
-            "key": "field_65133fc00baa5",
-            "label": "Advanced",
+            "key": "field_667b18c2dac1b",
+            "label": "Docs",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -1102,11 +1626,11 @@
             "selected": 0
         },
         {
-            "key": "field_65133fc90baa6",
-            "label": "Custom CSS",
-            "name": "custom_css",
+            "key": "field_667b1807900ac",
+            "label": "References",
+            "name": "",
             "aria-label": "",
-            "type": "acfe_code_editor",
+            "type": "message",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -1115,15 +1639,9 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "mode": "text\/html",
-            "lines": 1,
-            "indent_unit": 4,
-            "maxlength": "",
-            "rows": 4,
-            "max_rows": "",
-            "return_format": []
+            "message": "<a href=\"https:\/\/getbootstrap.com\/docs\/5.2\/components\/navs-tabs\/\" target=\"_blank\">Bootstrap<\/a> | <a href=\"https:\/\/app.getguru.com\/card\/iL8bB8RT\/Elements-Tabs\" target=\"_blank\">Guru Card<\/a>",
+            "new_lines": "",
+            "esc_html": 0
         }
     ],
     "location": [
@@ -1151,8 +1669,8 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
+    "modified": 1719412926,
     "acfe_categories": {
         "elements": "Elements"
-    },
-    "modified": 1716582574
+    }
 }

@@ -1,0 +1,210 @@
+/*** tabs and content ***/
+/** default styles **/
+.tab-image-inner {
+    height: 100%;
+    background-size: cover !important;
+}
+.rounded-tabs .tabs-element button {
+    background: var(--white) !important;
+    color: var(--text) !important;
+    border-top-right-radius: 2rem !important;
+    border-top-left-radius: 2rem !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-radius: 2rem !important;
+}
+.rounded-tabs .tabs-element button.active {
+    background: var(--secondary) !important;
+    color: var(--white) !important;
+}
+.rounded-tabs .tabs-element .tab-content {
+    background: var(--secondary);
+    border-bottom-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    padding: 2rem;
+    padding-top: calc(2rem + 50px);
+}
+.rounded-tabs .tabs-element .nav {
+    margin-bottom: -50px;
+}
+.rounded-tabs .tabs-element .tab-pane p:last-child {
+    margin-bottom: 0;
+}
+.rounded-tabs .tabs-element .tab-image {
+    width: 40%;
+    margin-right: 2rem;
+}
+.rounded-tabs .tabs-element .tab-image-inner {
+    width: 100%;
+    height: 100%;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+.rounded-tabs .tabs-element .tab-text {
+    width: 100%;
+}
+.rounded-tabs .tabs-element .nav-link {
+    height: 100%;
+}
+.rounded-tabs .tabs-element.tabs-blue .tab-content {
+    background: var(--primary);
+}
+.rounded-tabs .tabs-element.tabs-blue button.active {
+    background: var(--primary) !important;
+}
+@media screen and (min-width: 992px) {
+    /* reverse */
+    .rounded-tabs .tabs-reverse .tab-content-inner {
+        flex-direction: row-reverse;
+    }
+    .rounded-tabs .tabs-reverse .tab-image {
+        margin-right: 0;
+        margin-left: 2rem;
+    }
+    /* large content */
+    .rounded-tabs .tabs-content-large .tab-text {
+        padding-top: 5rem !important;
+        padding-bottom: 5rem !important;
+    }
+}
+/* responsive */
+@media screen and (max-width: 991px) {
+    .rounded-tabs .tabs-element .tab-image {
+        display: none;
+    }
+    .tab-image-inner {
+        min-height: unset !important;
+    }
+}
+@media screen and (max-width: 768px) {
+    .rounded-tabs .tabs-element .nav-pills {
+        margin-bottom: 5px !important;
+        
+    }
+    .rounded-tabs .tabs-element .tab-content {
+        padding-top: 2rem !important;
+        border-radius: 2rem !important;
+    }
+    .rounded-tabs .tabs-element .nav-item * {
+        font-size: 1rem !important;
+    }
+    .rounded-tabs .tabs-element .nav-item {
+        width: calc(50% - 10px);
+        flex-basis: auto !important;
+        margin: 5px;
+    }
+    .rounded-tabs .tabs-element .nav-link {
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+    }
+}
+@media screen and (max-width: 768px) {
+    .tab-has-min-height  {
+        min-height: unset !important;
+    }
+}
+/** timeline tabs **/
+.timeline-tabs .nav {
+    margin-bottom: 2rem !important;
+    justify-content: space-between;
+    background: url('/wp-content/uploads/2023/08/timeline-arrows-3.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.timeline-tabs .nav-item {
+    flex-grow: unset;
+}
+.timeline-tabs button {
+    background: var(--info) !important;
+}
+.timeline-tabs button.active {
+    background: var(--primary) !important;
+}
+.timeline-tabs .nav-link {
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: 500px !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: var(--primary) !important;
+}
+.timeline-tabs .tab-content {
+    padding: 0;
+    border-radius: 50rem;
+    overflow: hidden;
+    margin: 0;
+    background: var(--info);
+}
+.timeline-tabs .tab-image {
+    padding: 0;
+    margin: 0;
+    width: 50%;
+}
+.timeline-tabs .tab-image .tab-image-inner {
+    padding: 0;
+    border-radius: 50rem !important;
+    overflow: hidden;
+    margin: 0;
+    width: 100%;
+}
+.timeline-tabs .tab-content-inner {
+    flex-direction: row-reverse;
+}
+.timeline-tabs .tab-text {
+    padding: 4rem 1rem 4rem 7rem !important;
+}
+/* responsive */
+@media screen and (max-width: 768px) {
+    .timeline-tabs .nav {
+        width: 100%;
+        margin: 0;
+        background: none;
+        margin-bottom: 20px !important;
+    }
+    .timeline-tabs .nav-item {
+        width: inherit;
+        flex-basis: 0 !important;
+        margin: 0;
+    }
+    .timeline-tabs .tab-text {
+        padding: 0rem 2rem !important;
+    }
+    .timeline-tabs .tab-content {
+        padding-bottom: 2rem !important;
+    }
+}
+*/
+/** rounded tabs **/
+.tabs-round .tab-image {
+    position: relative;
+    min-height: 350px;
+}
+.tabs-round .tab-image-inner {
+    width: 100%;
+    height: 100%;
+    background-position: top center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+}
+.tabs-round .light-half-background {
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 50%, rgba(233,247,247,1) 50%, rgba(233,247,247,1) 100%); 
+}
+.tabs-round button {
+    background: var(--primary) !important;
+    color: var(--white) !important;
+}
+.tabs-round button.active {
+    background: var(--info) !important;
+}
+.tabs-round .nav-pills .nav-item {
+    margin: 0 .5rem !important;
+}
