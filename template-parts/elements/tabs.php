@@ -230,6 +230,7 @@ if( get_row_layout() == 'tabbed_content' ):
         // heading
         $heading_classes = [];
         $heading_settings = get_sub_field('heading_settings');
+        $heading_classes[] = get_sub_field('heading_classes');
         $heading_classes[] = get_sub_field('nav_button_tag');
         $tag = $heading_settings['tag'];
 

@@ -1481,7 +1481,7 @@
             "name": "tab_pane",
             "aria-label": "",
             "type": "text",
-            "instructions": ".tab-content",
+            "instructions": ".tab-pane",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -1669,7 +1669,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1719412926,
+    "modified": 1719526189,
     "acfe_categories": {
         "elements": "Elements"
     }
