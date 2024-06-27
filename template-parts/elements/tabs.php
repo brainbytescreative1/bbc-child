@@ -20,6 +20,7 @@ if( get_row_layout() == 'tabbed_content' ):
 
         // colors
         
+        /*
         $text_color_inactive = get_rgb_color_bbc('text_color_inactive', true);
         if ( !$text_color_inactive ) {
             $text_color_inactive = '#000';
@@ -35,6 +36,32 @@ if( get_row_layout() == 'tabbed_content' ):
         $background_color_active = get_rgb_color_bbc('background_color_active', true);
         if ( !$background_color_active ) {
             $background_color_active = '#000';
+        }
+        $text_background_color = get_rgb_color_bbc('text_background_color', true);
+        if ( !$text_background_color ) {
+            $text_background_color = 'transparent';
+        }
+        */
+
+        $text_color_inactive = get_rgb_color_bbc('text_color_inactive', true);
+        if ( !$text_color_inactive ) {
+            $text_color_inactive = '#000';
+        }
+        $background_color_inactive = get_rgb_color_bbc('background_color_inactive', true);
+        if ( !$background_color_inactive ) {
+            $background_color_inactive = '#fff';
+        }
+        $text_color_active = get_rgb_color_bbc('text_color_active', true);
+        if ( !$text_color_active ) {
+            $text_color_active = '#fff';
+        }
+        $background_color_active = get_rgb_color_bbc('background_color_active', true);
+        if ( !$background_color_active ) {
+            $background_color_active = '#000';
+        }
+        $text_color = get_rgb_color_bbc('text_color', true);
+        if ( !$text_color ) {
+            $text_color = '#000';
         }
         $text_background_color = get_rgb_color_bbc('text_background_color', true);
         if ( !$text_background_color ) {
@@ -281,6 +308,7 @@ if( get_row_layout() == 'tabbed_content' ):
             }
             <?php } ?>
             .tabs-element .tab-text {
+                color: <?=$text_color?>;
                 background: <?=$text_background_color?>;
             }
             @media screen and (max-width: <?=$mobile_tab_width_breakpoint?>) {
