@@ -141,6 +141,13 @@
 .button-color-select input[value="light"][type=radio]:checked::before {
     background-color: var(--light_color) !important;
 }
+.button-color-select input[value="gray"] {
+    background: var(--gray_background);
+    color: var(--gray_color);
+}
+.button-color-select input[value="gray"][type=radio]:checked::before {
+    background-color: var(--gray_color) !important;
+}
 .button-color-select input[value="white"] {
     background: var(--white_background);
     color: var(--white_color);

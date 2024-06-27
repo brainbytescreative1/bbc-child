@@ -55,7 +55,7 @@ add_filter('acf/load_field/name=button_color', function($field) {
 
     $gray_button_enable = get_field('gray_button', 'style');
     if ( $gray_button_enable['enable'] === 'enable' ) {
-        $choices += array( $dark => __('Gray', 'bbc') );
+        $choices += array( $gray => __('Gray', 'bbc') );
     }
 
     $dark_button_enable = get_field('dark_button', 'style');
