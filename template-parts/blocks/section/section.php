@@ -103,7 +103,6 @@ if ( have_rows('columns') ) {
     }
 
     // column gap
-    $column_gap = get_field('column_gap');
     if ( $column_gap ) {
         $row_classes[] = 'gap-' . $column_gap;
         if ( $column_gap === 'custom' ) {
@@ -121,7 +120,7 @@ if ( have_rows('columns') ) {
 
     // add default vertical margin gap on mobile
     $col_bottom_spacing = '';
-    if ( $col_count === 1 ) {
+    if ( ( $col_count === 1 ) || ( $column_gap === 'none' ) ) {
         $col_bottom_spacing = 'mb-0';
     } else {
         $top_bottom_padding_column_mobile = get_field('top_bottom_padding_column_mobile', 'style');
