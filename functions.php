@@ -217,10 +217,25 @@ function disable_gutenberg_wp_enqueue_scripts() {
 add_filter('wp_enqueue_scripts', 'disable_gutenberg_wp_enqueue_scripts', 100);
 
 // include separate functions files
-require_once( __DIR__ . '/functions/options-pages.php');
-require_once( __DIR__ . '/functions/root-style.php');
-require_once( __DIR__ . '/functions/menus.php');
 require_once( __DIR__ . '/functions/blocks.php');
+require_once( __DIR__ . '/functions/menus.php');
+require_once( __DIR__ . '/functions/options-pages.php');
 require_once( __DIR__ . '/functions/post-types.php');
+require_once( __DIR__ . '/functions/root.php');
+require_once( __DIR__ . '/functions/selected-colors.php');
 require_once( __DIR__ . '/functions/shortcodes.php');
-require_once( __DIR__ . '/functions/global-functions.php');
+
+// global functions
+require_once( __DIR__ . '/functions/global-functions/advanced.php');
+require_once( __DIR__ . '/functions/global-functions/background.php');
+require_once( __DIR__ . '/functions/global-functions/borders.php');
+require_once( __DIR__ . '/functions/global-functions/buttons.php');
+require_once( __DIR__ . '/functions/global-functions/colors.php');
+require_once( __DIR__ . '/functions/global-functions/dividers.php');
+require_once( __DIR__ . '/functions/global-functions/flex.php');
+require_once( __DIR__ . '/functions/global-functions/heading.php');
+require_once( __DIR__ . '/functions/global-functions/images.php');
+require_once( __DIR__ . '/functions/global-functions/page-width.php');
+require_once( __DIR__ . '/functions/global-functions/responsive.php');
+require_once( __DIR__ . '/functions/global-functions/spacing.php');
+require_once( __DIR__ . '/functions/global-functions/text-styles.php');
