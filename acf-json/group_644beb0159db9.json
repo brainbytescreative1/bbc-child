@@ -681,32 +681,14 @@
                 "id": ""
             },
             "choices": {
-                "left": "left",
+                "start": "left",
                 "center": "center",
-                "right": "right"
+                "end": "right"
             },
-            "default_value": "right",
+            "default_value": "end",
             "return_format": "value",
             "allow_null": 0,
             "layout": "horizontal"
-        },
-        {
-            "key": "field_667d6d27b0ef6",
-            "label": "Left Menu",
-            "name": "",
-            "aria-label": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
         },
         {
             "key": "field_64bef78e28d38",
@@ -869,42 +851,6 @@
             "layout": "horizontal"
         },
         {
-            "key": "field_667d6d35b0ef7",
-            "label": "Left Menu End",
-            "name": "",
-            "aria-label": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 1
-        },
-        {
-            "key": "field_667d6d49b0ef9",
-            "label": "Right Menu",
-            "name": "",
-            "aria-label": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
-        },
-        {
             "key": "field_64bef82928d3a",
             "label": "Right Menu",
             "name": "right_menu",
@@ -1063,42 +1009,6 @@
             "return_format": "value",
             "allow_null": 0,
             "layout": "horizontal"
-        },
-        {
-            "key": "field_667d6d3fb0ef8",
-            "label": "Right Menu End",
-            "name": "",
-            "aria-label": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 1
-        },
-        {
-            "key": "field_667d68761003f",
-            "label": "Top Menu Style",
-            "name": "",
-            "aria-label": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
         },
         {
             "key": "field_64befbc11830f",
@@ -1331,24 +1241,6 @@
             "placeholder": "",
             "allow_custom": 0,
             "search_placeholder": ""
-        },
-        {
-            "key": "field_667d688f10040",
-            "label": "Top Menu Style End",
-            "name": "",
-            "aria-label": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 1
         }
     ],
     "location": [
@@ -1376,7 +1268,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1719503820,
+    "modified": 1719692019,
     "acfe_categories": {
         "options": "Options"
     }
