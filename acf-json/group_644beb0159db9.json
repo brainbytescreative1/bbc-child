@@ -180,7 +180,7 @@
             "aria-label": "",
             "type": "number",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "50",
@@ -525,6 +525,55 @@
             "selected": 0
         },
         {
+            "key": "field_667d6c78b0ef5",
+            "label": "Mobile Menu Behavior",
+            "name": "mobile_menu_behavior",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "row": "row",
+                "stack": "stack"
+            },
+            "default_value": "row",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_667d6d8ab0efa",
+            "label": "Mobile Breakpoint",
+            "name": "mobile_breakpoint",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "sm": "sm",
+                "md": "md",
+                "lg": "lg",
+                "xl": "xl",
+                "xxl": "xxl"
+            },
+            "default_value": "lg",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
             "key": "field_64652ad2c00ab",
             "label": "Top Menu Layout",
             "name": "top_menu_layout",
@@ -584,6 +633,32 @@
             "search_placeholder": ""
         },
         {
+            "key": "field_64befa137e552",
+            "label": "Single Menu Select",
+            "name": "single_menu_select",
+            "aria-label": "",
+            "type": "nav_menu",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64befa087e551",
+                        "operator": "==",
+                        "value": "menu"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "save_format": "menu",
+            "container": "nav",
+            "allow_null": 0
+        },
+        {
             "key": "field_6553860518ff2",
             "label": "Single Menu Alignment",
             "name": "single_menu_alignment",
@@ -616,37 +691,29 @@
             "layout": "horizontal"
         },
         {
-            "key": "field_64befa137e552",
-            "label": "Single Menu Select",
-            "name": "single_menu_select",
+            "key": "field_667d6d27b0ef6",
+            "label": "Left Menu",
+            "name": "",
             "aria-label": "",
-            "type": "nav_menu",
+            "type": "accordion",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_64befa087e551",
-                        "operator": "==",
-                        "value": "menu"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "save_format": "menu",
-            "container": "nav",
-            "allow_null": 0
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
         },
         {
             "key": "field_64bef78e28d38",
             "label": "Left Menu",
             "name": "left_menu",
             "aria-label": "",
-            "type": "select",
+            "type": "button_group",
             "instructions": "",
             "required": 0,
             "conditional_logic": [
@@ -654,7 +721,7 @@
                     {
                         "field": "field_64652ad2c00ab",
                         "operator": "==",
-                        "value": "left"
+                        "value": ""
                     }
                 ],
                 [
@@ -666,23 +733,19 @@
                 ]
             ],
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
             "choices": {
                 "menu": "Menu",
-                "social": "Social"
+                "social": "Social",
+                "topmenu": "Top Menu Widget"
             },
-            "default_value": "menu",
+            "default_value": "",
             "return_format": "value",
-            "multiple": 0,
-            "allow_null": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": "",
-            "allow_custom": 0,
-            "search_placeholder": ""
+            "allow_null": 1,
+            "layout": "horizontal"
         },
         {
             "key": "field_64bef7d228d39",
@@ -711,11 +774,11 @@
             "allow_null": 0
         },
         {
-            "key": "field_64bef82928d3a",
-            "label": "Right Menu",
-            "name": "right_menu",
+            "key": "field_667cce8e12565",
+            "label": "Left Menu Alignment",
+            "name": "left_menu_alignment",
             "aria-label": "",
-            "type": "select",
+            "type": "button_group",
             "instructions": "",
             "required": 0,
             "conditional_logic": [
@@ -723,7 +786,138 @@
                     {
                         "field": "field_64652ad2c00ab",
                         "operator": "==",
-                        "value": "right"
+                        "value": "both"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "start": "left",
+                "center": "center",
+                "end": "right"
+            },
+            "default_value": "start",
+            "return_format": "value",
+            "allow_null": 1,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_667d8bb2e16e6",
+            "label": "Left Menu Alignment Mobile",
+            "name": "left_menu_alignment_mobile",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64652ad2c00ab",
+                        "operator": "==",
+                        "value": "both"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "start": "left",
+                "center": "center",
+                "end": "right"
+            },
+            "default_value": "start",
+            "return_format": "value",
+            "allow_null": 1,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_667d6dc681931",
+            "label": "Show on Mobile",
+            "name": "left_show_mobile",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64652ad2c00ab",
+                        "operator": "==",
+                        "value": "both"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "show": "show",
+                "hide": "hide"
+            },
+            "default_value": "hide",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_667d6d35b0ef7",
+            "label": "Left Menu End",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 1
+        },
+        {
+            "key": "field_667d6d49b0ef9",
+            "label": "Right Menu",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_64bef82928d3a",
+            "label": "Right Menu",
+            "name": "right_menu",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64652ad2c00ab",
+                        "operator": "==",
+                        "value": ""
                     }
                 ],
                 [
@@ -735,23 +929,19 @@
                 ]
             ],
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
             "choices": {
                 "menu": "Menu",
-                "social": "Social"
+                "social": "Social",
+                "topmenu": "Top Menu Widget"
             },
-            "default_value": "menu",
+            "default_value": "",
             "return_format": "value",
-            "multiple": 0,
-            "allow_null": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": "",
-            "allow_custom": 0,
-            "search_placeholder": ""
+            "allow_null": 1,
+            "layout": "horizontal"
         },
         {
             "key": "field_64bef85f28d3c",
@@ -778,6 +968,137 @@
             "save_format": "menu",
             "container": 0,
             "allow_null": 0
+        },
+        {
+            "key": "field_667cceb112566",
+            "label": "Right Menu Alignment",
+            "name": "right_menu_alignment",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64652ad2c00ab",
+                        "operator": "==",
+                        "value": "both"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "start": "left",
+                "center": "center",
+                "end": "right"
+            },
+            "default_value": "end",
+            "return_format": "value",
+            "allow_null": 1,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_667d8bc0e16e7",
+            "label": "Right Menu Alignment Mobile",
+            "name": "right_menu_alignment_mobile",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64652ad2c00ab",
+                        "operator": "==",
+                        "value": "both"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "start": "left",
+                "center": "center",
+                "end": "right"
+            },
+            "default_value": "end",
+            "return_format": "value",
+            "allow_null": 1,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_667d6dfd81932",
+            "label": "Show on Mobile",
+            "name": "right_show_mobile",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64652ad2c00ab",
+                        "operator": "==",
+                        "value": "both"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "show": "show",
+                "hide": "hide"
+            },
+            "default_value": "show",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_667d6d3fb0ef8",
+            "label": "Right Menu End",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 1
+        },
+        {
+            "key": "field_667d68761003f",
+            "label": "Top Menu Style",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
         },
         {
             "key": "field_64befbc11830f",
@@ -1010,6 +1331,24 @@
             "placeholder": "",
             "allow_custom": 0,
             "search_placeholder": ""
+        },
+        {
+            "key": "field_667d688f10040",
+            "label": "Top Menu Style End",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 1
         }
     ],
     "location": [
@@ -1037,7 +1376,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1716582570,
+    "modified": 1719503820,
     "acfe_categories": {
         "options": "Options"
     }
