@@ -32,7 +32,7 @@ function get_background_bbc($field, $classes, $styles, $sub = false) {
 
             if ( $background_content !== 'none' ) {
 
-                $hex_color = null;
+                $rgb_color = null;
                 $overlay_color = null;
 
                 $theme_colors = $background['color']['theme_colors'];
@@ -43,23 +43,15 @@ function get_background_bbc($field, $classes, $styles, $sub = false) {
                 $background_image_format = $background['background_image_format'];
                 $background_size_mobile = $background['background_size_mobile'];
                 $background_position_mobile = $background['background_position_mobile'];
+                $overlay_visibility = $background['overlay_visibility'];
 
                 $image = null;
 
-                if ( $custom_color ) {
+                $rgb_color = get_rgb_color_bbc($background['color'], false);
 
-                    $hex_color = hexToRgb($custom_color, $background_transparency );
-
-                } elseif ( $theme_colors ) {
-
-                    $rgb_color = get_field($theme_colors, 'style');
-                    $hex_color = hexToRgb($rgb_color, $background_transparency );
-
-                }
-
-                if ( $hex_color ) {
-                    $return_styles[] = 'background-color: ' . $hex_color . ';';
-                    $overlay_color = 'background-color: ' . $hex_color . ';';
+                if ( $rgb_color ) {
+                    //$return_styles[] = 'background-color: ' . $rgb_color . ';';
+                    //$overlay_color = 'background-color: ' . $rgb_color . ';';
                 }
 
                 if ( ( $background_content == 'image' ) || ( $background_content == 'video' ) ) {
@@ -118,8 +110,8 @@ function get_background_bbc($field, $classes, $styles, $sub = false) {
 
                         if ( $background_gradient ) {
                             $mobile_image_styles[] = 'background: '. $background_gradient . ', url(' . $image_mobile . ');';
-                        } elseif ( $hex_color ) {
-                            $mobile_image_styles[] = 'background: linear-gradient(0deg, '. $hex_color .', '. $hex_color .'), url(' . $image_mobile . ');';
+                        } elseif ( $rgb_color ) {
+                            $mobile_image_styles[] = 'background: linear-gradient(0deg, '. $rgb_color .', '. $rgb_color .'), url(' . $image_mobile . ');';
                         } else {
                             $mobile_image_styles[] = 'background: url(' . $image_mobile . ');';
                         }
@@ -128,14 +120,15 @@ function get_background_bbc($field, $classes, $styles, $sub = false) {
 
                         $mobile_image_styles = implode(' ', $mobile_image_styles);
 
-                        $mobile_image_overlay = '<div class="background-mobile" style="'. $mobile_image_styles .'"></div>';
+                        if ( $overlay_visibility === 'mobile' ) {
+                            $mobile_image_overlay = '<div class="background-mobile" style="'. $mobile_image_styles .'"></div>';
+                        }
 
                     }
 
                     $size = $background['size'];
                     $position = $background['position'];
                     $repeat = $background['repeat'];
-                    $overlay_visibility = $background['overlay_visibility'];
 
                     if ( $image ) {
 
@@ -147,8 +140,13 @@ function get_background_bbc($field, $classes, $styles, $sub = false) {
 
                         if ( $background_gradient ) {
                             $return_styles[] = 'background: '. $background_gradient . ', url(' . $image . ');';
-                        } elseif ( $hex_color ) {
-                            $return_styles[] = 'background: linear-gradient(0deg, '. $hex_color .', '. $hex_color .'), url(' . $image . ');';
+                        } elseif ( $rgb_color ) {
+                            if ( $overlay_visibility !== 'mobile' ) {
+                                $return_styles[] = 'background: linear-gradient(0deg, '. $rgb_color .', '. $rgb_color .'), url(' . $image . ');';
+                            } else {
+                                $return_styles[] = 'background: url(' . $image . ');';
+                            }
+                            
                         } else {
                             $return_styles[] = 'background: url(' . $image . ');';
                         }
@@ -189,10 +187,10 @@ function get_background_bbc($field, $classes, $styles, $sub = false) {
 
                         if ( $background_gradient ) {
                             $overlay_styles[] = 'background: '. $background_gradient . ';';
-                        } elseif ( $hex_color ) {
-                            $overlay_styles[] = 'background: linear-gradient(0deg, '. $hex_color .', '. $hex_color .');';
+                        } elseif ( $rgb_color ) {
+                            $overlay_styles[] = 'background: linear-gradient(0deg, '. $rgb_color .', '. $rgb_color .');';
                         } else {
-                            $overlay_styles[] = 'background: url(' . $hex_color . ');';
+                            $overlay_styles[] = 'background: url(' . $rgb_color . ');';
                         }
 
                         $overlay_styles = implode(' ', $overlay_styles);

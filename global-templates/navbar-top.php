@@ -1,10 +1,6 @@
 <?php
-// custom fields
+
 $top_menu_layout = get_field('top_menu_layout', 'header');
-
-$top_menu_wrapper_classes = [];
-
-$top_menu_wrapper_classes = esc_attr( trim( implode(' ', $top_menu_wrapper_classes ) ) );
 
 if ( $top_menu_layout ) { // top menu fields start
 
@@ -12,7 +8,12 @@ if ( $top_menu_layout ) { // top menu fields start
     $top_menu_styles = [];
 
     // container width
-    $container = null;
+    $header_width = get_field('header_width', 'header');
+    if ( $header_width ) {
+        $top_menu_classes[] = $header_width;
+    } else {
+        $top_menu_classes[] = get_theme_mod( 'understrap_container_type' );
+    }
 
     $top_menu_classes[] = 'top-menu-container';
     $top_menu_classes[] = 'top-layout-' . $top_menu_layout;
@@ -37,10 +38,6 @@ if ( $top_menu_layout ) { // top menu fields start
     if ( $top_menu_font_weight && ( $top_menu_font_weight !== 'default' ) ) {
         $top_menu_classes[] = 'weight-' . $top_menu_font_weight;
     }
-    $top_menu_font_weight = get_field('top_menu_font_weight', 'header');
-    if ( $top_menu_font_weight && ( $top_menu_font_weight !== 'default' ) ) {
-        $top_menu_classes[] = 'weight-' . $top_menu_font_weight;
-    }
     $top_menu_font_size = get_field('top_menu_font_size', 'header');
     if ( $top_menu_font_size ) {
         $top_menu_classes[] = 'menu-size-' . $top_menu_font_size;
@@ -56,243 +53,158 @@ if ( $top_menu_layout ) { // top menu fields start
     if ( $menu_padding['styles'] ) {
         $top_menu_styles = $menu_padding['styles'];
     }
-    
+
+    // responsive
+    $top_menu_classes[] = 'd-flex';
+    $mobile_menu_behavior = get_field('mobile_menu_behavior', 'header');
+    $mobile_breakpoint = get_field('mobile_breakpoint', 'header');
+
+    // single menu
+    if ( $top_menu_layout === 'both' ) {
+        $top_menu_classes[] = 'justify-content-between';
+    }
+
     $top_menu_classes = esc_attr( trim( implode(' ', $top_menu_classes ) ) );
     $top_menu_styles = esc_attr( trim( implode(' ', $top_menu_styles ) ) );
 
-    echo '<nav class="'. $top_menu_classes .'" id="top-menu" style="'. $top_menu_styles .'">'; // top menu container start
+    echo '<nav class="'. $top_menu_classes .'" id="top-menu" style="'. $top_menu_styles .'">'; // top nav start
 
-        $header_width = get_field('header_width', 'header');
-        if ( $header_width ) {
-            echo '<div class="top-menu-inner-container '. $header_width  .'">';
-        } else {
-            echo '<div class="top-menu-inner-container '. get_theme_mod( 'understrap_container_type' ) .'">';
-        }
+        if ( $top_menu_layout === 'single' ) { // single menu start
 
-            if ( $top_menu_layout === 'single' ) {
+            $single_menu_classes = [];
+            $single_menu_classes[] = 'top-single-menu-container';
+            $single_menu_classes[] = 'd-flex';
+            $single_menu_classes[] = 'justify-content-center';
+            $single_menu_classes[] = 'w-100';
+            $single_menu_alignment = get_field('single_menu_alignment', 'header');
+            if ( $single_menu_alignment ) {
+                $single_menu_classes[] = 'justify-content-'. $mobile_breakpoint .'-'. $single_menu_alignment;
+            } else {
+                $single_menu_classes[] = 'justify-content-'. $mobile_breakpoint .'-end';
+            }
+            
+            $single_menu_classes = esc_attr( trim( implode(' ', $single_menu_classes ) ) );
 
-                $single_menu_classes = [];
-
-                $single_menu_classes[] = 'single-menu-container';
+            echo '<div class="'. $single_menu_classes .'">'; // single menu start
 
                 $single_menu_select = get_field('single_menu_select', 'header');
-                $single_menu_alignment = get_field('single_menu_alignment', 'header');
-
-                if ( $single_menu_alignment ) {
-                    $single_menu_classes[] = 'd-flex';
-                    if ( $single_menu_alignment === 'left' ) {
-                        $single_menu_classes[] = 'justify-content-start';
-                    } elseif ( $single_menu_alignment === 'center' ) {
-                        $single_menu_classes[] = 'justify-content-center';
-                    } elseif ( $single_menu_alignment === 'right' ) {
-                        $single_menu_classes[] = 'justify-content-end';
-                    }
-                }
-
-                $single_menu_classes = esc_attr( trim( implode(' ', $single_menu_classes ) ) );
-
+                    
                 if ( $single_menu_select ) {
-                    echo '<div class="'. $single_menu_classes .'">'. $single_menu_select .'</div>';
+                    echo $single_menu_select;
                 }
 
-            } elseif ( $top_menu_layout == 'both' ) {
+            echo '</div>'; // single menu end
 
-                $left_menu = get_field('left_menu', 'header');
-                $right_menu = get_field('right_menu', 'header');
+        } elseif ( $top_menu_layout == 'both' ) { // both menus start
 
-                if ( $left_menu == 'social' ) {
+            $left_menu = get_field('left_menu', 'header');
+            $right_menu = get_field('right_menu', 'header');
 
-                    echo '<ul class="social-icons-menu">'; // start social icons
-
-                        $social_icons = get_field('social_icons', 'social');
-
-                        if ( $social_icons ) {
-
-                            $icon_list = $social_icons['icon_list'];
-
-                            if ( $icon_list ) {
-                                
-                                foreach( $icon_list as $icon ) {
-
-                                    // initialize classes arrays
-                                    $icon_classes = [];
-                                    $icon_styles = [];
-                                    $text_classes = [];
-                    
-                                    // get icon fields
-                                    $link = $icon['link'];
-                                    $separator = $icon['separator'];
-                                    $text_content = $icon['text_content'];
-                    
-                                    // add classes
-                                    $icon_classes[] = 'icon';
-                                    $icon_classes[] = 'lead';
-                    
-                                    if ( $top_text_color['theme_colors'] ) {
-                                        $icon_classes[] = 'text-' . $top_text_color['theme_colors'];
-                                    }
-                    
-                                    if ( $top_text_color['theme_colors'] ) {
-                                        $text_classes[] = 'text-' . $top_text_color['theme_colors'];
-                                    }
-                    
-                                    if ( $separator != 'none' ) {
-                                        $icon_styles[] = 'border-' . $separator . ': 1px solid ' . $icon_color['theme_colors'];
-                                    }
-                    
-                                    // process arrays
-                                    $icon_classes = esc_attr( trim( implode(' ', $icon_classes ) ) );
-                                    $icon_styles = esc_attr( trim( implode(' ', $icon_styles ) ) );
-                                    $text_classes = esc_attr( trim( implode(' ', $text_classes ) ) );
-                    
-                                    if ( $link ) {
-            
-                                        $list_item_classes = [];
-            
-                                        $value = $link['value'];
-                                        $title = $link['title'];
-                                        $target = $link['target'];
-            
-                                        $list_item_classes = esc_attr( trim( implode(' ', $list_item_classes ) ) );
-                    
-                                        ?>
-                                        <li class="<?=$list_item_classes?>" style="<?=$icon_styles?>">
-                                            <a href="<?=$value?>" title="<?=$title?>" target="<?=$target?>">
-                                                <span class="<?=$icon_classes?>">
-                                                    <?=$icon['icon']?>
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <?php
-                                    } elseif ( $text_content ) { ?>
-                    
-                                        <li class="<?=$list_item_classes?>" style="<?=$icon_styles?>">
-                                            <span class="<?=$icon_classes?>">
-                                                <?=$icon['icon']?>
-                                            </span>
-                                        </li>
-                                        
-                                    <?php } else { ?>
-                    
-                                        <li class="<?=$list_item_classes?>" style="<?=$icon_styles?>">
-                                            <span class="<?=$icon_classes?>">
-                                                <?=$icon['icon']?>
-                                            </span>
-                                        </li>
-                    
-                                    <?php }
-                    
-                                }
-
-                            }
-
-                        }
-
-                    echo '</ul>'; // end social icons
-
-                } else {
-
-                    $left_menu_select = get_field('left_menu_select', 'header');
-
-                    if ( $right_menu_select ) {
-                        echo '<div class="top-left-menu-container">'. $left_menu_select .'</div>';
-                    }
-
+            // get social icons if chosen
+            if ( ( $left_menu === 'social' ) || ( $right_menu === 'social' ) ) {
+                $social_icons = get_field('social_icons', 'social');
+                if ( $social_icons ) {
+                    $social_icons = get_social_icons_bbc($social_icons);
                 }
-
-                if ( $right_menu == 'social' ) {
-
-                    echo '<ul class="social-icons-menu">'; // start social icons
-
-                        $social_icons = get_field('social_icons', 'social');
-                        $icon_list = $social_icons['icon_list'];
-
-                        foreach( $icon_list as $icon ) {
-
-                            // initialize classes arrays
-                            $icon_classes = [];
-                            $icon_styles = [];
-                            $text_classes = [];
-            
-                            // get icon fields
-                            $link = $icon['link'];
-                            $separator = $icon['separator'];
-                            $text_content = $icon['text_content'];
-            
-                            // add classes
-                            $icon_classes[] = 'icon';
-            
-                            if ( $top_text_color['theme_colors'] ) {
-                                $icon_classes[] = 'text-' . $top_text_color['theme_colors'];
-                            }
-            
-                            if ( $top_text_color['theme_colors'] ) {
-                                $text_classes[] = 'text-' . $top_text_color['theme_colors'];
-                            }
-            
-                            if ( $separator != 'none' ) {
-                                $icon_styles[] = 'border-' . $separator . ': 1px solid ' . $icon_color['theme_colors'];
-                            }
-            
-                            // process arrays
-                            $icon_classes = esc_attr( trim( implode(' ', $icon_classes ) ) );
-                            $icon_styles = esc_attr( trim( implode(' ', $icon_styles ) ) );
-                            $text_classes = esc_attr( trim( implode(' ', $text_classes ) ) );
-            
-                            if ( $link ) {
-
-                                $list_item_classes = [];
-
-                                $value = $link['value'];
-                                $title = $link['title'];
-                                $target = $link['target'];
-
-                                $list_item_classes = esc_attr( trim( implode(' ', $list_item_classes ) ) );
-            
-                                ?>
-                                <li class="<?=$list_item_classes?>" style="<?=$icon_styles?>">
-                                    <a href="<?=$value?>" title="<?=$title?>" target="<?=$target?>">
-                                        <span class="<?=$icon_classes?>">
-                                            <?=$icon['icon']?>
-                                        </span>
-                                    </a>
-                                </li>
-                                <?php
-                            } elseif ( $text_content ) { ?>
-            
-                                <li class="<?=$list_item_classes?>" style="<?=$icon_styles?>">
-                                    <span class="<?=$icon_classes?>">
-                                        <?=$icon['icon']?>
-                                    </span>
-                                </li>
-                                
-                            <?php } else { ?>
-            
-                                <li class="<?=$list_item_classes?>" style="<?=$icon_styles?>">
-                                    <span class="<?=$icon_classes?>">
-                                        <?=$icon['icon']?>
-                                    </span>
-                                </li>
-            
-                            <?php }
-            
-                        }
-
-                    echo '</div>'; //social icons end
-
-                } else {
-
-                    $right_menu_select = get_field('right_menu_select', 'header');
-
-                    if ( $right_menu_select ) {
-                        echo '<div class="top-right-menu-container">'. $right_menu_select .'</div>';
-                    }
-
-                }
-                
             }
 
-        echo '</div>'; // top menu container end
-    echo '</nav>'; // top menu nav end
+            // left menu
+            if ( $left_menu ) {
+
+                $top_left_menu_classes = [];
+                $top_left_menu_classes[] = 'top-left-menu-container';
+
+                $left_show_mobile = get_field('left_show_mobile', 'header');
+                if ( $left_show_mobile === 'hide' ) {
+                    $top_left_menu_classes[] = 'd-'. $mobile_breakpoint .'-flex';
+                    $top_left_menu_classes[] = 'd-none';
+                } else {
+                    $top_left_menu_classes[] = 'd-flex';
+                }
+                
+                $left_menu_alignment = get_field('left_menu_alignment', 'header');
+                $top_left_menu_classes[] = 'justify-content-center';
+                if ( $left_menu_alignment ) {
+                    $top_left_menu_classes[] = $left_menu_alignment;
+                } else {
+                    $top_right_menu_classes[] = 'justify-content-'. $mobile_breakpoint .'-start';
+                }
+                
+                $top_left_menu_classes = esc_attr( trim( implode(' ', $top_left_menu_classes ) ) );
+
+                echo '<div class="'. $top_left_menu_classes .'">'; // left menu start
+
+                    if ( $left_menu === 'social' ) {
+
+                        echo $social_icons;
+                    
+                    } elseif ( $left_menu === 'menu' ) {
+                    
+                        $left_menu_select = get_field('left_menu_select', 'header');
+                    
+                        if ( $left_menu_select ) {
+                            echo $left_menu_select;
+                        }
+                    
+                    } elseif ( $left_menu === 'topmenu' ) {
+
+                        dynamic_sidebar( 'topmenuwidget' );
+
+                    }
+
+                echo '</div>'; // left menu end
+
+            }
+
+            // right menu
+            if ( $right_menu ) {
+
+                $top_right_menu_classes = [];
+                $top_right_menu_classes[] = 'top-right-menu-container';
+
+                $right_show_mobile = get_field('right_show_mobile', 'header');
+                if ( $right_show_mobile === 'hide' ) {
+                    $top_right_menu_classes[] = 'd-'. $mobile_breakpoint .'-flex';
+                    $top_right_menu_classes[] = 'd-none';
+                } else {
+                    $top_right_menu_classes[] = 'd-flex';
+                }
+
+                $right_menu_alignment = get_field('right_menu_alignment', 'header');
+                $top_right_menu_classes[] = 'justify-content-center';
+                if ( $right_menu_alignment ) {
+                    $top_right_menu_classes[] = 'justify-content-'. $mobile_breakpoint .'-'. $right_menu_alignment;
+                } else {
+                    $top_right_menu_classes[] = 'justify-content-'. $mobile_breakpoint .'-end';
+                }
+                
+                $top_right_menu_classes = esc_attr( trim( implode(' ', $top_right_menu_classes ) ) );
+
+                echo '<div class="'. $top_right_menu_classes .'">'; // right menu start
+
+                    if ( $right_menu === 'social' ) {
+
+                        echo $social_icons;
+                    
+                    } elseif ( $right_menu === 'menu' ) {
+                    
+                        $right_menu_select = get_field('right_menu_select', 'header');
+                    
+                        if ( $right_menu_select ) {
+                            echo $right_menu_select;
+                        }
+                    
+                    } elseif ( $right_menu === 'topmenu' ) {
+
+                        dynamic_sidebar( 'topmenuwidget' );
+
+                    }
+
+                echo '</div>'; // right menu end
+
+            }
+        }
+
+    echo '</nav>'; // top nav end
 
 } // top menu fields end

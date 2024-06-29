@@ -5,7 +5,7 @@
  Author:       Brain Bytes Creative
  Author URI:   https://github.com/understrap/understrap-child/graphs/contributors
  Template:     understrap
- Version:      1.2.26
+ Version:      1.2.27
  License: GNU General Public License v2 or later
  License URI: http://www.gnu.org/licenses/gpl-2.0.html
  Text Domain:  bbc
@@ -2549,7 +2549,6 @@ a.col-inner {
     padding-right: calc(var(--custom-gutter-x) * .5);
     padding-left: calc(var(--custom-gutter-x) * .5);
 }
-*/
 @media screen and (min-width: 992px) {
     section .container {
         padding-left: 0;
@@ -2566,3 +2565,4 @@ a.col-inner {
         padding-left: calc(var(--custom-gutter-x) * .5);
     }
 }
+*/

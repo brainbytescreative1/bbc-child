@@ -19,27 +19,27 @@ if( get_row_layout() == 'tabbed_content' ):
         $tabs_wrapper_classes[] = get_spacing_bbc(get_sub_field('tabs_spacing'));
 
         // colors
-        $text_color_inactive = get_rgb_color_bbc('text_color_inactive', true);
+        $text_color_inactive = get_rgb_color_bbc('text_color_inactive', true, true);
         if ( !$text_color_inactive ) {
             $text_color_inactive = '#000';
         }
-        $background_color_inactive = get_rgb_color_bbc('background_color_inactive', true);
+        $background_color_inactive = get_rgb_color_bbc('background_color_inactive', true, true);
         if ( !$background_color_inactive ) {
             $background_color_inactive = '#fff';
         }
-        $text_color_active = get_rgb_color_bbc('text_color_active', true);
+        $text_color_active = get_rgb_color_bbc('text_color_active', true, true);
         if ( !$text_color_active ) {
             $text_color_active = '#fff';
         }
-        $background_color_active = get_rgb_color_bbc('background_color_active', true);
+        $background_color_active = get_rgb_color_bbc('background_color_active', true, true);
         if ( !$background_color_active ) {
             $background_color_active = '#000';
         }
-        $text_color = get_rgb_color_bbc('text_color', true);
+        $text_color = get_rgb_color_bbc('text_color', true, true);
         if ( !$text_color ) {
             $text_color = '#000';
         }
-        $text_background_color = get_rgb_color_bbc('text_background_color', true);
+        $text_background_color = get_rgb_color_bbc('text_background_color', true, true);
         if ( !$text_background_color ) {
             $text_background_color = '#fff';
         }
@@ -121,6 +121,9 @@ if( get_row_layout() == 'tabbed_content' ):
             case 'md':
                 $mobile_tab_width_breakpoint = '768px';
                 break;
+            case 'lg':
+                $mobile_tab_width_breakpoint = '992px';
+                break;
             case 'xl':
                 $mobile_tab_width_breakpoint = '1200px';
                 break;
@@ -128,7 +131,7 @@ if( get_row_layout() == 'tabbed_content' ):
                 $mobile_tab_width_breakpoint = '1400px';
                 break;
             default:
-                $mobile_tab_width = '992px';
+                $mobile_tab_width_breakpoint = '992px';
         }
 
         $mobile_tab_width = null;
@@ -291,6 +294,9 @@ if( get_row_layout() == 'tabbed_content' ):
             @media screen and (max-width: <?=$mobile_tab_width_breakpoint?>) {
                 .tabs-element .nav-item {
                     width: calc(<?=$mobile_tab_width?> - <?=$tabs_space_between?>);
+                }
+                .tabs-element .nav-link {
+                    width: 100%;
                 }
             }
         </style>

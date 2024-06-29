@@ -1,5 +1,100 @@
 <?php
 
+function get_social_icons_bbc( $social_icons ) {
+
+    if ( $social_icons ) {
+
+        // start content
+        ob_start();
+
+        $icon_list = $social_icons['icon_list'];
+
+        echo '<ul class="social-icons-menu">'; // start social icons
+
+        if ( $icon_list ) {
+            
+            foreach( $icon_list as $icon ) {
+
+                // initialize classes arrays
+                $icon_classes = [];
+                $icon_styles = [];
+                $text_classes = [];
+
+                // get icon fields
+                $link = $icon['link'];
+                $separator = $icon['separator'];
+                $text_content = $icon['text_content'];
+
+                // add classes
+                $icon_classes[] = 'icon';
+                $icon_classes[] = 'lead';
+
+                if ( $top_text_color['theme_colors'] ) {
+                    $icon_classes[] = 'text-' . $top_text_color['theme_colors'];
+                }
+
+                if ( $top_text_color['theme_colors'] ) {
+                    $text_classes[] = 'text-' . $top_text_color['theme_colors'];
+                }
+
+                if ( $separator != 'none' ) {
+                    $icon_styles[] = 'border-' . $separator . ': 1px solid ' . $icon_color['theme_colors'];
+                }
+
+                // process arrays
+                $icon_classes = esc_attr( trim( implode(' ', $icon_classes ) ) );
+                $icon_styles = esc_attr( trim( implode(' ', $icon_styles ) ) );
+                $text_classes = esc_attr( trim( implode(' ', $text_classes ) ) );
+
+                if ( $link ) {
+
+                    $list_item_classes = [];
+
+                    $value = $link['value'];
+                    $title = $link['title'];
+                    $target = $link['target'];
+
+                    $list_item_classes = esc_attr( trim( implode(' ', $list_item_classes ) ) );
+
+                    ?>
+                    <li class="<?=$list_item_classes?>" style="<?=$icon_styles?>">
+                        <a href="<?=$value?>" title="<?=$title?>" target="<?=$target?>">
+                            <span class="<?=$icon_classes?>">
+                                <?=$icon['icon']?>
+                            </span>
+                        </a>
+                    </li>
+                    <?php
+                } elseif ( $text_content ) { ?>
+
+                    <li class="<?=$list_item_classes?>" style="<?=$icon_styles?>">
+                        <span class="<?=$icon_classes?>">
+                            <?=$icon['icon']?>
+                        </span>
+                    </li>
+                    
+                <?php } else { ?>
+
+                    <li class="<?=$list_item_classes?>" style="<?=$icon_styles?>">
+                        <span class="<?=$icon_classes?>">
+                            <?=$icon['icon']?>
+                        </span>
+                    </li>
+
+                <?php }
+
+            }
+
+        }
+
+        echo '</ul>'; // end social icons
+
+        // return content
+        return ob_get_clean();
+
+    }
+}
+
 function wpb_custom_new_menu() {
   register_nav_menus(
     array(

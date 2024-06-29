@@ -1,12 +1,14 @@
 <?php
 
-function get_rgb_color_bbc( $field, $sub = false ) {
+function get_rgb_color_bbc( $field, $get_field = false, $sub = false ) {
     if ( $field ) {
         $return_color = null;
-        if ( $sub ) {
-            $field = get_sub_field($field);
-        } else {
-            $field = get_field($field);
+        if ( $get_field === true ) {
+            if ( $sub ) {
+                $field = get_sub_field($field);
+            } else {
+                $field = get_field($field);
+            }
         }
         $transparency = null;
         if ( isset ( $field['transparency'] ) ) {
