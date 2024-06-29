@@ -2549,6 +2549,7 @@ a.col-inner {
     padding-right: calc(var(--custom-gutter-x) * .5);
     padding-left: calc(var(--custom-gutter-x) * .5);
 }
+*/
 @media screen and (min-width: 992px) {
     section .container {
         padding-left: 0;
@@ -2565,4 +2566,3 @@ a.col-inner {
         padding-left: calc(var(--custom-gutter-x) * .5);
     }
 }
-*/
