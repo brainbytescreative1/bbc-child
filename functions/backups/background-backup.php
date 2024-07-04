@@ -50,7 +50,7 @@ function get_background_bbc($field, $classes, $styles, $sub = false) {
                 $rgb_color = get_rgb_color_bbc($background['color'], false);
 
                 if ( $rgb_color ) {
-                    //$return_styles[] = 'background-color: ' . $rgb_color . ';';
+                    $return_styles[] = 'background-color: ' . $rgb_color . ';';
                     //$overlay_color = 'background-color: ' . $rgb_color . ';';
                 }
 
@@ -183,12 +183,13 @@ function get_background_bbc($field, $classes, $styles, $sub = false) {
                         <?php
                         $video_src = '<script>updateVideoBgURL("'.strval($video).'");</script>';
 
-                        $video_element = '<video class="mobile-hide" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">'. $video_src .'</video>';
+                        $video_element = '<video class="mobile-hide" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop"><source src="'. $video .'" type="video/mp4" /></video>';
 
                         if ( $background_gradient ) {
                             $overlay_styles[] = 'background: '. $background_gradient . ';';
                         } elseif ( $rgb_color ) {
-                            $overlay_styles[] = 'background: linear-gradient(0deg, '. $rgb_color .', '. $rgb_color .');';
+                            //$overlay_styles[] = 'background: linear-gradient(0deg, '. $rgb_color .', '. $rgb_color .');';
+                            $overlay_styles[] = 'background: linear-gradient(0deg, '. $rgb_color .', '. $rgb_color .'), url(' . $image . ');';
                         } else {
                             $overlay_styles[] = 'background: url(' . $rgb_color . ');';
                         }

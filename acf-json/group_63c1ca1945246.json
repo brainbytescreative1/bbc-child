@@ -68,50 +68,31 @@
             "acfe_thumbnail": 0
         },
         {
-            "key": "field_63c6eb993790c",
+            "key": "field_66870ca980b81",
             "label": "Font Awesome Icon",
             "name": "font_awesome_icon",
             "aria-label": "",
-            "type": "font-awesome",
+            "type": "clone",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_63c6ee5583e2d",
-                        "operator": "==",
-                        "value": "fontawesome"
-                    },
-                    {
-                        "field": "field_63c6ee5583e2d",
-                        "operator": "!=",
-                        "value": "image"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "icon_sets": [
-                "solid",
-                "regular",
-                "light",
-                "thin",
-                "duotone",
-                "fak",
-                "brands"
+            "clone": [
+                "group_66870c615f4a1"
             ],
-            "custom_icon_set": "",
-            "default_label": "",
-            "default_value": "",
-            "save_format": "element",
-            "allow_null": 0,
-            "show_preview": 1,
-            "enqueue_fa": 0,
-            "fa_live_preview": "",
-            "choices": []
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0,
+            "acfe_seamless_style": 0,
+            "acfe_clone_modal": 0,
+            "acfe_clone_modal_close": 0,
+            "acfe_clone_modal_button": "",
+            "acfe_clone_modal_size": "large"
         }
     ],
     "location": [
@@ -139,7 +120,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1716582572,
+    "modified": 1720126676,
     "acfe_categories": {
         "menus": "Menus"
     }

@@ -75,7 +75,7 @@ if ( have_rows('columns') ) {
     $container_overlay = '';
     $row_overlay = '';
     $row_mobile_overlay = '';
-    $container_overlay = '';
+    $column_overlay = '';
     $container_video = '';
     $container_mobile_image_overlay = '';
     /* define initial classes and styles end */
@@ -135,7 +135,13 @@ if ( have_rows('columns') ) {
     // container classes and styling
     $min_height_100vh_minus_menu_height = get_field('min_height_100vh_minus_menu_height');
     $min_height = get_field('min_height');
-    if ( $min_height && ( $min_height_100vh_minus_menu_height !== 'enabled' ) ) {
+    //$calculated_menu_height = '<script>firstElementSpacing();</script>';
+    if ( $min_height_100vh_minus_menu_height === 'enabled' ) {
+        $header_height = get_field('header_height', 'header');
+        $container_classes[] = 'has-min-height';
+        $min_height = 'min-height: calc( 100vh - ' . $header_height . 'px)';
+        $container_styles[] = $min_height . ';';
+    } elseif ( $min_height ) {
         $value = $min_height['value'];
         if ( $value ) {
             $container_classes[] = 'has-min-height';
@@ -143,34 +149,8 @@ if ( have_rows('columns') ) {
             $min_height = 'min-height: ' . $value . $unit;
             $container_styles[] = $min_height . ';';
         }
-    } else {
-        $header_height = get_field('header_height', 'header');
-        $container_classes[] = 'has-min-height';
-        $min_height = 'min-height: calc( 100vh - ' . $header_height . 'px)';
-        $container_styles[] = $min_height . ';';
     }
-
-    // container background
-    $container_background = get_background_bbc('section_background', $container_classes, $container_styles);
-
-    if ( $container_background ) {
-        if ( $container_background['classes'] ) {
-            $container_classes[] = $container_background['classes'];
-        }
-        if ( $container_background['styles'] ) {
-            $container_styles[] = $container_background['styles'];
-        }
-        if ( $container_background['overlay'] ) {
-            $container_overlay = $container_background['overlay'];
-        }
-        if ( $container_background['video'] ) {
-            $container_video = $container_background['video'];
-            $container_video_script = $container_background['video_script'];
-        }
-        if ( $container_background['mobile_image_overlay'] ) {
-            $container_mobile_image_overlay = $container_background['mobile_image_overlay'];
-        }
-    }
+    
 
     // row classes and styling
     $max_width = get_field('max_width');
@@ -197,26 +177,6 @@ if ( have_rows('columns') ) {
                 $row_classes[] = 'me-' . $mobile_breakpoint . '-auto ms-' . $mobile_breakpoint . '-auto';
             }
 
-        }
-    }
-
-    // row background
-    $row_background = get_background_bbc('row_background', $row_classes, $row_styles);
-    if ( $row_background ) {
-        if ( $row_background['classes'] ) {
-            $row_classes[] = $row_background['classes'];
-        }
-        if ( $row_background['styles'] ) {
-            $row_styles[] = $row_background['styles'];
-        }
-        if ( $row_background['overlay'] ) {
-            $row_overlay = $row_background['overlay'];
-        }
-        if ( $row_background['video'] ) {
-            $row_video = $row_background['video'];
-        }
-        if ( $row_background['mobile_image_overlay'] ) {
-            $row_mobile_overlay = $row_background['mobile_image_overlay'];
         }
     }
 
@@ -333,6 +293,9 @@ if ( get_field('columns') && ( $col_count > 0 ) ) { // if columns, add container
 
         echo '<div class="'. $container_classes .'" style="'. $container_styles .'" data-id="'. $data_id .'">'; // container start
 
+            echo get_background_bbc('section_background');
+
+            /*
             if ( $container_video ) {
                 echo $container_video;
                 echo $container_video_script;
@@ -345,17 +308,22 @@ if ( get_field('columns') && ( $col_count > 0 ) ) { // if columns, add container
             if ( $container_overlay ) {
                 echo $container_overlay;
             }
+            */
 
             ?>
             <div class="<?=esc_attr($row_classes)?>"<?php if ( get_field('masonry') === 'enabled' ) { ?> data-masonry='{"percentPosition": true }' <?php } ?> style="<?=esc_attr($row_styles)?>">
             <?php // row start
 
+                echo get_background_bbc('row_background');
+
+                /*                
                 if ( $row_mobile_overlay ) {
                     echo $row_mobile_overlay;
                 }
                 if ( $row_overlay ) {
                     echo $row_overlay;
                 }
+                */
 
                 if( have_rows('columns') ): // if columns start
 
@@ -430,8 +398,9 @@ if ( get_field('columns') && ( $col_count > 0 ) ) { // if columns, add container
                             }
                         }
 
-                        // column background
-                        $column_background = get_background_bbc('column_background', $col_inner_classes, $col_inner_styles, true);
+                        
+                        //$column_background = get_background_bbc('column_background', $col_inner_classes, $col_inner_styles, true);
+                        /*
                         if ( $column_background ) {
                             if ( $element_assignment === 'outer') {
                                 if ( $column_background['classes'] ) {
@@ -467,6 +436,7 @@ if ( get_field('columns') && ( $col_count > 0 ) ) { // if columns, add container
                                 }
                             }
                         }
+                        */
 
                         // column flex
                         $column_flex = get_sub_field('flex_element');
@@ -507,7 +477,7 @@ if ( get_field('columns') && ( $col_count > 0 ) ) { // if columns, add container
                             }
                         }
                         $default_column_left_right_padding = get_sub_field('default_column_left_right_padding');
-                        if ( $default_column_top_bottom_padding && ( $default_column_top_bottom_padding === 'add' ) ) {
+                        if ( $default_column_left_right_padding && ( $default_column_left_right_padding === 'add' ) ) {
 
                             // get fields from global styles
                             $left_right_padding_column = get_field('left_right_padding_column', 'style');
@@ -598,26 +568,15 @@ if ( get_field('columns') && ( $col_count > 0 ) ) { // if columns, add container
 
                         echo $col_tag; // col-element start
 
-                            if ( $col_mobile_overlay ) {
-                                echo $col_mobile_overlay;
-                            }
-                            if ( $col_video ) {
-                                echo $col_video;
-                            }
-                            if ( $col_overlay ) {
-                                echo $col_overlay;
+                            // column background
+                            if ( $element_assignment === 'outer') {
+                                echo get_background_bbc('column_background', true);
                             }
 
                             echo '<div class="'. $col_inner_classes .'" style="'. $col_inner_styles .'">'; // col-inner start
 
-                                if ( $col_inner_mobile_overlay ) {
-                                    echo $col_inner_mobile_overlay;
-                                }
-                                if ( $col_inner_video ) {
-                                    echo $col_inner_video;
-                                }
-                                if ( $col_inner_overlay) {
-                                    echo $col_inner_overlay;
+                                if ( $element_assignment === 'inner') {
+                                    echo get_background_bbc('column_background', true);
                                 }
 
                                 echo '<div class="'. $col_inner_content_classes .'" style="'. $col_inner_content_styles .'">'; // col-inner-content start

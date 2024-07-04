@@ -103,8 +103,6 @@ if( get_row_layout() == 'tabbed_content' ):
                     $tab_border_radius = '.5rem';
                 }
             }
-        } else {
-            $tab_border_radius = 'var(--bs-nav-pills-border-radius)';
         }
         // tabs responsive
         $tabs_classes[] = 'flex-row';
@@ -271,32 +269,32 @@ if( get_row_layout() == 'tabbed_content' ):
 
         <style>
             .tabs-element .nav {
-                gap: <?=$tabs_space_between?>;
+                gap: <?=$tabs_space_between?> !important;
             }
             .tabs-element .nav-link {
-                color: <?=$text_color_inactive?>;
-                background: <?=$background_color_inactive?>;
-                border-radius: <?=$tab_border_radius?>;
+                color: <?=$text_color_inactive?> !important;
+                background: <?=$background_color_inactive?> !important;
+                border-radius: <?=$tab_border_radius?> !important;
             }
             .tabs-element .nav-link.active {
-                color: <?=$text_color_active?>;
-                background: <?=$background_color_active?>;
+                color: <?=$text_color_active?> !important;
+                background: <?=$background_color_active?> !important;
             }
             <?php if ( $tab_content_border_radius_custom_value ) { ?>
             .tabs-element .tab-content {
-                border-radius: <?=$tab_content_border_radius_custom_value?>px;
+                border-radius: <?=$tab_content_border_radius_custom_value?>px !important;
             }
             <?php } ?>
             .tabs-element .tab-text {
-                color: <?=$text_color?>;
-                background: <?=$text_background_color?>;
+                color: <?=$text_color?> !important;
+                background: <?=$text_background_color?> !important;
             }
             @media screen and (max-width: <?=$mobile_tab_width_breakpoint?>) {
                 .tabs-element .nav-item {
-                    width: calc(<?=$mobile_tab_width?> - <?=$tabs_space_between?>);
+                    width: calc(<?=$mobile_tab_width?> - <?=$tabs_space_between?>) !important;
                 }
                 .tabs-element .nav-link {
-                    width: 100%;
+                    width: 100% !important;
                 }
             }
         </style>

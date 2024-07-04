@@ -8,6 +8,7 @@ function get_borders_bbc($field) {
 
         if ( $field['border_radius_all'] !== 'default' ) {
             $classes[] = 'rounded-' . $field['border_radius_all'];
+            $classes[] = 'overflow-hidden';
         }
         
         if ( $field['border-top-left-radius'] !== 'default' ) {

@@ -5,7 +5,7 @@
  Author:       Brain Bytes Creative
  Author URI:   https://github.com/understrap/understrap-child/graphs/contributors
  Template:     understrap
- Version:      1.2.27
+ Version:      1.2.28
  License: GNU General Public License v2 or later
  License URI: http://www.gnu.org/licenses/gpl-2.0.html
  Text Domain:  bbc
@@ -48,7 +48,7 @@ section {
 }
 section .container {
     width: 100%;
-    max-width: 100%;
+    max-width: 100% !important;
     margin-left: 0;
     margin-right: 0;
 }
@@ -240,10 +240,156 @@ section .container-fluid .row {
     padding-left: 20px;
     padding-right: 0;
 }
-/* gradient background */
-.gradient-bg {
-    background: rgb(242,242,242);
-    background: linear-gradient(136deg, rgba(242,242,242,0.76) 0%, rgba(145,145,145,0.07) 100%);
+/** background **/
+.bg-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+}
+.bg-image-container {
+    display: block;
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+.bg-image,
+.bg-image * {
+    width: 100%;
+    height: 100%;
+}
+.bg-container video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+}
+/* object fit */
+@media screen and (min-width: 769px) {
+    .object-fit-md-cover,
+    .object-fit-md-cover * {
+        object-fit: cover !important;
+    }
+    .object-fit-md-contain,
+    .object-fit-md-contain * {
+        object-fit: contain !important;
+    }
+    .object-fit-md-fill,
+    .object-fit-md-fill * {
+        object-fit: fill !important;
+    }
+    .object-fit-md-scale,
+    .object-fit-md-scale * {
+        object-fit: scale !important;
+    }
+    .object-fit-md-none,
+    .object-fit-md-none * {
+        object-fit: none !important;
+    }
+}
+.object-fit-cover,
+.object-fit-cover * {
+    object-fit: cover;
+}
+.object-fit-contain,
+.object-fit-contain * {
+    object-fit: contain;
+}
+.object-fit-fill,
+.object-fit-fill * {
+    object-fit: fill;
+}
+.object-fit-scale,
+.object-fit-scale * {
+    object-fit: scale;
+}
+.object-fit-none,
+.object-fit-none * {
+    object-fit: none;
+}
+/* object position */
+@media screen and (min-width: 769px) {
+    .object-position-md-center-center,
+    .object-position-md-center-center * {
+        object-position: center !important;
+    }
+    .object-position-md-center-left,
+    .object-position-md-center-left * {
+        object-position: left !important;
+    }
+    .object-position-md-center-right,
+    .object-position-md-center-right * {
+        object-position: right !important;
+    }
+    .object-position-md-top-center,
+    .object-position-md-top-center * {
+        object-position: top !important;
+    }
+    .object-position-md-top-left,
+    .object-position-md-top-left * {
+        object-position: left top !important;
+    }
+    .object-position-md-top-right,
+    .object-position-md-top-right * {
+        object-position: right top !important;
+    }
+    .object-position-md-bottom-center,
+    .object-position-md-bottom-center * {
+        object-position: bottom !important;
+    }
+    .object-position-md-bottom-left,
+    .object-position-md-bottom-left * {
+        object-position: left bottom !important;
+    }
+    .object-position-md-bottom-right,
+    .object-position-md-bottom-right * {
+        object-position: right bottom !important;
+    }
+}
+.object-position-center-center,
+.object-position-center-center * {
+    object-position: center;
+}
+.object-position-center-left,
+.object-position-center-left * {
+    object-position: left;
+}
+.object-position-center-right,
+.object-position-center-right * {
+    object-position: right;
+}
+.object-position-top-center,
+.object-position-top-center * {
+    object-position: top;
+}
+.object-position-top-left,
+.object-position-top-left * {
+    object-position: left top;
+}
+.object-position-top-right,
+.object-position-top-right * {
+    object-position: right top;
+}
+.object-position-bottom-center,
+.object-position-bottom-center * {
+    object-position: bottom;
+}
+.object-position-bottom-left,
+.object-position-bottom-left * {
+    object-position: left bottom;
+}
+.object-position-bottom-right,
+.object-position-bottom-right * {
+    object-position: right bottom;
 }
 /** alignment **/
 /* left */
@@ -370,17 +516,16 @@ header .nav-link:hover {
 }
 /** logo width **/
 .navbar-brand {
-    min-width: 200px;
+    width: 100%;
     max-width: var(--logo_width);
 }
 .sticky-nav .navbar-brand {
-    min-width: var(--sticky_logo_width);
+    width: 100%;
+    max-width: var(--sticky_logo_width);
 }
 /** main menu **/
 #main-nav {
     z-index: 1;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
 }
 .navbar>.container, 
 .navbar>.container-fluid, 
@@ -744,8 +889,9 @@ header .nav-link:hover {
     padding-bottom: 0;
 }
 /** containers **/
-.container, .container-fluid {
+.element-container {
     position: relative;
+    overflow: hidden;
 }
 /* apply flex to containers and rows that use it */
 .wrapper .container-fluid.has-flex-vertical-align, 
@@ -1185,6 +1331,7 @@ header .nav-link:hover {
     margin-bottom: 0;
 }
 /* video background */
+/*
 .video-bg {
     position: relative;
     width: 100%;
@@ -1206,6 +1353,7 @@ header .nav-link:hover {
 .video-bg .row {
     z-index: 1051;
 }
+*/
 /* 
 .video-bg .overlay {
     z-index: 0;

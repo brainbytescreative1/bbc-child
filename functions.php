@@ -149,23 +149,6 @@ function load_admin_style() {
     wp_enqueue_style( 'admin_front_css', get_stylesheet_directory_uri() . '/style.css', false, $css_version );
 }
 
-// enqueue acf admin stylesheet
-//add_action('acf/input/admin_enqueue_scripts', 'my_acf_admin_enqueue_scripts');
-function my_acf_admin_enqueue_scripts() {
-    // Get the theme data.
-	$the_theme     = wp_get_theme();
-	$theme_version = $the_theme->get( 'Version' );
-
-	$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-	// Grab asset urls.
-	$theme_styles  = "/css/child-theme{$suffix}.css";
-	$theme_scripts = "/js/child-theme{$suffix}.js";
-	
-	$css_version = $theme_version . '.' . filemtime( get_stylesheet_directory() . $theme_styles );
-
-    wp_enqueue_style( 'my-acf-input-css', get_stylesheet_directory_uri() . '/style.css', false, $css_version );
-}
-
 // mce fix
 function slug_editor_body_margin_fix( $settings ) {
 	if ( isset( $settings['content_style'] ) ) {
@@ -197,25 +180,6 @@ function register_acf_blocks() {
 	register_block_type( __DIR__ . '/template-parts/blocks/section' );
 }
 
-// disable wp jquery
-//add_filter( 'wp_enqueue_scripts', 'change_default_jquery', PHP_INT_MAX );
-function change_default_jquery( ){
-    wp_dequeue_script( 'jquery');
-    wp_deregister_script( 'jquery');   
-}
-
-// disable gutenberg frontend styles
-function disable_gutenberg_wp_enqueue_scripts() {
-	
-	wp_dequeue_style('wp-block-library');
-	wp_dequeue_style('wp-block-library-theme');
-	
-	wp_dequeue_style('wc-block-style'); // disable woocommerce frontend block styles
-	wp_dequeue_style('storefront-gutenberg-blocks'); // disable storefront frontend block styles
-	
-}
-add_filter('wp_enqueue_scripts', 'disable_gutenberg_wp_enqueue_scripts', 100);
-
 // include separate functions files
 require_once( __DIR__ . '/functions/blocks.php');
 require_once( __DIR__ . '/functions/menus.php');
@@ -226,16 +190,17 @@ require_once( __DIR__ . '/functions/selected-colors.php');
 require_once( __DIR__ . '/functions/shortcodes.php');
 
 // global functions
-require_once( __DIR__ . '/functions/global-functions/advanced.php');
-require_once( __DIR__ . '/functions/global-functions/background.php');
-require_once( __DIR__ . '/functions/global-functions/borders.php');
-require_once( __DIR__ . '/functions/global-functions/buttons.php');
-require_once( __DIR__ . '/functions/global-functions/colors.php');
-require_once( __DIR__ . '/functions/global-functions/dividers.php');
-require_once( __DIR__ . '/functions/global-functions/flex.php');
-require_once( __DIR__ . '/functions/global-functions/heading.php');
-require_once( __DIR__ . '/functions/global-functions/images.php');
-require_once( __DIR__ . '/functions/global-functions/page-width.php');
-require_once( __DIR__ . '/functions/global-functions/responsive.php');
-require_once( __DIR__ . '/functions/global-functions/spacing.php');
-require_once( __DIR__ . '/functions/global-functions/text-styles.php');
+require_once( __DIR__ . '/functions/advanced.php');
+require_once( __DIR__ . '/functions/background.php');
+require_once( __DIR__ . '/functions/borders.php');
+require_once( __DIR__ . '/functions/buttons.php');
+require_once( __DIR__ . '/functions/colors.php');
+require_once( __DIR__ . '/functions/dividers.php');
+require_once( __DIR__ . '/functions/flex.php');
+require_once( __DIR__ . '/functions/heading.php');
+require_once( __DIR__ . '/functions/images.php');
+require_once( __DIR__ . '/functions/page-width.php');
+require_once( __DIR__ . '/functions/responsive.php');
+require_once( __DIR__ . '/functions/spacing.php');
+require_once( __DIR__ . '/functions/text-styles.php');
+require_once( __DIR__ . '/functions/misc.php');

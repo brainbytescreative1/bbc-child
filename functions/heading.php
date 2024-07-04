@@ -11,22 +11,26 @@ function get_heading_bbc( $field ) {
         $text = $field['text'];
         $tag = $field['tag'];
 
-        // spacing
-        $spacing = $field['heading_spacing'];
+        if ( $text && $tag ) {
 
-        $text_styles = $field['text_styles'];
+            // spacing
+            $spacing = $field['heading_spacing'];
 
-        if ( $text_styles ) {
-            $classes[] = get_text_styles_bbc($text_styles );
+            $text_styles = $field['text_styles'];
+
+            if ( $text_styles ) {
+                $classes[] = get_text_styles_bbc($text_styles );
+            }
+
+            $classes[] = get_spacing_bbc($spacing);
+
+            $classes = trim(implode(' ', array_unique($classes)));
+
+            $heading = '<' . $tag . ' class="'. esc_attr($classes) .'">' . $text . '</' . $tag . '>';
+
+            return $heading;
+
         }
-
-        $classes[] = get_spacing_bbc($spacing);
-
-        $classes = trim(implode(' ', array_unique($classes)));
-
-        $heading = '<' . $tag . ' class="'. esc_attr($classes) .'">' . $text . '</' . $tag . '>';
-
-        return $heading;
 
     }
 }

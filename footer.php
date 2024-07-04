@@ -30,9 +30,7 @@ if ( $footer_code ) {
 ?>
 
 <!-- back to top button -->
-<button type="button" class="btn-back-to-top" id="btn-back-to-top">
-  <i class="fas fa-chevron-up"></i>
-</button>
+<button type="button" class="btn-back-to-top" id="btn-back-to-top"><i class="fas fa-chevron-up"></i></button>
 
 <script>
 	backToTopButton();
