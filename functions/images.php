@@ -18,6 +18,7 @@ function get_responsive_image_bbc($image_id, $image_size, $max_width){
 
 }
 
+/*
 function get_optimized_image_url_bbc($image) {
 
     if ( $image ) {
@@ -27,7 +28,7 @@ function get_optimized_image_url_bbc($image) {
 
         $avif_image = $image . '.avif';
 
-        /* avif test */
+        // avif test
         $avif_image = curl_init($image . '.avif');
         curl_setopt($avif_image, CURLOPT_RETURNTRANSFER, TRUE);
         $avif_response = curl_exec($avif_image);
@@ -38,7 +39,7 @@ function get_optimized_image_url_bbc($image) {
             $avif_test_result = 'yesavif';
         }
 
-        /* webp test */
+        // webp test
         $webp_image = curl_init($image . '.webp');
         curl_setopt($webp_image, CURLOPT_RETURNTRANSFER, TRUE);
         $webp_response = curl_exec($webp_image);
@@ -59,7 +60,9 @@ function get_optimized_image_url_bbc($image) {
         
     }
 }
+*/
 
+/*
 function isUrlValid($url) {
 
     // avif test
@@ -88,3 +91,4 @@ function isUrlValid($url) {
 
     return $url;
 }
+*/

@@ -16,7 +16,9 @@ if( get_row_layout() == 'custom_html' ):
     }
 
     // spacing
-    $html_classes[] = get_spacing_bbc(get_sub_field('html_spacing'));
+    if ( function_exists('get_spacing_bbc') ) {
+        $html_classes[] = get_spacing_bbc(get_sub_field('html_spacing'));
+    }
 
     // convert array to string
     $html_classes = trim(implode(' ', $html_classes));

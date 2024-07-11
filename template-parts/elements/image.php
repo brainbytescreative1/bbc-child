@@ -105,8 +105,13 @@ if( get_row_layout() == 'image' ):
             $classes[] = 'image-max-height';
         }
 
-        $classes[] = get_spacing_bbc(get_sub_field('image_spacing'));
-        $classes[] = get_responsive_bbc('responsive');
+        if ( function_exists('get_spacing_bbc') ) {
+            $classes[] = get_spacing_bbc(get_sub_field('image_spacing'));
+        }
+        
+        if ( function_exists('get_responsive_bbc') ) {
+            $classes[] = get_responsive_bbc('responsive');
+        }
 
         $additional_classes = get_sub_field('additional_classes');
         if ( $additional_classes ) {
@@ -125,7 +130,7 @@ if( get_row_layout() == 'image' ):
 
         echo '<'.$link_wrapper_tag.' class="'. $classes .'" style="'. $styles .'">';
             ?>
-            <img fetchpriority="lazy" decoding="async" <?php get_responsive_image_bbc($image, $size, $size_max_width); ?>  alt="<?=$image_alt?>" />
+            <img fetchpriority="lazy" decoding="async" <?php if( function_exists('get_responsive_image_bbc') ) { get_responsive_image_bbc($image, $size, $size_max_width); } ?>  alt="<?=$image_alt?>" />
             <?php
         echo '</'.$link_wrapper_tag.'>';
     

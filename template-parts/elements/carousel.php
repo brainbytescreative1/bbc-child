@@ -33,7 +33,9 @@ if( get_row_layout() == 'carousel' ):
 
         // wrapper classes
         $wrapper_classes[] = 'carousel carousel-element testimonial-carousel';
-        $wrapper_classes[] = get_spacing_bbc(get_sub_field('carousel_spacing'));
+        if ( function_exists('get_spacing_bbc') ) {
+            $wrapper_classes[] = get_spacing_bbc(get_sub_field('carousel_spacing'));
+        }
         $wrapper_classes[] = get_sub_field('wrapper_additional_classes');
 
         // slide classes
@@ -82,35 +84,47 @@ if( get_row_layout() == 'carousel' ):
         }
 
         // content
-        $text_style = get_text_styles_bbc('text_style', $text_classes, $text_styles, true);
-        if ( $text_style['classes'] ) {
-            $text_classes[] = $text_style['classes'];
+        $text_style = null;
+        if ( function_exists('get_text_styles_bbc') ) {
+            $text_style = get_text_styles_bbc('text_style', $text_classes, $text_styles, true);
+            if ( $text_style['classes'] ) {
+                $text_classes[] = $text_style['classes'];
+            }
         }
 
-        $label_style = get_text_styles_bbc('label_style', $label_classes, $label_styles, true);
-        if ( $label_style['classes'] ) {
-            $label_classes[] = $label_style['classes'];
+        $label_style = null;
+        if ( function_exists('get_text_styles_bbc') ) {
+            $label_style = get_text_styles_bbc('label_style', $label_classes, $label_styles, true);
+            if ( $label_style['classes'] ) {
+                $label_classes[] = $label_style['classes'];
+            }
         }
 
-        $sub_label_style = get_text_styles_bbc('sub_label_style', $sub_label_classes, $sub_label_styles, true);
-        if ( $sub_label_style['classes'] ) {
-            $sub_label_classes[] = $sub_label_style['classes'];
+        $sub_label_style = null;
+        if ( function_exists('get_text_styles_bbc') ) {
+            $sub_label_style = get_text_styles_bbc('sub_label_style', $sub_label_classes, $sub_label_styles, true);
+            if ( $sub_label_style['classes'] ) {
+                $sub_label_classes[] = $sub_label_style['classes'];
+            }
         }
 
         // get background
-        $slide_background = get_background_bbc('slide_background', $slide_classes, $slide_styles, true);
-        if ( $slide_background ) {
-            if ( $slide_background['classes'] ) {
-                $slide_classes[] = $slide_background['classes'];
-            }
-            if ( $slide_background['styles'] ) {
-                $slide_styles[] = $slide_background['styles'];
-            }
-            if ( $slide_background['overlay'] ) {
-                $slide_overlay = $slide_background['overlay'];
-            }
-            if ( $slide_background['video'] ) {
-                $slide_video = $slide_background['video'];
+        $slide_background = null;
+        if ( function_exists('get_background_bbc') ) {
+            $slide_background = get_background_bbc('slide_background', $slide_classes, $slide_styles, true);
+            if ( $slide_background ) {
+                if ( $slide_background['classes'] ) {
+                    $slide_classes[] = $slide_background['classes'];
+                }
+                if ( $slide_background['styles'] ) {
+                    $slide_styles[] = $slide_background['styles'];
+                }
+                if ( $slide_background['overlay'] ) {
+                    $slide_overlay = $slide_background['overlay'];
+                }
+                if ( $slide_background['video'] ) {
+                    $slide_video = $slide_background['video'];
+                }
             }
         }
 

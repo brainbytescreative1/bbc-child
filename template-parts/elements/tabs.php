@@ -16,22 +16,39 @@ if( get_row_layout() == 'tabbed_content' ):
         $tabs_wrapper_classes[] = 'tabs-wrapper';
         $tabs_wrapper_classes[] = 'tabs-element';
         $tabs_wrapper_classes[] = get_sub_field('additional_classes');
-        $tabs_wrapper_classes[] = get_spacing_bbc(get_sub_field('tabs_spacing'));
+        if ( function_exists('get_spacing_bbc') ) {
+            $tabs_wrapper_classes[] = get_spacing_bbc(get_sub_field('tabs_spacing'));
+        }
 
         // colors
-        $text_color_inactive = get_rgb_color_bbc('text_color_inactive', true, true);
+        $text_color_inactive = null;
+        if ( function_exists('get_rgb_color_bbc') ) {
+            $text_color_inactive = get_rgb_color_bbc('text_color_inactive', true, true);
+        }
         if ( !$text_color_inactive ) {
             $text_color_inactive = '#000';
         }
-        $background_color_inactive = get_rgb_color_bbc('background_color_inactive', true, true);
+
+        $background_color_inactive = null;
+        if ( function_exists('get_rgb_color_bbc') ) {
+            $background_color_inactive = get_rgb_color_bbc('background_color_inactive', true, true);
+        }
         if ( !$background_color_inactive ) {
             $background_color_inactive = '#fff';
         }
-        $text_color_active = get_rgb_color_bbc('text_color_active', true, true);
+
+        $text_color_active = null;
+        if ( function_exists('get_rgb_color_bbc') ) {
+            $text_color_active = get_rgb_color_bbc('text_color_active', true, true);
+        }
         if ( !$text_color_active ) {
             $text_color_active = '#fff';
         }
-        $background_color_active = get_rgb_color_bbc('background_color_active', true, true);
+
+        $background_color_active = null;
+        if ( function_exists('get_rgb_color_bbc') ) {
+            $background_color_active = get_rgb_color_bbc('background_color_active', true, true);
+        }
         if ( !$background_color_active ) {
             $background_color_active = '#000';
         }
@@ -39,7 +56,11 @@ if( get_row_layout() == 'tabbed_content' ):
         if ( !$text_color ) {
             $text_color = '#000';
         }
-        $text_background_color = get_rgb_color_bbc('text_background_color', true, true);
+
+        $text_background_color = null;
+        if ( function_exists('get_rgb_color_bbc') ) {
+            $text_background_color = get_rgb_color_bbc('text_background_color', true, true);
+        }
         if ( !$text_background_color ) {
             $text_background_color = '#fff';
         }
@@ -366,7 +387,10 @@ if( get_row_layout() == 'tabbed_content' ):
                                 $url = wp_get_attachment_image_url($image, 'medium_large');
 
                                 // Thumbnail size attributes.
-                                $url = isUrlValid($url);
+                                $url = null;
+                                if ( function_exists('isUrlValid') ) {
+                                    $url = isUrlValid($url);
+                                }
 
                                 ?>
                                 <div class="<?=$show_image?>">
@@ -377,7 +401,9 @@ if( get_row_layout() == 'tabbed_content' ):
                             <div class="<?=$tab_text_classes?><?=$has_image?>">
                                 <?php
                                 // text heading
-                                echo get_heading_bbc($tab['content_heading']);
+                                if ( function_exists('get_heading_bbc') ) {
+                                    echo get_heading_bbc($tab['content_heading']);
+                                }
                                 
                                 // text content
                                 if ( $content_type === 'wysiwyg' ) {
@@ -387,7 +413,9 @@ if( get_row_layout() == 'tabbed_content' ):
                                 }
 
                                 // buttons
-                                echo get_buttons_bbc($tab['content_buttons']);
+                                if ( function_exists('get_buttons_bbc') ) {
+                                    echo get_buttons_bbc($tab['content_buttons']);
+                                }
                                 ?>
                             </div>
                         </div>

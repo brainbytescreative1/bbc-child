@@ -23,14 +23,18 @@ function get_rgb_color_bbc( $field, $get_field = false, $sub = false ) {
                 if ( $field['custom_color'] ) {
                     $return_color = $field['custom_color'];
                     if ( $transparency < 100 ) {
-                        $return_color = hexToRgb($field['custom_color'], $transparency);
+                        if ( function_exists('hexToRgb') ) {
+                            $return_color = hexToRgb($field['custom_color'], $transparency);
+                        }
                     } else {
                         $return_color = $field['custom_color'];
                     }
                 } elseif ( isset ( $field['theme_colors'] ) ) {
                     if ( $field['theme_colors'] ) {
                         if ( $transparency < 100 ) {
-                            $return_color = hexToRgb(get_field($field['theme_colors'], 'style'), $transparency );
+                            if ( function_exists('hexToRgb') ) {
+                                $return_color = hexToRgb(get_field($field['theme_colors'], 'style'), $transparency );
+                            }
                         } else {
                             $return_color = 'var(--'. $field['theme_colors'] .')';
                         }

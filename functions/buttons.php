@@ -86,7 +86,9 @@ function get_buttons_bbc( $field ) {
             }
 
             // get custom spacing
-            $button_group_classes[] = get_spacing_bbc($field['buttons_spacing']);
+            if ( function_exists('get_spacing_bbc') ) {
+                $button_group_classes[] = get_spacing_bbc($field['buttons_spacing']);
+            }
 
             // advanced
             $button_group_classes[] = $field['additional_classes'];

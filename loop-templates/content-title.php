@@ -93,7 +93,9 @@ if ( ! is_page_template( 'page-templates/no-title.php' ) ) {
     }
 
     // spacing
-    $container_classes[] = get_spacing_bbc(get_field('container_spacing'), 'container');
+    if ( function_exists('get_spacing_bbc') ) {
+        $container_classes[] = get_spacing_bbc(get_field('container_spacing'), 'container');
+    }
 
     // additional classes
     $container_classes[] = trim(get_field('header_additional_classes'));
@@ -152,7 +154,9 @@ if ( ! is_page_template( 'page-templates/no-title.php' ) ) {
             }
 
             // buttons
-            echo get_buttons_bbc(get_field('title_buttons'));
+            if ( function_exists('get_buttons_bbc') ) {
+                echo get_buttons_bbc(get_field('title_buttons'));
+            }
 
             ?>
         </div>

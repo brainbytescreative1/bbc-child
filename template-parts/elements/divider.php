@@ -48,7 +48,9 @@ if( get_row_layout() == 'divider' ):
             $divider_classes[] = $additional_classes;
         }
 
-        $divider_classes[] = get_spacing_bbc($divider['divider_spacing']);
+        if ( function_exists('get_spacing_bbc') ) {
+            $divider_classes[] = get_spacing_bbc($divider['divider_spacing']);
+        }
 
         // process divider classes and styles
         $divider_classes = implode(' ', $divider_classes);

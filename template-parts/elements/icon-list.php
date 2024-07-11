@@ -199,8 +199,12 @@ if( get_row_layout() == 'icon_list' ):
         }
 
         // spacing
-        $list_classes[] = esc_attr(trim(get_spacing_bbc(get_sub_field('icon_list_spacing'))));
-        $list_container_classes[] = esc_attr(trim(get_spacing_bbc(get_sub_field('list_container_spacing'))));
+        if ( function_exists('get_spacing_bbc') ) {
+            $list_classes[] = esc_attr(trim(get_spacing_bbc(get_sub_field('icon_list_spacing'))));
+        }
+        if ( function_exists('get_spacing_bbc') ) {
+            $list_container_classes[] = esc_attr(trim(get_spacing_bbc(get_sub_field('list_container_spacing'))));
+        }
 
         // advanced
         $unique_id = get_sub_field('unique_id');
@@ -244,7 +248,10 @@ if( get_row_layout() == 'icon_list' ):
             }
             $list_heading_classes = esc_attr( trim( implode(' ', $list_heading_classes ) ) );
 
-            echo '<div class="'. $list_heading_classes .'">' . get_heading_bbc($heading) . '</div>';
+            if ( function_exists('get_heading_bbc') ) {
+                echo '<div class="'. $list_heading_classes .'">' . get_heading_bbc($heading) . '</div>';
+            }
+
         }
 
             echo '<ul class="'. $list_classes .'">'; // icon list start

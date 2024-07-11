@@ -48,12 +48,16 @@ if ( $show_dropdown_indicators == 'hide' ) {
 }
 
 // padding
-$menu_padding = get_menu_padding_bbc(get_field('main_menu_padding_updated', 'header'), $wrapper_classes, $wrapper_styles);
-if ( $menu_padding['classes'] ) {
-    $wrapper_classes = $menu_padding['classes'];
-}
-if ( $menu_padding['styles'] ) {
-    $wrapper_styles = $menu_padding['styles'];
+$menu_padding = null;
+if ( function_exists('get_menu_padding_bbc') ) {
+    $menu_padding = get_menu_padding_bbc(get_field('main_menu_padding_updated', 'header'), $wrapper_classes, $wrapper_styles);
+
+    if ( $menu_padding['classes'] ) {
+        $wrapper_classes = $menu_padding['classes'];
+    }
+    if ( $menu_padding['styles'] ) {
+        $wrapper_styles = $menu_padding['styles'];
+    }
 }
 
 // gap
@@ -131,7 +135,9 @@ $container_classes = esc_attr( trim( implode(' ', $container_classes ) ) );
             // cta buttons start
             if ( $cta_buttons && ( ( $header_style === 'centered' ) || ( $header_style === 'toggle' ) ) ) {
                 echo '<div class="buttons-container">';
-                    echo get_buttons_bbc($cta_buttons);
+                    if ( function_exists('get_buttons_bbc') ) {
+                        echo get_buttons_bbc($cta_buttons);
+                    }
                 echo '</div>';
             } // cta buttons end
             ?>

@@ -78,7 +78,9 @@ if( get_row_layout() == 'accordion' ):
             $accordion_classes[] = trim($additional_classes);
         }
 
-        $accordion_classes[] = get_spacing_bbc(get_sub_field('accordion_spacing'));
+        if ( function_exists('get_spacing_bbc') ) {
+            $accordion_classes[] = get_spacing_bbc(get_sub_field('accordion_spacing'));
+        }
 
         // item classes
         $accordion_item_add_classes = get_sub_field('accordion_item_classes');

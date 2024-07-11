@@ -19,10 +19,14 @@ function get_heading_bbc( $field ) {
             $text_styles = $field['text_styles'];
 
             if ( $text_styles ) {
-                $classes[] = get_text_styles_bbc($text_styles );
+                if ( function_exists('get_text_styles_bbc') ) {
+                    $classes[] = get_text_styles_bbc($text_styles );
+                }
             }
 
-            $classes[] = get_spacing_bbc($spacing);
+            if ( function_exists('get_spacing_bbc') ) {
+                $classes[] = get_spacing_bbc($spacing);
+            }
 
             $classes = trim(implode(' ', array_unique($classes)));
 

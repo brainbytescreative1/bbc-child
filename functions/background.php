@@ -18,22 +18,37 @@ function get_background_bbc($field, $sub = false) {
 
         if ( $background ) {
 
-            $content = if_array_value($background, 'content');
+            $content = null;
+            if ( function_exists('if_array_value') ) {
+                $content = if_array_value($background, 'content');
+            }
 
             if ( $content !== 'none' ) {
 
                 // color overlay
                 $overlay = null;
+                $overlay_color = null;
                 $overlay_classes = [];
                 $overlay_classes[] = 'overlay';
-                $color = if_array_value($background, 'color');
-                $gradient = if_array_value($background, 'background_gradient');
+                $color = null;
+                if ( function_exists('if_array_value') ) {
+                    $color = if_array_value($background, 'color');
+                }
+                $gradient = null;
+                if ( function_exists('if_array_value') ) {
+                    $gradient = if_array_value($background, 'background_gradient');
+                }
                 if ( $gradient ) {
                     $overlay_color = $gradient;
                 } elseif ( $color ) {
-                    $overlay_color = get_rgb_color_bbc($color, false);
+                    if ( function_exists('get_rgb_color_bbc') ) {
+                        $overlay_color = get_rgb_color_bbc($color, false);
+                    }
                 }
-                $overlay_visibility = if_array_value($background, 'overlay_visibility');
+                $overlay_visibility = null;
+                if ( function_exists('if_array_value') ) {
+                    $overlay_visibility = if_array_value($background, 'overlay_visibility');
+                }
                 if ( $overlay_visibility === 'mobile' ) {
                     $overlay_classes[] = 'desktop-hide tablet-hide';
                 } elseif ( $overlay_visibility === 'desktop' ) {
@@ -46,9 +61,18 @@ function get_background_bbc($field, $sub = false) {
                 }
 
                 // image
-                $image = if_array_value($background, 'image');
-                $image_source = if_array_value($background, 'background_image_source');
-                $image_mobile = if_array_value($background, 'image_upload_mobile');
+                $image = null;
+                if ( function_exists('if_array_value') ) {
+                    $image = if_array_value($background, 'image');
+                }
+                $image_source = null;
+                if ( function_exists('if_array_value') ) {
+                    $image_source = if_array_value($background, 'background_image_source');
+                }
+                $image_mobile = null;
+                if ( function_exists('if_array_value') ) {
+                    $image_mobile = if_array_value($background, 'image_upload_mobile');
+                }
 
                 if ( $image_source === 'featured' ) {
                     $post_id = get_the_ID();
@@ -80,8 +104,14 @@ function get_background_bbc($field, $sub = false) {
                 }
 
                 // background object fit
-                $object_fit = if_array_value($background, 'size');
-                $object_fit_mobile = if_array_value($background, 'background_size_mobile');
+                $object_fit = null;
+                if ( function_exists('if_array_value') ) {
+                    $object_fit = if_array_value($background, 'size');
+                }
+                $object_fit_mobile = null;
+                if ( function_exists('if_array_value') ) {
+                    $object_fit_mobile = if_array_value($background, 'background_size_mobile');
+                }
                 if ( $object_fit_mobile !== 'default' ) {
                     $image_classes[] = 'object-fit-md-' . $object_fit;
                     $image_classes[] = 'object-fit-' . $object_fit_mobile;
@@ -94,11 +124,17 @@ function get_background_bbc($field, $sub = false) {
                 }
 
                 // background object position
-                $position = if_array_value($background, 'position');
+                $position = null;
+                if ( function_exists('if_array_value') ) {
+                    $position = if_array_value($background, 'position');
+                }
                 if ( $position ) {
                     $position = str_replace(' ', '-', $position);
                 }
-                $position_mobile = if_array_value($background, 'background_position_mobile');
+                $position_mobile = null;
+                if ( function_exists('if_array_value') ) {
+                    $position_mobile = if_array_value($background, 'background_position_mobile');
+                }
                 if ( $position_mobile ) {
                     $position_mobile = str_replace(' ', '-', $position_mobile);
                 }
@@ -114,7 +150,10 @@ function get_background_bbc($field, $sub = false) {
                 }
 
                 // image max width
-                $image_size = if_array_value($background, 'background_image_size');
+                $image_size = null;
+                if ( function_exists('if_array_value') ) {
+                    $image_size = if_array_value($background, 'background_image_size');
+                }
                 $size_max_width = null;
                 switch ($image_size) {
                     case '2048x2048':
@@ -140,7 +179,10 @@ function get_background_bbc($field, $sub = false) {
                 $image_classes = trim( implode(' ', $image_classes) );                
 
                 // video
-                $video = if_array_value($background, 'video');
+                $video = null;
+                if ( function_exists('if_array_value') ) {
+                    $video = if_array_value($background, 'video');
+                }
 
                 ob_start();
 
@@ -149,8 +191,8 @@ function get_background_bbc($field, $sub = false) {
                 <div class="bg-container">
                     <?php if ( $image && ( ( $content === 'image' ) || ( $content === 'video' ) ) ) { ?>
                     <div class="bg-image-container">
-                        <img class="<?=$image_classes?>" fetchpriority="lazy" decoding="async" <?php get_responsive_image_bbc($image, $image_size, $size_max_width); ?>  alt="<?=$image_alt?>" />
-                        <img class="<?=$image_classes_mobile?>" fetchpriority="lazy" decoding="async" <?php get_responsive_image_bbc($image_mobile, 'medium_large', '768px'); ?>  alt="<?=$image_alt?>" />
+                        <img class="<?=$image_classes?>" fetchpriority="lazy" decoding="async" <?php if ( function_exists('get_responsive_image_bbc') ) { get_responsive_image_bbc($image, $image_size, $size_max_width); } ?>  alt="<?=$image_alt?>" />
+                        <img class="<?=$image_classes_mobile?>" fetchpriority="lazy" decoding="async" <?php if ( function_exists('get_responsive_image_bbc') ) { get_responsive_image_bbc($image_mobile, 'medium_large', '768px'); } ?>  alt="<?=$image_alt?>" />
                     </div>                    
                     <?php } ?>
 

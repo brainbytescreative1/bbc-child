@@ -131,7 +131,9 @@ $container_classes = esc_attr( trim( implode(' ', $container_classes ) ) );
             // cta buttons start
             if ( $cta_buttons && ( ( $header_style === 'centered' ) || ( $header_style === 'toggle' ) ) ) {
                 echo '<div class="buttons-container">';
-                    echo get_buttons_bbc($cta_buttons);
+                    if ( function_exists('get_buttons_bbc') ) {
+                        echo get_buttons_bbc($cta_buttons);
+                    }
                 echo '</div>';
             } // cta buttons end
             ?>

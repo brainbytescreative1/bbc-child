@@ -17,9 +17,13 @@ if( get_row_layout() == 'paragraph' ):
             $classes[] = 'no-margin-bottom';
         }
 
-        $classes[] = get_text_styles_bbc(get_sub_field('text_styles'));
+        if ( function_exists('get_text_styles_bbc') ) {
+            $classes[] = get_text_styles_bbc(get_sub_field('text_styles'));
+        }
 
-        $classes[] = get_spacing_bbc(get_sub_field('paragraph_spacing'));
+        if ( function_exists('get_spacing_bbc') ) {
+            $classes[] = get_spacing_bbc(get_sub_field('paragraph_spacing'));
+        }
 
         $additional_classes = get_sub_field('additional_classes');
         if ( $additional_classes ) {

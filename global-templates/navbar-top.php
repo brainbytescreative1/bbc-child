@@ -46,12 +46,16 @@ if ( $top_menu_layout ) { // top menu fields start
     }
 
     // padding
-    $menu_padding = get_menu_padding_bbc(get_field('top_menu_padding', 'header'), $top_menu_classes, $top_menu_styles);
-    if ( $menu_padding['classes'] ) {
-        $top_menu_classes = $menu_padding['classes'];
-    }
-    if ( $menu_padding['styles'] ) {
-        $top_menu_styles = $menu_padding['styles'];
+    $menu_padding = null;
+    if ( function_exists('get_menu_padding_bbc') ) {
+        $menu_padding = get_menu_padding_bbc(get_field('top_menu_padding', 'header'), $top_menu_classes, $top_menu_styles);
+        
+        if ( $menu_padding['classes'] ) {
+            $top_menu_classes = $menu_padding['classes'];
+        }
+        if ( $menu_padding['styles'] ) {
+            $top_menu_styles = $menu_padding['styles'];
+        }
     }
 
     // responsive

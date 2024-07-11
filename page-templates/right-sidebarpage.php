@@ -15,7 +15,9 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 $column_left_classes = [];
 
-$container = get_page_width_bbc('content_width', $container);
+if ( function_exists('get_page_width_bbc') ) {
+    $container = get_page_width_bbc('content_width', $container);
+}
 if ( $container = 'container-fluid' ) {
 	$column_left_classes[] = 'p-0';
 }

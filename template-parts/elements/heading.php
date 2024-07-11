@@ -17,8 +17,12 @@ if( get_row_layout() == 'heading' ):
         // process global functions
         $heading_classes[] = 'element';
 
-        $heading_classes[] = get_text_styles_bbc(get_sub_field('text_styles'));
-        $heading_classes[] = get_spacing_bbc(get_sub_field('heading_spacing'));
+        if ( function_exists('get_text_styles_bbc') ) {
+            $heading_classes[] = get_text_styles_bbc(get_sub_field('text_styles'));
+        }
+        if ( function_exists('get_spacing_bbc') ) {
+            $heading_classes[] = get_spacing_bbc(get_sub_field('heading_spacing'));
+        }
 
         if ( $page_title === 'enabled' ) {
             $heading_classes[] = 'page-title';

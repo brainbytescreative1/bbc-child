@@ -461,7 +461,9 @@ if( get_row_layout() == 'form' ):
         echo '</style>';
     }
 
-    $form_classes[] = get_spacing_bbc(get_sub_field('form_spacing'));
+    if ( function_exists('get_spacing_bbc') ) {
+        $form_classes[] = get_spacing_bbc(get_sub_field('form_spacing'));
+    }
 
     // complile
     $form_classes = implode(' ', $form_classes);

@@ -207,7 +207,10 @@ if ( have_rows('columns') ) {
     // flex
     $flex_element = get_field('flex_element');
     if ( $flex_element != 'none' ) {
-        $flex = get_flex_bbc(get_field('flex'));
+        $flex = null;
+        if ( function_exists('get_flex_bbc') ) {
+            $flex = get_flex_bbc(get_field('flex'));
+        }
         if ( $flex_element == 'row' ) {
             $row_classes[] = $flex;
         } elseif ( $flex_element == 'container' ) {
@@ -253,9 +256,15 @@ if ( have_rows('columns') ) {
     }
 
     // process global functions
-    $container_classes[] = get_spacing_bbc(get_field('container_spacing'), 'container');
-    $container_classes[] = get_borders_bbc(get_field('container_borders'));
-    $row_classes[] = get_spacing_bbc(get_field('row_spacing'));
+    if ( function_exists('get_spacing_bbc') ) {
+        $container_classes[] = get_spacing_bbc(get_field('container_spacing'), 'container');
+    }
+    if ( function_exists('get_borders_bbc') ) {
+        $container_classes[] = get_borders_bbc(get_field('container_borders'));
+    }
+    if ( function_exists('get_spacing_bbc') ) {
+        $row_classes[] = get_spacing_bbc(get_field('row_spacing'));
+    }
 
     /* compile classes and styles start */
     $wrapper_classes = trim(implode(' ', $wrapper_classes));
@@ -288,12 +297,16 @@ if ( get_field('columns') && ( $col_count > 0 ) ) { // if columns, add container
         // top divider
         $top_divider = get_field('top_divider');
         if ( $top_divider === 'enable' ) {
-            echo get_dividers_bbc('top');
+            if ( function_exists('get_dividers_bbc') ) {
+                echo get_dividers_bbc('top');
+            }
         }
 
         echo '<div class="'. $container_classes .'" style="'. $container_styles .'" data-id="'. $data_id .'">'; // container start
 
-            echo get_background_bbc('section_background');
+            if ( function_exists('get_background_bbc') ) {
+                echo get_background_bbc('section_background');
+            }
 
             /*
             if ( $container_video ) {
@@ -314,7 +327,9 @@ if ( get_field('columns') && ( $col_count > 0 ) ) { // if columns, add container
             <div class="<?=esc_attr($row_classes)?>"<?php if ( get_field('masonry') === 'enabled' ) { ?> data-masonry='{"percentPosition": true }' <?php } ?> style="<?=esc_attr($row_styles)?>">
             <?php // row start
 
-                echo get_background_bbc('row_background');
+                if ( function_exists('get_background_bbc') ) {
+                    echo get_background_bbc('row_background');
+                }
 
                 /*                
                 if ( $row_mobile_overlay ) {
@@ -441,7 +456,10 @@ if ( get_field('columns') && ( $col_count > 0 ) ) { // if columns, add container
                         // column flex
                         $column_flex = get_sub_field('flex_element');
                         if ( $column_flex != 'none' ) {
-                            $flex = get_flex_bbc( get_sub_field('flex_column'), $mobile_breakpoint );
+                            $flex = null;
+                            if ( function_exists('get_flex_bbc') ) {
+                                $flex = get_flex_bbc( get_sub_field('flex_column'), $mobile_breakpoint );
+                            }
                             if ( $column_flex == 'element' ) {
                                 $col_classes[] = $flex;
                             } elseif ( $column_flex == 'inner' ) {
@@ -503,7 +521,9 @@ if ( get_field('columns') && ( $col_count > 0 ) ) { // if columns, add container
 
                         // custom spacing
                         $col_spacing = null;
-                        $col_spacing = get_spacing_bbc(get_sub_field('column_spacing'), 'column');
+                        if ( function_exists('get_spacing_bbc') ) {
+                            $col_spacing = get_spacing_bbc(get_sub_field('column_spacing'), 'column');
+                        }
                         if ( $element_assignment == 'outer') {
                             $col_classes[] = $col_spacing;
                         } else {
@@ -512,7 +532,10 @@ if ( get_field('columns') && ( $col_count > 0 ) ) { // if columns, add container
 
                         // borders
                         $column_border_element = get_sub_field('column_border_element');
-                        $borders = get_borders_bbc(get_sub_field('column_borders'));
+                        $borders = null;
+                        if ( function_exists('get_borders_bbc') ) {
+                            $borders = get_borders_bbc(get_sub_field('column_borders'));
+                        }
 
                         if ( $borders && ( $column_border_element !== 'default' ) ) {
                             if ( $column_border_element === 'col-element' ) {
@@ -570,13 +593,17 @@ if ( get_field('columns') && ( $col_count > 0 ) ) { // if columns, add container
 
                             // column background
                             if ( $element_assignment === 'outer') {
-                                echo get_background_bbc('column_background', true);
+                                if ( function_exists('get_background_bbc') ) {
+                                    echo get_background_bbc('column_background', true);
+                                } 
                             }
 
                             echo '<div class="'. $col_inner_classes .'" style="'. $col_inner_styles .'">'; // col-inner start
 
                                 if ( $element_assignment === 'inner') {
-                                    echo get_background_bbc('column_background', true);
+                                    if ( function_exists('get_background_bbc') ) {
+                                        echo get_background_bbc('column_background', true);
+                                    }
                                 }
 
                                 echo '<div class="'. $col_inner_content_classes .'" style="'. $col_inner_content_styles .'">'; // col-inner-content start
@@ -623,7 +650,9 @@ if ( get_field('columns') && ( $col_count > 0 ) ) { // if columns, add container
         // bottom divider
         $bottom_divider = get_field('bottom_divider');
         if ( $bottom_divider === 'enable' ) {
-            echo get_dividers_bbc('bottom');
+            if ( function_exists('get_dividers_bbc') ) {
+                echo get_dividers_bbc('bottom');
+            }
         }
 
     echo '</section>'; // container-wrapper end
