@@ -233,18 +233,7 @@ function global_site_variables(){
         echo "\r\n";
     }
 
-    // dividers
-    $section_dividers = [];
-    $section_dividers = get_field('section_dividers', 'dividers');
-    if ( $section_dividers ) {
-        foreach ( $section_dividers as $divider ) {
-            echo '--divider-'. $divider['shape_class'] .'-height: ' . $divider['height'] . 'px;';
-            echo "\r\n";
-            echo '--divider-'. $divider['shape_class'] .'-negative-height: -' . $divider['height'] . 'px;';
-            echo "\r\n";
-        }
-    }
-
+    
     echo '.editor-styles-wrapper .bg-primary {';
     echo 'background-color: var(--primary) !important;';
     echo '}';
@@ -305,6 +294,7 @@ function global_site_variables(){
     echo '.editor-styles-wrapper .text-white {';
     echo 'color: var(--white) !important;';
     echo '}';
+    
 
     echo "\r\n";
     echo '}'; // root end
@@ -323,6 +313,7 @@ function global_site_variables(){
         $heading = get_field($tag, 'style');
 
         if ( $tag ) {
+
             echo '.front '. $tag .',';
             echo "\r\n";
             echo '.front .'. $tag .',';
@@ -358,6 +349,7 @@ function global_site_variables(){
             echo "\r\n";
             echo "\r\n";
 
+
             // size
             if ( isset( $heading['font_size'] ) ) {
                 if ( $heading['font_size'] ) {
@@ -377,6 +369,8 @@ function global_site_variables(){
                                 echo 'font-size: ' . $heading['font_size']['value'] . $heading['font_size']['unit'] . ';';
                                 echo "\r\n";
 
+                            echo '}';
+                            echo "\r\n";
                             echo '}';
                             echo "\r\n";
                         }
@@ -461,6 +455,7 @@ function global_site_variables(){
             <?php
         }
     }
+
 
     $theme_css = get_field('theme_css', 'css');
     if ( $theme_css ) {
