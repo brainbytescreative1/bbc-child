@@ -4,6 +4,7 @@ function global_site_variables(){
 
     // assign color list
     $colors = [
+        'text',
         'primary',
         'secondary',
         'success',

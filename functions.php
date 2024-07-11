@@ -186,7 +186,6 @@ require_once( __DIR__ . '/functions/menus.php');
 require_once( __DIR__ . '/functions/options-pages.php');
 require_once( __DIR__ . '/functions/post-types.php');
 require_once( __DIR__ . '/functions/root.php');
-require_once( __DIR__ . '/functions/selected-colors.php');
 require_once( __DIR__ . '/functions/shortcodes.php');
 
 // global functions
