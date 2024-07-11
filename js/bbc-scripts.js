@@ -68,13 +68,21 @@ function backToTopButton() {
     }
 }
 
-// add negative margin to page
-function firstElementSpacing() {
-    // add spacing to first page element
+// add negative margin to page and add spacing to first page element
+function firstElementSpacing(headerHeight) {
 
-    // calculate menu height
-    let menu = document.querySelector('#wrapper-navbar');
-    let menuHeight = menu.offsetHeight + 1;
+    // define variables
+    let menuHeight = null;
+    let menu = null;
+
+    if ( headerHeight ) {
+        // manual ACF height value
+        menuHeight = headerHeight + 1;
+    } else {
+        // get menu element
+        menu = document.querySelector('#wrapper-navbar');
+        menuHeight = menu.offsetHeight + 1;
+    }
 
     // apply style to content
     // content wrapper

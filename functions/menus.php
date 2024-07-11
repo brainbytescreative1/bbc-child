@@ -154,9 +154,10 @@ function header_footer_js(){
     
     <?php
 	$content_negative_margin = get_field('content_negative_margin', 'header');
-	if ( $content_negative_margin === 'enabled' ) {
-		echo '<script>firstElementSpacing();</script>';
-	} 
+    $header_height = get_field('header_height', 'header');
+	if ( $content_negative_margin === 'enabled' ) { ?>
+		<script>firstElementSpacing(<?=$header_height?>);</script>
+	<?php } 
     ?>
 
 <?php };
