@@ -1,6 +1,6 @@
 {
     "key": "group_66870c615f4a1",
-    "title": "Font Awesome",
+    "title": "Font Awesome Icon",
     "fields": [
         {
             "key": "field_66870c616b537",
@@ -24,10 +24,10 @@
             "custom_icon_set": "",
             "default_label": "",
             "default_value": "",
-            "save_format": "element",
+            "save_format": "class",
             "allow_null": 0,
             "show_preview": 1,
-            "enqueue_fa": 1,
+            "enqueue_fa": 0,
             "fa_live_preview": "",
             "choices": []
         }
@@ -57,7 +57,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1720126625,
+    "modified": 1720718541,
     "acfe_categories": {
         "global": "Global"
     }

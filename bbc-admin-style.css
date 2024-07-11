@@ -4,9 +4,11 @@
 	padding-left: 0 !important;
 }
 /* code */
+/*
 .acf-field-acfe-code-editor > .acf-input > .acf-input-wrap > .CodeMirror-wrap {
     max-height: 300px;
 }
+*/
 /* color picker */
 .site-colors-field input[type=radio] {
     box-shadow: none;

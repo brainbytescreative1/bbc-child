@@ -111,21 +111,29 @@ function my_wp_nav_menu_objects( $items, $args ) {
 		
         // vars
 		$add_icon = get_field('add_icon', $item);
+        $post_title = $item->title;
 
-        $icon = get_field('image_icon', $item);
-		echo $icon;
-		//$icon_url = $icon['url'];
-		$title = $item->post_title;
-		$fa_icon = get_field('font_awesome_icon', $item);
+        // image icon
+        $image_icon_url = null;
+        $image_icon = get_field('image_icon', $item);
+        if ( isset( $image_icon['url'] ) ) {
+            if ( $image_icon['url'] ) {
+                $image_icon_url = $image_icon['url'];
+            }
+            
+        }
+		
+		// font awesome icon
+        $fa_icon = get_field('font_awesome_icon', $item);
         
         // append icon
 		if ( $add_icon ) {
 			
-				if( $icon && ( $add_icon == 'image' ) ) {
-					$item->title = '<div class="menu-icon-container"><img class="menu-icon" src="'. $icon_url .'" alt="'. $title .'" /></div><div>' . $title . '</div>';
-				}
-				elseif ( $fa_icon && ( $add_icon == 'fontawesome' ) ) {
-					$item->title = '<div class="fa-icon-container">' . $fa_icon . '</div><div class="menu-item-title">' . $title . '</div>';
+				if( $image_icon && ( $add_icon === 'image' ) ) {
+					$item->title = '<div class="menu-icon-container"><img class="menu-icon" src="'. $image_icon_url .'" alt="'. $post_title .'" /></div><div>' . $post_title . '</div>';
+				} elseif ( $fa_icon && ( $add_icon === 'fontawesome' ) ) {
+                    $item->title = '<div class="fa-icon-container">' . $fa_icon . '</div><div class="menu-item-title">' . $post_title . '</div>';
+
 				}
 			
 		}
