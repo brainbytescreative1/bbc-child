@@ -2,6 +2,7 @@
 /** default styles **/
 .tab-image-inner {
     height: 100%;
+    position: relative;
     background-size: cover !important;
 }
 .rounded-tabs .tabs-element button {

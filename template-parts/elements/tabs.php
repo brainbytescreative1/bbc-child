@@ -311,6 +311,9 @@ if( get_row_layout() == 'tabbed_content' ):
                 background: <?=$text_background_color?> !important;
             }
             @media screen and (max-width: <?=$mobile_tab_width_breakpoint?>) {
+                .nav-justified .nav-item {
+                    flex-basis: auto;
+                }
                 .tabs-element .nav-item {
                     width: calc(<?=$mobile_tab_width?> - <?=$tabs_space_between?>) !important;
                 }
@@ -383,18 +386,16 @@ if( get_row_layout() == 'tabbed_content' ):
                         <div class="<?=$tab_content_inner_classes?>">
                             <?php
                             if ( $image ) {
-                                // Image variables.
-                                $url = wp_get_attachment_image_url($image, 'medium_large');
-
-                                // Thumbnail size attributes.
-                                $url = null;
-                                if ( function_exists('isUrlValid') ) {
-                                    $url = isUrlValid($url);
-                                }
-
+                                $image_alt = get_post_meta($image, '_wp_attachment_image_alt', TRUE);
                                 ?>
                                 <div class="<?=$show_image?>">
-                                    <div class="<?=$tab_image_inner_classes?>" style="background: url(<?php echo esc_url($url); ?>);<?=$tab_image_styles?>"></div>
+                                    <div class="<?=$tab_image_inner_classes?>" style="<?=$tab_image_styles?>">
+                                        <div class="bg-container">
+                                            <div class="bg-image-container">
+                                                <img class="bg-image mobile-hide object-fit-cover object-position-center-center" fetchpriority="lazy" decoding="async" <?php if ( function_exists('get_responsive_image_bbc') ) { get_responsive_image_bbc($image, 'medium_large', '768'); } ?>  alt="<?=$image_alt?>" />
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             <?php } ?>
                             
