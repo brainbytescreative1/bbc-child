@@ -135,11 +135,10 @@ if ( have_rows('columns') ) {
     // container classes and styling
     $min_height_100vh_minus_menu_height = get_field('min_height_100vh_minus_menu_height');
     $min_height = get_field('min_height');
-    //$calculated_menu_height = '<script>firstElementSpacing();</script>';
     if ( $min_height_100vh_minus_menu_height === 'enabled' ) {
         $header_height = get_field('header_height', 'header');
-        $container_classes[] = 'has-min-height';
-        $min_height = 'min-height: calc( 100vh - ' . $header_height . 'px)';
+        $container_classes[] = 'min-height-view-height';
+        $min_height = 'min-height: calc( 100svh - ' . $header_height . 'px)';
         $container_styles[] = $min_height . ';';
     } elseif ( $min_height ) {
         $value = $min_height['value'];
