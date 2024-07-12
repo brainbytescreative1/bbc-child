@@ -407,7 +407,11 @@ if( get_row_layout() == 'tabbed_content' ):
                                     <div class="<?=$tab_image_inner_classes?>" style="<?=$tab_image_styles?>">
                                         <div class="bg-container">
                                             <div class="bg-image-container">
-                                                <img class="bg-image mobile-hide object-fit-cover object-position-center-center" fetchpriority="lazy" decoding="async" <?php if ( function_exists('get_responsive_image_bbc') ) { get_responsive_image_bbc($image, 'medium_large', '768'); } ?>  alt="<?=$image_alt?>" />
+                                                <?php
+                                                if ( function_exists('get_responsive_image_bbc') ) { 
+                                                    echo get_responsive_image_bbc($image, 'medium_large', '768', $image_alt, 'bg-image mobile-hide object-fit-cover object-position-center-center'); 
+                                                }
+                                                ?>
                                             </div>
                                         </div>
                                     </div>

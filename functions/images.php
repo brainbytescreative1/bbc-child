@@ -4,9 +4,6 @@ function get_responsive_image_bbc($image_id, $image_size, $max_width, $alt = fal
 	// check the image ID is not blank
 	if($image_id !== '') {
 
-        $width = null;
-        $height = null;
-
 		// set the default src image size
 		$image_src = wp_get_attachment_image_url( $image_id, $image_size );
 
