@@ -131,6 +131,10 @@ if( get_row_layout() == 'tabbed_content' ):
         $mobile_breakpoint = get_sub_field('mobile_breakpoint');
         $mobile_tab_width_breakpoint = null;
         switch ($mobile_breakpoint) {
+            case 'default':
+                $mobile_tab_width_breakpoint = '992px';
+                $mobile_breakpoint = 'lg';
+                break;
             case 'none':
                 $mobile_tab_width_breakpoint = '1920px';
                 break;
@@ -245,7 +249,7 @@ if( get_row_layout() == 'tabbed_content' ):
             $tab_text_classes[] = 'p-' . $mobile_breakpoint . '-' . get_sub_field('tab_content_spacing' );
         }
         $tab_content_text_size = get_sub_field('tab_content_text_size');
-        if ( $tab_content_text_size ) {
+        if ( $tab_content_text_size && ( $tab_content_text_size !== 'default' ) ) {
             $tab_text_classes[] = $tab_content_text_size;
         }
 
