@@ -118,7 +118,8 @@ function get_color_bbc($field, $return_styles = false, $sub = false ) {
 // populate selected colors
 add_filter('acf/load_field/name=theme_colors', function($field) {
 	
-	$primary = 'primary';
+	$text = 'text';
+    $primary = 'primary';
 	$secondary = 'secondary';
 	$success = 'success';
     $info = 'info';
@@ -132,9 +133,9 @@ add_filter('acf/load_field/name=theme_colors', function($field) {
 	
 	$choices = [];
 
-	if ( $text ) {
-		$choices += array( $text => __('Text', 'bbc') );
-	}
+	if ( get_field('enable_text', 'style') === 'enable' ) {
+        $choices += array( $text => __('text', 'bbc') );
+    }
 
     if ( get_field('enable_primary', 'style') === 'enable' ) {
         $choices += array( $primary => __('Primary', 'bbc') );

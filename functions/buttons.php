@@ -143,7 +143,8 @@ function get_buttons_bbc( $field ) {
                         } elseif ( $button_style == 'link' ) {
                             $button_classes[] = 'btn';
                             $button_classes[] = 'btn-link';
-                            $button_classes[] = 'text-' . $button_color;
+                            $button_classes[] = 'btn-'. $button_color;
+                            $text_classes[] = 'text-'. $button_color;
                         } else {
                             $button_classes[] = 'btn';
                             $button_classes[] = 'btn-'. $button_color;
@@ -226,7 +227,7 @@ function get_buttons_bbc( $field ) {
 
                         $button_tag_start = '<a type="button" href="'. esc_attr($url) .'" title="'. esc_attr($title) .'" class="'. esc_attr($button_classes) .' '. esc_attr($text_classes) .'" style="'. esc_attr($button_styles) .'"'. $target .'>';
 
-                        $button_content = esc_attr($title);
+                        $button_content = '<span class="'. $text_classes .'">' . esc_attr($title) . '</span>';
 
                         $button_tag_end = '</a>';
 
@@ -263,6 +264,7 @@ function get_buttons_bbc( $field ) {
 // populate button colors
 add_filter('acf/load_field/name=button_color', function($field) {
 	
+    $text = 'text';
     $primary = 'primary';
 	$secondary = 'secondary';
 	$success = 'success';
@@ -278,6 +280,11 @@ add_filter('acf/load_field/name=button_color', function($field) {
 
 	//$choices += array( 'default' => __('Default', 'bbc') );
 
+    $text_button_enable = get_field('text_button', 'style');
+    if ( $text_button_enable['enable'] === 'enable' ) {
+        $choices += array( $text => __('text', 'bbc') );
+    }
+    
     $primary_button_enable = get_field('primary_button', 'style');
     if ( $primary_button_enable['enable'] === 'enable' ) {
         $choices += array( $primary => __('Primary', 'bbc') );

@@ -49,6 +49,9 @@
 .site-colors-field input[value="default"] {
     background: var(--text);
 }
+.site-colors-field input[value="text"] {
+    background: var(--text);
+}
 .site-colors-field input[value="primary"] {
     background: var(--primary);
 }
@@ -66,9 +69,6 @@
 }
 .site-colors-field input[value="warning"] {
     background: var(--warning);
-}
-.site-colors-field input[value="text"] {
-    background: var(--text);
 }
 .site-colors-field input[value="light"] {
     background: var(--light);
@@ -98,6 +98,12 @@
 }
 .button-color-select input[type=radio]:checked::before {
     background-color: #000000 !important;
+}
+.button-color-select input[value="text"] {
+    background: var(--text_background);
+}
+.button-color-select input[value="text"][type=radio]:checked::before {
+    background-color: var(--text_color) !important;
 }
 .button-color-select input[value="primary"] {
     background: var(--primary_background);

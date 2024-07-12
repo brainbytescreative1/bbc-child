@@ -5,7 +5,7 @@
  Author:       Brain Bytes Creative
  Author URI:   https://github.com/understrap/understrap-child/graphs/contributors
  Template:     understrap
- Version:      1.2.37
+ Version:      1.2.38
  License: GNU General Public License v2 or later
  License URI: http://www.gnu.org/licenses/gpl-2.0.html
  Text Domain:  bbc
@@ -1431,6 +1431,18 @@ header .nav-link:hover {
     flex-direction: column;
 }
 /* solid */
+.btn-text {
+    background: var(--text_background) !important;
+    color: var(--text_color) !important;
+    border-color: var(--text_background) !important;
+}
+.btn-text:hover,
+.btn-text:focus,
+.btn-text:active {
+    background: var(--text_hover) !important;
+    color: var(--text_color) !important;
+    border-color: var(--text_hover) !important;
+}
 .btn-primary {
     background: var(--primary_background) !important;
     color: var(--primary_color) !important;
@@ -1682,6 +1694,9 @@ header .nav-link:hover {
 .btn-link {
     padding: 0 !important;
 }
+.btn-link:hover {
+    opacity: .7 !important;
+}
 /* button icon / image */
 .button-image {
     display: flex;
@@ -1699,20 +1714,20 @@ header .nav-link:hover {
 }
 /*** button-icons ***/
 .button-icon.icon-position-left i {
-    margin-right: .5em;
+    margin-right: .5rem;
 }
 .button-icon.icon-position-right i {
-    margin-left: .5em;
+    margin-left: .5rem;
 }
 .button-icon.icon-position-top i {
-    margin-bottom: .25em;
+    margin-bottom: .25rem;
 }
 .btn.icon-position-top {
     display: flex;
     flex-direction: column;
 }
 .button-icon.icon-position-bottom i {
-    margin-top: .25em;
+    margin-top: .25rem;
 }
 .btn.icon-position-bottom {
     display: flex;
