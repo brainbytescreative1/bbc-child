@@ -1693,6 +1693,7 @@ header .nav-link:hover {
 /* button link */
 .btn-link {
     padding: 0 !important;
+    border: 0 !important;
 }
 .btn-link:hover,
 .btn-link:active,
