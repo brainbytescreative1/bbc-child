@@ -200,7 +200,6 @@
             },
             "choices": {
                 "full": "full",
-                "2048×2048": "2048×2048",
                 "1536x1536": "1536x1536",
                 "large": "Large 1024x1024",
                 "medium_large": "Medium Large 768x0",
@@ -444,7 +443,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1720714377,
+    "modified": 1720814399,
     "acfe_categories": {
         "global-functions": "Global Functions"
     }

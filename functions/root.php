@@ -78,7 +78,7 @@ function global_site_variables(){
     /* colors */
     foreach ( $colors as $color ) {
         $color_value = get_field($color, 'style');
-        $color_hover_value = get_field($color, 'style');
+        $color_hover_value = get_field($color . '_hover', 'style');
 
         if ( $color_value ) {
             echo '--' . $color . ': ' . $color_value .';';
@@ -122,6 +122,8 @@ function global_site_variables(){
             echo "\r\n";
         }
     }
+    echo '--text-background: #000000;';
+    echo "\r\n";
 
     /* logo */
     echo '--logo_width: '. $logo_width. 'px;';

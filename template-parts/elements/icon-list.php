@@ -17,6 +17,7 @@ if( get_row_layout() == 'icon_list' ):
         $list_item_classes = [];
         $icon_classes = [];
         $text_classes = [];
+        $list_heading_classes = [];
 
         // add initial classes
         $list_container_classes[] = 'element';
@@ -53,25 +54,23 @@ if( get_row_layout() == 'icon_list' ):
 
         // heading
         $heading = get_sub_field('heading');
-        $heading_position = get_sub_field('heading_position');
-        if ( $heading_position == 'left' ) {
-            $list_container_classes[] = 'd-flex';
-            $list_container_classes[] = 'flex-'. $breakpoint .'-row';
-            $list_container_classes[] = 'flex-column';
-            $list_container_classes[] = 'align-items-center';
-        } elseif ( $heading_position == 'top' ) {
-            $list_container_classes[] = 'd-flex';
-            $list_container_classes[] = 'flex-column';
-            $list_container_classes[] = 'align-items-center';
-        } elseif ( $heading_position == 'right' ) {
-            $list_container_classes[] = 'd-flex';
-            $list_container_classes[] = 'flex-'. $breakpoint .'-row-reverse';
-            $list_container_classes[] = 'flex-column';
-            $list_container_classes[] = 'align-items-center';
-        } elseif ( $heading_position == 'bottom' ) {
-            $list_container_classes[] = 'd-flex';
-            $list_container_classes[] = 'flex-column-reverse';
-            $list_container_classes[] = 'align-items-center';
+        if ( $heading && $heading['text'] && $heading['tag'] ) {
+            $heading_position = get_sub_field('heading_position');
+            if ( $heading_position == 'left' ) {
+                $list_heading_classes[] = 'd-flex';
+                $list_heading_classes[] = 'flex-'. $breakpoint .'-row';
+                $list_heading_classes[] = 'flex-column';
+            } elseif ( $heading_position == 'top' ) {
+                $list_heading_classes[] = 'd-flex';
+                $list_heading_classes[] = 'flex-column';
+            } elseif ( $heading_position == 'right' ) {
+                $list_heading_classes[] = 'd-flex';
+                $list_heading_classes[] = 'flex-'. $breakpoint .'-row-reverse';
+                $list_heading_classes[] = 'flex-column';
+            } elseif ( $heading_position == 'bottom' ) {
+                $list_heading_classes[] = 'd-flex';
+                $list_heading_classes[] = 'flex-column-reverse';
+            }
         }
 
         // orientation
@@ -129,16 +128,16 @@ if( get_row_layout() == 'icon_list' ):
                 $list_classes[] = 'ms-'. $breakpoint .'-0';
                 $list_classes[] = 'me-'. $breakpoint .'-auto';
                 $list_classes[] = $align_rule . '-start';
-            }
-            if ( $alignment === 'center' ) {
+            } elseif ( $alignment === 'center' ) {
                 $list_classes[] = 'ms-'. $breakpoint .'-auto';
                 $list_classes[] = 'me-'. $breakpoint .'-auto';
                 $list_classes[] = $align_rule . '-center';
-            }
-            if ( $alignment === 'right' ) {
+            } elseif ( $alignment === 'right' ) {
                 $list_classes[] = 'me-'. $breakpoint .'-0';
                 $list_classes[] = 'ms-'. $breakpoint .'-auto';
                 $list_classes[] = $align_rule . '-end';
+            } else {
+                $list_classes[] = 'justify-content-' . $alignment;
             }
             
         }
@@ -239,7 +238,6 @@ if( get_row_layout() == 'icon_list' ):
         echo '<div class="'. $list_container_classes .'">'; // start list container
 
         if ( $heading && $heading['text'] && $heading['tag'] ) {
-            $list_heading_classes = [];
             $list_heading_classes[] = 'icon-list-heading';
             if ( ( $heading_position === 'top' ) || ( $heading_position === 'bottom' ) ) {
                 $list_heading_classes[] = 'w-100';

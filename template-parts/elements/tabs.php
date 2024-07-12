@@ -101,7 +101,7 @@ if( get_row_layout() == 'tabbed_content' ):
         $tabs_space_between = get_sub_field('tabs_space_between');
         if ( $tabs_space_between !== 'default' ) {
             if ( $tabs_space_between === 'none' ) {
-                $tabs_space_between = '0';
+                $tabs_space_between = '0px';
             } elseif ( $tabs_space_between === 'custom' ) {
                 if ( get_sub_field('custom_space_between') ) {
                     $tabs_space_between = get_sub_field('custom_space_between');
@@ -274,8 +274,19 @@ if( get_row_layout() == 'tabbed_content' ):
         }
 
         // unique ids
-        $tabs_id = 'tabs-' . rand(0,9999);
-        $tab_id = rand(0,9999);
+        $tabs_id = get_sub_field('tabs_id');
+        if ( $tabs_id ) {
+            $tabs_id = 'tabs-' . $tabs_id;
+        } else {
+            $tabs_id = 'tabs-' . rand(0,9999);
+        }
+
+        $tab_id = get_sub_field('starting_tab_id');
+        if ( $tab_id ) {
+            $tab_id = $tab_id;
+        } else {
+            $tab_id = rand(0,9999);
+        }
 
         // process tabs classes and styles
         $tabs_wrapper_classes = trim(implode(' ', $tabs_wrapper_classes));

@@ -435,9 +435,15 @@
                         "id": ""
                     },
                     "choices": {
+                        "text": "text",
                         "primary": "Primary",
                         "secondary": "Secondary",
                         "success": "Success",
+                        "info": "Info",
+                        "danger": "Danger",
+                        "light": "Light",
+                        "gray": "Gray",
+                        "dark": "Dark",
                         "white": "White"
                     },
                     "default_value": null,
@@ -792,7 +798,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1718212470,
+    "modified": 1720804239,
     "acfe_categories": {
         "elements": "Elements"
     }

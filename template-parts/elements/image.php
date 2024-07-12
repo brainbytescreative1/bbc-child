@@ -21,10 +21,14 @@ if( get_row_layout() == 'image' ):
 
             // size
             $size = get_sub_field('image_size');
-            $size_max_width = '1024px';
+            $size_max_width = null;
             switch ($size) {
-                case '2048x2048':
+                case 'full':
+                    $size = '2048x2048';
                     $size_max_width = '1920px';
+                    break;
+                case '1536x1536':
+                    $size_max_width = '1536px';
                     break;
                 case 'large':
                     $size_max_width = '1024px';
@@ -133,9 +137,9 @@ if( get_row_layout() == 'image' ):
             $styles = trim(implode(' ', $styles));
 
             echo '<'.$link_wrapper_tag.' class="'. $classes .'" style="'. $styles .'">';
-                ?>
-                <img fetchpriority="lazy" decoding="async" <?php if( function_exists('get_responsive_image_bbc') ) { get_responsive_image_bbc($image, $size, $size_max_width); } ?>  alt="<?=$image_alt?>" />
-                <?php
+                if ( function_exists('get_responsive_image_bbc') ) { 
+                    echo get_responsive_image_bbc($image, $size, $size_max_width, $image_alt );
+                }
             echo '</'.$link_wrapper_tag.'>';
     
         endif;

@@ -156,8 +156,12 @@ function get_background_bbc($field, $sub = false) {
                 }
                 $size_max_width = null;
                 switch ($image_size) {
-                    case '2048x2048':
+                    case 'full':
+                        $image_size = '2048x2048';
                         $size_max_width = '1920px';
+                        break;
+                    case '1536x1536':
+                        $size_max_width = '1536px';
                         break;
                     case 'large':
                         $size_max_width = '1024px';
@@ -171,8 +175,6 @@ function get_background_bbc($field, $sub = false) {
                     case 'thumbnail':
                         $size_max_width = '150px';
                         break;
-                    default:
-                        $size_max_width = '1024px';
                 }
 
                 $image_classes_mobile = trim( implode(' ', $image_classes_mobile) );
@@ -191,8 +193,12 @@ function get_background_bbc($field, $sub = false) {
                 <div class="bg-container">
                     <?php if ( $image && ( ( $content === 'image' ) || ( $content === 'video' ) ) ) { ?>
                     <div class="bg-image-container">
-                        <img class="<?=$image_classes?>" fetchpriority="lazy" decoding="async" <?php if ( function_exists('get_responsive_image_bbc') ) { get_responsive_image_bbc($image, $image_size, $size_max_width); } ?>  alt="<?=$image_alt?>" />
-                        <img class="<?=$image_classes_mobile?>" fetchpriority="lazy" decoding="async" <?php if ( function_exists('get_responsive_image_bbc') ) { get_responsive_image_bbc($image_mobile, 'medium_large', '768px'); } ?>  alt="<?=$image_alt?>" />
+                        <?php
+                        if ( function_exists('get_responsive_image_bbc') ) { 
+                            echo get_responsive_image_bbc($image, $image_size, $size_max_width, $image_alt, $image_classes );
+                            echo get_responsive_image_bbc($image_mobile, 'medium_large', '768px', $image_alt, $image_classes );
+                        }
+                        ?>
                     </div>                    
                     <?php } ?>
 

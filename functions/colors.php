@@ -118,65 +118,76 @@ function get_color_bbc($field, $return_styles = false, $sub = false ) {
 // populate selected colors
 add_filter('acf/load_field/name=theme_colors', function($field) {
 	
-	$text = 'text';
-    $primary = 'primary';
-	$secondary = 'secondary';
-	$success = 'success';
-    $info = 'info';
-    $danger = 'danger';
-    $warning = 'warning';
-    $text = 'text';
-    $gray = 'gray';
-    $light = 'light';
-    $dark = 'dark';
-	$white = 'white';
-	
-	$choices = [];
+	$colors = [];
 
-	if ( get_field('enable_text', 'style') === 'enable' ) {
-        $choices += array( $text => __('text', 'bbc') );
+    $colors[] = 'text';
+    $colors[] = 'primary';
+    $colors[] = 'secondary';
+    $colors[] = 'success';
+    $colors[] = 'info';
+    $colors[] = 'danger';
+    $colors[] = 'warning';
+    $colors[] = 'text';
+    $colors[] = 'gray';
+    $colors[] = 'light';
+    $colors[] = 'dark';
+    $colors[] = 'white';
+
+    $choices = [];
+
+    // if enable field doesn't exist
+    foreach ($colors as $color) {
+        if ( !get_field('enable_' . $color, 'style') ) {
+            $choices += array( $color => __(ucfirst($color), 'bbc') );
+        }
     }
 
-    if ( get_field('enable_primary', 'style') === 'enable' ) {
-        $choices += array( $primary => __('Primary', 'bbc') );
+    // if enabled and exist
+    foreach ($colors as $color) {
+        if ( get_field('enable_' . $color, 'style') === 'enable' ) {
+            $choices += array( $color => __(ucfirst($color), 'bbc') );
+        }
+    }    
+	
+	$field['choices'] = $choices;
+	$field['default_value'] = null;
+	return $field;
+
+});
+
+// populate button colors
+add_filter('acf/load_field/name=button_color', function($field) {
+	
+    $colors = [];
+
+    $colors[] = 'text';
+    $colors[] = 'primary';
+    $colors[] = 'secondary';
+    $colors[] = 'success';
+    $colors[] = 'info';
+    $colors[] = 'danger';
+    $colors[] = 'warning';
+    $colors[] = 'text';
+    $colors[] = 'gray';
+    $colors[] = 'light';
+    $colors[] = 'dark';
+    $colors[] = 'white';
+
+    $choices = [];
+
+    // if enable field doesn't exist
+    foreach ($colors as $color) {
+        if ( !get_field('enable_' . $color, 'style') ) {
+            $choices += array( $color => __(ucfirst($color), 'bbc') );
+        }
     }
 
-	if ( get_field('enable_secondary', 'style') === 'enable' ) {
-		$choices += array( $secondary => __('Secondary', 'bbc') );
-	}
-
-    if ( get_field('enable_success', 'style') === 'enable' ) {
-		$choices += array( $success => __('Success', 'bbc') );
-	}
-
-    if ( get_field('enable_info', 'style') === 'enable' ) {
-		$choices += array( $info => __('Info', 'bbc') );
-	}
-
-    if ( get_field('enable_danger', 'style') === 'enable' ) {
-		$choices += array( $danger => __('Danger', 'bbc') );
-	}
-
-    if ( get_field('enable_warning', 'style') === 'enable' ) {
-		$choices += array( $warning => __('Warning', 'bbc') );
-	}
-	
-	if ( get_field('enable_light', 'style') === 'enable' ) {
-		$choices += array( $light => __('Light', 'bbc') );
-	}
-
-	if ( get_field('enable_dark', 'style') === 'enable' ) {
-		$choices += array( $dark => __('Dark', 'bbc') );
-	}
-
-    if ( get_field('enable_gray', 'style') === 'enable' ) {
-		$choices += array( $gray => __('Gray', 'bbc') );
-	}
-	
-	if ( get_field('enable_white', 'style') === 'enable' ) {
-		$choices += array( $white => __('White', 'bbc') );
-	}
-    
+    // if enabled and exist
+    foreach ($colors as $color) {
+        if ( get_field('enable_' . $color, 'style') === 'enable' ) {
+            $choices += array( $color => __(ucfirst($color), 'bbc') );
+        }
+    }    
 	
 	$field['choices'] = $choices;
 	$field['default_value'] = null;

@@ -5,7 +5,7 @@
  Author:       Brain Bytes Creative
  Author URI:   https://github.com/understrap/understrap-child/graphs/contributors
  Template:     understrap
- Version:      1.2.38
+ Version:      1.2.40
  License: GNU General Public License v2 or later
  License URI: http://www.gnu.org/licenses/gpl-2.0.html
  Text Domain:  bbc
@@ -1431,14 +1431,14 @@ header .nav-link:hover {
     flex-direction: column;
 }
 /* solid */
-.btn-text {
+.btn-text:not(.btn-text) {
     background: var(--text_background) !important;
     color: var(--text_color) !important;
     border-color: var(--text_background) !important;
 }
-.btn-text:hover,
-.btn-text:focus,
-.btn-text:active {
+.btn-text:hover:not(.btn-text),
+.btn-text:focus:not(.btn-text),
+.btn-text:active:not(.btn-text) {
     background: var(--text_hover) !important;
     color: var(--text_color) !important;
     border-color: var(--text_hover) !important;
@@ -1694,7 +1694,9 @@ header .nav-link:hover {
 .btn-link {
     padding: 0 !important;
 }
-.btn-link:hover {
+.btn-link:hover,
+.btn-link:active,
+.btn-link:focus {
     opacity: .7 !important;
 }
 /* button icon / image */
