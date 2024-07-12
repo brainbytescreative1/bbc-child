@@ -186,32 +186,34 @@ function get_background_bbc($field, $sub = false) {
                     $video = if_array_value($background, 'video');
                 }
 
+                // output start
                 ob_start();
 
-                ?>
+                echo '<div class="bg-container">'; // bg container start
 
-                <div class="bg-container">
-                    <?php if ( $image && ( ( $content === 'image' ) || ( $content === 'video' ) ) ) { ?>
-                    <div class="bg-image-container">
-                        <?php
+                    // image
+                    if ( $image && ( ( $content === 'image' ) || ( $content === 'video' ) ) ) {
+                        echo '<div class="bg-image-container">'; // bg image container start
                         if ( function_exists('get_responsive_image_bbc') ) { 
                             echo get_responsive_image_bbc($image, $image_size, $size_max_width, $image_alt, $image_classes );
-                            echo get_responsive_image_bbc($image_mobile, 'medium_large', '768px', $image_alt, $image_classes );
+                            echo get_responsive_image_bbc($image_mobile, 'medium_large', '768', $image_alt, $image_classes_mobile );
                         }
-                        ?>
-                    </div>                    
-                    <?php } ?>
+                        echo '</div>'; // bg image container end
 
-                    <?php if ( $video && ( $content === 'video' ) ) { ?>
-                    <video class="video-bg mobile-hide" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop"><source src="<?=$video?>" type="video/mp4" /></video>
-                    <?php } ?>
+                        // video
+                        if ( $video && ( $content === 'video' ) ) {
+                            echo '<video class="video-bg mobile-hide" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop"><source src="'. $video .'" type="video/mp4" /></video>';
+                        }
+                    }
 
-                    <?=$overlay?>
-                </div>
+                    // overlay
+                    echo $overlay;
 
-                <?php
-
+                echo '</div>'; // bg container end
+                
+                // return output
                 return ob_get_clean();
+                
             }
 
         }

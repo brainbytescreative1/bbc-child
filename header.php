@@ -58,7 +58,7 @@ $body_code = get_field('body', 'code');
 
 		<?php get_template_part( 'global-templates/navbar-top' ); ?>
 		<?php get_template_part( 'global-templates/navbar', $navbar_type . '-' . $bootstrap_version ); ?>
-        <div id="sticky-nav" class="sticky-nav">
+        <div id="sticky-nav" class="sticky-nav d-none">
             <?php get_template_part( 'global-templates/navbar', $navbar_type . '-' . $bootstrap_version ); ?>
         </div>
 
