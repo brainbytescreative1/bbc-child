@@ -327,7 +327,7 @@ if( get_row_layout() == 'icon_list' ):
                     $icon_styles = esc_attr( trim( implode(' ', $icon_styles ) ) );
                     $text_classes = esc_attr( trim( implode(' ', $text_classes ) ) );
                     $link_text_classes = esc_attr( trim( implode(' ', $link_text_classes ) ) );
-                    $list_item_classes = esc_attr( trim( implode(' ', $list_item_classes ) ) );         
+                    $list_item_classes = esc_attr( trim( implode(' ', $list_item_classes ) ) );
 
                     if ( $link ) {
                         $url = $link['url'];
@@ -337,9 +337,7 @@ if( get_row_layout() == 'icon_list' ):
                         <li class="<?=$list_item_classes?>">
                             <a href="<?=$url?>" title="<?=$url?>" class="<?=$link_text_classes?>" target="<?=$target?>" style="<?=$list_item_vertical_alignment?>">
                                 <?php if ( $icon['icon'] ) { ?>
-                                    <span class="<?=$icon_classes?>">
-                                        <?=$icon['icon']?>
-                                    </span>
+                                    <i class="<?=$icon['icon']?> <?=$icon_classes?>" aria-hidden="true"></i>
                                 <?php } ?>
                                 <?php if ( $title ) { ?>
                                     <span class="<?=$text_classes?>">
@@ -354,9 +352,7 @@ if( get_row_layout() == 'icon_list' ):
 
                         <li class="<?=$list_item_classes?> <?=$link_text_classes?>" style="<?=$icon_styles?> <?=$list_item_vertical_alignment?>">
                             <?php if ( $icon['icon'] ) { ?>
-                                <span class="<?=$icon_classes?>">
-                                    <?=$icon['icon']?>
-                                </span>
+                                <i class="<?=$icon['icon']?> <?=$icon_classes?>" aria-hidden="true"></i>
                             <?php } ?>
                             <?php if ( $text_content ) { ?>
                                 <span class="<?=$text_classes?>">
@@ -368,9 +364,9 @@ if( get_row_layout() == 'icon_list' ):
                     <?php } else { ?>
 
                         <li class="<?=$list_item_classes?> <?=$link_text_classes?>" style="<?=$icon_styles?> <?=$list_item_vertical_alignment?>">
-                            <span class="<?=$icon_classes?>">
-                                <?=$icon['icon']?>
-                            </span>
+                            <?php if ( $icon['icon'] ) { ?>
+                                <i class="<?=$icon['icon']?> <?=$icon_classes?>" aria-hidden="true"></i>
+                            <?php } ?>
                         </li>
 
                     <?php }

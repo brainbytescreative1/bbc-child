@@ -12,22 +12,26 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 ?>
 
-<?php if ( is_active_sidebar( 'footerfull' ) ) : ?>
+<?php if ( is_active_sidebar( 'footerfull' ) || is_active_sidebar( 'reviews' ) ) : ?>
 
 	<!-- ******************* The Footer Full-width Widget Area ******************* -->
 
 	<footer class="wrapper-footer-full" id="wrapper-footer-full" role="complementary">
 
-		<div class="<?php echo esc_attr( $container ); ?>" id="footer-full-content" tabindex="-1">
+        <div class="<?php echo esc_attr( $container ); ?>" id="footer-reviews-content" tabindex="-1">
+
+            <div class="row">
+
+                <?php dynamic_sidebar( 'reviews' ); ?>
+
+            </div>
+
+        </div>
+    
+        <div class="<?php echo esc_attr( $container ); ?>" id="footer-full-content" tabindex="-1">
 
 			<div class="row">
 
-                <?php
-                $global_reviews_widget = get_field('global_reviews_widget');
-                if ( $global_reviews_widget !== 'hide' ) {
-                    dynamic_sidebar( 'reviews' );
-                }
-                ?>
                 <?php dynamic_sidebar( 'footerfull' ); ?>
 
 			</div>

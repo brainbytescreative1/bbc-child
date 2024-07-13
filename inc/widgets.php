@@ -296,6 +296,18 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
         )
     );
 
+    register_sidebar(
+        array(
+            'name'          => __( 'Top Menu', 'understrap' ),
+            'id'            => 'topmenu',
+            'description'   => __( 'Top menu', 'understrap' ),
+            'before_widget' => '<div id="%1$s" class="footer-widget %2$s dynamic-classes">',
+            'after_widget'  => '</div><!-- .footer-widget -->',
+            'before_title'  => '<h3 class="widget-title">',
+            'after_title'   => '</h3>',
+        )
+    );
+
 	function understrap_widgets_init() {
 		register_sidebar(
 			array(
@@ -321,7 +333,10 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
 			)
 		);
 
-		register_sidebar(
+        
+
+		/*
+        register_sidebar(
 			array(
 				'name'          => __( 'Hero Slider', 'understrap' ),
 				'id'            => 'hero',
@@ -344,18 +359,7 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
 				'after_title'   => '',
 			)
 		);
-
-		register_sidebar(
-			array(
-				'name'          => __( 'Top Full', 'understrap' ),
-				'id'            => 'statichero',
-				'description'   => __( 'Full top widget with dynamic grid', 'understrap' ),
-				'before_widget' => '<div id="%1$s" class="static-hero-widget %2$s dynamic-classes">',
-				'after_widget'  => '</div><!-- .static-hero-widget -->',
-				'before_title'  => '<h3 class="widget-title">',
-				'after_title'   => '</h3>',
-			)
-		);
+        */
 
 	}
 } // End of function_exists( 'understrap_widgets_init' ).
