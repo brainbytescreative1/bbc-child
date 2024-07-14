@@ -5,7 +5,7 @@
  Author:       Brain Bytes Creative
  Author URI:   https://github.com/understrap/understrap-child/graphs/contributors
  Template:     understrap
- Version:      1.3.1
+ Version:      1.3.2
  License: GNU General Public License v2 or later
  License URI: http://www.gnu.org/licenses/gpl-2.0.html
  Text Domain:  bbc
@@ -522,6 +522,8 @@ header .nav-link:hover {
 .sticky-nav .navbar-brand {
     width: 100%;
     max-width: var(--sticky_logo_width);
+    flex-grow: 1;
+    flex-basis: 0;
 }
 /** main menu **/
 #main-nav {
@@ -693,6 +695,10 @@ header .nav-link:hover {
     border-radius: var(--button_border-radius) !important;
 }
 /** top menu **/
+#top-menu {
+    max-width: 100vw;
+    
+}
 .top-menu-padding-default {
     padding-top: .5rem;
     padding-bottom: .5rem;
@@ -702,6 +708,13 @@ header .nav-link:hover {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     display: flex;
+}
+.top-layout-single .top-single-menu-container {
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: calc(var(--custom-gutter-x) * .5);
+    padding-left: calc(var(--custom-gutter-x) * .5);
 }
 .top-layout-both .top-menu-inner-container {
     justify-content: space-between;
