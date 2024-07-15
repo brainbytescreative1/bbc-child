@@ -18,6 +18,8 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 	<footer class="wrapper-footer-full" id="wrapper-footer-full" role="complementary">
 
+        <?php if ( get_field('global_reviews_widget') !== 'hide' ) { ?>
+
         <div class="<?php echo esc_attr( $container ); ?>" id="footer-reviews-content" tabindex="-1">
 
             <div class="row">
@@ -27,6 +29,8 @@ $container = get_theme_mod( 'understrap_container_type' );
             </div>
 
         </div>
+
+        <?php } ?>
     
         <div class="<?php echo esc_attr( $container ); ?>" id="footer-full-content" tabindex="-1">
 
