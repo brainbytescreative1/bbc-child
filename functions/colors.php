@@ -137,7 +137,7 @@ add_filter('acf/load_field/name=theme_colors', function($field) {
 
     // if enable field doesn't exist
     foreach ($colors as $color) {
-        if ( !get_field('enable_' . $color, 'style') ) {
+        if ( $color === 'text' ) {
             $choices += array( $color => __(ucfirst($color), 'bbc') );
         }
     }
@@ -175,19 +175,12 @@ add_filter('acf/load_field/name=button_color', function($field) {
 
     $choices = [];
 
-    // if enable field doesn't exist
-    foreach ($colors as $color) {
-        if ( !get_field('enable_' . $color, 'style') ) {
-            $choices += array( $color => __(ucfirst($color), 'bbc') );
-        }
-    }
-
     // if enabled and exist
     foreach ($colors as $color) {
         if ( get_field('enable_' . $color, 'style') === 'enable' ) {
             $choices += array( $color => __(ucfirst($color), 'bbc') );
         }
-    }    
+    } 
 	
 	$field['choices'] = $choices;
 	$field['default_value'] = null;
