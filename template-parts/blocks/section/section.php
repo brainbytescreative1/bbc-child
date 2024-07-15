@@ -185,9 +185,10 @@ if ( have_rows('columns') ) {
         $container_classes[] = $additional_classes;
     }
 
+    $custom_id = null;
     $custom_id = get_field('custom_id');
     if ( $custom_id ) {
-        $custom_id = 'id="'. $custom_id .'"';
+        $custom_id = ' id="'. $custom_id .'"';
     }
 
     // reverse columns
@@ -301,26 +302,11 @@ if ( get_field('columns') && ( $col_count > 0 ) ) { // if columns, add container
             }
         }
 
-        echo '<div class="'. $container_classes .'" style="'. $container_styles .'" data-id="'. $data_id .'">'; // container start
+        echo '<div class="'. $container_classes .'" style="'. $container_styles .'" data-id="'. $data_id .'" '. $custom_id .'>'; // container start
 
             if ( function_exists('get_background_bbc') ) {
                 echo get_background_bbc('section_background');
             }
-
-            /*
-            if ( $container_video ) {
-                echo $container_video;
-                echo $container_video_script;
-            }
-
-            if ( $container_mobile_image_overlay ) {
-                echo $container_mobile_image_overlay;
-            }
-
-            if ( $container_overlay ) {
-                echo $container_overlay;
-            }
-            */
 
             ?>
             <div class="<?=esc_attr($row_classes)?>"<?php if ( get_field('masonry') === 'enabled' ) { ?> data-masonry='{"percentPosition": true }' <?php } ?> style="<?=esc_attr($row_styles)?>">
@@ -329,15 +315,6 @@ if ( get_field('columns') && ( $col_count > 0 ) ) { // if columns, add container
                 if ( function_exists('get_background_bbc') ) {
                     echo get_background_bbc('row_background');
                 }
-
-                /*                
-                if ( $row_mobile_overlay ) {
-                    echo $row_mobile_overlay;
-                }
-                if ( $row_overlay ) {
-                    echo $row_overlay;
-                }
-                */
 
                 if( have_rows('columns') ): // if columns start
 
@@ -411,46 +388,6 @@ if ( get_field('columns') && ( $col_count > 0 ) ) { // if columns, add container
 
                             }
                         }
-
-                        
-                        //$column_background = get_background_bbc('column_background', $col_inner_classes, $col_inner_styles, true);
-                        /*
-                        if ( $column_background ) {
-                            if ( $element_assignment === 'outer') {
-                                if ( $column_background['classes'] ) {
-                                    $col_classes[] = $column_background['classes'];
-                                }
-                                if ( $column_background['styles'] ) {
-                                    $col_styles[] = $column_background['styles'];
-                                }
-                                if ( $column_background['overlay'] ) {
-                                    $col_overlay = $column_background['overlay'];
-                                }
-                                if ( $column_background['video'] ) {
-                                    $col_video = $column_background['video'];
-                                }
-                                if ( $column_background['mobile_image_overlay'] ) {
-                                    $col_mobile_overlay = $column_background['mobile_image_overlay'];
-                                }
-                            } elseif ( $element_assignment === 'inner') {
-                                if ( $column_background['classes'] ) {
-                                    $col_inner_classes[] = $column_background['classes'];
-                                }
-                                if ( $column_background['styles'] ) {
-                                    $col_inner_styles[] = $column_background['styles'];
-                                }
-                                if ( $column_background['overlay'] ) {
-                                    $col_inner_overlay= $column_background['overlay'];
-                                }
-                                if ( $column_background['video'] ) {
-                                    $col_inner_video = $column_background['video'];
-                                }
-                                if ( $column_background['mobile_image_overlay'] ) {
-                                    $col_inner_mobile_overlay = $column_background['mobile_image_overlay'];
-                                }
-                            }
-                        }
-                        */
 
                         // column flex
                         $column_flex = get_sub_field('flex_element');
