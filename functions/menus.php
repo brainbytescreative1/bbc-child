@@ -54,7 +54,7 @@ function get_social_icons_bbc( $social_icons ) {
                     <li class="<?=$list_item_classes?>" style="<?=$icon_styles?>">
                         <a href="<?=$value?>" title="<?=$title?>" target="<?=$target?>">
                             <span class="<?=$icon_classes?>">
-                                <?=$icon['icon']?>
+                                <i class="<?=$icon['icon']?>" aria-hidden="true"></i>
                             </span>
                         </a>
                     </li>
@@ -63,7 +63,7 @@ function get_social_icons_bbc( $social_icons ) {
 
                     <li class="<?=$list_item_classes?>" style="<?=$icon_styles?>">
                         <span class="<?=$icon_classes?>">
-                            <?=$icon['icon']?>
+                            <i class="<?=$icon['icon']?>" aria-hidden="true"></i>
                         </span>
                     </li>
                     
@@ -71,7 +71,7 @@ function get_social_icons_bbc( $social_icons ) {
 
                     <li class="<?=$list_item_classes?>" style="<?=$icon_styles?>">
                         <span class="<?=$icon_classes?>">
-                            <?=$icon['icon']?>
+                            <i class="<?=$icon['icon']?>" aria-hidden="true"></i>
                         </span>
                     </li>
 
