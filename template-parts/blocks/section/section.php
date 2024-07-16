@@ -492,7 +492,7 @@ if ( get_field('columns') && ( $col_count > 0 ) ) { // if columns, add container
                         // element-specific classes
                         $col_classes[] = trim(get_sub_field('column_element_classes'));
                         $col_inner_classes[] = trim(get_sub_field('column_inner_classes'));
-                        $col_inner_content_classes[] = trim(get_sub_field('col_inner_content_classes'));
+                        $col_inner_content_classes[] = trim(get_sub_field('column_inner_content_classes'));
 
                         // additional classes and id
                         $additional_classes = get_sub_field('additional_classes');
