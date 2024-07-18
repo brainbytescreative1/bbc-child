@@ -237,6 +237,20 @@ if( get_row_layout() == 'icon_list' ):
             $text_classes[] = $text_classes_field;
         }
 
+        if ( $list_item_vertical_alignment ) {
+            if ( $list_item_vertical_alignment === 'start' ) {
+                $list_item_classes[] = 'align-items-start';
+            }
+            if ( $list_item_vertical_alignment === 'center' ) {
+                $list_item_classes[] = 'align-items-center';
+            }
+            if ( $list_item_vertical_alignment === 'end' ) {
+                $list_item_classes[] = 'align-items-end';
+            }
+        } else {
+            $list_item_classes[] = 'align-items-center';
+        }
+
         // process classes array
         $list_container_classes = esc_attr( trim( implode(' ', $list_container_classes ) ) );
         $list_classes = esc_attr( trim( implode(' ', $list_classes ) ) );
@@ -282,20 +296,6 @@ if( get_row_layout() == 'icon_list' ):
                     $icon_classes[] = $icon_classes_field;
                     $text_classes[] = $text_classes_field;
 
-                    if ( $list_item_vertical_alignment ) {
-                        if ( $list_item_vertical_alignment === 'start' ) {
-                            $list_item_classes[] = 'align-items-start';
-                        }
-                        if ( $list_item_vertical_alignment === 'center' ) {
-                            $list_item_classes[] = 'align-items-center';
-                        }
-                        if ( $list_item_vertical_alignment === 'end' ) {
-                            $list_item_classes[] = 'align-items-end';
-                        }
-                    } else {
-                        $list_item_classes[] = 'align-items-center';
-                    }
-
                     if ( $icon_color['theme_colors'] ) {
                         $icon_classes[] = 'text-' . $icon_color['theme_colors'];
                     }
@@ -320,13 +320,7 @@ if( get_row_layout() == 'icon_list' ):
 
                     $icon_margin_top = get_sub_field('icon_margin_top');
                     if ( $icon_margin_top ) {
-                        if ( $icon_margin_top <= '10' ) {
-                            $icon_classes[] = 'margin-top-' . $icon_margin_top;
-                            $icon_margin_top = null;
-                        } else {
-                            $icon_margin_top = ' style="margin-top: ' . $icon_margin_top . 'px;"';
-                        }
-                        
+                        $icon_margin_top = ' style="position: relative; top: ' . $icon_margin_top . 'px;"';
                     }
 
                     if ( $separator && ( $separator === 'add' ) ) {
@@ -397,8 +391,8 @@ if( get_row_layout() == 'icon_list' ):
 
                         <li class="<?=$list_item_classes?>">
                             <?php if ( $icon['icon'] ) { ?>
-                                <span class="<?=$icon_classes?>"<?=$icon_margin_top?>>
-                                    <i class="<?=$icon['icon']?>" aria-hidden="true"></i>
+                                <span class="<?=$icon_classes?>">
+                                    <i class="<?=$icon['icon']?>" aria-hidden="true"<?=$icon_margin_top?>></i>
                                 </span>
                             <?php } ?>
                             <?php if ( $text_content ) { ?>

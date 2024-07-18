@@ -44,13 +44,11 @@
         columns: 2;
         -webkit-columns: 2;
         -moz-columns: 2;
-        column-width: auto;
     }
     .icon-list.three-columns-xxl-list {
         columns: 3;
         -webkit-columns: 3;
         -moz-columns: 3;
-        column-width: auto;
     }
     .icon-list.four-columns-xxl-list {
         columns: 4;
@@ -63,13 +61,11 @@
         columns: 2;
         -webkit-columns: 2;
         -moz-columns: 2;
-        column-width: auto;
     }
     .icon-list.three-columns-xl-list {
         columns: 3;
         -webkit-columns: 3;
         -moz-columns: 3;
-        column-width: auto;
     }
     .icon-list.four-columns-xl-list {
         columns: 4;
@@ -82,13 +78,11 @@
         columns: 2;
         -webkit-columns: 2;
         -moz-columns: 2;
-        column-width: auto;
     }
     .icon-list.three-columns-lg-list {
         columns: 3;
         -webkit-columns: 3;
         -moz-columns: 3;
-        column-width: auto;
     }
     .icon-list.four-columns-lg-list {
         columns: 4;
@@ -101,13 +95,11 @@
         columns: 2;
         -webkit-columns: 2;
         -moz-columns: 2;
-        column-width: auto;
     }
     .icon-list.three-columns-md-list {
         columns: 3;
         -webkit-columns: 3;
         -moz-columns: 3;
-        column-width: auto;
     }
     .icon-list.four-columns-md-list {
         columns: 4;
@@ -120,13 +112,11 @@
         columns: 2;
         -webkit-columns: 2;
         -moz-columns: 2;
-        column-width: auto;
     }
     .icon-list.three-columns-sm-list {
         columns: 3;
         -webkit-columns: 3;
         -moz-columns: 3;
-        column-width: auto;
     }
     .icon-list.four-columns-sm-list {
         columns: 4;
