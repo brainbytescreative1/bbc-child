@@ -343,7 +343,7 @@ if( get_row_layout() == 'tabbed_content' ):
                 color: <?=$text_color?> !important;
                 background: <?=$text_background_color?> !important;
             }
-            @media screen and (max-width: <?=$mobile_tab_width_breakpoint?>) {
+            @media screen (min-width: 400px) and (max-width: <?=$mobile_tab_width_breakpoint?>) {
                 .nav-justified .nav-item {
                     flex-basis: auto;
                 }

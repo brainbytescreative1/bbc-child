@@ -182,7 +182,14 @@
         padding-bottom: 2rem !important;
     }
 }
-*/
+@media screen and (max-width: 430px) {
+    .tabs-element .nav {
+        flex-direction: column !important;
+    }
+    .tabs-element .nav-item {
+        width: 100% !important;
+    }
+}
 /** rounded tabs **/
 .tabs-round .tab-image {
     position: relative;
