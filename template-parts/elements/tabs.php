@@ -112,6 +112,7 @@ if( get_row_layout() == 'tabbed_content' ):
         } else {
             $tabs_space_between = '.5rem';
         }
+
         // border radius
         $tab_border_radius = get_sub_field('tab_border_radius');
         if ( $tab_border_radius !== 'default' ) {
@@ -125,6 +126,7 @@ if( get_row_layout() == 'tabbed_content' ):
                 }
             }
         }
+
         // tabs responsive
         $tabs_classes[] = 'flex-row';
         
@@ -176,6 +178,7 @@ if( get_row_layout() == 'tabbed_content' ):
         $button_classes = [];
         $button_classes[] = 'nav-link';
         $button_classes[] = get_sub_field('nav_button');
+        $button_styles = [];
 
         // content
         $tab_content_classes = [];
@@ -253,6 +256,20 @@ if( get_row_layout() == 'tabbed_content' ):
             $tab_text_classes[] = $tab_content_text_size;
         }
 
+        // tab link padding
+        $tab_link_padding = get_sub_field('tab_link_padding');
+        if ( $tab_link_padding !== 'default' ) {
+            if ( $tab_link_padding === 'none' ) {
+                $tab_link_padding = '0';
+            } elseif ( $tab_link_padding === 'custom' ) {
+                if ( get_sub_field('custom_tab_link_padding') ) {
+                    $button_styles[] = 'padding: '. get_sub_field('custom_tab_link_padding') .'px;';
+                }
+            } else {
+                $button_classes[] = 'p-' . $tab_link_padding;
+            }
+        }
+
         // heading
         $heading_classes = [];
         $heading_settings = get_sub_field('heading_settings');
@@ -295,6 +312,7 @@ if( get_row_layout() == 'tabbed_content' ):
         $tab_pane_classes = trim(implode(' ', $tab_pane_classes));
         $tab_content_classes = trim(implode(' ', $tab_content_classes));
         $button_classes = trim(implode(' ', $button_classes));
+        $button_styles = trim(implode(' ', $button_styles));
         $heading_classes = trim(implode(' ', $heading_classes));
         $tab_content_inner_classes = trim(implode(' ', $tab_content_inner_classes));
         $tab_image_classes = trim(implode(' ', $tab_image_classes));
@@ -355,7 +373,7 @@ if( get_row_layout() == 'tabbed_content' ):
                     $tabs_count++;
                     ?>
                     <li class="<?=$nav_item_classes?>" role="presentation">
-                        <button class="<?=$button_classes?> <?=$active?>" id="tab<?=$tab_count?>-tab" data-bs-toggle="tab" data-bs-target="#tab<?=$tab_count?>" type="button" role="tab" aria-controls="tab<?=$tab_count?>" aria-selected="<?=$active?>">
+                        <button class="<?=$button_classes?> <?=$active?>" id="tab<?=$tab_count?>-tab" data-bs-toggle="tab" data-bs-target="#tab<?=$tab_count?>" type="button" role="tab" aria-controls="tab<?=$tab_count?>" aria-selected="<?=$active?>" style="<?=$button_styles?>">
                             <?php if ( $tab['heading'] ) { ?>
                                 <<?=$tag?> class="<?=$heading_classes?>"><?=$tab['heading']['text']?></<?=$tag?>>
                             <?php } ?>

@@ -35,22 +35,22 @@ if( get_row_layout() == 'icon_list' ):
         $list_item_vertical_alignment = get_sub_field('list_item_vertical_alignment');
         $list_columns = get_sub_field('list_columns');
 
-        // add initial classes
-        $list_container_classes[] = 'element';
-        $list_container_classes[] = 'icon-list-container';
-        $list_classes[] = 'icon-list';
-        if ( $list_columns !== 'default' ) {
-            $list_classes[] = $list_columns . '-columns-list';
-        } else {
-            $list_classes[] = 'd-flex';
-        }
-
         // breakpoint
         $breakpoint = 'lg';
         $mobile_breakpoint = null;
         $mobile_breakpoint = get_sub_field('mobile_breakpoint');
         if ( $mobile_breakpoint ) {
             $breakpoint = $mobile_breakpoint;
+        }
+
+        // add initial classes
+        $list_container_classes[] = 'element';
+        $list_container_classes[] = 'icon-list-container';
+        $list_classes[] = 'icon-list';
+        if ( $list_columns !== 'default' ) {
+            $list_classes[] = $list_columns . '-columns-' . $breakpoint . '-list';
+        } else {
+            $list_classes[] = 'd-flex';
         }
 
         // push classes to inside loop
@@ -320,7 +320,13 @@ if( get_row_layout() == 'icon_list' ):
 
                     $icon_margin_top = get_sub_field('icon_margin_top');
                     if ( $icon_margin_top ) {
-                        $icon_margin_top = ' style="margin-top: ' . $icon_margin_top . 'px;"';
+                        if ( $icon_margin_top <= '10' ) {
+                            $icon_classes[] = 'margin-top-' . $icon_margin_top;
+                            $icon_margin_top = null;
+                        } else {
+                            $icon_margin_top = ' style="margin-top: ' . $icon_margin_top . 'px;"';
+                        }
+                        
                     }
 
                     if ( $separator && ( $separator === 'add' ) ) {

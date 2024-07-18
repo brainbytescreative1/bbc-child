@@ -39,18 +39,98 @@
 .icon-list .icon {
     margin-right: 12px;
 }
-.icon-list.two-columns-list {
-    columns: 2;
-    -webkit-columns: 2;
-    -moz-columns: 2;
+@media screen and (min-width: 1401px) {
+    .icon-list.two-columns-xxl-list {
+        columns: 2;
+        -webkit-columns: 2;
+        -moz-columns: 2;
+        column-width: auto;
+    }
+    .icon-list.three-columns-xxl-list {
+        columns: 3;
+        -webkit-columns: 3;
+        -moz-columns: 3;
+        column-width: auto;
+    }
+    .icon-list.four-columns-xxl-list {
+        columns: 4;
+        -webkit-columns: 4;
+        -moz-columns: 4;
+    }
 }
-.icon-list.three-columns-list {
-    columns: 3;
-    -webkit-columns: 3;
-    -moz-columns: 3;
+@media screen and (min-width: 1201px) {
+    .icon-list.two-columns-xl-list {
+        columns: 2;
+        -webkit-columns: 2;
+        -moz-columns: 2;
+        column-width: auto;
+    }
+    .icon-list.three-columns-xl-list {
+        columns: 3;
+        -webkit-columns: 3;
+        -moz-columns: 3;
+        column-width: auto;
+    }
+    .icon-list.four-columns-xl-list {
+        columns: 4;
+        -webkit-columns: 4;
+        -moz-columns: 4;
+    }
 }
-.icon-list.four-columns-list {
-    columns: 4;
-    -webkit-columns: 4;
-    -moz-columns: 4;
+@media screen and (min-width: 992px) {
+    .icon-list.two-columns-lg-list {
+        columns: 2;
+        -webkit-columns: 2;
+        -moz-columns: 2;
+        column-width: auto;
+    }
+    .icon-list.three-columns-lg-list {
+        columns: 3;
+        -webkit-columns: 3;
+        -moz-columns: 3;
+        column-width: auto;
+    }
+    .icon-list.four-columns-lg-list {
+        columns: 4;
+        -webkit-columns: 4;
+        -moz-columns: 4;
+    }
+}
+@media screen and (min-width: 769px) {
+    .icon-list.two-columns-md-list {
+        columns: 2;
+        -webkit-columns: 2;
+        -moz-columns: 2;
+        column-width: auto;
+    }
+    .icon-list.three-columns-md-list {
+        columns: 3;
+        -webkit-columns: 3;
+        -moz-columns: 3;
+        column-width: auto;
+    }
+    .icon-list.four-columns-md-list {
+        columns: 4;
+        -webkit-columns: 4;
+        -moz-columns: 4;
+    }
+}
+@media screen and (min-width: 500px) {
+    .icon-list.two-columns-sm-list {
+        columns: 2;
+        -webkit-columns: 2;
+        -moz-columns: 2;
+        column-width: auto;
+    }
+    .icon-list.three-columns-sm-list {
+        columns: 3;
+        -webkit-columns: 3;
+        -moz-columns: 3;
+        column-width: auto;
+    }
+    .icon-list.four-columns-sm-list {
+        columns: 4;
+        -webkit-columns: 4;
+        -moz-columns: 4;
+    }
 }

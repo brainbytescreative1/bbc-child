@@ -588,6 +588,57 @@
             "append": "px"
         },
         {
+            "key": "field_66991d909072d",
+            "label": "Tab Link Padding",
+            "name": "tab_link_padding",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "default",
+                "none": "none",
+                "1": "sm",
+                "2": "md",
+                "3": "lg",
+                "4": "xl",
+                "5": "xxl",
+                "custom": "custom"
+            },
+            "default_value": "default",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_66991dbf9072e",
+            "label": "Custom Tab Link Padding",
+            "name": "custom_tab_link_padding",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": "px"
+        },
+        {
             "key": "field_6512de0623fd3",
             "label": "Tab Colors",
             "name": "",
@@ -1731,7 +1782,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1720797760,
+    "modified": 1721310893,
     "acfe_categories": {
         "elements": "Elements"
     }
