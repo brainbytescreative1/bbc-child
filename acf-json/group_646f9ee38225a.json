@@ -12,7 +12,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "34",
+                "width": "25",
                 "class": "",
                 "id": ""
             },
@@ -36,7 +36,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33",
+                "width": "25",
                 "class": "",
                 "id": ""
             },
@@ -60,7 +60,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33",
+                "width": "25",
                 "class": "",
                 "id": ""
             },
@@ -72,6 +72,28 @@
                 "xxl": "xxl"
             },
             "default_value": "lg",
+            "return_format": "value",
+            "allow_null": 1,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_66985846023f6",
+            "label": "Remove Bottom Margin",
+            "name": "remove_bottom_margin",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "remove": "remove"
+            },
+            "default_value": "",
             "return_format": "value",
             "allow_null": 1,
             "layout": "horizontal"
@@ -332,7 +354,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1719004241,
+    "modified": 1721260123,
     "acfe_categories": {
         "global": "Global"
     }

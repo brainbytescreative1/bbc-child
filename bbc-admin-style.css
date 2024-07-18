@@ -1,14 +1,4 @@
-/*** acf ***/
-/* options page tabs */
-.toplevel_page_style .acf-tab-group {
-	padding-left: 0 !important;
-}
 /* code */
-/*
-.acf-field-acfe-code-editor > .acf-input > .acf-input-wrap > .CodeMirror-wrap {
-    max-height: 300px;
-}
-*/
 /* color picker */
 .site-colors-field input[type=radio] {
     box-shadow: none;
@@ -174,6 +164,15 @@
 .button-color-select input[value="white"][type=radio]:checked::before {
     background-color: var(--white_color) !important;
 }
+/* hide theme colors title */
+.hide-clone-title [data-name="theme_colors"] .acf-label {
+    display: none !important;
+}
+/*** acf ***/
+/* options page tabs */
+.toplevel_page_style .acf-tab-group {
+	padding-left: 0 !important;
+}
 .customize-control-ogf-upsell {
 	display: none !important;
 }
@@ -186,36 +185,7 @@
 .editor-styles-wrapper ol, .editor-styles-wrapper ul {
 	padding-left: 0 !important;
 }
-.block-editor-block-list__block:last-child {
-	margin-bottom: 40px;
-}
-.block-list-appender {
-	margin-top: 15px;
-}
 .wp-block[data-type="core/widget-area"],
 .blocks-widgets-container .wp-block-widget-area__inner-blocks.editor-styles-wrapper {
 	max-width: 100% !important;
-}
-/* accordions */
-/*
-.acf-fields.-sidebar > .acf-field-tab + .acf-field {
-	margin-top: 1px;
-}
-*/
-/* block z-index */
-.block-editor-block-list__block {
-	overflow: hidden;
-}
-/* modal editor */
-.acfe-modal-wrapper {
-	margin-right: 9px;
-	max-width: calc(100vw - 317px) !important;
-}
-
-.editor-styles-wrapper .bg-primary {
-    background-color: var(--primary) !important;
-}
-/* hide theme colors title */
-.hide-clone-title [data-name="theme_colors"] .acf-label {
-    display: none !important;
 }

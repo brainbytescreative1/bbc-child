@@ -336,14 +336,14 @@ function global_site_variables(){
                 // color
                 if ( isset( $heading['theme_colors'] ) ) {
                     if ( $heading['theme_colors'] ) {
-                        echo 'color: var(--font-' . $heading['theme_colors'] . ');';
+                        echo 'color: var(--' . $heading['theme_colors'] . ');';
                         echo "\r\n";
                     }
                 }
                 // weight
                 if ( isset( $heading['font_weight'] ) ) {
                     if ( $heading['font_weight'] ) {
-                        echo 'font-weight: var(--font-' . $heading['font_weight'] . ');';
+                        echo 'font-weight: ' . $heading['font_weight'] . ';';
                         echo "\r\n";
                     }
                 }

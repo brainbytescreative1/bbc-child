@@ -171,7 +171,7 @@
                 "1536x1536": "1536x1536",
                 "large": "Large 1024x1024",
                 "medium_large": "Medium Large 768x0",
-                "medium": "Medium 300x200",
+                "medium": "Medium 300x300",
                 "thumbnail": "Thumbnail 150 x 150"
             },
             "default_value": "large",
@@ -537,7 +537,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1720811314,
+    "modified": 1721258450,
     "acfe_categories": {
         "elements": "Elements"
     }

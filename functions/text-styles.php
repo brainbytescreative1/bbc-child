@@ -26,6 +26,12 @@ function get_text_styles_bbc($field) {
                 $mobile_breakpoint = 'lg';
             }
         }
+        if ( isset ( $field['remove_bottom_margin'] ) ) {
+            $remove_bottom_margin = $field['remove_bottom_margin'];
+            if ( $remove_bottom_margin === 'remove' ) {
+                $classes[] = 'mb-0';
+            }
+        }
         if ( isset ( $field['alignment'] ) ) {
             $alignment = $field['alignment'];
             if ( $alignment ) {
@@ -83,7 +89,7 @@ function get_text_styles_bbc($field) {
         }
         
         if ( $classes ) {
-            return implode(' ', $classes);
+            return trim(implode(' ', array_unique($classes)));
         }
 
     }    

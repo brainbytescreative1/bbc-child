@@ -8,9 +8,6 @@
 .icon-list a {
     display: flex;
 }
-.icon-list.orientation-horizontal {
-    flex-wrap: wrap;
-}
 .icon-list.orientation-horizontal li:first-of-type {
     margin-left: 0 !important;
 }
@@ -41,4 +38,19 @@
 }
 .icon-list .icon {
     margin-right: 12px;
+}
+.icon-list.two-columns-list {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+}
+.icon-list.three-columns-list {
+    columns: 3;
+    -webkit-columns: 3;
+    -moz-columns: 3;
+}
+.icon-list.four-columns-list {
+    columns: 4;
+    -webkit-columns: 4;
+    -moz-columns: 4;
 }
