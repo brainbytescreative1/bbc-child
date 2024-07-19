@@ -45,6 +45,10 @@ if ( have_rows('columns') ) {
     // initial container and row classes
     $wrapper_classes[] = 'container-wrapper';
     $section_width = get_field('section_width');
+    if ( get_field('section_wrapper_classes') ) {
+        $wrapper_classes[] = get_field('section_wrapper_classes');
+    }
+
     if ( $section_width == 'full' ) {
         $container_classes[] = 'container-fluid';
     } else {

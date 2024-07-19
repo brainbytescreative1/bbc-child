@@ -246,11 +246,21 @@ if( get_row_layout() == 'tabbed_content' ):
         $tab_text_classes[] = 'd-flex';
         $tab_text_classes[] = 'flex-column';
         $tab_text_classes[] = 'justify-content-center';
-        $tab_text_classes[] = 'p-2';
         $tab_text_classes[] = get_sub_field('tab_text');
-        if ( get_sub_field('tab_content_spacing' ) !== 'default' ) {
-            $tab_text_classes[] = 'p-' . $mobile_breakpoint . '-' . get_sub_field('tab_content_spacing' );
+        
+        // tab spacing
+        $tab_content_spacing = get_sub_field('tab_content_spacing' );
+        if ( $tab_content_spacing ) {
+            if ( $tab_content_spacing !== 'none' ) {
+                $tab_text_classes[] = 'p-' . get_sub_field('tab_content_spacing' );
+            } elseif ( $tab_content_spacing === 'default' ) {
+                $tab_text_classes[] = 'p-2';
+            }
+        } else {
+            $tab_text_classes[] = 'p-2';
         }
+
+        // tab content size
         $tab_content_text_size = get_sub_field('tab_content_text_size');
         if ( $tab_content_text_size && ( $tab_content_text_size !== 'default' ) ) {
             $tab_text_classes[] = $tab_content_text_size;
