@@ -82,17 +82,14 @@ if( get_row_layout() == 'tabbed_content' ):
             $tabs_classes[] = get_sub_field('tab_width');
         }
         if ( get_sub_field('tabs_margin_top') !== 'default' ) {
-            $tabs_classes[] = 'mt-' . get_sub_field('tabs_margin_top');
+            $tabs_classes[] = 'mt-' . $mobile_breakpoint . '-' . get_sub_field('tabs_margin_top');
+            $tabs_classes[] = 'mt-2';
         } else {
             $tabs_classes[] = 'mt-1';
         }
         if ( get_sub_field('tabs_margin_bottom') !== 'default' ) {
-            $tabs_classes[] = 'mb-' . get_sub_field('tabs_margin_bottom');
-        } else {
-            $tabs_classes[] = 'mb-1';
-        }
-        if ( get_sub_field('tabs_margin_bottom') !== 'default' ) {
-            $tabs_classes[] = 'mb-' . get_sub_field('tabs_margin_bottom');
+            $tabs_classes[] = 'mb-' . $mobile_breakpoint . '-' . get_sub_field('tabs_margin_bottom');
+            $tabs_classes[] = 'mb-2';
         } else {
             $tabs_classes[] = 'mb-1';
         }
@@ -127,9 +124,7 @@ if( get_row_layout() == 'tabbed_content' ):
             }
         }
 
-        // tabs responsive
-        $tabs_classes[] = 'flex-row';
-        
+        // breakpoint        
         $mobile_breakpoint = get_sub_field('mobile_breakpoint');
         $mobile_tab_width_breakpoint = null;
         switch ($mobile_breakpoint) {
@@ -159,11 +154,18 @@ if( get_row_layout() == 'tabbed_content' ):
                 $mobile_tab_width_breakpoint = '992px';
         }
 
+        // tabs responsive
+        $tabs_classes[] = 'flex-column';
+        $tabs_classes[] = 'flex-' . $mobile_breakpoint . '-row';
+
         $mobile_tab_width = null;
         $mobile_columns = get_sub_field('mobile_columns');
         switch ($mobile_columns) {
             case 'two':
                 $mobile_tab_width = '50%';
+                break;
+            case 'one':
+                $mobile_tab_width = '100%';
                 break;
             default:
                 $mobile_tab_width = '100%';
@@ -213,8 +215,11 @@ if( get_row_layout() == 'tabbed_content' ):
         // tab image
         $tab_image_classes = [];
         $tab_image_classes[] = 'tab-image';
-        $tab_image_classes[] = 'col-md-' . get_sub_field('image_width');
+        $tab_image_classes[] = 'col-'. $mobile_breakpoint .'-' . get_sub_field('image_width');
         $tab_image_classes[] = get_sub_field('tab_image');
+
+        $tab_image_inner_classes[] = 'd-none';
+        $tab_image_inner_classes[] = 'd-'. $mobile_breakpoint .'-none';
 
         // tab image styles
         $tab_image_styles = [];
@@ -239,6 +244,7 @@ if( get_row_layout() == 'tabbed_content' ):
         $tab_image_inner_classes[] = 'tab-image-inner';
         $tab_image_inner_classes[] = get_sub_field('tab_image_inner');
 
+        // tab text
         $tab_text_classes = [];
         $tab_text_classes[] = 'tab-text';
         $tab_text_classes[] = 'flex-grow-1';
@@ -251,10 +257,10 @@ if( get_row_layout() == 'tabbed_content' ):
         // tab spacing
         $tab_content_spacing = get_sub_field('tab_content_spacing' );
         if ( $tab_content_spacing ) {
-            if ( $tab_content_spacing !== 'none' ) {
-                $tab_text_classes[] = 'p-' . get_sub_field('tab_content_spacing' );
-            } elseif ( $tab_content_spacing === 'default' ) {
+            if ( $tab_content_spacing === 'default' ) {
                 $tab_text_classes[] = 'p-2';
+            } elseif ( $tab_content_spacing !== 'none' ) {
+                $tab_text_classes[] = 'p-' . get_sub_field('tab_content_spacing' );
             }
         } else {
             $tab_text_classes[] = 'p-2';
@@ -357,7 +363,7 @@ if( get_row_layout() == 'tabbed_content' ):
                 .nav-justified .nav-item {
                     flex-basis: auto;
                 }
-                .tabs-element .nav-item {
+                .nav-item {
                     width: calc(<?=$mobile_tab_width?> - <?=$tabs_space_between?>) !important;
                 }
                 .tabs-element .nav-link {
@@ -437,7 +443,7 @@ if( get_row_layout() == 'tabbed_content' ):
                                             <div class="bg-image-container">
                                                 <?php
                                                 if ( function_exists('get_responsive_image_bbc') ) { 
-                                                    echo get_responsive_image_bbc($image, 'medium_large', '768', $image_alt, 'bg-image mobile-hide object-fit-cover object-position-center-center'); 
+                                                    echo get_responsive_image_bbc($image, 'medium_large', '768', $image_alt, 'bg-image object-fit-cover object-position-center-center'); 
                                                 }
                                                 ?>
                                             </div>
