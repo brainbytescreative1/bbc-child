@@ -988,35 +988,35 @@ header .nav-link:hover {
 }
 /** remove margin from last column **/
 /* 2 */
-.columns-2:not(.columns-2.flex-column-reverse) .column-2 {
+.columns-2:not(.columns-2.flex-column-reverse) .column-2:not(.columns-2.gap-vertical-margin-bottom):not(.gap-vertical-custom) {
     margin-bottom: 0 !important;
 }
 .columns-2.flex-column-reverse .column-1 {
     margin-bottom: 0 !important;
 }
 /* 3 */
-.columns-3:not(.columns-3.flex-column-reverse) .column-3 {
+.columns-3:not(.columns-3.flex-column-reverse) .column-3:not(.columns-3.gap-vertical-margin-bottom):not(.gap-vertical-custom) {
     margin-bottom: 0 !important;
 }
 .columns-3.flex-column-reverse .column-1 {
     margin-bottom: 0 !important;
 }
 /* 4 */
-.columns-4:not(.columns-4.flex-column-reverse) .column-4 {
+.columns-4:not(.columns-4.flex-column-reverse) .column-4:not(.columns-4.gap-vertical-margin-bottom):not(.gap-vertical-custom) {
     margin-bottom: 0 !important;
 }
 .columns-4.flex-column-reverse .column-1 {
     margin-bottom: 0 !important;
 }
 /* 5 */
-.columns-5:not(.columns-5.flex-column-reverse) .column-5 {
+.columns-5:not(.columns-5.flex-column-reverse) .column-5:not(.columns-5.gap-vertical-margin-bottom):not(.gap-vertical-custom) {
     margin-bottom: 0 !important;
 }
 .columns-5.flex-column-reverse .column-1 {
     margin-bottom: 0 !important;
 }
 /* 6 */
-.columns-6:not(.columns-6.flex-column-reverse) .column-6 {
+.columns-6:not(.columns-6.flex-column-reverse) .column-6:not(.gap-vertical-margin-bottom):not(.gap-vertical-custom) {
     margin-bottom: 0 !important;
 }
 .columns-6.flex-column-reverse .column-1 {
@@ -2684,12 +2684,6 @@ a.col-inner {
     padding-right: 0;
     padding-left: 0;
 }
-/*
-.row.gap-default > * {
-    padding-right: calc(var(--custom-gutter-x) * .5);
-    padding-left: calc(var(--custom-gutter-x) * .5);
-}
-*/
 @media screen and (min-width: 992px) {
     section .container {
         padding-left: 0;
@@ -2697,12 +2691,19 @@ a.col-inner {
     }
     .navbar > .container, 
     .navbar > .container-fluid, 
-    .navbar > .container-lg, 
-    .navbar > .container-md, 
-    .navbar > .container-sm, 
-    .navbar > .container-xl,
     .row.gap-default > * {
         padding-right: calc(var(--custom-gutter-x) * .5);
         padding-left: calc(var(--custom-gutter-x) * .5);
+    }
+    .gap-vertical-margin-bottom {
+        margin-bottom: var(--custom-gutter-x);
+    }
+    .gap-vertical-custom {
+        margin-bottom: var(--custom-gutter-x);
+    }
+}
+@media screen and (max-width: 991px) {
+    .gap-vertical-margin-bottom {
+        margin-bottom: .75rem;
     }
 }

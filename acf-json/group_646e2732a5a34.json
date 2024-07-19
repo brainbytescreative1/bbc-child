@@ -796,7 +796,7 @@
         },
         {
             "key": "field_66705456c5e83",
-            "label": "Column Gap",
+            "label": "Column Gap Horizontal",
             "name": "column_gap",
             "aria-label": "",
             "type": "select",
@@ -825,21 +825,64 @@
         },
         {
             "key": "field_66705498c5e84",
-            "label": "Custom Column Gap",
+            "label": "Custom Column Gap Horizontal",
             "name": "custom_gap",
             "aria-label": "",
             "type": "number",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_66705456c5e83",
-                        "operator": "==",
-                        "value": "custom"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": "rem"
+        },
+        {
+            "key": "field_6699a4dca8395",
+            "label": "Column Gap Vertical",
+            "name": "column_gap_vertical",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "Default",
+                "margin-bottom": "Margin-Bottom",
+                "custom": "Custom"
+            },
+            "default_value": "default",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "allow_custom": 0,
+            "search_placeholder": ""
+        },
+        {
+            "key": "field_6699a4e8a8396",
+            "label": "Custom Column Gap Vertical",
+            "name": "custom_column_gap_vertical",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "50",
                 "class": "",
@@ -1465,7 +1508,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1718648504,
+    "modified": 1721345787,
     "acfe_categories": {
         "blocks": "Blocks"
     }

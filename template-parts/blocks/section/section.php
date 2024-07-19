@@ -61,10 +61,18 @@ if ( have_rows('columns') ) {
     $col_inner_classes = [];
     $col_inner_content_classes = [];
 
+    $col_classes_outside_loop = null;
+
     // column styles
     $col_styles = [];
     $col_inner_styles = [];
     $col_inner_content_styles = [];
+
+    $col_styles_outside_loop = null;
+    $col_inner_classes_outside_loop = null;
+    $col_inner_styles_outside_loop = null;
+    $col_inner_content_classes_outside_loop = null;
+    $col_inner_content_styles_outside_loop = null;
 
     // initial column styles
     $col_classes[] = 'col-element';
@@ -103,34 +111,44 @@ if ( have_rows('columns') ) {
     }
 
     // column gap
-    if ( $column_gap ) {
-        $row_classes[] = 'gap-' . $column_gap;
-        if ( $column_gap === 'custom' ) {
-            $custom_gap = get_field('custom_gap');
-            if ( $custom_gap ) { ?>
-                <style>
-                    [data-id="<?=$data_id?>"] .row  > * { 
-                        padding-right: calc(<?=$custom_gap?>rem * .5) !important;
-                        padding-left: calc(<?=$custom_gap?>rem * .5) !important;
-                    }
-                </style>
-            <?php }
+    if ( $column_gap === 'custom' ) {
+        $custom_gap = get_field('custom_gap');
+        if ( $custom_gap ) {
+            $col_styles[] = 'padding-right: calc('. $custom_gap . 'rem * .5);';
+            $col_styles[] = 'padding-left: calc('. $custom_gap . 'rem * .5);';
+        } else {
+            $row_classes[] = 'gap-default';
         }
+        $column_gap = $custom_gap;
+    } else {
+        $row_classes[] = 'gap-' . $column_gap;
     }
 
     // add default vertical margin gap on mobile
+    $column_gap_vertical = get_field('column_gap_vertical');
     $col_bottom_spacing = '';
-    if ( ( $col_count === 1 ) || ( $column_gap === 'none' ) ) {
-        $col_bottom_spacing = 'mb-0';
-    } else {
-        $top_bottom_padding_column_mobile = get_field('top_bottom_padding_column_mobile', 'style');
-        if ( $top_bottom_padding_column_mobile ) {
-            $col_bottom_spacing = 'mb-' . $top_bottom_padding_column_mobile;
-        } else {
-            $col_bottom_spacing = 'mb-1';
+    
+    if ( $column_gap_vertical === 'margin-bottom' ) {
+        $col_classes[] = 'gap-vertical-margin-bottom';
+    } elseif ( $column_gap_vertical === 'custom' ) {
+        $custom_column_gap_vertical = get_field('custom_column_gap_vertical');
+        if ( $custom_column_gap_vertical ) {
+            $col_styles[] = 'margin-bottom: ' . $custom_column_gap_vertical . 'rem;';
         }
-    }
-    $col_classes[] = 'mb-' . $mobile_breakpoint . '-0 ' . $col_bottom_spacing;
+        $col_classes[] = 'gap-vertical-custom';
+    } else {
+        if ( ( $col_count === 1 ) || ( $column_gap === 'none' ) ) {
+            $col_bottom_spacing = 'mb-0';
+        } else {
+            $top_bottom_padding_column_mobile = get_field('top_bottom_padding_column_mobile', 'style');
+            if ( $top_bottom_padding_column_mobile ) {
+                $col_bottom_spacing = 'mb-' . $top_bottom_padding_column_mobile;
+            } else {
+                $col_bottom_spacing = 'mb-1';
+            }
+        }
+        $col_classes[] = 'mb-' . $mobile_breakpoint . '-0 ' . $col_bottom_spacing;
+    }    
 
     // container classes and styling
     $min_height_100vh_minus_menu_height = get_field('min_height_100vh_minus_menu_height');
@@ -149,7 +167,6 @@ if ( have_rows('columns') ) {
             $container_styles[] = $min_height . ';';
         }
     }
-    
 
     // row classes and styling
     $max_width = get_field('max_width');
@@ -277,12 +294,24 @@ if ( have_rows('columns') ) {
     $row_inner_styles = trim(implode(' ', $row_inner_styles));
 
     // push styles inside loop
-    $col_classes_outside_loop = trim(implode(' ', $col_classes));
-    $col_inner_classes_outside_loop = trim(implode(' ', $col_inner_classes));
-    $col_inner_content_classes_outside_loop = trim(implode(' ', $col_inner_content_classes));
-    $col_styles_outside_loop = trim(implode(' ', $col_styles));
-    $col_inner_styles_outside_loop = trim(implode(' ', $col_inner_styles));
-    $col_inner_content_styles_outside_loop = trim(implode(' ', $col_inner_content_styles));
+    if ( $col_classes ) {
+        $col_classes_outside_loop = trim(implode(' ', $col_classes));
+    }
+    if ( $col_styles ) {
+        $col_styles_outside_loop = trim(implode(' ', $col_styles));
+    }
+    if ( $col_inner_classes ) {
+        $col_inner_classes_outside_loop = trim(implode(' ', $col_inner_classes));
+    }
+    if ( $col_inner_content_classes ) {
+        $col_inner_content_classes_outside_loop = trim(implode(' ', $col_inner_content_classes));
+    }
+    if ( $col_inner_styles ) {
+        $col_inner_styles_outside_loop = trim(implode(' ', $col_inner_styles));
+    }
+    if ( $col_inner_content_styles ) {
+        $col_inner_content_styles_outside_loop = trim(implode(' ', $col_inner_content_styles));
+    }
     /* compile classes and styles end */
 
 }
@@ -326,9 +355,12 @@ if ( get_field('columns') && ( $col_count > 0 ) ) { // if columns, add container
                         $col_styles = [];
                         $col_classes[] = $col_classes_outside_loop;
                         $col_classes[] = 'column-' . $col_count;
+                        $col_styles[] = $col_styles_outside_loop;
                         $col_video = null;
                         $col_overlay = null;
                         $col_mobile_overlay = null;
+
+                        
 
                         // col inner
                         $col_inner_classes = [];
@@ -356,6 +388,8 @@ if ( get_field('columns') && ( $col_count > 0 ) ) { // if columns, add container
                             } else {
                                 $col_classes[] = 'col-' . $mobile_breakpoint . '-' . $col_width;
                             }
+                        } else {
+                            $col_classes[] = 'col-' . $mobile_breakpoint . '-' . $col_width;
                         }
 
                         // custom column max width
