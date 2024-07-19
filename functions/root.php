@@ -95,8 +95,12 @@ function global_site_variables(){
     if ( $horizontal_gap ) {
         echo '--custom-gutter-x: '.$horizontal_gap.'rem;';
         echo "\r\n";
+        echo '--custom-gutter-neg: -'.$horizontal_gap.'rem;';
+        echo "\r\n";
     } else {
         echo '--custom-gutter-x: 1.5rem;';
+        echo "\r\n";
+        echo '--custom-gutter-neg: -1.5rem;';
         echo "\r\n";
     }
 

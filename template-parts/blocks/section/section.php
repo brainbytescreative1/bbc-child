@@ -130,10 +130,14 @@ if ( have_rows('columns') ) {
     
     if ( $column_gap_vertical === 'margin-bottom' ) {
         $col_classes[] = 'gap-vertical-margin-bottom';
+        $row_classes[] = 'gap-vertical-margin-bottom-neg';
     } elseif ( $column_gap_vertical === 'custom' ) {
         $custom_column_gap_vertical = get_field('custom_column_gap_vertical');
         if ( $custom_column_gap_vertical ) {
             $col_styles[] = 'margin-bottom: ' . $custom_column_gap_vertical . 'rem;';
+            $row_styles[] = 'margin-bottom: -' . $custom_column_gap_vertical . 'rem;';
+        } else {
+            $row_classes[] = 'gap-vertical-custom-neg';
         }
         $col_classes[] = 'gap-vertical-custom';
     } else {

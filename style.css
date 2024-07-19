@@ -2695,15 +2695,22 @@ a.col-inner {
         padding-right: calc(var(--custom-gutter-x) * .5);
         padding-left: calc(var(--custom-gutter-x) * .5);
     }
-    .gap-vertical-margin-bottom {
-        margin-bottom: var(--custom-gutter-x);
-    }
+    .gap-vertical-margin-bottom,
     .gap-vertical-custom {
         margin-bottom: var(--custom-gutter-x);
     }
+    .gap-vertical-margin-bottom-neg,
+    .gap-vertical-custom-neg {
+        margin-bottom: var(--custom-gutter-neg);
+    }
 }
 @media screen and (max-width: 991px) {
-    .gap-vertical-margin-bottom {
+    .gap-vertical-margin-bottom,
+    .gap-vertical-custom {
         margin-bottom: .75rem;
+    }
+    .gap-vertical-margin-bottom-neg,
+    .gap-vertical-custom-neg {
+        margin-bottom: -.75rem;
     }
 }
