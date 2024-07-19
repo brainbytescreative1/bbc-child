@@ -78,7 +78,7 @@ if ( $top_menu_layout ) { // top menu fields start
             $single_menu_classes = [];
             $single_menu_classes[] = 'top-single-menu-container';
             $single_menu_classes[] = 'd-flex';
-            $single_menu_classes[] = 'justify-content-center';
+            
             $single_menu_classes[] = 'w-100';
             $single_menu_alignment = get_field('single_menu_alignment', 'header');
             if ( $single_menu_alignment ) {
@@ -125,15 +125,27 @@ if ( $top_menu_layout ) { // top menu fields start
                 } else {
                     $top_left_menu_classes[] = 'd-flex';
                 }
-                
+
                 $left_menu_alignment = get_field('left_menu_alignment', 'header');
-                $top_left_menu_classes[] = 'justify-content-center';
                 if ( $left_menu_alignment ) {
-                    $top_left_menu_classes[] = $left_menu_alignment;
+                    $top_left_menu_classes[] = 'justify-content-'. $mobile_breakpoint .'-'. $left_menu_alignment;
                 } else {
-                    $top_right_menu_classes[] = 'justify-content-'. $mobile_breakpoint .'-start';
+                    $top_left_menu_classes[] = 'justify-content-'. $mobile_breakpoint .'-end';
                 }
-                
+
+                $left_menu_alignment_mobile = get_field('left_menu_alignment_mobile', 'header');
+                if ( $left_menu_alignment_mobile ) {
+                    if ( $left_menu_alignment_mobile === 'left' ) {
+                        $top_left_menu_classes[] = 'justify-content-start';
+                    } elseif ( $left_menu_alignment_mobile === 'center' ) {
+                        $top_left_menu_classes[] = 'justify-content-center';
+                    } elseif ( $left_menu_alignment_mobile === 'end' ) {
+                        $top_left_menu_classes[] = 'justify-content-end';
+                    }
+                } else {
+                    $top_left_menu_classes[] = 'justify-content-end';
+                }
+
                 $top_left_menu_classes = esc_attr( trim( implode(' ', $top_left_menu_classes ) ) );
 
                 echo '<div class="'. $top_left_menu_classes .'">'; // left menu start
@@ -175,11 +187,23 @@ if ( $top_menu_layout ) { // top menu fields start
                 }
 
                 $right_menu_alignment = get_field('right_menu_alignment', 'header');
-                $top_right_menu_classes[] = 'justify-content-center';
                 if ( $right_menu_alignment ) {
                     $top_right_menu_classes[] = 'justify-content-'. $mobile_breakpoint .'-'. $right_menu_alignment;
                 } else {
                     $top_right_menu_classes[] = 'justify-content-'. $mobile_breakpoint .'-end';
+                }
+
+                $right_menu_alignment_mobile = get_field('right_menu_alignment_mobile', 'header');
+                if ( $right_menu_alignment_mobile ) {
+                    if ( $right_menu_alignment_mobile === 'left' ) {
+                        $top_right_menu_classes[] = 'justify-content-start';
+                    } elseif ( $right_menu_alignment_mobile === 'center' ) {
+                        $top_right_menu_classes[] = 'justify-content-center';
+                    } elseif ( $right_menu_alignment_mobile === 'end' ) {
+                        $top_right_menu_classes[] = 'justify-content-end';
+                    }
+                } else {
+                    $top_right_menu_classes[] = 'justify-content-end';
                 }
                 
                 $top_right_menu_classes = esc_attr( trim( implode(' ', $top_right_menu_classes ) ) );
