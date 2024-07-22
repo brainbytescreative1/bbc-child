@@ -44,6 +44,8 @@ function global_site_variables(){
     $main_menu_font_family = get_field('main_menu_font_family', 'header');
     $main_menu_font_weight = null;
     $main_menu_font_weight = get_field('main_menu_font_weight', 'header');
+    $header_height = null;
+    $header_height = get_field('header_height', 'header');
 
     // typography
     $base_font_size = get_field('base_font_size', 'style');
@@ -129,28 +131,48 @@ function global_site_variables(){
     echo '--text-background: #000000;';
     echo "\r\n";
 
-    /* logo */
-    echo '--logo_width: '. $logo_width. 'px;';
-    echo "\r\n";
-    echo '--sticky_logo_width: '. $sticky_logo_width .'px;';
-    echo "\r\n";
-    
+    /* logo & header */
+    if ( $logo_width ) {
+        echo '--logo_width: '. $logo_width. 'px;';
+        echo "\r\n";
+    }
+    if ( $sticky_logo_width ) {
+        echo '--sticky_logo_width: '. $sticky_logo_width .'px;';
+        echo "\r\n";
+    }
+    if ( $header_height ) {
+        echo '--header_height: ' . $header_height . 'px;';
+        echo "\r\n";
+    }
+    if ( $header_height && is_user_logged_in() ) {
+        $header_height_desktop = $header_height + 32;
+        echo '--header_height_logged_in: ' . $header_height_desktop . 'px;';
+        echo "\r\n";
+        $header_height_mobile = $header_height + 46;
+        echo '--header_height_logged_in_mobile: ' . $header_height_mobile . 'px;';
+        echo "\r\n";
+    }
 
     /* typography */
     if ( $base_font_size ) {
-    echo '--base_font_size: '. $base_font_size. 'px;';
-    echo "\r\n";
+        echo '--base_font_size: '. $base_font_size. 'px;';
+        echo "\r\n";
     }
 
     /* font weight */
     if ( $base_font_weight && ( $base_font_weight !== 'default' ) ) {
-    echo '--bs-body-font-weight: '. $base_font_weight .';';
-    echo "\r\n";
+        echo '--bs-body-font-weight: '. $base_font_weight .';';
+        echo "\r\n";
     }
 
     /* sections */
-    echo '--max-width: '. $max_width .'px;';
-    echo "\r\n";
+    if ( $max_width ) {
+        echo '--max-width: '. $max_width .'px;';
+        echo "\r\n";
+    } else {
+        echo '--max-width: 1468px;';
+        echo "\r\n";
+    }
 
     /* font families */
     echo '--font-primary: '. $primary_font .';';
@@ -160,52 +182,54 @@ function global_site_variables(){
 
     /* text link color */
     if ( $text_link_color ) {
-    echo '--bs-link-color: var(--'.$text_link_color['theme_colors'].');';
-    echo "\r\n";
-    echo '--bs-link-hover-color: var(--' .$text_link_color['theme_colors']. ');';
-    echo "\r\n";
-    echo '--bs-link-hover-color: var(--'. $text_link_color['theme_colors']. '_hover);';
-    echo "\r\n";
+        echo '--bs-link-color: var(--'.$text_link_color['theme_colors'].');';
+        echo "\r\n";
+        echo '--bs-link-hover-color: var(--' .$text_link_color['theme_colors']. ');';
+        echo "\r\n";
+        echo '--bs-link-hover-color: var(--'. $text_link_color['theme_colors']. '_hover);';
+        echo "\r\n";
     }
 
     /* text link weight */
     if ( $text_link_weight && ( $text_link_weight !== 'default' ) ) {
-    echo '--bs-link-weight: '. $text_link_weight .';';
-    echo "\r\n";
+        echo '--bs-link-weight: '. $text_link_weight .';';
+        echo "\r\n";
     }
 
     /* header */
     if ( $main_menu_text_color ) {
-    echo '--main_menu_text_color: var(--'. $main_menu_text_color['theme_colors'] .');';
-    echo "\r\n";
+        echo '--main_menu_text_color: var(--'. $main_menu_text_color['theme_colors'] .');';
+        echo "\r\n";
     }
 
     /* buttons */
-    echo '--button_border-radius: '. $border_radius .'px;';
-    echo "\r\n";
+    if ( $border_radius ) {
+        echo '--button_border-radius: '. $border_radius .'px;';
+        echo "\r\n";
+    }
 
     $border_width = get_field('border_width', 'style');
     if ( $border_width ) {
-    echo '--button_border_width: '. $border_width .'px;';
-    echo "\r\n";
+        echo '--button_border_width: '. $border_width .'px;';
+        echo "\r\n";
     }
     
     $button_font_weight = get_field('button_font_weight', 'style');
     if ( $button_font_weight ) {
-    echo '--button_font_weight: '. $button_font_weight .';';
-    echo "\r\n";
+        echo '--button_font_weight: '. $button_font_weight .';';
+        echo "\r\n";
     }
     
     $button_font_family = get_field('button_font_family', 'style');
     if ( $button_font_family ) {
-    echo '--button_font_family: var(--font-'. $button_font_family .');';
-    echo "\r\n";
+        echo '--button_font_family: var(--font-'. $button_font_family .');';
+        echo "\r\n";
     }
     
     $button_letter_spacing = get_field('button_letter_spacing', 'style');
     if ( $button_letter_spacing ) {
-    echo '--button_letter_spacing: '. $button_letter_spacing. 'px;';
-    echo "\r\n";
+        echo '--button_letter_spacing: '. $button_letter_spacing. 'px;';
+        echo "\r\n";
     }
 
     $radius_values = [

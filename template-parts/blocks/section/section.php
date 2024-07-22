@@ -162,10 +162,7 @@ if ( have_rows('columns') ) {
     $min_height_100vh_minus_menu_height = get_field('min_height_100vh_minus_menu_height');
     $min_height = get_field('min_height');
     if ( $min_height_100vh_minus_menu_height === 'enabled' ) {
-        $header_height = get_field('header_height', 'header');
         $container_classes[] = 'min-height-view-height';
-        $min_height = 'min-height: calc( 100svh - ' . $header_height . 'px)';
-        $container_styles[] = $min_height . ';';
     } elseif ( $min_height ) {
         $value = $min_height['value'];
         if ( $value ) {
@@ -291,6 +288,30 @@ if ( have_rows('columns') ) {
         $row_classes[] = get_spacing_bbc(get_field('row_spacing'));
     }
 
+    // get backgrounds
+    // section background
+    if ( function_exists('get_background_bbc') ) {
+        $section_background = get_background_bbc('section_background');
+        if ( $section_background ) {
+            if ( isset( $section_background[1] ) ) {
+                if ( $section_background[1] ) {
+                    $container_styles[] = $section_background[1];
+                }
+            }
+        }
+    }
+    // row background
+    if ( function_exists('get_background_bbc') ) {
+        $row_background = get_background_bbc('row_background');
+        if ( $row_background ) {
+            if ( isset( $row_background[1] ) ) {
+                if ( $row_background[1] ) {
+                    $row_styles[] = $row_background[1];
+                }
+            }
+        }
+    }
+
     /* compile classes and styles start */
     $wrapper_classes = trim(implode(' ', $wrapper_classes));
     $container_classes = trim(implode(' ', $container_classes));
@@ -341,16 +362,24 @@ if ( get_field('columns') && ( $col_count > 0 ) ) { // if columns, add container
 
         echo '<div class="'. $container_classes .'" style="'. $container_styles .'" data-id="'. $data_id .'" '. $custom_id .'>'; // container start
 
-            if ( function_exists('get_background_bbc') ) {
-                echo get_background_bbc('section_background');
+            if ( $section_background ) {
+                if ( isset($section_background[0]) ) {
+                    if ( $section_background[0] ) {
+                        echo $section_background[0] ;
+                    }
+                }
             }
 
             ?>
             <div class="<?=esc_attr($row_classes)?>"<?php if ( get_field('masonry') === 'enabled' ) { ?> data-masonry='{"percentPosition": true }' <?php } ?> style="<?=esc_attr($row_styles)?>">
             <?php // row start
 
-                if ( function_exists('get_background_bbc') ) {
-                    echo get_background_bbc('row_background');
+                if ( $row_background ) {
+                    if ( isset($row_background[0]) ) {
+                        if ( $row_background[0] ) {
+                            echo $row_background[0] ;
+                        }
+                    }
                 }
 
                 if( have_rows('columns') ): // if columns start
@@ -367,8 +396,6 @@ if ( get_field('columns') && ( $col_count > 0 ) ) { // if columns, add container
                         $col_video = null;
                         $col_overlay = null;
                         $col_mobile_overlay = null;
-
-                        
 
                         // col inner
                         $col_inner_classes = [];
@@ -541,6 +568,18 @@ if ( get_field('columns') && ( $col_count > 0 ) ) { // if columns, add container
                         if ( $additional_classes ) {
                             $col_classes[] = $additional_classes;
                         }
+
+                        // column background
+                        if ( function_exists('get_background_bbc') ) {
+                            $col_background = get_background_bbc('column_background', true);
+                            if ( $col_background ) {
+                                if ( isset( $col_background[1] ) ) {
+                                    if ( $col_background[1] ) {
+                                        $col_styles[] = $col_background[1];
+                                    }
+                                }
+                            }
+                        }
                         
                         // compile column classes
                         $col_classes = trim(implode(' ', $col_classes));
@@ -571,16 +610,24 @@ if ( get_field('columns') && ( $col_count > 0 ) ) { // if columns, add container
 
                             // column background
                             if ( $element_assignment === 'outer') {
-                                if ( function_exists('get_background_bbc') ) {
-                                    echo get_background_bbc('column_background', true);
-                                } 
+                                if ( $col_background ) {
+                                    if ( isset($col_background[0]) ) {
+                                        if ( $col_background[0] ) {
+                                            echo $col_background[0];
+                                        }
+                                    }
+                                }
                             }
 
                             echo '<div class="'. $col_inner_classes .'" style="'. $col_inner_styles .'">'; // col-inner start
 
                                 if ( $element_assignment === 'inner') {
-                                    if ( function_exists('get_background_bbc') ) {
-                                        echo get_background_bbc('column_background', true);
+                                    if ( $col_background ) {
+                                        if ( isset($col_background[0]) ) {
+                                            if ( $col_background[0] ) {
+                                                echo $col_background[0];
+                                            }
+                                        }
                                     }
                                 }
 
