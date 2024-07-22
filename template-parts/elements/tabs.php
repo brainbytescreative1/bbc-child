@@ -7,10 +7,6 @@ if( get_row_layout() == 'tabbed_content' ):
 
     if ( $tabs ) {
 
-        echo '<style>';
-            include_once( __DIR__ . '/styles/tabs.css');
-        echo '</style>';
-
         // wrapper
         $tabs_wrapper_classes = [];
         $tabs_wrapper_classes[] = 'tabs-wrapper';
@@ -155,8 +151,8 @@ if( get_row_layout() == 'tabbed_content' ):
         }
 
         // tabs responsive
-        $tabs_classes[] = 'flex-column';
-        $tabs_classes[] = 'flex-' . $mobile_breakpoint . '-row';
+        //$tabs_classes[] = 'flex-column';
+        //$tabs_classes[] = 'flex-' . $mobile_breakpoint . '-row';
 
         $mobile_tab_width = null;
         $mobile_columns = get_sub_field('mobile_columns');
@@ -258,12 +254,12 @@ if( get_row_layout() == 'tabbed_content' ):
         $tab_content_spacing = get_sub_field('tab_content_spacing' );
         if ( $tab_content_spacing ) {
             if ( $tab_content_spacing === 'default' ) {
-                $tab_text_classes[] = 'p-2';
+                $tab_text_classes[] = 'p-'. $mobile_breakpoint .'-2';
             } elseif ( $tab_content_spacing !== 'none' ) {
                 $tab_text_classes[] = 'p-' . get_sub_field('tab_content_spacing' );
+            } else {
+                $tab_text_classes[] = 'p-'. $mobile_breakpoint .'-2';
             }
-        } else {
-            $tab_text_classes[] = 'p-2';
         }
 
         // tab content size
@@ -359,7 +355,12 @@ if( get_row_layout() == 'tabbed_content' ):
                 color: <?=$text_color?> !important;
                 background: <?=$text_background_color?> !important;
             }
-            @media screen (min-width: 400px) and (max-width: <?=$mobile_tab_width_breakpoint?>) {
+            .tab-image-inner {
+                height: 100%;
+                position: relative;
+                background-size: cover !important;
+            }
+            @media screen and (max-width: <?=$mobile_tab_width_breakpoint?>) {
                 .nav-justified .nav-item {
                     flex-basis: auto;
                 }
@@ -367,6 +368,17 @@ if( get_row_layout() == 'tabbed_content' ):
                     width: calc(<?=$mobile_tab_width?> - <?=$tabs_space_between?>) !important;
                 }
                 .tabs-element .nav-link {
+                    width: 100% !important;
+                }
+                .tab-image-inner {
+                    min-height: unset !important;
+                }
+            }
+            @media screen and (max-width: 430px) {
+                .tabs-element .nav {
+                    flex-direction: column !important;
+                }
+                .tabs-element .nav-item {
                     width: 100% !important;
                 }
             }
