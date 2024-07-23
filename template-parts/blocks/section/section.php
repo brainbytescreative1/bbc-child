@@ -569,13 +569,19 @@ if ( get_field('columns') && ( $col_count > 0 ) ) { // if columns, add container
                             $col_classes[] = $additional_classes;
                         }
 
-                        // column background
+                        // column background color
                         if ( function_exists('get_background_bbc') ) {
                             $col_background = get_background_bbc('column_background', true);
                             if ( $col_background ) {
                                 if ( isset( $col_background[1] ) ) {
-                                    if ( $col_background[1] ) {
-                                        $col_styles[] = $col_background[1];
+                                    if ( $element_assignment === 'outer' ) {
+                                        if ( $col_background[1] ) {
+                                            $col_styles[] = $col_background[1];
+                                        }
+                                    } elseif ( $element_assignment === 'inner' ) {
+                                        if ( $col_background[1] ) {
+                                            $col_inner_styles[] = $col_background[1];
+                                        }
                                     }
                                 }
                             }

@@ -185,7 +185,11 @@
 .editor-styles-wrapper ol, .editor-styles-wrapper ul {
 	padding-left: 0 !important;
 }
+/** blocks **/
 .wp-block[data-type="core/widget-area"],
 .blocks-widgets-container .wp-block-widget-area__inner-blocks.editor-styles-wrapper {
 	max-width: 100% !important;
+}
+.wp-block.is-selected {
+    z-index: 32;
 }
