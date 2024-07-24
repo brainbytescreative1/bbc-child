@@ -4,7 +4,7 @@ function stickyNav() {
     window.addEventListener('scroll', stickyNav);
 
     // Get the navbar
-    var navbar = document.getElementById("sticky-nav");
+    let navbar = document.getElementById("sticky-nav");
     navbar.classList.add("d-none");
     navbar.classList.add("fixed-top");
     navbar.classList.add("animated");
@@ -16,6 +16,8 @@ function stickyNav() {
 
     // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
     function stickyNav() {
+
+        console.log(pageYOffset);
         
         if (window.pageYOffset >= mainNavHeightOffset) {
             navbar.classList.add("slideDown");
@@ -77,11 +79,11 @@ function firstElementSpacing(headerHeight) {
 
     if ( headerHeight ) {
         // manual ACF height value
-        menuHeight = headerHeight + 1;
+        menuHeight = headerHeight;
     } else {
         // get menu element
         menu = document.querySelector('#wrapper-navbar');
-        menuHeight = menu.offsetHeight + 1;
+        menuHeight = menu.offsetHeight;
     }
 
     // apply style to content
@@ -96,4 +98,5 @@ function firstElementSpacing(headerHeight) {
     // set top padding of first element
     let paddingTop = parseInt(firstElementStyle.paddingTop);
     firstElement.style.setProperty("padding-top", ( menuHeight + paddingTop ) + 'px', "important");
+
 }

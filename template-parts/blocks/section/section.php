@@ -159,11 +159,19 @@ if ( have_rows('columns') ) {
     }    
 
     // container classes and styling
-    $min_height_100vh_minus_menu_height = get_field('min_height_100vh_minus_menu_height');
     $min_height = get_field('min_height');
-    if ( $min_height_100vh_minus_menu_height === 'enabled' ) {
-        $container_classes[] = 'min-height-view-height';
+    $min_height_100vh_minus_menu_height = get_field('min_height_100vh_minus_menu_height');
+    if ( $min_height_100vh_minus_menu_height && ( $min_height_100vh_minus_menu_height === 'enabled' ) ) {
+
+        $header_style = get_field('header_style', 'header');
+        if ( $header_style && ( $header_style !== 'rounded' ) ) {
+            $container_classes[] = 'min-height-view-height';
+        } else {
+            $container_classes[] = 'min-height-view-height-rounded';
+        }
+
     } elseif ( $min_height ) {
+
         $value = $min_height['value'];
         if ( $value ) {
             $container_classes[] = 'has-min-height';
@@ -171,6 +179,7 @@ if ( have_rows('columns') ) {
             $min_height = 'min-height: ' . $value . $unit;
             $container_styles[] = $min_height . ';';
         }
+
     }
 
     // row classes and styling

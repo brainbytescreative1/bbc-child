@@ -47,19 +47,6 @@ if ( $show_dropdown_indicators == 'hide' ) {
 	$container_classes[] = 'hide-dropdown-arrows';
 }
 
-// padding
-$menu_padding = null;
-if ( function_exists('get_menu_padding_bbc') ) {
-    $menu_padding = get_menu_padding_bbc(get_field('main_menu_padding_updated', 'header'), $wrapper_classes, $wrapper_styles);
-
-    if ( $menu_padding['classes'] ) {
-        $wrapper_classes = $menu_padding['classes'];
-    }
-    if ( $menu_padding['styles'] ) {
-        $wrapper_styles = $menu_padding['styles'];
-    }
-}
-
 // gap
 $gap = ' gap-1';
 $cta_buttons = get_field('cta_buttons', 'header');

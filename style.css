@@ -750,6 +750,10 @@ header .nav-link:hover {
     flex-direction: column;
     justify-content: center;
 }
+.navbar {
+    padding-top: var(--bs-navbar-padding-y-custom);
+    padding-bottom: var(--bs-navbar-padding-y-custom);
+}
 /* rounded */
 .header-rounded {
     border-radius: 0;
@@ -1133,6 +1137,7 @@ header .nav-link:hover {
         min-height: 400px !important;
     }
 }
+/* normal min height */
 .min-height-view-height {
     min-height: calc(100svh - var(--header_height));
 }
@@ -1144,6 +1149,20 @@ header .nav-link:hover {
 @media screen and (max-width: 782px) {
     .logged-in .min-height-view-height {
         min-height: calc(100svh - var(--header_height_logged_in_mobile));
+    }
+}
+/* min height for rounded menu */
+.min-height-view-height-rounded {
+    min-height: 100svh;
+}
+@media screen and (min-width: 783px) {
+    .logged-in .min-height-view-height-rounded {
+        min-height: calc(100svh - 32px);
+    }
+}
+@media screen and (max-width: 782px) {
+    .logged-in .min-height-view-height-rounded {
+        min-height: calc(100svh - 8px);
     }
 }
 /** rows **/

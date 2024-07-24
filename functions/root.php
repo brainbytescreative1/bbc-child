@@ -141,15 +141,39 @@ function global_site_variables(){
     if ( $header_height ) {
         echo '--header_height: ' . $header_height . 'px;';
         echo "\r\n";
+    } else {
+        echo '--header_height: 0px;';
+        echo "\r\n";
     }
     if ( $header_height && is_user_logged_in() ) {
         $header_height_desktop = $header_height + 32;
         echo '--header_height_logged_in: ' . $header_height_desktop . 'px;';
         echo "\r\n";
-        $header_height_mobile = $header_height + 46;
+        $header_height_mobile = $header_height + 28;
         echo '--header_height_logged_in_mobile: ' . $header_height_mobile . 'px;';
         echo "\r\n";
+    } else {
+        echo '--header_height_logged_in: 32px;';
+        echo "\r\n";
+        echo '--header_height_logged_in_mobile: 8px;';
+        echo "\r\n";
     }
+
+    $menu_padding = get_field('main_menu_padding_updated', 'header');
+    if ( $menu_padding !== 'default' ) {
+        echo '--bs-navbar-padding-y-custom: ' . $menu_padding . ';';
+        echo "\r\n";
+    } else {
+        echo '--bs-navbar-padding-y-custom: 1.5rem;';
+        echo "\r\n";
+    }
+    
+    /*
+    if ( function_exists('get_menu_padding_bbc') ) {
+        $menu_padding = get_menu_padding_bbc(get_field('main_menu_padding_updated', 'header'), $wrapper_classes, $wrapper_styles);
+        
+    }
+        */
 
     /* typography */
     if ( $base_font_size ) {
