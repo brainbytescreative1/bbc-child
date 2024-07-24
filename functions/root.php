@@ -75,8 +75,6 @@ function global_site_variables(){
     echo "\r\n";
     echo "\r\n";
     /* typography */
-    echo '--bs-body-font-family: var(--font-primary);';
-    echo "\r\n";
     /* colors */
     foreach ( $colors as $color ) {
         $color_value = get_field($color, 'style');
@@ -157,6 +155,9 @@ function global_site_variables(){
     if ( $base_font_size ) {
         echo '--base_font_size: '. $base_font_size. 'px;';
         echo "\r\n";
+    } else {
+        echo '--base_font_size: 16px;';
+        echo "\r\n";
     }
 
     /* font weight */
@@ -175,19 +176,27 @@ function global_site_variables(){
     }
 
     /* font families */
-    echo '--font-primary: '. $primary_font .';';
-    echo "\r\n";
-    echo '--font-secondary: '. $secondary_font .';';
-    echo "\r\n";
+    if ( $primary_font ) {
+        echo '--font-primary: '. $primary_font .';';
+        echo "\r\n";
+        echo '--bs-body-font-family: var(--font-primary);';
+        echo "\r\n";
+    }
+    if ( $secondary_font ) {
+        echo '--font-secondary: '. $secondary_font .';';
+        echo "\r\n";
+    }
 
     /* text link color */
-    if ( $text_link_color ) {
-        echo '--bs-link-color: var(--'.$text_link_color['theme_colors'].');';
-        echo "\r\n";
-        echo '--bs-link-hover-color: var(--' .$text_link_color['theme_colors']. ');';
-        echo "\r\n";
-        echo '--bs-link-hover-color: var(--'. $text_link_color['theme_colors']. '_hover);';
-        echo "\r\n";
+    if ( if_array_value($text_link_color, 'theme_colors') ) {
+        if ( $text_link_color['theme_colors'] ) {
+            echo '--bs-link-color: var(--'.$text_link_color['theme_colors'].');';
+            echo "\r\n";
+            echo '--bs-link-hover-color: var(--' .$text_link_color['theme_colors']. ');';
+            echo "\r\n";
+            echo '--bs-link-hover-color: var(--'. $text_link_color['theme_colors']. '_hover);';
+            echo "\r\n";
+        }
     }
 
     /* text link weight */
@@ -197,9 +206,11 @@ function global_site_variables(){
     }
 
     /* header */
-    if ( $main_menu_text_color ) {
-        echo '--main_menu_text_color: var(--'. $main_menu_text_color['theme_colors'] .');';
-        echo "\r\n";
+    if ( if_array_value($main_menu_text_color, 'theme_colors') ) {
+        if ( $main_menu_text_color['theme_colors'] ) {
+            echo '--main_menu_text_color: var(--'. $main_menu_text_color['theme_colors'] .');';
+            echo "\r\n";
+        }
     }
 
     /* buttons */
@@ -221,7 +232,7 @@ function global_site_variables(){
     }
     
     $button_font_family = get_field('button_font_family', 'style');
-    if ( $button_font_family ) {
+    if ( $button_font_family !== 'default' ) {
         echo '--button_font_family: var(--font-'. $button_font_family .');';
         echo "\r\n";
     }

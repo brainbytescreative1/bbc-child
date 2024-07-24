@@ -20,12 +20,12 @@ if( get_row_layout() == 'form' ):
     // color scheme
     $color_scheme_select = get_field($color_scheme, 'forms');
 
-    $input_text = 'var(--text)';
+    $input_text = '#000000';
     $input_background = '#ffffff';
-    $input_border = 'transparent';
-    $checkbox_text = 'var(--text)';
+    $input_border = '#000000';
+    $checkbox_text = '#000000';
     $checkbox_checkmark = '#ffffff';
-    $checkbox_background = 'var(--text)';
+    $checkbox_background = '#000000';
     if ( $color_scheme === 'dark' ) {
         $checkbox_text = '#ffffff';
         $checkbox_checkmark = 'var(--text)';
@@ -33,9 +33,9 @@ if( get_row_layout() == 'form' ):
     }
     $checkbox_text_link = '';
     $submit_button_text = '#ffffff';
-    $submit_background = 'var(--success)';
-    $submit_background_hover = 'var(--success_hover)';
-    $confirmation_color = 'var(--text)';
+    $submit_background = '#000000';
+    $submit_background_hover = '#000000';
+    $confirmation_color = '#000000';
     if ( $color_scheme === 'dark' ) {
         $confirmation_color = '#ffffff';
     }
@@ -57,97 +57,125 @@ if( get_row_layout() == 'form' ):
     $submit_radius = 'var(--button_border-radius)';
 
     // input
-    if ( $color_scheme_select['input_text']['custom_color'] ) {
-        $input_text = $color_scheme_select['input_text']['custom_color'];
-    } elseif ( $color_scheme_select['input_text']['theme_colors'] ) {
-        $input_text = 'var(--' . $color_scheme_select['input_text']['theme_colors'] . ')';
-    }
-
-    if ( $color_scheme_select['input_background']['custom_color'] ) {
-        $input_background = $color_scheme_select['input_background']['custom_color'];
-    } elseif ( $color_scheme_select['input_background']['theme_colors'] ) {
-        $input_background = 'var(--' . $color_scheme_select['input_background']['theme_colors'] . ')';
+    if ( if_array_value($color_scheme_select, 'input_text') ) {
+        if ( $color_scheme_select['input_text']['custom_color'] ) {
+            $input_text = $color_scheme_select['input_text']['custom_color'];
+        } elseif ( $color_scheme_select['input_text']['theme_colors'] ) {
+            $input_text = 'var(--' . $color_scheme_select['input_text']['theme_colors'] . ')';
+        }
     }
     
-    if ( $color_scheme_select['input_border']['custom_color'] ) {
-        $input_border = $color_scheme_select['input_border']['custom_color'];
-    } elseif ( $color_scheme_select['input_border']['theme_colors'] ) {
-        $input_border = 'var(--' . $color_scheme_select['input_border']['theme_colors'] . ')';
+    if ( if_array_value($color_scheme_select, 'input_background') ) {
+        if ( $color_scheme_select['input_background']['custom_color'] ) {
+            $input_background = $color_scheme_select['input_background']['custom_color'];
+        } elseif ( $color_scheme_select['input_background']['theme_colors'] ) {
+            $input_background = 'var(--' . $color_scheme_select['input_background']['theme_colors'] . ')';
+        }
+    }
+    
+    if ( if_array_value($color_scheme_select, 'input_border') ) {
+        if ( $color_scheme_select['input_border']['custom_color'] ) {
+            $input_border = $color_scheme_select['input_border']['custom_color'];
+        } elseif ( $color_scheme_select['input_border']['theme_colors'] ) {
+            $input_border = 'var(--' . $color_scheme_select['input_border']['theme_colors'] . ')';
+        }
     }
 
-    if ( $color_scheme_select['input_border_focus']['custom_color'] ) {
-        $border_color_focus = $color_scheme_select['input_border_focus']['custom_color'];
-    } elseif ( $color_scheme_select['input_border_focus']['theme_colors'] ) {
-        $border_color_focus = 'var(--' . $color_scheme_select['input_border_focus']['theme_colors'] . ')';
+    if ( if_array_value($color_scheme_select, 'input_border') ) {
+        if ( $color_scheme_select['input_border_focus']['custom_color'] ) {
+            $border_color_focus = $color_scheme_select['input_border_focus']['custom_color'];
+        } elseif ( $color_scheme_select['input_border_focus']['theme_colors'] ) {
+            $border_color_focus = 'var(--' . $color_scheme_select['input_border_focus']['theme_colors'] . ')';
+        }
     }
     
     // checkbox
-    if ( $color_scheme_select['checkbox_text']['custom_color'] ) {
-        $checkbox_text = $color_scheme_select['checkbox_text']['custom_color'];
-    } elseif ( $color_scheme_select['checkbox_text']['theme_colors'] ) {
-        $checkbox_text = 'var(--' . $color_scheme_select['checkbox_text']['theme_colors'] . ')';
+    if ( if_array_value($color_scheme_select, 'input_border') ) {
+        if ( $color_scheme_select['checkbox_text']['custom_color'] ) {
+            $checkbox_text = $color_scheme_select['checkbox_text']['custom_color'];
+        } elseif ( $color_scheme_select['checkbox_text']['theme_colors'] ) {
+            $checkbox_text = 'var(--' . $color_scheme_select['checkbox_text']['theme_colors'] . ')';
+        }
     }
 
-    if ( $color_scheme_select['checkbox_text_link']['custom_color'] ) {
-        $checkbox_text_link = $color_scheme_select['checkbox_text_link']['custom_color'];
-    } elseif ( $color_scheme_select['checkbox_text_link']['theme_colors'] ) {
-        $checkbox_text_link = 'var(--' . $color_scheme_select['checkbox_text_link']['theme_colors'] . ')';
+    if ( if_array_value($color_scheme_select, 'input_border') ) {
+        if ( $color_scheme_select['checkbox_text_link']['custom_color'] ) {
+            $checkbox_text_link = $color_scheme_select['checkbox_text_link']['custom_color'];
+        } elseif ( $color_scheme_select['checkbox_text_link']['theme_colors'] ) {
+            $checkbox_text_link = 'var(--' . $color_scheme_select['checkbox_text_link']['theme_colors'] . ')';
+        }
     }
 
-    if ( $color_scheme_select['checkbox_checkmark']['custom_color'] ) {
-        $checkbox_checkmark = $color_scheme_select['checkbox_checkmark']['custom_color'];
-    } elseif ( $color_scheme_select['checkbox_checkmark']['theme_colors'] ) {
-        $checkbox_checkmark = 'var(--' . $color_scheme_select['checkbox_checkmark']['theme_colors'] . ')';
+    if ( if_array_value($color_scheme_select, 'input_border') ) {
+        if ( $color_scheme_select['checkbox_checkmark']['custom_color'] ) {
+            $checkbox_checkmark = $color_scheme_select['checkbox_checkmark']['custom_color'];
+        } elseif ( $color_scheme_select['checkbox_checkmark']['theme_colors'] ) {
+            $checkbox_checkmark = 'var(--' . $color_scheme_select['checkbox_checkmark']['theme_colors'] . ')';
+        }
     }
 
-    if ( $color_scheme_select['checkbox_checked_background']['custom_color'] ) {
-        $checkbox_background = $color_scheme_select['checkbox_checked_background']['custom_color'];
-    } elseif ( $color_scheme_select['checkbox_checked_background']['theme_colors'] ) {
-        $checkbox_background = 'var(--' . $color_scheme_select['checkbox_checked_background']['theme_colors'] . ')';
+    if ( if_array_value($color_scheme_select, 'input_border') ) {
+        if ( $color_scheme_select['checkbox_checked_background']['custom_color'] ) {
+            $checkbox_background = $color_scheme_select['checkbox_checked_background']['custom_color'];
+        } elseif ( $color_scheme_select['checkbox_checked_background']['theme_colors'] ) {
+            $checkbox_background = 'var(--' . $color_scheme_select['checkbox_checked_background']['theme_colors'] . ')';
+        }
     }
 
     // submit text
-    if ( $color_scheme_select['submit_button_text']['custom_color'] ) {
-        $submit_button_text = $color_scheme_select['submit_button_text']['custom_color'];
-    } elseif ( $color_scheme_select['submit_button_text']['theme_colors'] ) {
-        $submit_button_text = 'var(--' . $color_scheme_select['submit_button_text']['theme_colors'] . ')';
+    if ( if_array_value($color_scheme_select, 'input_border') ) {
+        if ( $color_scheme_select['submit_button_text']['custom_color'] ) {
+            $submit_button_text = $color_scheme_select['submit_button_text']['custom_color'];
+        } elseif ( $color_scheme_select['submit_button_text']['theme_colors'] ) {
+            $submit_button_text = 'var(--' . $color_scheme_select['submit_button_text']['theme_colors'] . ')';
+        }
     }
 
     // submit background
-    if ( $color_scheme_select['submit_button_background']['custom_color'] ) {
-        $submit_background = $color_scheme_select['submit_button_background']['custom_color'];
-    } elseif ( $color_scheme_select['submit_button_background']['theme_colors'] ) {
-        $submit_background = 'var(--' . $color_scheme_select['submit_button_background']['theme_colors'] . ')';
-        $submit_background_hover = 'var(--' . $color_scheme_select['submit_button_background']['theme_colors'] . '_hover)';
+    if ( if_array_value($color_scheme_select, 'input_border') ) {
+        if ( $color_scheme_select['submit_button_background']['custom_color'] ) {
+            $submit_background = $color_scheme_select['submit_button_background']['custom_color'];
+        } elseif ( $color_scheme_select['submit_button_background']['theme_colors'] ) {
+            $submit_background = 'var(--' . $color_scheme_select['submit_button_background']['theme_colors'] . ')';
+            $submit_background_hover = 'var(--' . $color_scheme_select['submit_button_background']['theme_colors'] . '_hover)';
+        }
     }
 
     // error text
-    if ( $color_scheme_select['error_text']['custom_color'] ) {
-        $error_text = $color_scheme_select['error_text']['custom_color'];
-    } elseif ( $color_scheme_select['error_text']['theme_colors'] ) {
-        $error_text = 'var(--' . $color_scheme_select['error_text']['theme_colors'] . ')';
+    if ( if_array_value($color_scheme_select, 'input_border') ) {
+        if ( $color_scheme_select['error_text']['custom_color'] ) {
+            $error_text = $color_scheme_select['error_text']['custom_color'];
+        } elseif ( $color_scheme_select['error_text']['theme_colors'] ) {
+            $error_text = 'var(--' . $color_scheme_select['error_text']['theme_colors'] . ')';
+        }
     }
 
     // error background
-    if ( $color_scheme_select['error_background']['custom_color'] ) {
-        $error_background = $color_scheme_select['error_background']['custom_color'];
-    } elseif ( $color_scheme_select['error_background']['theme_colors'] ) {
-        $error_background = 'var(--' . $color_scheme_select['error_background']['theme_colors'] . ')';
+    if ( if_array_value($color_scheme_select, 'input_border') ) {
+        if ( $color_scheme_select['error_background']['custom_color'] ) {
+            $error_background = $color_scheme_select['error_background']['custom_color'];
+        } elseif ( $color_scheme_select['error_background']['theme_colors'] ) {
+            $error_background = 'var(--' . $color_scheme_select['error_background']['theme_colors'] . ')';
+        }
     }
 
     // placeholder background
-    if ( $color_scheme_select['placeholder_text']['custom_color'] ) {
-        $placeholder = $color_scheme_select['placeholder_text']['custom_color'];
-    } elseif ( $color_scheme_select['placeholder_text']['theme_colors'] ) {
-        $placeholder = 'var(--' . $color_scheme_select['placeholder_text']['theme_colors'] . ')';
+    if ( if_array_value($color_scheme_select, 'input_border') ) {
+        if ( $color_scheme_select['placeholder_text']['custom_color'] ) {
+            $placeholder = $color_scheme_select['placeholder_text']['custom_color'];
+        } elseif ( $color_scheme_select['placeholder_text']['theme_colors'] ) {
+            $placeholder = 'var(--' . $color_scheme_select['placeholder_text']['theme_colors'] . ')';
+        }
     }
 
     /* fonts */
     // default fonts
+    if ( if_array_value($color_scheme_select, 'input_border') ) {
     $input_size_choice = get_field('input_font_size', 'forms');
-    if ( $input_size_choice ) {
-        if ( $input_size_choice['value'] ) {
-            $input_size = $input_size_choice['value'] . $input_size_choice['unit'];
+        if ( $input_size_choice ) {
+            if ( $input_size_choice['value'] ) {
+                $input_size = $input_size_choice['value'] . $input_size_choice['unit'];
+            }
         }
     }
 
@@ -319,8 +347,8 @@ if( get_row_layout() == 'form' ):
         }
         /* submit */
         .form.element#<?=$form_id?> input[type="submit"] {
-            display: block !important;
-            width: 100% !important;
+            display: block;
+            width: 100%;
             color: <?=$submit_button_text?> !important;
             background: <?=$submit_background?> !important;
             border-color: <?=$submit_background?> !important;
@@ -329,6 +357,7 @@ if( get_row_layout() == 'form' ):
             padding: <?=$submit_padding?> !important;
             border-radius: <?=$submit_radius?> !important;
             margin-top: <?=$input_spacing?> !important;
+            border-width: 0;
         }
         .form.element#<?=$form_id?> input[type="submit"]:hover {
             background: <?=$submit_background_hover?> !important;
