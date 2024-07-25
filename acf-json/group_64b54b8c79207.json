@@ -21,11 +21,11 @@
             "selected": 0
         },
         {
-            "key": "field_64b54b8c50ecc",
-            "label": "Form Select",
+            "key": "field_66a18c9e76027",
+            "label": "Select Form",
             "name": "form",
             "aria-label": "",
-            "type": "forms",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -34,9 +34,16 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "id",
+            "choices": [],
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
             "allow_null": 0,
-            "multiple": 0
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "allow_custom": 0,
+            "search_placeholder": ""
         },
         {
             "key": "field_66606fbb60ac1",
@@ -305,7 +312,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1717604669,
+    "modified": 1721864132,
     "acfe_categories": {
         "elements": "Elements"
     }

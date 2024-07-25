@@ -48,3 +48,27 @@ function replace_site_name($text, $form, $entry, $url_encode, $esc_html, $nl2br,
     $text = str_replace($custom_merge_tag, $siteName, $text);
     return $text;
 }
+
+// populate button forms
+add_filter('acf/load_field/name=form', function($field) {
+	
+    $forms = [];
+    $forms_list = GFAPI::get_forms();
+    foreach ($forms_list as $form) {
+        $id = $form['id'];
+        $title = $form['title'];
+        $forms[] = [ $form['id'], $form['title'] ];
+    }
+
+    $choices = [];
+
+    // if enabled and exist
+    foreach ($forms as $form) {
+        $choices += array( $form[0] => __(ucfirst($form[1]), 'bbc') );
+    } 
+	
+	$field['choices'] = $choices;
+	$field['default_value'] = null;
+	return $field;
+
+});

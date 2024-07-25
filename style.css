@@ -2839,10 +2839,19 @@ a.col-inner {
 .form.element input[type=checkbox]:not(:checked) + label:before {
     top: 15px;
 }
-.form.element input[type=checkbox]:checked + label:before,
-.form.element input[type=checkbox]:checked + label:after,
-.form.element input[type=checkbox]:not(:checked) + label:after {
-    top: 2px;
+@media screen and (min-width: 992px) {
+    .form.element input[type=checkbox]:checked + label:before,
+    .form.element input[type=checkbox]:checked + label:after,
+    .form.element input[type=checkbox]:not(:checked) + label:after {
+        top: 5px;
+    }
+}
+@media screen and (max-width: 991px) {
+    .form.element input[type=checkbox]:checked + label:before,
+    .form.element input[type=checkbox]:checked + label:after,
+    .form.element input[type=checkbox]:not(:checked) + label:after {
+        top: 2px;
+    }
 }
 /** form options **/
 .form.element .gform_heading {

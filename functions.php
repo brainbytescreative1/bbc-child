@@ -196,6 +196,7 @@ require_once( __DIR__ . '/functions/buttons.php');
 require_once( __DIR__ . '/functions/colors.php');
 require_once( __DIR__ . '/functions/dividers.php');
 require_once( __DIR__ . '/functions/flex.php');
+require_once( __DIR__ . '/functions/forms.php');
 require_once( __DIR__ . '/functions/heading.php');
 require_once( __DIR__ . '/functions/images.php');
 require_once( __DIR__ . '/functions/page-width.php');

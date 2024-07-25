@@ -1,4 +1,5 @@
 <?php
+
 function get_responsive_image_bbc($image_id, $image_size, $max_width, $alt = false, $classes = false ){
 
 	// check the image ID is not blank
@@ -16,3 +17,11 @@ function get_responsive_image_bbc($image_id, $image_size, $max_width, $alt = fal
 	}
 
 }
+
+function upload_svg_files( $allowed ) {
+    if ( !current_user_can( 'manage_options' ) )
+        return $allowed;
+    $allowed['svg'] = 'image/svg+xml';
+    return $allowed;
+}
+add_filter( 'upload_mimes', 'upload_svg_files');

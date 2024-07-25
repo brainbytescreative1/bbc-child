@@ -22,7 +22,7 @@ if( get_row_layout() == 'form' ):
 
     $input_text = '#000000';
     $input_background = '#ffffff';
-    $input_border = '#000000';
+    $input_border = 'transparent';
     $checkbox_text = '#000000';
     $checkbox_checkmark = '#ffffff';
     $checkbox_background = '#000000';
@@ -32,9 +32,9 @@ if( get_row_layout() == 'form' ):
         $checkbox_background = '#ffffff';
     }
     $checkbox_text_link = '';
-    $submit_button_text = '#ffffff';
-    $submit_background = '#000000';
-    $submit_background_hover = '#000000';
+    $submit_button_text = '';
+    $submit_background = '';
+    $submit_background_hover = '';
     $confirmation_color = '#000000';
     if ( $color_scheme === 'dark' ) {
         $confirmation_color = '#ffffff';
@@ -281,6 +281,10 @@ if( get_row_layout() == 'form' ):
             padding: <?=$input_padding?> !important;
             border: <?=$border_width?> <?=$input_border?> solid !important;
             border-radius: <?=$input_radius?> !important;
+            -webkit-background-clip: padding-box !important;
+            -moz-background-clip:    padding !important;
+            background-clip:         padding-box !important;
+            border-style: solid !important;
         }
         .form.element#<?=$form_id?> input:focus,
         .form.element#<?=$form_id?> textarea:focus,
