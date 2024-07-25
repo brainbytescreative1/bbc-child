@@ -161,3 +161,46 @@ function header_footer_js(){
     ?>
 
 <?php };
+
+// populate button forms
+function my_acf_load_field( $field ) {
+
+    $menus = [];
+    
+    $menus_list = wp_get_nav_menus();
+    foreach ($menus_list as $menu) {
+        $term_id = $menu->term_id;
+        $name = $menu->name;
+        $menus[] = [ $term_id, $name ];
+    }
+
+    $choices = [];
+
+    // if enabled and exist
+    foreach ($menus as $menu) {
+        $choices += array( $menu[0] => __(ucfirst($menu[1]), 'bbc') );
+    } 
+	
+	$field['choices'] = $choices;
+	$field['default_value'] = null;
+	return $field;
+
+}
+add_filter('acf/load_field/name=single_menu_select', 'my_acf_load_field');
+add_filter('acf/load_field/name=left_menu_select', 'my_acf_load_field');
+add_filter('acf/load_field/name=right_menu_select', 'my_acf_load_field');
+
+function get_menu_bbc( $menu_id ) {
+    if ( $menu_id ) {
+        ob_start();
+        wp_nav_menu( array(
+            'menu' => $menu_id,
+            'container' => 'div',
+            'container_class' => 'acf-nav-menu',
+            'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+        ) );
+        return ob_get_clean();
+    } else {
+        return '';
+    }
+}

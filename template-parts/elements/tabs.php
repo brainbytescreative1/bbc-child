@@ -355,22 +355,22 @@ if( get_row_layout() == 'tabbed_content' ):
                 color: <?=$text_color?> !important;
                 background: <?=$text_background_color?> !important;
             }
-            .tab-image-inner {
+            .tabs-element .tab-image-inner {
                 height: 100%;
                 position: relative;
                 background-size: cover !important;
             }
             @media screen and (max-width: <?=$mobile_tab_width_breakpoint?>) {
-                .nav-justified .nav-item {
+                .tabs-element .nav-justified .nav-item {
                     flex-basis: auto;
                 }
-                .nav-item {
+                .tabs-element .nav-item {
                     width: calc(<?=$mobile_tab_width?> - <?=$tabs_space_between?>) !important;
                 }
-                .tabs-element .nav-link {
+                .tabs-element .tabs-element .nav-link {
                     width: 100% !important;
                 }
-                .tab-image-inner {
+                .tabs-element .tab-image-inner {
                     min-height: unset !important;
                 }
             }

@@ -144,20 +144,7 @@ if ( have_rows('columns') ) {
             $row_classes[] = 'gap-vertical-custom-neg';
         }
         $col_classes[] = 'gap-vertical-custom';
-    } else {
-        if ( ( $col_count === 1 ) || ( $column_gap === 'none' ) ) {
-            $col_bottom_spacing = 'mb-0';
-        } else {
-            $top_bottom_padding_column_mobile = get_field('top_bottom_padding_column_mobile', 'style');
-            if ( $top_bottom_padding_column_mobile ) {
-                $col_bottom_spacing = 'mb-' . $top_bottom_padding_column_mobile;
-            } else {
-                $col_bottom_spacing = 'mb-1';
-            }
-        }
-        $col_classes[] = 'mb-' . $mobile_breakpoint . '-0 ' . $col_bottom_spacing;
-    }    
-
+    }
     // container classes and styling
     $min_height = get_field('min_height');
     $min_height_100vh_minus_menu_height = get_field('min_height_100vh_minus_menu_height');

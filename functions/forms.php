@@ -49,7 +49,7 @@ function replace_site_name($text, $form, $entry, $url_encode, $esc_html, $nl2br,
     return $text;
 }
 
-// populate button forms
+// populate forms
 add_filter('acf/load_field/name=form', function($field) {
 	
     $forms = [];

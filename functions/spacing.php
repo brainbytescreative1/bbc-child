@@ -238,9 +238,17 @@ function get_spacing_bbc( $field, $field_type = false, $classes = false ) {
 
 }
 
-function get_menu_padding_bbc($field, $classes, $styles) {
+function get_menu_padding_bbc($field, $classes = false, $styles = false) {
 
     if ( $field ) {
+
+        if ( !$classes ) {
+            $classes = [];
+        }
+    
+        if ( !$styles ) {
+            $styles = [];
+        }
 
         if ( $field && ( $field !== 'default' ) ) {
             $padding_styles = [
