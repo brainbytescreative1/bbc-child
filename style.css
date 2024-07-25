@@ -940,7 +940,7 @@ header:not(.header-rounded) #top-menu {
     .header-rounded .top-menu-wrapper {
         border-radius: 20px 20px 0 0;
         width: 100%;
-        max-width: 88% !important;
+        max-width: 85% !important;
         margin-right: auto !important;
         margin-left: auto !important;
     }
