@@ -696,7 +696,7 @@ section .container-fluid .row {
 }
 /*** header ***/
 /** menu wrapper **/
-header .nav-link {
+header .nav-link:not(.btn) {
     font-weight: var(--main_menu_font_weight) !important;
     font-family: var(--main_menu_font_family) !important;
     display: flex;
@@ -705,25 +705,30 @@ header .nav-link {
     transition: .2s ease-in-out all;
     text-align: center;
 }
-header .nav-link:hover {
+header .nav-link:not(.btn):hover {
     transition: .2s ease-in-out all;
     opacity: .7;
 }
 @media screen and (min-width: 992px) {
-    header .nav-link,
-    header .nav-link:hover {
+    header .nav-link:not(.btn),
+    header .nav-link:not(.btn):hover {
         color: var(--main_menu_text_color) !important;
     }
 }
 @media screen and (max-width: 991px) {
-    header .nav-link,
-    header .nav-link:hover {
+    header .nav-link:not(.btn),
+    header .nav-link:not(.btn):hover {
         color: var(--text) !important;
     }
 }
 #wrapper-navbar a:not(.element) i {
     padding-right: 0;
 }
+.nav-link.btn {
+    padding-left: var(--bs-btn-padding-x) !important;
+    padding-right: var(--bs-btn-padding-x) !important;
+}
+
 /** logo width **/
 .navbar-brand {
     width: 100%;
@@ -797,6 +802,8 @@ header .nav-link:hover {
     padding-top: .25rem;
     padding-bottom: .25rem;
 }
+.header
+.top-menu-widget
 /* cta */
 .btn.menu-cta {
     padding: 0;
@@ -1135,8 +1142,6 @@ header:not(.header-rounded) #top-menu {
 #top-menu-widget {
     position: relative;
     z-index: 1;
-    padding-left: calc( var(--custom-gutter-x) / 2 );
-    padding-right: calc( var(--custom-gutter-x) / 2 );
 }
 @media screen and (min-width: 769px) {
     .header-rounded #top-menu-widget {
@@ -1751,7 +1756,8 @@ header:not(.header-rounded) #top-menu {
 }
 /*** elements ***/
 /** buttons **/
-.btn, .btn a {
+.btn:not(.btn-link), 
+.btn:not(.btn-link) a {
     text-decoration: none !important;
     font-weight: var(--button_font_weight);
     font-family: var(--button_font_family);
@@ -2039,17 +2045,51 @@ header:not(.header-rounded) #top-menu {
 .menu-cta {
     border-radius: var(--button_border-radius) !important;
 }
+/* underline */
+.btn-underline.btn-primary {
+    border-bottom: 1px solid var(--primary) !important;
+}
+.btn-underline.btn-secondary {
+    border-bottom: 1px solid var(--secondary) !important;
+}
+.btn-underline.btn-success {
+    border-bottom: 1px solid var(--success) !important;
+}
+.btn-underline.btn-info {
+    border-bottom: 1px solid var(--info) !important;
+}
+.btn-underline.btn-danger {
+    border-bottom: 1px solid var(--danger) !important;
+}
+.btn-underline.btn-light {
+    border-bottom: 1px solid var(--light) !important;
+}
+.btn-underline.btn-dark {
+    border-bottom: 1px solid var(--dark) !important;
+}
+.btn-underline.btn-gray {
+    border-bottom: 1px solid var(--gray) !important;
+}
+.btn-underline.btn-white {
+    border-bottom: 1px solid var(--white) !important;
+}
 /* button link */
 .btn-link {
     padding: 0 !important;
     border: 0 !important;
+    background: transparent !important;
+    text-decoration: none !important;
 }
 .btn-link:hover,
 .btn-link:active,
 .btn-link:focus {
     opacity: .7 !important;
+    background: transparent !important;
 }
 /* button icon / image */
+.btn-link.button-icon {
+    align-items: center;
+}
 .button-image {
     display: flex;
 }
@@ -3098,5 +3138,41 @@ a.col-inner {
     .gap-vertical-margin-bottom-neg,
     .gap-vertical-custom-neg {
         margin-bottom: -.75rem;
+    }
+}
+@media screen and (max-width: 1400px) {
+    .gap-xxl-default {
+        margin-bottom: calc(var(--custom-gutter-x) / 2);
+    }
+}
+@media screen and (max-width: 1200px) {
+    .gap-xl-default {
+        margin-bottom: calc(var(--custom-gutter-x) / 2);
+    }
+}
+@media screen and (max-width: 991px) {
+    .gap-lg-default {
+        margin-bottom: calc(var(--custom-gutter-x) / 2);
+    }
+}
+@media screen and (max-width: 768px) {
+    .gap-md-default {
+        margin-bottom: calc(var(--custom-gutter-x) / 2);
+    }
+}
+@media screen and (max-width: 430px) {
+    .gap-sm-default {
+        margin-bottom: calc(var(--custom-gutter-x) / 2);
+    }
+}
+/** rows **/
+.row-unset .col-element {
+    width: unset;
+    margin-bottom: 0;
+}
+@media screen and (max-width: 991px) {
+    .row-unset {
+        padding-left: calc(var(--custom-gutter-x) / 2);
+        padding-right: calc(var(--custom-gutter-x) / 2);
     }
 }

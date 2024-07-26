@@ -203,7 +203,13 @@ if ( ! class_exists( 'Understrap_WP_Bootstrap_Navwalker' ) ) {
 				if ( $depth > 0 ) {
 					$atts['class'] = 'dropdown-item';
 				} else {
-					$atts['class'] = 'nav-link';
+                    $menu_link_classes = get_field('menu_link_classes', $item);
+                    if ( $menu_link_classes ) {
+                        $atts['class'] = 'nav-link ' . $menu_link_classes;
+                    } else {
+                        $atts['class'] = 'nav-link';
+                    }
+					
 				}
 			}
 

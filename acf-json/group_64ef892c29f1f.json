@@ -7,7 +7,7 @@
             "label": "Border Radius All",
             "name": "border_radius_all",
             "aria-label": "",
-            "type": "select",
+            "type": "button_group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -18,47 +18,23 @@
             },
             "choices": {
                 "default": "default",
-                "0": "0",
-                "1": "1",
-                "2": "2",
-                "3": "3",
-                "4": "4",
-                "5": "5"
+                "1": "sm",
+                "2": "md",
+                "3": "lg",
+                "4": "xl",
+                "5": "xxl"
             },
             "default_value": "default",
             "return_format": "value",
-            "multiple": 0,
             "allow_null": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": "",
-            "allow_custom": 0,
-            "search_placeholder": ""
-        },
-        {
-            "key": "field_64ef95926eed4",
-            "label": "Border Radius Desktop",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0,
-            "selected": 0
+            "layout": "horizontal"
         },
         {
             "key": "field_64ef8a3e1b7f9",
             "label": "Border Radius - Top Left",
             "name": "border-top-left-radius",
             "aria-label": "",
-            "type": "select",
+            "type": "button_group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -69,29 +45,23 @@
             },
             "choices": {
                 "default": "default",
-                "0": "0",
-                "1": "1",
-                "2": "2",
-                "3": "3",
-                "4": "4",
-                "5": "5"
+                "1": "sm",
+                "2": "md",
+                "3": "lg",
+                "4": "xl",
+                "5": "xxl"
             },
             "default_value": "default",
             "return_format": "value",
-            "multiple": 0,
-            "allow_custom": 0,
-            "placeholder": "",
-            "search_placeholder": "",
             "allow_null": 0,
-            "ui": 0,
-            "ajax": 0
+            "layout": "horizontal"
         },
         {
             "key": "field_64ef8a931b7fa",
             "label": "Border Radius - Top Right",
             "name": "border-top-right-radius",
             "aria-label": "",
-            "type": "select",
+            "type": "button_group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -102,29 +72,23 @@
             },
             "choices": {
                 "default": "default",
-                "0": "0",
-                "1": "1",
-                "2": "2",
-                "3": "3",
-                "4": "4",
-                "5": "5"
+                "1": "sm",
+                "2": "md",
+                "3": "lg",
+                "4": "xl",
+                "5": "xxl"
             },
             "default_value": "default",
             "return_format": "value",
-            "multiple": 0,
-            "allow_custom": 0,
-            "placeholder": "",
-            "search_placeholder": "",
             "allow_null": 0,
-            "ui": 0,
-            "ajax": 0
+            "layout": "horizontal"
         },
         {
             "key": "field_64ef8bcd1b802",
             "label": "Border Radius - Bottom Left",
             "name": "border-bottom-left-radius",
             "aria-label": "",
-            "type": "select",
+            "type": "button_group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -135,29 +99,23 @@
             },
             "choices": {
                 "default": "default",
-                "0": "0",
-                "1": "1",
-                "2": "2",
-                "3": "3",
-                "4": "4",
-                "5": "5"
+                "1": "sm",
+                "2": "md",
+                "3": "lg",
+                "4": "xl",
+                "5": "xxl"
             },
             "default_value": "default",
             "return_format": "value",
-            "multiple": 0,
-            "allow_custom": 0,
-            "placeholder": "",
-            "search_placeholder": "",
             "allow_null": 0,
-            "ui": 0,
-            "ajax": 0
+            "layout": "horizontal"
         },
         {
             "key": "field_64ef8aa51b7fb",
             "label": "Border Radius - Bottom Right",
             "name": "border-bottom-right-radius",
             "aria-label": "",
-            "type": "select",
+            "type": "button_group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -168,386 +126,16 @@
             },
             "choices": {
                 "default": "default",
-                "0": "0",
-                "1": "1",
-                "2": "2",
-                "3": "3",
-                "4": "4",
-                "5": "5"
+                "1": "sm",
+                "2": "md",
+                "3": "lg",
+                "4": "xl",
+                "5": "xxl"
             },
             "default_value": "default",
             "return_format": "value",
-            "multiple": 0,
-            "allow_custom": 0,
-            "placeholder": "",
-            "search_placeholder": "",
             "allow_null": 0,
-            "ui": 0,
-            "ajax": 0
-        },
-        {
-            "key": "field_64ef97c5c1b2b",
-            "label": "Border Radius Desktop End",
-            "name": "",
-            "aria-label": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 1
-        },
-        {
-            "key": "field_64ef96259aa5c",
-            "label": "Borders",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_64ef96499aa5d",
-            "label": "Desktop Borders",
-            "name": "",
-            "aria-label": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
-        },
-        {
-            "key": "field_64ef96799aa5f",
-            "label": "Border Top Desktop",
-            "name": "border_top_desktop",
-            "aria-label": "",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "25",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "default": "default",
-                "1": "1",
-                "2": "2",
-                "3": "3",
-                "4": "4",
-                "5": "5"
-            },
-            "default_value": "default",
-            "return_format": "value",
-            "multiple": 0,
-            "allow_custom": 0,
-            "placeholder": "",
-            "search_placeholder": "",
-            "allow_null": 0,
-            "ui": 0,
-            "ajax": 0
-        },
-        {
-            "key": "field_64ef96b4603f6",
-            "label": "Border Right Desktop",
-            "name": "border_right_desktop",
-            "aria-label": "",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "25",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "default": "default",
-                "1": "1",
-                "2": "2",
-                "3": "3",
-                "4": "4",
-                "5": "5"
-            },
-            "default_value": "default",
-            "return_format": "value",
-            "multiple": 0,
-            "allow_custom": 0,
-            "placeholder": "",
-            "search_placeholder": "",
-            "allow_null": 0,
-            "ui": 0,
-            "ajax": 0
-        },
-        {
-            "key": "field_64ef96be603f7",
-            "label": "Border Bottom Desktop",
-            "name": "border_bottom_desktop",
-            "aria-label": "",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "25",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "default": "default",
-                "1": "1",
-                "2": "2",
-                "3": "3",
-                "4": "4",
-                "5": "5"
-            },
-            "default_value": "default",
-            "return_format": "value",
-            "multiple": 0,
-            "allow_custom": 0,
-            "placeholder": "",
-            "search_placeholder": "",
-            "allow_null": 0,
-            "ui": 0,
-            "ajax": 0
-        },
-        {
-            "key": "field_64ef96cd603f8",
-            "label": "Border Left Desktop",
-            "name": "border_left_desktop",
-            "aria-label": "",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "25",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "default": "default",
-                "1": "1",
-                "2": "2",
-                "3": "3",
-                "4": "4",
-                "5": "5"
-            },
-            "default_value": "default",
-            "return_format": "value",
-            "multiple": 0,
-            "allow_custom": 0,
-            "placeholder": "",
-            "search_placeholder": "",
-            "allow_null": 0,
-            "ui": 0,
-            "ajax": 0
-        },
-        {
-            "key": "field_64ef97cdc1b2c",
-            "label": "Desktop Borders End",
-            "name": "",
-            "aria-label": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 1
-        },
-        {
-            "key": "field_64ef89ab1b7f8",
-            "label": "Mobile Borders",
-            "name": "",
-            "aria-label": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
-        },
-        {
-            "key": "field_64ef96e1603f9",
-            "label": "Border Top Mobile",
-            "name": "border_top_mobile",
-            "aria-label": "",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "25",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "default": "default",
-                "1": "1",
-                "2": "2",
-                "3": "3",
-                "4": "4",
-                "5": "5"
-            },
-            "default_value": "default",
-            "return_format": "value",
-            "multiple": 0,
-            "allow_custom": 0,
-            "placeholder": "",
-            "search_placeholder": "",
-            "allow_null": 0,
-            "ui": 0,
-            "ajax": 0
-        },
-        {
-            "key": "field_64ef96e5603fa",
-            "label": "Border Right Mobile",
-            "name": "border_right_mobile",
-            "aria-label": "",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "25",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "default": "default",
-                "1": "1",
-                "2": "2",
-                "3": "3",
-                "4": "4",
-                "5": "5"
-            },
-            "default_value": "default",
-            "return_format": "value",
-            "multiple": 0,
-            "allow_custom": 0,
-            "placeholder": "",
-            "search_placeholder": "",
-            "allow_null": 0,
-            "ui": 0,
-            "ajax": 0
-        },
-        {
-            "key": "field_64ef96e9603fb",
-            "label": "Border Bottom Mobile",
-            "name": "border_bottom_mobile",
-            "aria-label": "",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "25",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "default": "default",
-                "1": "1",
-                "2": "2",
-                "3": "3",
-                "4": "4",
-                "5": "5"
-            },
-            "default_value": "default",
-            "return_format": "value",
-            "multiple": 0,
-            "allow_custom": 0,
-            "placeholder": "",
-            "search_placeholder": "",
-            "allow_null": 0,
-            "ui": 0,
-            "ajax": 0
-        },
-        {
-            "key": "field_64ef96eb603fc",
-            "label": "Border Left Mobile",
-            "name": "border_left_mobile",
-            "aria-label": "",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "25",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "default": "default",
-                "1": "1",
-                "2": "2",
-                "3": "3",
-                "4": "4",
-                "5": "5"
-            },
-            "default_value": "default",
-            "return_format": "value",
-            "multiple": 0,
-            "allow_custom": 0,
-            "placeholder": "",
-            "search_placeholder": "",
-            "allow_null": 0,
-            "ui": 0,
-            "ajax": 0
-        },
-        {
-            "key": "field_64ef97d6c1b2d",
-            "label": "Mobile Borders End",
-            "name": "",
-            "aria-label": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 1
+            "layout": "horizontal"
         }
     ],
     "location": [
@@ -575,8 +163,8 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
+    "modified": 1722007380,
     "acfe_categories": {
         "clone": "Clone"
-    },
-    "modified": 1716582567
+    }
 }

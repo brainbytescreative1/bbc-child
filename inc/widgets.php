@@ -301,8 +301,8 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
             'name'          => __( 'Top Menu', 'understrap' ),
             'id'            => 'topmenu',
             'description'   => __( 'Top menu', 'understrap' ),
-            'before_widget' => '<div id="%1$s" class="footer-widget %2$s dynamic-classes">',
-            'after_widget'  => '</div><!-- .footer-widget -->',
+            'before_widget' => '<div id="%1$s" class="top-menu-widget %2$s dynamic-classes">',
+            'after_widget'  => '</div><!-- .top-menu-widget -->',
             'before_title'  => '<h3 class="widget-title">',
             'after_title'   => '</h3>',
         )

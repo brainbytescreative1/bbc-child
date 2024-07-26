@@ -109,41 +109,50 @@ if ( have_rows('columns') ) {
     }
 
     // pass width inside loop
-    if ( ( $col_width === 'auto' ) || ( $col_width === 'column-element' ) ) {
+    if ( $col_width === 'unset' ) {
+        $col_width_pass_inside = 'unset';
+        $row_classes[] = 'row-unset';
+    } elseif ( ( $col_width === 'auto' ) || ( $col_width === 'column-element' ) ) {
         $col_width = 12 / $col_count;
         $col_width_pass_inside = 'auto';
     }
 
     // column gap
-    if ( $column_gap === 'custom' ) {
-        $custom_gap = get_field('custom_gap');
-        if ( $custom_gap ) {
-            $col_styles[] = 'padding-right: calc('. $custom_gap . 'rem * .5);';
-            $col_styles[] = 'padding-left: calc('. $custom_gap . 'rem * .5);';
+    if ( $col_width !== 'unset' ) {
+        if ( $column_gap === 'custom' ) {
+            $custom_gap = get_field('custom_gap');
+            if ( $custom_gap ) {
+                $col_styles[] = 'padding-right: calc('. $custom_gap . 'rem * .5);';
+                $col_styles[] = 'padding-left: calc('. $custom_gap . 'rem * .5);';
+            } else {
+                $row_classes[] = 'gap-default';
+            }
+            $column_gap = $custom_gap;
         } else {
-            $row_classes[] = 'gap-default';
+            $row_classes[] = 'gap-' . $column_gap;
         }
-        $column_gap = $custom_gap;
-    } else {
-        $row_classes[] = 'gap-' . $column_gap;
     }
 
     // add default vertical margin gap on mobile
     $column_gap_vertical = get_field('column_gap_vertical');
     $col_bottom_spacing = '';
     
-    if ( $column_gap_vertical === 'margin-bottom' ) {
-        $col_classes[] = 'gap-vertical-margin-bottom';
-        $row_classes[] = 'gap-vertical-margin-bottom-neg';
-    } elseif ( $column_gap_vertical === 'custom' ) {
-        $custom_column_gap_vertical = get_field('custom_column_gap_vertical');
-        if ( $custom_column_gap_vertical ) {
-            $col_styles[] = 'margin-bottom: ' . $custom_column_gap_vertical . 'rem;';
-            $row_styles[] = 'margin-bottom: -' . $custom_column_gap_vertical . 'rem;';
+    if ( $col_width !== 'unset' ) {
+        if ( $column_gap_vertical === 'margin-bottom' ) {
+            $col_classes[] = 'gap-vertical-margin-bottom';
+            $row_classes[] = 'gap-vertical-margin-bottom-neg';
+        } elseif ( $column_gap_vertical === 'custom' ) {
+            $custom_column_gap_vertical = get_field('custom_column_gap_vertical');
+            if ( $custom_column_gap_vertical ) {
+                $col_styles[] = 'margin-bottom: ' . $custom_column_gap_vertical . 'rem;';
+                $row_styles[] = 'margin-bottom: -' . $custom_column_gap_vertical . 'rem;';
+            } else {
+                $row_classes[] = 'gap-vertical-custom-neg';
+            }
+            $col_classes[] = 'gap-vertical-custom';
         } else {
-            $row_classes[] = 'gap-vertical-custom-neg';
+            $col_classes[] = 'gap-'. $mobile_breakpoint .'-default';
         }
-        $col_classes[] = 'gap-vertical-custom';
     }
     // container classes and styling
     $min_height = get_field('min_height');
@@ -411,16 +420,20 @@ if ( get_field('columns') && ( $col_count > 0 ) ) { // if columns, add container
                         $col_inner_content_overlay = null;
                         $col_inner_content_mobile_overlay = null;
 
+                        // column width
                         $col_element_width = get_sub_field('column_width');
-
-                        if ( $col_width_pass_inside === 'auto' ) {
-                            if ( $col_element_width && ( $col_element_width !== 'auto' ) ) {
-                                $col_classes[] = 'col-' . $mobile_breakpoint . '-' . $col_element_width;
+                        if ( $col_width_pass_inside !== 'unset' ) {
+                            if ( $col_width_pass_inside === 'auto' ) {
+                                if ( $col_element_width !== 'unset' ) {
+                                    if ( $col_element_width && ( $col_element_width !== 'auto' ) ) {
+                                        $col_classes[] = 'col-' . $mobile_breakpoint . '-' . $col_element_width;
+                                    } else {
+                                        $col_classes[] = 'col-' . $mobile_breakpoint . '-' . $col_width;
+                                    }
+                                }
                             } else {
-                                $col_classes[] = 'col-' . $mobile_breakpoint . '-' . $col_width;
+                                $col_classes[] = 'col-' . $mobile_breakpoint . '-' . $col_element_width;
                             }
-                        } else {
-                            $col_classes[] = 'col-' . $mobile_breakpoint . '-' . $col_width;
                         }
 
                         // custom column max width

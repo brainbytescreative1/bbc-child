@@ -3,6 +3,26 @@
     "title": "Menu",
     "fields": [
         {
+            "key": "field_66a3c85d396ef",
+            "label": "Menu Link Classes",
+            "name": "menu_link_classes",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_63c6ee5583e2d",
             "label": "Add Icon",
             "name": "add_icon",
@@ -125,7 +145,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1720718811,
+    "modified": 1722009764,
     "acfe_categories": {
         "menus": "Menus"
     }

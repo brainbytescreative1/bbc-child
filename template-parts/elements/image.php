@@ -82,6 +82,17 @@ if( get_row_layout() == 'image' ):
                 }
             }
 
+            $border_radius = get_sub_field('border_radius');
+            if ( $border_radius && ( $border_radius !== 'none' ) ) {
+                $classes[] = 'rounded';
+                if ( $border_radius === 'default' ) {
+                    $classes[] = 'rounded-3';
+                } else {
+                    $classes[] = 'rounded-' . $border_radius;
+                }
+                
+            }
+
             $image_bottom_margin = get_sub_field('image_bottom_margin');
             if ( $image_bottom_margin && ( $image_bottom_margin === 'disabled' ) ) {
                 $classes[] = 'mb-0';

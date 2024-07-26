@@ -132,9 +132,12 @@ function get_buttons_bbc( $field ) {
                         // button style
                         $button_style = $button['button_style'];
                         if ( $button_style == 'underline' ) {
+                            $button_classes[] = 'btn';
+                            $button_classes[] = 'btn-link';
                             $button_classes[] = 'btn-underline';
-                            $button_classes[] = 'p-0';
-                            $button_classes[] = 'border-bottom';
+                            $button_classes[] = 'btn-'. $button_color;
+                            $text_classes[] = 'text-'. $button_color;
+                            $button_classes[] = 'rounded-0';
                             $button_classes[] = 'border-' . $button_color;
                         } elseif ( $button_style == 'outline' ) {
                             $button_classes[] = 'btn';
@@ -143,8 +146,8 @@ function get_buttons_bbc( $field ) {
                         } elseif ( $button_style == 'link' ) {
                             $button_classes[] = 'btn';
                             $button_classes[] = 'btn-link';
-                            $button_classes[] = 'btn-'. $button_color;
-                            $text_classes[] = 'text-'. $button_color;
+                            $button_classes[] = 'text-'. $button_color;
+                            $button_classes[] = 'text-'. $button_color;
                         } else {
                             $button_classes[] = 'btn';
                             $button_classes[] = 'btn-'. $button_color;
