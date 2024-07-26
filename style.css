@@ -840,6 +840,12 @@ header .nav-link:hover {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
 }
+.dropdown-item:hover,
+.dropdown-item:active,
+.dropdown-item:focus {
+    color: var(--bs-dropdown-link-color);
+    background-color: var(--bs-dropdown-link-hover-bg);
+}
 /* dropdown icon */
 .dropdown-toggle::after {
     display: inline-block;

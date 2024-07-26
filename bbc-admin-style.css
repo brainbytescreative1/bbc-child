@@ -190,6 +190,6 @@
 .blocks-widgets-container .wp-block-widget-area__inner-blocks.editor-styles-wrapper {
 	max-width: 100% !important;
 }
-.wp-block.is-selected {
+.wp-block-acf-section.is-selected {
     z-index: 32;
 }
