@@ -424,16 +424,15 @@ if ( get_field('columns') && ( $col_count > 0 ) ) { // if columns, add container
 
                         // column width
                         $col_element_width = get_sub_field('column_width');
-                        if ( ( $col_width_pass_inside !== 'unset' ) && ( $col_element_width !== 'unset' ) ) {
-                            if ( $col_width_pass_inside !== 'auto' ) {
-                                if ( $col_element_width !== 'auto' ) {
-                                    $col_classes[] = 'col-' . $mobile_breakpoint . '-' . $col_element_width;
-                                } else {
-                                    $col_classes[] = 'col-' . $mobile_breakpoint . '-' . $col_width;
-                                }
+
+                        if ( ( $col_width_pass_inside === 'auto' ) || ( $col_width_pass_inside !== 'unset' ) ) {
+                            if ( $col_element_width && ( $col_element_width !== 'auto' ) ) {
+                                $col_classes[] = 'col-' . $mobile_breakpoint . '-' . $col_element_width;
                             } else {
                                 $col_classes[] = 'col-' . $mobile_breakpoint . '-' . $col_width;
                             }
+                        } else {
+                            $col_classes[] = 'col-' . $mobile_breakpoint . '-' . $col_width;
                         }
 
                         // custom column max width
