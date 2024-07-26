@@ -31,16 +31,6 @@ $body_code = get_field('body', 'code');
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 
-    <!-- font awesome -->
-    <link href="<?=get_stylesheet_directory_uri()?>/assets/fontawesome/css/fontawesome.css" rel="stylesheet" />
-    <link href="<?=get_stylesheet_directory_uri()?>/assets/fontawesome/css/brands.min.css" rel="stylesheet" />
-    <link href="<?=get_stylesheet_directory_uri()?>/assets/fontawesome/css/light.min.css" rel="stylesheet" />
-    <link href="<?=get_stylesheet_directory_uri()?>/assets/fontawesome/css/regular.min.css" rel="stylesheet" />
-    <link href="<?=get_stylesheet_directory_uri()?>/assets/fontawesome/css/sharp-light.min.css" rel="stylesheet" />
-    <link href="<?=get_stylesheet_directory_uri()?>/assets/fontawesome/css/sharp-solid.min.css" rel="stylesheet" />
-    <link href="<?=get_stylesheet_directory_uri()?>/assets/fontawesome/css/sharp-regular.min.css" rel="stylesheet" />
-    <link href="<?=get_stylesheet_directory_uri()?>/assets/fontawesome/css/sharp-thin.min.css" rel="stylesheet" />
-    <link href="<?=get_stylesheet_directory_uri()?>/assets/fontawesome/css/solid.min.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/ec15ef7364.js" crossorigin="anonymous"></script>
 
 	<?php if ( $head_code ) {

@@ -3142,27 +3142,27 @@ a.col-inner {
 }
 @media screen and (max-width: 1400px) {
     .gap-xxl-default {
-        margin-bottom: calc(var(--custom-gutter-x) / 2);
+        margin-bottom: var(--custom-gutter-x);
     }
 }
 @media screen and (max-width: 1200px) {
     .gap-xl-default {
-        margin-bottom: calc(var(--custom-gutter-x) / 2);
+        margin-bottom: var(--custom-gutter-x);
     }
 }
 @media screen and (max-width: 991px) {
     .gap-lg-default {
-        margin-bottom: calc(var(--custom-gutter-x) / 2);
+        margin-bottom: var(--custom-gutter-x);
     }
 }
 @media screen and (max-width: 768px) {
     .gap-md-default {
-        margin-bottom: calc(var(--custom-gutter-x) / 2);
+        margin-bottom: var(--custom-gutter-x);
     }
 }
 @media screen and (max-width: 430px) {
     .gap-sm-default {
-        margin-bottom: calc(var(--custom-gutter-x) / 2);
+        margin-bottom: var(--custom-gutter-x);
     }
 }
 /** rows **/
